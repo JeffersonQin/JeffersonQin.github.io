@@ -311,14 +311,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>37k</span>
+              <span>36k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>34 分钟</span>
+              <span>33 分钟</span>
             </span>
 
         </div>
@@ -332,50 +332,117 @@
       
         <h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>因为我懒，所以熬夜。</p>
 <h1 id="概率-Probability"><a href="#概率-Probability" class="headerlink" title="概率 - Probability"></a>概率 - Probability</h1><h2 id="大数定律-Law-of-large-number-概率的基石"><a href="#大数定律-Law-of-large-number-概率的基石" class="headerlink" title="大数定律 - Law of large number (概率的基石)"></a>大数定律 - Law of large number (概率的基石)</h2><p>If we observe more and more repetitions of any chance process, the proportion of times that a specific outcome occurs approaches a single value.</p>
-<h2 id="概率-Probability-1"><a href="#概率-Probability-1" class="headerlink" title="概率 - Probability"></a>概率 - Probability</h2><p>$$<br>    P(A) = \frac {\text {number of outcomes corresponding to event }A}{\text{total number of outcomes in sample space}}<br>$$</p>
-<h2 id="样本空间-Sample-Space"><a href="#样本空间-Sample-Space" class="headerlink" title="样本空间 - Sample Space"></a>样本空间 - Sample Space</h2><p>所有可能的结果组成的集合。Set of all possible outcomes.</p>
+<h2 id="概率-Probability-1"><a href="#概率-Probability-1" class="headerlink" title="概率 - Probability"></a>概率 - Probability</h2><script type="math/tex; mode=display">
+    P(A) = \frac {\text {number of outcomes corresponding to event }A}{\text{total number of outcomes in sample space}}</script><h2 id="样本空间-Sample-Space"><a href="#样本空间-Sample-Space" class="headerlink" title="样本空间 - Sample Space"></a>样本空间 - Sample Space</h2><p>所有可能的结果组成的集合。Set of all possible outcomes.</p>
 <h2 id="概率模型-Probability-Models"><a href="#概率模型-Probability-Models" class="headerlink" title="概率模型 - Probability Models"></a>概率模型 - Probability Models</h2><p>样本空间 $S$ 以及每个结果说对应的概率。</p>
 <a id="more"></a>
-
 <h2 id="Probability-Rule"><a href="#Probability-Rule" class="headerlink" title="Probability Rule"></a>Probability Rule</h2><ul>
-<li>Legitimate values:<br>$$<br>  0 \leq P(A) \leq 1<br>$$</li>
-<li>Probability for sample space:<br>$$<br>  \sum_i P_i = 1<br>$$</li>
-<li>Complement Rule<br>$$<br>  P(A^C) = 1 - P(A)<br>$$</li>
+<li>Legitimate values:<script type="math/tex; mode=display">
+  0 \leq P(A) \leq 1</script></li>
+<li>Probability for sample space:<script type="math/tex; mode=display">
+  \sum_i P_i = 1</script></li>
+<li>Complement Rule<script type="math/tex; mode=display">
+  P(A^C) = 1 - P(A)</script></li>
 </ul>
 <h2 id="条件概率-Conditional-Probability"><a href="#条件概率-Conditional-Probability" class="headerlink" title="条件概率 - Conditional Probability"></a>条件概率 - Conditional Probability</h2><p>Definition: $P(B|A)$ represent the probability that event B happens given that event A happened.</p>
-<p>Computation:<br>$$<br>    P(A|B) = \frac {P(A \cup B)} {P(B)}<br>$$<br>$$<br>    P(B|A) = \frac {P(A \cup B)} {P(A)}<br>$$</p>
-<h2 id="独立事件-Independence"><a href="#独立事件-Independence" class="headerlink" title="独立事件 - Independence"></a>独立事件 - Independence</h2><p>两个事件相互独立的定义：如果一个事件的发生不会改变另一个事件发生的概率，那么这两个事件相互独立。</p>
-<p>如果两个是事件是独立的，如下关系成立：<br>$$<br>    P(A\cap B) = P(A)P(B)<br>$$<br>$$<br>    P(A|B) = P(A)<br>$$<br>$$<br>    P(B|A) = P(B)<br>$$</p>
-<h2 id="Mutually-Exclusive"><a href="#Mutually-Exclusive" class="headerlink" title="Mutually Exclusive"></a>Mutually Exclusive</h2><p>如果一个事件发生了，导致另一个事件必定不可能发生，那么这样的两个事件就是Mutually Exclusive.</p>
+<p>Computation:</p>
+<script type="math/tex; mode=display">
+    P(A|B) = \frac {P(A \cup B)} {P(B)}</script><script type="math/tex; mode=display">
+    P(B|A) = \frac {P(A \cup B)} {P(A)}</script><h2 id="独立事件-Independence"><a href="#独立事件-Independence" class="headerlink" title="独立事件 - Independence"></a>独立事件 - Independence</h2><p>两个事件相互独立的定义：如果一个事件的发生不会改变另一个事件发生的概率，那么这两个事件相互独立。</p>
+<p>如果两个是事件是独立的，如下关系成立：</p>
+<script type="math/tex; mode=display">
+    P(A\cap B) = P(A)P(B)</script><script type="math/tex; mode=display">
+    P(A|B) = P(A)</script><script type="math/tex; mode=display">
+    P(B|A) = P(B)</script><h2 id="Mutually-Exclusive"><a href="#Mutually-Exclusive" class="headerlink" title="Mutually Exclusive"></a>Mutually Exclusive</h2><p>如果一个事件发生了，导致另一个事件必定不可能发生，那么这样的两个事件就是Mutually Exclusive.</p>
 <p>If one has happened, the other must not happen at all.</p>
 <h2 id="Mutually-Exclusive-amp-Independence"><a href="#Mutually-Exclusive-amp-Independence" class="headerlink" title="Mutually Exclusive &amp; Independence"></a>Mutually Exclusive &amp; Independence</h2><p>如果两个事件是Mutually Exclusive，那么他们必定不可能是Independent的。反之亦然。</p>
-<p>$$<br>P(A\cap B) = 0<br>$$</p>
-<h2 id="An-important-conclusion"><a href="#An-important-conclusion" class="headerlink" title="An important conclusion"></a>An important conclusion</h2><p>$$<br>P(A \cup B) = P(A) + P(B) - P(A\cap B)<br>$$</p>
-<p>P.S. When $A$ and $B$ are sets, </p>
-<p>$$<br>\operatorname{card}(A \cup B) = \operatorname{card}(A) + \operatorname{card}(B) - \operatorname{card}(A \cap B)<br>$$</p>
-<h2 id="Two-way-Tables"><a href="#Two-way-Tables" class="headerlink" title="Two-way Tables"></a>Two-way Tables</h2><p>Study two categorical variables.</p>
+<script type="math/tex; mode=display">
+P(A\cap B) = 0</script><h2 id="An-important-conclusion"><a href="#An-important-conclusion" class="headerlink" title="An important conclusion"></a>An important conclusion</h2><script type="math/tex; mode=display">
+P(A \cup B) = P(A) + P(B) - P(A\cap B)</script><p>P.S. When $A$ and $B$ are sets, </p>
+<script type="math/tex; mode=display">
+\operatorname{card}(A \cup B) = \operatorname{card}(A) + \operatorname{card}(B) - \operatorname{card}(A \cap B)</script><h2 id="Two-way-Tables"><a href="#Two-way-Tables" class="headerlink" title="Two-way Tables"></a>Two-way Tables</h2><p>Study two categorical variables.</p>
 <h2 id="组合-Combination"><a href="#组合-Combination" class="headerlink" title="组合 - Combination"></a>组合 - Combination</h2><p>Definition: $n$ 个里面选 $m$ 个</p>
-<p>$$<br>    C_n^m = \binom {n}{m} =  \displaystyle\frac {n!}{m!(n-m)!}<br>$$</p>
-<p>计算器：menu -&gt; 概率 -&gt; 组合，e.g. nCr(5, 3) = 10.</p>
-<h2 id="重复独立概率-Repeated-Independent-Probability"><a href="#重复独立概率-Repeated-Independent-Probability" class="headerlink" title="重复独立概率 - Repeated Independent Probability"></a>重复独立概率 - Repeated Independent Probability</h2><p>例子：一个人投篮命中率 $70%$ ，连续投 $5$ 次，恰好命中 $3$ 次的概率：</p>
-<p>$$<br>    \binom{5}{3} \times 0.7^3 \times 0.3 ^ 2<br>$$</p>
-<p>干一件事，成功率是 $p$ ，连续干了 $n$ 次，恰好成功 $m$ 次的概率：</p>
-<p>$$<br>    \binom{n}{m} \times p^m \times (1 - p)^{n - m}<br>$$</p>
-<h1 id="随机变量-Random-Variable"><a href="#随机变量-Random-Variable" class="headerlink" title="随机变量 - Random Variable"></a>随机变量 - Random Variable</h1><p><strong>Definition</strong>: A numerical varaible that describes the outcomes of a chance process is called a <strong>random variable</strong>.</p>
+<script type="math/tex; mode=display">
+    C_n^m = \binom {n}{m} =  \displaystyle\frac {n!}{m!(n-m)!}</script><p>计算器：menu -&gt; 概率 -&gt; 组合，e.g. nCr(5, 3) = 10.</p>
+<h2 id="重复独立概率-Repeated-Independent-Probability"><a href="#重复独立概率-Repeated-Independent-Probability" class="headerlink" title="重复独立概率 - Repeated Independent Probability"></a>重复独立概率 - Repeated Independent Probability</h2><p>例子：一个人投篮命中率 $70\%$ ，连续投 $5$ 次，恰好命中 $3$ 次的概率：</p>
+<script type="math/tex; mode=display">
+    \binom{5}{3} \times 0.7^3 \times 0.3 ^ 2</script><p>干一件事，成功率是 $p$ ，连续干了 $n$ 次，恰好成功 $m$ 次的概率：</p>
+<script type="math/tex; mode=display">
+    \binom{n}{m} \times p^m \times (1 - p)^{n - m}</script><h1 id="随机变量-Random-Variable"><a href="#随机变量-Random-Variable" class="headerlink" title="随机变量 - Random Variable"></a>随机变量 - Random Variable</h1><p><strong>Definition</strong>: A numerical varaible that describes the outcomes of a chance process is called a <strong>random variable</strong>.</p>
 <h1 id="概率分布-Probability-Distribution"><a href="#概率分布-Probability-Distribution" class="headerlink" title="概率分布 - Probability Distribution"></a>概率分布 - Probability Distribution</h1><p><strong>Definition</strong>: The probability model for a random varaible is its <strong>probability distribution</strong>.</p>
 <h1 id="离散型随机变量-Discete-Random-Variable"><a href="#离散型随机变量-Discete-Random-Variable" class="headerlink" title="离散型随机变量 - Discete Random Variable"></a>离散型随机变量 - Discete Random Variable</h1><p><strong>Definition</strong>: A <strong>discrete random variable</strong> $X$ takes a fixed set of possible values. The probability distribution of discrete random variable $X$ lists the values $x_i$ and their probabilities $p_i$.</p>
 <h2 id="离散型随机变量的期望-Mean-of-Discrete-Random-Variable"><a href="#离散型随机变量的期望-Mean-of-Discrete-Random-Variable" class="headerlink" title="离散型随机变量的期望 - Mean of Discrete Random Variable"></a>离散型随机变量的期望 - Mean of Discrete Random Variable</h2><p><strong>Definition</strong>: The mean of any discrete random variable is an average of the possible outcomes, with each weighted by its probability.</p>
-<p>$$<br>\mu_x = E[X] = \sum_i x_ip_i<br>$$</p>
-<p>P.S. 又称Expected Value，即”期望”。</p>
-<h2 id="离散型随机变量的方差-Variance-of-Discrete-Random-Varaible"><a href="#离散型随机变量的方差-Variance-of-Discrete-Random-Varaible" class="headerlink" title="离散型随机变量的方差 - Variance of Discrete Random Varaible"></a>离散型随机变量的方差 - Variance of Discrete Random Varaible</h2><p>$$<br>\operatorname{Var}[X] = \sum_i (E[x] - x_i) ^ 2 p_i<br>$$</p>
-<h2 id="离散型随机变量的标准差-Standard-Deviation-of-Discrete-Random-Variable"><a href="#离散型随机变量的标准差-Standard-Deviation-of-Discrete-Random-Variable" class="headerlink" title="离散型随机变量的标准差 - Standard Deviation of Discrete Random Variable"></a>离散型随机变量的标准差 - Standard Deviation of Discrete Random Variable</h2><p>$$<br>    \sigma_X = \sqrt {\operatorname{Var[X]}} = \sqrt {\sum _ i (E[x] - x_i) ^ 2 p_i}<br>$$</p>
-<h2 id="一个重要的公式"><a href="#一个重要的公式" class="headerlink" title="一个重要的公式"></a>一个重要的公式</h2><p>$$<br>    \operatorname{Var}[X] = E[X^2] - E^2[X]<br>$$<br>$$<br>\begin{aligned}<br>    \textit{Proof. }<del>~</del>&amp;\operatorname{Var}[X]  \<br>    =&amp;\sum_i(E[X] - x_i) ^ 2 p_i \<br>    =&amp;E[(E[X] - X)^2] \<br>    =&amp;E[E^2[X] - 2XE[X] + X^2] \<br>    =&amp;E^2[X] - 2E^2[X] + E[X^2] \<br>    =&amp; E[X^2] - E^2[X]<br>\end{aligned}<br>$$</p>
-<p>P.S. 关于$E[X^2]$，根据定义：</p>
-<p>$$<br>    E[X^2] = \sum_i x_i^2p_i<br>$$</p>
-<h2 id="随机变量的线性变换-Linear-Transformation-of-Random-Variables"><a href="#随机变量的线性变换-Linear-Transformation-of-Random-Variables" class="headerlink" title="随机变量的线性变换 - Linear Transformation of Random Variables"></a>随机变量的线性变换 - Linear Transformation of Random Variables</h2><p>$$<br>\begin{aligned}<br>    X &amp;\rightarrow aX + b \<br>    E[X] &amp;\rightarrow aE[X] + b \<br>    \operatorname{Var}[X] &amp;\rightarrow a^2\operatorname{Var}[X] \<br>    \sigma_X &amp;\rightarrow |a|\sigma_X<br>\end{aligned}<br>$$</p>
-<h2 id="随机变量的结合-Combining-Ramdom-Variables"><a href="#随机变量的结合-Combining-Ramdom-Variables" class="headerlink" title="随机变量的结合 - Combining Ramdom Variables"></a>随机变量的结合 - Combining Ramdom Variables</h2><p>但两个随机变量 $X$, $Y$ 互相独立时：</p>
-<p>$$<br>    E[X+Y] = E[X] + E[Y]<br>$$<br>$$<br>\begin{aligned}<br>    \textit{Proof. }<del>&amp;E[X+Y]  \<br>    (\text{since }X\text{ and }Y\text{ are independent})=&amp;\sum_i\sum_j(x_i + y_j) p_{xi} p_{yj} \<br>    =&amp;\sum_i\sum_j x_ip_{xi} p_{yj} + \sum_i\sum_j y_j p_{xi} p_{yj} \<br>    =&amp;\sum_ix_ip_{xi}\sum_j  p_{yj} + \sum_j y_j p_{yj} \sum_ip_{xi} \<br>    =&amp;\sum_ix_ip_{xi} + \sum_j y_j p_{yj} = E[X] + E[Y]<br>\end{aligned}<br>$$<br>$$<br>    \operatorname{Var}[X+Y] = \operatorname{Var}[X] + \operatorname{Var}[Y]<br>$$<br>$$<br>\begin{aligned}<br>    \textit{Proof. }</del>&amp;\operatorname{Var}[X+Y]  \<br>    =&amp;E[(X+Y)^2] - E^2[X+Y] \<br>    =&amp;E[X^2 + 2XY + Y^2] - (E[X] + E[Y])^2 \<br>    =&amp;E[X^2] + 2E[XY] + E[Y^2] - E^2[X] - 2E[X]E[Y] - E^2[Y] \<br>    =&amp;(E[X^2] - E^2[X]) + (E[Y^2] - E^2[Y]) + 2E[XY] - 2E[X]E[Y] \<br>    =&amp;\operatorname{Var}[X] + \operatorname{Var}[Y] + 2E[XY] - 2E[X]E[Y] \<br>    (\text{since }X\text{ and }Y\text{ are independent})=&amp;\operatorname{Var}[X] + \operatorname{Var}[Y] + 2\sum_i\sum_j(x_iy_i)p_{xi}p_{yj} - 2\sum_ix_ip_{xi} \sum_jy_jp_{yj} \<br>    =&amp;\operatorname{Var}[X] + \operatorname{Var}[Y]<br>\end{aligned}<br>$$<br>$$<br>    \sigma_{X+Y} = \sqrt {\sigma_X^2 + \sigma_Y^2}<br>$$<br>$$<br>\begin{aligned}<br>    \textit{Proof. }<del>&amp;\sigma_{X+Y} \<br>    =&amp;\sqrt{\operatorname{Var}[X+Y]} \<br>    =&amp;\sqrt{\operatorname{Var}[X] + \operatorname{Var}[Y]} \<br>    =&amp;\sqrt{\sigma_X^2 + \sigma_Y^2}<br>\end{aligned}<br>$$<br>$$<br>    E[X-Y] = E[X] - E[Y]<br>$$<br>$$<br>\begin{aligned}<br>    \textit{Proof. }</del>&amp;E[X-Y]  \<br>    (\text{since }X\text{ and }Y\text{ are independent})=&amp;\sum_i\sum_j(x_i - y_j) p_{xi} p_{yj} \<br>    =&amp;\sum_i\sum_j x_ip_{xi} p_{yj} - \sum_i\sum_j y_j p_{xi} p_{yj} \<br>    =&amp;\sum_ix_ip_{xi}\sum_j  p_{yj} - \sum_j y_j p_{yj} \sum_ip_{xi} \<br>    =&amp;\sum_ix_ip_{xi} - \sum_j y_j p_{yj} = E[X] - E[Y]<br>\end{aligned}<br>$$<br>$$<br>    \operatorname{Var}[X-Y] = \operatorname{Var}[X] + \operatorname{Var}[Y]<br>$$<br>$$<br>\begin{aligned}<br>    \textit{Proof. }<del>&amp;\operatorname{Var}[X-Y]  \<br>    =&amp;\operatorname{Var}[X] + \operatorname{Var}[-Y] \<br>    =&amp;\operatorname{Var}[X] + \operatorname{Var}[Y] (-1)^2 \<br>    =&amp;\operatorname{Var}[X] + \operatorname{Var}[Y]<br>\end{aligned}<br>$$<br>$$<br>    \sigma_{X-Y} = \sqrt {\sigma_X^2 + \sigma_Y^2}<br>$$<br>$$<br>\begin{aligned}<br>    \textit{Proof. }</del>&amp;\sigma_{X+Y} \<br>    =&amp;\sqrt{\operatorname{Var}[X-Y]} \<br>    =&amp;\sqrt{\operatorname{Var}[X] + \operatorname{Var}[Y]} \<br>    =&amp;\sqrt{\sigma_X^2 + \sigma_Y^2}<br>\end{aligned}<br>$$</p>
-<h2 id="Binomial-Settings"><a href="#Binomial-Settings" class="headerlink" title="Binomial Settings"></a>Binomial Settings</h2><p><strong>Definition</strong>: A <strong>binomial setting</strong> arises when we perform several independent trials of the same chance process and record the number of times that a particular outcome occurs. The four conditions for a binomial settings are: </p>
+<script type="math/tex; mode=display">
+\mu_x = E[X] = \sum_i x_ip_i</script><p>P.S. 又称Expected Value，即”期望”。</p>
+<h2 id="离散型随机变量的方差-Variance-of-Discrete-Random-Varaible"><a href="#离散型随机变量的方差-Variance-of-Discrete-Random-Varaible" class="headerlink" title="离散型随机变量的方差 - Variance of Discrete Random Varaible"></a>离散型随机变量的方差 - Variance of Discrete Random Varaible</h2><script type="math/tex; mode=display">
+\operatorname{Var}[X] = \sum_i (E[x] - x_i) ^ 2 p_i</script><h2 id="离散型随机变量的标准差-Standard-Deviation-of-Discrete-Random-Variable"><a href="#离散型随机变量的标准差-Standard-Deviation-of-Discrete-Random-Variable" class="headerlink" title="离散型随机变量的标准差 - Standard Deviation of Discrete Random Variable"></a>离散型随机变量的标准差 - Standard Deviation of Discrete Random Variable</h2><script type="math/tex; mode=display">
+    \sigma_X = \sqrt {\operatorname{Var[X]}} = \sqrt {\sum _ i (E[x] - x_i) ^ 2 p_i}</script><h2 id="一个重要的公式"><a href="#一个重要的公式" class="headerlink" title="一个重要的公式"></a>一个重要的公式</h2><script type="math/tex; mode=display">
+    \operatorname{Var}[X] = E[X^2] - E^2[X]</script><script type="math/tex; mode=display">
+\begin{aligned}
+    \textit{Proof. }~~~~~~~~~~~~~~~~~~~&\operatorname{Var}[X]  \\
+    =&\sum_i(E[X] - x_i) ^ 2 p_i \\ 
+    =&E[(E[X] - X)^2] \\ 
+    =&E[E^2[X] - 2XE[X] + X^2] \\
+    =&E^2[X] - 2E^2[X] + E[X^2] \\ 
+    =& E[X^2] - E^2[X]
+\end{aligned}</script><p>P.S. 关于$E[X^2]$，根据定义：</p>
+<script type="math/tex; mode=display">
+    E[X^2] = \sum_i x_i^2p_i</script><h2 id="随机变量的线性变换-Linear-Transformation-of-Random-Variables"><a href="#随机变量的线性变换-Linear-Transformation-of-Random-Variables" class="headerlink" title="随机变量的线性变换 - Linear Transformation of Random Variables"></a>随机变量的线性变换 - Linear Transformation of Random Variables</h2><script type="math/tex; mode=display">
+\begin{aligned}
+    X &\rightarrow aX + b \\ 
+    E[X] &\rightarrow aE[X] + b \\
+    \operatorname{Var}[X] &\rightarrow a^2\operatorname{Var}[X] \\
+    \sigma_X &\rightarrow |a|\sigma_X
+\end{aligned}</script><h2 id="随机变量的结合-Combining-Ramdom-Variables"><a href="#随机变量的结合-Combining-Ramdom-Variables" class="headerlink" title="随机变量的结合 - Combining Ramdom Variables"></a>随机变量的结合 - Combining Ramdom Variables</h2><p>但两个随机变量 $X$, $Y$ 互相独立时：</p>
+<script type="math/tex; mode=display">
+    E[X+Y] = E[X] + E[Y]</script><script type="math/tex; mode=display">
+\begin{aligned}
+    \textit{Proof. }~~~~~~~~~~~~~~~~~~~&E[X+Y]  \\
+    (\text{since }X\text{ and }Y\text{ are independent})=&\sum_i\sum_j(x_i + y_j) p_{xi} p_{yj} \\ 
+    =&\sum_i\sum_j x_ip_{xi} p_{yj} + \sum_i\sum_j y_j p_{xi} p_{yj} \\
+    =&\sum_ix_ip_{xi}\sum_j  p_{yj} + \sum_j y_j p_{yj} \sum_ip_{xi} \\
+    =&\sum_ix_ip_{xi} + \sum_j y_j p_{yj} = E[X] + E[Y]
+\end{aligned}</script><script type="math/tex; mode=display">
+    \operatorname{Var}[X+Y] = \operatorname{Var}[X] + \operatorname{Var}[Y]</script><script type="math/tex; mode=display">
+\begin{aligned}
+    \textit{Proof. }~~~~~~~~~~~~~~~~~~~&\operatorname{Var}[X+Y]  \\
+    =&E[(X+Y)^2] - E^2[X+Y] \\ 
+    =&E[X^2 + 2XY + Y^2] - (E[X] + E[Y])^2 \\
+    =&E[X^2] + 2E[XY] + E[Y^2] - E^2[X] - 2E[X]E[Y] - E^2[Y] \\
+    =&(E[X^2] - E^2[X]) + (E[Y^2] - E^2[Y]) + 2E[XY] - 2E[X]E[Y] \\
+    =&\operatorname{Var}[X] + \operatorname{Var}[Y] + 2E[XY] - 2E[X]E[Y] \\ 
+    (\text{since }X\text{ and }Y\text{ are independent})=&\operatorname{Var}[X] + \operatorname{Var}[Y] + 2\sum_i\sum_j(x_iy_i)p_{xi}p_{yj} - 2\sum_ix_ip_{xi} \sum_jy_jp_{yj} \\
+    =&\operatorname{Var}[X] + \operatorname{Var}[Y]
+\end{aligned}</script><script type="math/tex; mode=display">
+    \sigma_{X+Y} = \sqrt {\sigma_X^2 + \sigma_Y^2}</script><script type="math/tex; mode=display">
+\begin{aligned}
+    \textit{Proof. }~~~~~~~~~~~~~~~~~~~&\sigma_{X+Y} \\
+    =&\sqrt{\operatorname{Var}[X+Y]} \\ 
+    =&\sqrt{\operatorname{Var}[X] + \operatorname{Var}[Y]} \\ 
+    =&\sqrt{\sigma_X^2 + \sigma_Y^2}
+\end{aligned}</script><script type="math/tex; mode=display">
+    E[X-Y] = E[X] - E[Y]</script><script type="math/tex; mode=display">
+\begin{aligned}
+    \textit{Proof. }~~~~~~~~~~~~~~~~~~~&E[X-Y]  \\
+    (\text{since }X\text{ and }Y\text{ are independent})=&\sum_i\sum_j(x_i - y_j) p_{xi} p_{yj} \\ 
+    =&\sum_i\sum_j x_ip_{xi} p_{yj} - \sum_i\sum_j y_j p_{xi} p_{yj} \\
+    =&\sum_ix_ip_{xi}\sum_j  p_{yj} - \sum_j y_j p_{yj} \sum_ip_{xi} \\
+    =&\sum_ix_ip_{xi} - \sum_j y_j p_{yj} = E[X] - E[Y]
+\end{aligned}</script><script type="math/tex; mode=display">
+    \operatorname{Var}[X-Y] = \operatorname{Var}[X] + \operatorname{Var}[Y]</script><script type="math/tex; mode=display">
+\begin{aligned}
+    \textit{Proof. }~~~~~~~~~~~~~~~~~~~&\operatorname{Var}[X-Y]  \\
+    =&\operatorname{Var}[X] + \operatorname{Var}[-Y] \\ 
+    =&\operatorname{Var}[X] + \operatorname{Var}[Y] (-1)^2 \\ 
+    =&\operatorname{Var}[X] + \operatorname{Var}[Y]
+\end{aligned}</script><script type="math/tex; mode=display">
+    \sigma_{X-Y} = \sqrt {\sigma_X^2 + \sigma_Y^2}</script><script type="math/tex; mode=display">
+\begin{aligned}
+    \textit{Proof. }~~~~~~~~~~~~~~~~~~~&\sigma_{X+Y} \\
+    =&\sqrt{\operatorname{Var}[X-Y]} \\ 
+    =&\sqrt{\operatorname{Var}[X] + \operatorname{Var}[Y]} \\ 
+    =&\sqrt{\sigma_X^2 + \sigma_Y^2}
+\end{aligned}</script><h2 id="Binomial-Settings"><a href="#Binomial-Settings" class="headerlink" title="Binomial Settings"></a>Binomial Settings</h2><p><strong>Definition</strong>: A <strong>binomial setting</strong> arises when we perform several independent trials of the same chance process and record the number of times that a particular outcome occurs. The four conditions for a binomial settings are: </p>
 <ul>
 <li><strong>B</strong>inary: The possible outcomes of each trial can be classified as “success” or “failure”</li>
 <li><strong>I</strong>ndependent: Trials must be independent, that is, knowing the result of one trail must not have any effect on the result of any other trial.</li>
@@ -393,21 +460,29 @@
 <h2 id="二项分布-Binomial-Distribution"><a href="#二项分布-Binomial-Distribution" class="headerlink" title="二项分布 - Binomial Distribution"></a>二项分布 - Binomial Distribution</h2><p><strong>Definition</strong>: The probability distribution of $X$ (a binomial random variable) is a <strong>binomial distribution</strong> with parameters $n$ and $p$.</p>
 <h2 id="Binomial-Probability"><a href="#Binomial-Probability" class="headerlink" title="Binomial Probability"></a>Binomial Probability</h2><p>如果一个随机变量 $X$ 是而二项分布随机变量，那么 $P(X=k)$指的就是”exactly $k$ succuesses in $n$ trials”。可以记作：</p>
 <p>$X\sim B(n,p)$</p>
-<p>$$<br>    P(X=k) = \binom{n}{k}p^k(1-p)^{n-k  }<br>$$</p>
-<h2 id="二项分布的计算器计算"><a href="#二项分布的计算器计算" class="headerlink" title="二项分布的计算器计算"></a>二项分布的计算器计算</h2><p>menu -&gt; 统计 -&gt; 分布 -&gt; 二项PDF -&gt; 计算 $P(X=k)$</p>
+<script type="math/tex; mode=display">
+    P(X=k) = \binom{n}{k}p^k(1-p)^{n-k  }</script><h2 id="二项分布的计算器计算"><a href="#二项分布的计算器计算" class="headerlink" title="二项分布的计算器计算"></a>二项分布的计算器计算</h2><p>menu -&gt; 统计 -&gt; 分布 -&gt; 二项PDF -&gt; 计算 $P(X=k)$</p>
 <p>menu -&gt; 统计 -&gt; 分布 -&gt; 二项CDF -&gt; 计算 $P(a \leq X \leq b)$</p>
 <h2 id="二项分布的Mean和Standard-Deviation"><a href="#二项分布的Mean和Standard-Deviation" class="headerlink" title="二项分布的Mean和Standard Deviation"></a>二项分布的Mean和Standard Deviation</h2><p>$X \sim B(n,p)$，</p>
 <p>期望：</p>
-<p>$$<br>\mu_x = E[X] = np<br>$$</p>
-<p>推导：</p>
-<p>$$<br>E[X] = E[X_1 + X_2 + \cdots X_n] = E[X_1] + E[X_2] + \cdots + E[X_n] = np<br>$$</p>
-<p>方差：</p>
-<p>$$<br>\operatorname{Var}[X] = np(1-p)<br>$$</p>
-<p>推导：</p>
-<p>$$<br>\begin{aligned}<br>&amp;\operatorname{Var}[X] \<br>=&amp; \operatorname{Var}[X_1 + X_2 + \cdots + X_n] \<br>=&amp; \operatorname{Var}[X_1] + \operatorname{Var}[X_2] + \cdots + \operatorname{Var}[X_n] \<br>=&amp; n\operatorname{Var}[X_i] \<br>=&amp; n((0 - E[X]) ^ 2 (1-p) + (1 - E[X])^2p) \<br>=&amp; n(p^2 (1 - p) + (1 - p) ^ 2 p) \<br>=&amp; np(1-p)<br>\end{aligned}<br>$$</p>
-<p>标准差：</p>
-<p>$$<br>\sigma_X = \sqrt {\operatorname{Var}[X]} = \sqrt{np(1 - p)}<br>$$</p>
-<h2 id="Geometric-Settings"><a href="#Geometric-Settings" class="headerlink" title="Geometric Settings"></a>Geometric Settings</h2><p><strong>Definition</strong>: A <strong>geometric setting</strong> arises when we perform independent trials of the same chance process and record the number of trials until a particular outcome occurs. The four conditions for a geometric setting are: </p>
+<script type="math/tex; mode=display">
+\mu_x = E[X] = np</script><p>推导：</p>
+<script type="math/tex; mode=display">
+E[X] = E[X_1 + X_2 + \cdots X_n] = E[X_1] + E[X_2] + \cdots + E[X_n] = np</script><p>方差：</p>
+<script type="math/tex; mode=display">
+\operatorname{Var}[X] = np(1-p)</script><p>推导：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\operatorname{Var}[X] \\ 
+=& \operatorname{Var}[X_1 + X_2 + \cdots + X_n] \\
+=& \operatorname{Var}[X_1] + \operatorname{Var}[X_2] + \cdots + \operatorname{Var}[X_n] \\ 
+=& n\operatorname{Var}[X_i] \\ 
+=& n((0 - E[X]) ^ 2 (1-p) + (1 - E[X])^2p) \\
+=& n(p^2 (1 - p) + (1 - p) ^ 2 p) \\ 
+=& np(1-p)
+\end{aligned}</script><p>标准差：</p>
+<script type="math/tex; mode=display">
+\sigma_X = \sqrt {\operatorname{Var}[X]} = \sqrt{np(1 - p)}</script><h2 id="Geometric-Settings"><a href="#Geometric-Settings" class="headerlink" title="Geometric Settings"></a>Geometric Settings</h2><p><strong>Definition</strong>: A <strong>geometric setting</strong> arises when we perform independent trials of the same chance process and record the number of trials until a particular outcome occurs. The four conditions for a geometric setting are: </p>
 <ul>
 <li><strong>B</strong>inary: The possible outcomes of each trial can be classified as “success” or “failure”</li>
 <li><strong>I</strong>ndependent: Trials must be independent, that is, knowing the result of one trail must not have any effect on the result of any other trial.</li>
@@ -424,29 +499,32 @@
 <h2 id="Geomtric-Random-Variable"><a href="#Geomtric-Random-Variable" class="headerlink" title="Geomtric Random Variable"></a>Geomtric Random Variable</h2><p><strong>Definition</strong>: The number of trials $Y$ that it takes to get a success in a geometric setting is a <strong>geometric random variable</strong>.</p>
 <h2 id="几何分布-Geometric-Distribution"><a href="#几何分布-Geometric-Distribution" class="headerlink" title="几何分布 - Geometric Distribution"></a>几何分布 - Geometric Distribution</h2><p><strong>Definition</strong>: The probability distribution of $Y$ (which is a geometric random variable) is a <strong>geometric distribution</strong> with parameter $p$, the probability of success on any trial.</p>
 <h2 id="Geometric-Probability"><a href="#Geometric-Probability" class="headerlink" title="Geometric Probability"></a>Geometric Probability</h2><p>$Y \sim G(p)$</p>
-<p>$$<br>    P(Y = k) = p(1 - p)^{k - 1}<br>$$</p>
-<h2 id="几何分布的Mean和Standard-Deviation"><a href="#几何分布的Mean和Standard-Deviation" class="headerlink" title="几何分布的Mean和Standard Deviation"></a>几何分布的Mean和Standard Deviation</h2><p>期望：</p>
-<p>$$<br>E[Y] = \mu_Y = \frac {1}{p}<br>$$</p>
-<p>标准差：</p>
-<p>$$<br>\sigma_Y = \frac {\sqrt {1 - p}} p<br>$$</p>
-<h2 id="几何分布的图像"><a href="#几何分布的图像" class="headerlink" title="几何分布的图像"></a>几何分布的图像</h2><p>一般是<code>right-skewed</code>的，因为趋向于0。</p>
+<script type="math/tex; mode=display">
+    P(Y = k) = p(1 - p)^{k - 1}</script><h2 id="几何分布的Mean和Standard-Deviation"><a href="#几何分布的Mean和Standard-Deviation" class="headerlink" title="几何分布的Mean和Standard Deviation"></a>几何分布的Mean和Standard Deviation</h2><p>期望：</p>
+<script type="math/tex; mode=display">
+E[Y] = \mu_Y = \frac {1}{p}</script><p>标准差：</p>
+<script type="math/tex; mode=display">
+\sigma_Y = \frac {\sqrt {1 - p}} p</script><h2 id="几何分布的图像"><a href="#几何分布的图像" class="headerlink" title="几何分布的图像"></a>几何分布的图像</h2><p>一般是<code>right-skewed</code>的，因为趋向于0。</p>
 <h2 id="几何分布的计算器计算"><a href="#几何分布的计算器计算" class="headerlink" title="几何分布的计算器计算"></a>几何分布的计算器计算</h2><p>menu -&gt; 统计 -&gt; 分布 -&gt; 几何PDF -&gt; 计算 $P(Y=k)$</p>
 <p>menu -&gt; 统计 -&gt; 分布 -&gt; 几何CDF -&gt; 计算 $P(a \leq Y \leq b)$</p>
 <h2 id="做题的例子"><a href="#做题的例子" class="headerlink" title="做题的例子"></a>做题的例子</h2><p>Let random variable $Y$ denotes …, it satisfies … with ….</p>
 <h1 id="连续性随机变量-Continuous-Random-Variable"><a href="#连续性随机变量-Continuous-Random-Variable" class="headerlink" title="连续性随机变量 - Continuous Random Variable"></a>连续性随机变量 - Continuous Random Variable</h1><h2 id="概率密度曲线-Density-Curve"><a href="#概率密度曲线-Density-Curve" class="headerlink" title="概率密度曲线 - Density Curve"></a>概率密度曲线 - Density Curve</h2><ul>
-<li>is always on or above the horizontal axis<br>$$<br>  f(x) \geq 0<br>$$</li>
-<li>has area exactly 1 underneath it:<br>$$<br>  \int_{-\infty}^{\infty} f(t)\mathrm dt = 1<br>$$</li>
+<li>is always on or above the horizontal axis<script type="math/tex; mode=display">
+  f(x) \geq 0</script></li>
+<li>has area exactly 1 underneath it: <script type="math/tex; mode=display">
+  \int_{-\infty}^{\infty} f(t)\mathrm dt = 1</script></li>
 </ul>
 <p>对于连续性随机变量，只有区间的概率才有意义，单点的概率趋向于零，且有：</p>
-<p>$$<br>    P(a &lt; X &lt; b) = P(a \leq X &lt; b) = P(a &lt; X \leq b) = P(a \leq X \leq b)<br>$$</p>
-<p>（拓展）概率分布函数：</p>
-<p>$$<br>    F(x) = \int_{-\infty} ^ {x} f(t) \mathrm dt<br>$$</p>
-<p>且概率密度函数是概率分布函数的导数</p>
-<p>$$<br>    f(x) = F’(x)<br>$$</p>
-<p>$$<br>    P(a &lt; X \leq b) = F(b) - F(a) = \int_a^b f(x)\mathrm dx<br>$$</p>
-<h2 id="正态分布-Normal-Distribution"><a href="#正态分布-Normal-Distribution" class="headerlink" title="正态分布 - Normal Distribution"></a>正态分布 - Normal Distribution</h2><ul>
+<script type="math/tex; mode=display">
+    P(a < X < b) = P(a \leq X < b) = P(a < X \leq b) = P(a \leq X \leq b)</script><p>（拓展）概率分布函数：</p>
+<script type="math/tex; mode=display">
+    F(x) = \int_{-\infty} ^ {x} f(t) \mathrm dt</script><p>且概率密度函数是概率分布函数的导数</p>
+<script type="math/tex; mode=display">
+    f(x) = F'(x)</script><script type="math/tex; mode=display">
+    P(a < X \leq b) = F(b) - F(a) = \int_a^b f(x)\mathrm dx</script><h2 id="正态分布-Normal-Distribution"><a href="#正态分布-Normal-Distribution" class="headerlink" title="正态分布 - Normal Distribution"></a>正态分布 - Normal Distribution</h2><ul>
 <li>自然界中比较正常、自然随机的变量一般都服从正态分布。</li>
-<li>随机变量$X$服从均值为$\mu$，标准差为$\sigma$的正态分布，记作<br>$$<br>  X \sim \mathcal N(\mu, \sigma)<br>$$</li>
+<li>随机变量$X$服从均值为$\mu$，标准差为$\sigma$的正态分布，记作<script type="math/tex; mode=display">
+  X \sim \mathcal N(\mu, \sigma)</script></li>
 </ul>
 <h2 id="正态分布的图像"><a href="#正态分布的图像" class="headerlink" title="正态分布的图像"></a>正态分布的图像</h2><ul>
 <li>Unimodal - 单峰</li>
@@ -454,9 +532,9 @@
 <li>Bell-shaped - 钟形曲线</li>
 </ul>
 <h2 id="经验法则-The-Empirical-Rule"><a href="#经验法则-The-Empirical-Rule" class="headerlink" title="经验法则 - The Empirical Rule"></a>经验法则 - The Empirical Rule</h2><ul>
-<li>$68%$ 的数据在 $\mu \pm \sigma$ 范围内</li>
-<li>$95.4%$ 的数据在 $\mu \pm 2\sigma$ 范围内</li>
-<li>$99.7%$ 的数据在 $\mu \pm 3\sigma$ 范围内</li>
+<li>$68\%$ 的数据在 $\mu \pm \sigma$ 范围内</li>
+<li>$95.4\%$ 的数据在 $\mu \pm 2\sigma$ 范围内</li>
+<li>$99.7\%$ 的数据在 $\mu \pm 3\sigma$ 范围内</li>
 </ul>
 <h2 id="标准正态分布"><a href="#标准正态分布" class="headerlink" title="标准正态分布"></a>标准正态分布</h2><ul>
 <li><strong>Definition</strong>: 标准正态分布就是以$0$为均值$1$为标准差的正态分布。</li>
@@ -469,9 +547,14 @@
 <h2 id="标准正态分布表"><a href="#标准正态分布表" class="headerlink" title="标准正态分布表"></a>标准正态分布表</h2><p>使用：算出$z-score$查表，就能知道$P(X \leq x_i) = P(z \leq z_i)$</p>
 <p>注：标准正态分布表算的概率是小于某个值的概率。</p>
 <p>几种不同的情况：</p>
-<p>$$<br>    P(X &lt; x_i) = P(z &lt; z_i)<br>$$<br>$$<br>    P(X &gt; x_i) = 1 - P(X &lt; x_i) = 1 - P(z &lt; z_i)<br>$$<br>$$<br>    P(x_1 &lt; X &lt; x_2) = P(X &lt; x_2) - P(X &lt; x_1)<br>$$<br>$$<br>    \text{Inverse: }z_i = \frac {x_i - \mu}{\sigma} \Rightarrow x_i = z_i\sigma + \mu<br>$$</p>
-<h2 id="正态分布例题-Normal-Distribution-Calculation-Example"><a href="#正态分布例题-Normal-Distribution-Calculation-Example" class="headerlink" title="正态分布例题 - Normal Distribution Calculation Example"></a>正态分布例题 - Normal Distribution Calculation Example</h2><p>Women’s heights are $\mathcal N(64, 2.5)$. What percentage of women are shorter than $62$.</p>
-<p>$\textit{ Sol. }$ Let a random variable $X$ denotes the womens’s height, $X$ satisfies Normal Distribution. $X \sim \mathcal N(64, 2.5)$. The porportion of women’s heights under $62$ is shown above. (应该在上面画一张图)<br>$$<br>    P(X &lt; 62) = P(z &lt; \frac {62 - 64} {2.5}) = 21.19 %<br>$$<br>Approximately there are $21.19%$ of women are shorter than $62$.</p>
+<script type="math/tex; mode=display">
+    P(X < x_i) = P(z < z_i)</script><script type="math/tex; mode=display">
+    P(X > x_i) = 1 - P(X < x_i) = 1 - P(z < z_i)</script><script type="math/tex; mode=display">
+    P(x_1 < X < x_2) = P(X < x_2) - P(X < x_1)</script><script type="math/tex; mode=display">
+    \text{Inverse: }z_i = \frac {x_i - \mu}{\sigma} \Rightarrow x_i = z_i\sigma + \mu</script><h2 id="正态分布例题-Normal-Distribution-Calculation-Example"><a href="#正态分布例题-Normal-Distribution-Calculation-Example" class="headerlink" title="正态分布例题 - Normal Distribution Calculation Example"></a>正态分布例题 - Normal Distribution Calculation Example</h2><p>Women’s heights are $\mathcal N(64, 2.5)$. What percentage of women are shorter than $62$.</p>
+<p>$\textit{ Sol. }$ Let a random variable $X$ denotes the womens’s height, $X$ satisfies Normal Distribution. $X \sim \mathcal N(64, 2.5)$. The porportion of women’s heights under $62$ is shown above. (应该在上面画一张图) </p>
+<script type="math/tex; mode=display">
+    P(X < 62) = P(z < \frac {62 - 64} {2.5}) = 21.19 \%</script><p>Approximately there are $21.19\%$ of women are shorter than $62$.</p>
 <h2 id="正态分布的计算器计算"><a href="#正态分布的计算器计算" class="headerlink" title="正态分布的计算器计算"></a>正态分布的计算器计算</h2><p>menu -&gt; 统计 -&gt; 分布 -&gt; 正态分布 CDF</p>
 <ul>
 <li>Lower Bound：下界</li>
@@ -488,8 +571,14 @@
 <li>答案：$k$</li>
 </ul>
 <h2 id="正态分布的题目技巧"><a href="#正态分布的题目技巧" class="headerlink" title="正态分布的题目技巧"></a>正态分布的题目技巧</h2><p>如果题目中并没有给出均值或者标准差，不妨试试看标准正态分布，求出$z-score$来进行接下来的计算。</p>
-<h1 id="抽样分布-Sampling-Distributions"><a href="#抽样分布-Sampling-Distributions" class="headerlink" title="抽样分布 - Sampling Distributions"></a>抽样分布 - Sampling Distributions</h1><h2 id="Population-VS-Sample"><a href="#Population-VS-Sample" class="headerlink" title="Population VS. Sample"></a>Population VS. Sample</h2><p>$$<br>\begin{aligned}<br>    &amp;\text{Population} &amp; \text {Sample} \<br>    \text{mean}<del>&amp;\mu &amp;\bar x \<br>    \text{variance}</del>&amp;\sigma ^ 2&amp;s^2 \<br>    \text{standard deviation}<del>&amp;\sigma &amp; s \<br>    \text{proportion}</del>&amp;p &amp;  \hat p<br>\end{aligned}<br>$$</p>
-<p><strong>Definition</strong>: the value of s statistic varies in repeated random sampling is called <strong>sampling variability</strong>.</p>
+<h1 id="抽样分布-Sampling-Distributions"><a href="#抽样分布-Sampling-Distributions" class="headerlink" title="抽样分布 - Sampling Distributions"></a>抽样分布 - Sampling Distributions</h1><h2 id="Population-VS-Sample"><a href="#Population-VS-Sample" class="headerlink" title="Population VS. Sample"></a>Population VS. Sample</h2><script type="math/tex; mode=display">
+\begin{aligned}
+    &\text{Population} & \text {Sample} \\
+    \text{mean}~~~~~~&\mu &\bar x \\
+    \text{variance}~~~~~~&\sigma ^ 2&s^2 \\ 
+    \text{standard deviation}~~~~~~&\sigma & s \\
+    \text{proportion}~~~~~~&p &  \hat p
+\end{aligned}</script><p><strong>Definition</strong>: the value of s statistic varies in repeated random sampling is called <strong>sampling variability</strong>.</p>
 <h2 id="Parameter-VS-Statistic"><a href="#Parameter-VS-Statistic" class="headerlink" title="Parameter VS. Statistic"></a>Parameter VS. Statistic</h2><p><strong>Definition</strong>: </p>
 <ul>
 <li><strong>Prarmeter</strong>: (unknown) number that describes a characteristic of a <em>population</em>.</li>
@@ -505,8 +594,9 @@
 </ul>
 <h2 id="Biased-and-unbiased-estimators"><a href="#Biased-and-unbiased-estimators" class="headerlink" title="Biased and unbiased estimators"></a>Biased and unbiased estimators</h2><p><strong>Definition</strong>: a statistic used to estimate a parameter is an <strong>unbiased estimator</strong> if the mean of sampling statistic equals the true value of population parameter. </p>
 <p>翻译成人话就是说如果一个统计量是一个不biased，那么</p>
-<p>$$<br>    E[\bar x] = \frac {\bar x_1 + \bar x_2 + \cdots + \bar x_n} n = \mu_x<br>$$<br>$$<br>    E[\hat p] = \frac {\hat p_1 + \hat p_2 + \cdots + \hat p_n} n = p<br>$$</p>
-<p>这里的$\bar x$和$\hat p$只是举例，可以换成别的统计量。</p>
+<script type="math/tex; mode=display">
+    E[\bar x] = \frac {\bar x_1 + \bar x_2 + \cdots + \bar x_n} n = \mu_x</script><script type="math/tex; mode=display">
+    E[\hat p] = \frac {\hat p_1 + \hat p_2 + \cdots + \hat p_n} n = p</script><p>这里的$\bar x$和$\hat p$只是举例，可以换成别的统计量。</p>
 <h2 id="Variability-of-a-Statistic"><a href="#Variability-of-a-Statistic" class="headerlink" title="Variability of a Statistic"></a>Variability of a Statistic</h2><p><strong>Definition</strong>: The <strong>variability of a statistic</strong> is described by the spread of its sampling distribution. This spread is determined primarily by the size of the random sample. <strong><em>Larger samples give smaller spread</em></strong>. Variability of sampling statistics should be smaller.</p>
 <p>翻译成人话：每次抽样数量的多少会影响到Sampling Distribution, 每次抽样得越多，Variability越小，越好。</p>
 <p>目标：</p>
@@ -517,29 +607,37 @@
 <h2 id="The-Centural-Limit-Theorem"><a href="#The-Centural-Limit-Theorem" class="headerlink" title="The Centural Limit Theorem"></a>The Centural Limit Theorem</h2><p>Draw an SRS of size $n$ from any population with mean $\mu$ and finite standard deviation $\sigma$. The <strong><em>CLT</em></strong> says that when $n$ is large ($n \geq 30$), the sampling distribution of the sample mean $\bar x$ is approximately Normal.</p>
 <p>CLT: 在每次抽样的个数变大之后，<strong>均值</strong>的分布逐渐由不规律转换为正态分布。</p>
 <h2 id="Sampling-Distribution-of-a-Sample-Mean"><a href="#Sampling-Distribution-of-a-Sample-Mean" class="headerlink" title="Sampling Distribution of a Sample Mean"></a>Sampling Distribution of a Sample Mean</h2><ol>
-<li>Population follow Normal Distribution: $X \sim \mathcal N(\mu, \sigma) \Rightarrow \bar x \sim\mathcal N(\mu, \displaystyle\frac {\sigma}{\sqrt n})$<br> $$<br> \begin{aligned}<pre><code> \textit&#123;Proof. &#125; ~~~~~~\mu_&#123;\bar x&#125; &amp;= E\Big[\frac&#123;x_1 + x_2 + \cdots + x_n&#125;&#123;n&#125;\Big] \\ &amp;= \frac &#123;1&#125;&#123;n&#125; E[x_1 + x_2 + \cdots + x_n] \\ &amp;= \frac 1 n (E[x_1] + E[x_2] + \cdots + E[x_n]) \\ &amp;= \frac 1 n n \mu = \mu \\ 
- \operatorname&#123;Var&#125;[\bar x] &amp;= \operatorname&#123;Var&#125;\Big [ \frac &#123;x_1 + x_2 + \cdots + x_n&#125;&#123; n&#125; \Big] \\ &amp;= \frac 1 &#123;n ^2&#125; [\operatorname&#123;Var&#125;[x_1] + \operatorname&#123;Var&#125;[x_2] + \cdots + \operatorname&#123;Var&#125;[x_n]] \\ &amp;= \frac &#123;1 &#125;&#123;n^2&#125; [\sigma^2 + \sigma^2 + \cdots + \sigma ^ 2] = \frac &#123;\sigma^2&#125; n \\ \sigma_&#123;\bar x&#125; &amp;= \sqrt &#123;\operatorname&#123;Var&#125;[\bar x]&#125; = \frac \sigma &#123;\sqrt n&#125;</code></pre>
- \end{aligned}<br> $$</li>
+<li>Population follow Normal Distribution: $X \sim \mathcal N(\mu, \sigma) \Rightarrow \bar x \sim\mathcal N(\mu, \displaystyle\frac {\sigma}{\sqrt n})$<script type="math/tex; mode=display">
+ \begin{aligned}
+     \textit{Proof. } ~~~~~~\mu_{\bar x} &= E\Big[\frac{x_1 + x_2 + \cdots + x_n}{n}\Big] \\ &= \frac {1}{n} E[x_1 + x_2 + \cdots + x_n] \\ &= \frac 1 n (E[x_1] + E[x_2] + \cdots + E[x_n]) \\ &= \frac 1 n n \mu = \mu \\ 
+     \operatorname{Var}[\bar x] &= \operatorname{Var}\Big [ \frac {x_1 + x_2 + \cdots + x_n}{ n} \Big] \\ &= \frac 1 {n ^2} [\operatorname{Var}[x_1] + \operatorname{Var}[x_2] + \cdots + \operatorname{Var}[x_n]] \\ &= \frac {1 }{n^2} [\sigma^2 + \sigma^2 + \cdots + \sigma ^ 2] = \frac {\sigma^2} n \\ \sigma_{\bar x} &= \sqrt {\operatorname{Var}[\bar x]} = \frac \sigma {\sqrt n}
+ \end{aligned}</script></li>
 <li>Population distribution is skewed / unknown, with $n \geq 30$, $\bar x \sim\mathcal N(\mu, \displaystyle\frac {\sigma}{\sqrt n})$ (According to <strong><em>CLT</em></strong>).</li>
 </ol>
 <h2 id="The-Sampling-Distribution-of-a-Difference-Between-Two-Means"><a href="#The-Sampling-Distribution-of-a-Difference-Between-Two-Means" class="headerlink" title="The Sampling Distribution of a Difference Between Two Means"></a>The Sampling Distribution of a Difference Between Two Means</h2><p>若原分布是正态分布或者$n_1 \geq 30, n_2\geq 30$（根据CLT），那么</p>
-<p>$$<br>    \bar {x_1} - \bar {x_2} \sim \mathcal N(\mu_1 - \mu_2, \sqrt {\frac {\sigma_1^2}{n_1} + \frac {\sigma_2^2}{n_2}})<br>$$</p>
-<p>证明略（可以通过和上面差不多的方法得到证明）。</p>
+<script type="math/tex; mode=display">
+    \bar {x_1} - \bar {x_2} \sim \mathcal N(\mu_1 - \mu_2, \sqrt {\frac {\sigma_1^2}{n_1} + \frac {\sigma_2^2}{n_2}})</script><p>证明略（可以通过和上面差不多的方法得到证明）。</p>
 <h2 id="Sampling-Distribution-of-hat-p"><a href="#Sampling-Distribution-of-hat-p" class="headerlink" title="Sampling Distribution of $\hat p$"></a>Sampling Distribution of $\hat p$</h2><p>每次抽样，得到抽样的数量的分布可以理解为一个二项分布，这个二项分布除以每次抽样得人数，就形成了一个比例的分布。当满足如下条件时：</p>
-<p>$$<br>\begin{aligned}<br>    \text {large count condition: }<del>np \geq 10,&amp;</del>n(1-p)\geq 10 &amp; \text{保证形成正态分布} \ n \leq&amp; <del>10%</del> N &amp;\text {保证抽样形成二项分布}<br>\end{aligned}<br>$$</p>
-<p>有：设$X$表示每次抽样数量的随机变量</p>
-<p>$$<br>X \sim \mathcal B(n, p) \Rightarrow \hat p \sim \mathcal N(\mu_{\hat p} = p, \sigma_{\hat p} = \sqrt {\frac{p(1 - p)}{n}})<br>$$</p>
-<p>推导：</p>
-<p>$$<br>    E[\hat p] = E\Big [ \frac X n \Big ] = \frac 1 n E[X] = \frac 1 n np = p<br>$$</p>
-<p>$$<br>    \operatorname{Var}[\hat p] = \operatorname{Var}\Big [ \frac X n \Big] = \frac {1} {n^2} \operatorname{Var}[X] = \frac {1}{n^2} np(1-p) = \frac{p(1-p)}{n}<br>$$</p>
-<p>$$<br>    \sigma_{\hat p} = \sqrt {\operatorname{Var}[\hat p]} = \sqrt {\frac{p(1-p)}{n}}<br>$$</p>
-<div class="note info">这里面的Fact是：二项分布在$n$逐渐变大时，趋向于正态分布。</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \text {large count condition: }~np \geq 10,&~n(1-p)\geq 10 & \text{保证形成正态分布} \\ n \leq& ~10\%~ N &\text {保证抽样形成二项分布}
+\end{aligned}</script><p>有：设$X$表示每次抽样数量的随机变量</p>
+<script type="math/tex; mode=display">
+X \sim \mathcal B(n, p) \Rightarrow \hat p \sim \mathcal N(\mu_{\hat p} = p, \sigma_{\hat p} = \sqrt {\frac{p(1 - p)}{n}})</script><p>推导：</p>
+<script type="math/tex; mode=display">
+    E[\hat p] = E\Big [ \frac X n \Big ] = \frac 1 n E[X] = \frac 1 n np = p</script><script type="math/tex; mode=display">
+    \operatorname{Var}[\hat p] = \operatorname{Var}\Big [ \frac X n \Big] = \frac {1} {n^2} \operatorname{Var}[X] = \frac {1}{n^2} np(1-p) = \frac{p(1-p)}{n}</script><script type="math/tex; mode=display">
+    \sigma_{\hat p} = \sqrt {\operatorname{Var}[\hat p]} = \sqrt {\frac{p(1-p)}{n}}</script><div class="note info">这里面的Fact是：二项分布在$n$逐渐变大时，趋向于正态分布。</div>
 <div class="note primary">而$\hat p = \displaystyle\frac{X}{n}$</div>
 <div class="note success">得到的结论：$\hat p$也趋向于正态分布</div>
 
 <h2 id="The-Sampling-Distribution-of-a-Difference-Between-Two-Proportions"><a href="#The-Sampling-Distribution-of-a-Difference-Between-Two-Proportions" class="headerlink" title="The Sampling Distribution of a Difference Between Two Proportions"></a>The Sampling Distribution of a Difference Between Two Proportions</h2><p>If</p>
-<p>$$<br>    n_1 p_1 \geq 10, ~n_1(1 - p_1) \leq 10<br>$$<br>$$<br>    n_2 p_2 \geq 10, ~n_2(1 - p_2) \leq 10<br>$$<br>$$<br>    n_1 \leq 10% N_1, ~n_2 \leq 10%N_2<br>$$<br>Then<br>$$<br>    \hat p_1 - \hat p_2 \sim \mathcal N(p_1 - p_2, \sqrt {\frac {p_1(1 - p_1)}{n_1} + \frac {p_2(1 - p_2)}{n_2}})<br>$$</p>
-<h2 id="关于正态分布的一个重要结论"><a href="#关于正态分布的一个重要结论" class="headerlink" title="关于正态分布的一个重要结论"></a>关于正态分布的一个重要结论</h2><p>两个独立的正态分布的任意线性组合仍然服从正态分布（现无法证明）</p>
+<script type="math/tex; mode=display">
+    n_1 p_1 \geq 10, ~n_1(1 - p_1) \leq 10</script><script type="math/tex; mode=display">
+    n_2 p_2 \geq 10, ~n_2(1 - p_2) \leq 10</script><script type="math/tex; mode=display">
+    n_1 \leq 10\% N_1, ~n_2 \leq 10\%N_2</script><p>Then </p>
+<script type="math/tex; mode=display">
+    \hat p_1 - \hat p_2 \sim \mathcal N(p_1 - p_2, \sqrt {\frac {p_1(1 - p_1)}{n_1} + \frac {p_2(1 - p_2)}{n_2}})</script><h2 id="关于正态分布的一个重要结论"><a href="#关于正态分布的一个重要结论" class="headerlink" title="关于正态分布的一个重要结论"></a>关于正态分布的一个重要结论</h2><p>两个独立的正态分布的任意线性组合仍然服从正态分布（现无法证明）</p>
 <h2 id="Point-Estimator"><a href="#Point-Estimator" class="headerlink" title="Point Estimator"></a>Point Estimator</h2><p>点估计，需要满足Unbiased and Low Variability：</p>
 <ul>
 <li>Unbiased: 无偏差的，即统计出的值（statistic）和真实的值（parameter）一致</li>
@@ -550,9 +648,9 @@
 <li>Unbiased和Low Variability都要提到</li>
 </ul>
 <h1 id="Confidence-Interval-Interval-Estimation"><a href="#Confidence-Interval-Interval-Estimation" class="headerlink" title="Confidence Interval / Interval Estimation"></a>Confidence Interval / Interval Estimation</h1><p>因为点估计要满足那些个条件，所以引入了区间估计</p>
-<p>$$<br>\text {estimate} \pm \text {margin of error}<br>$$</p>
-<p>$\text {margin of error}$的大小是一个$\text {trade off}$.</p>
-<p><strong>Definition</strong>: <em>To interpret a $C%$ confidence interval for an unknown parameter, say, “We are $C%$ confident that in the long run the interval from $\text {estimate} - \text {margin of error}$ to $\text {estimate} + \text {margin of error}$ would succeed in $\color{red}{capturing}$ the actual value of the [population parameter in context].”</em></p>
+<script type="math/tex; mode=display">
+\text {estimate} \pm \text {margin of error}</script><p>$\text {margin of error}$的大小是一个$\text {trade off}$.</p>
+<p><strong>Definition</strong>: <em>To interpret a $C\%$ confidence interval for an unknown parameter, say, “We are $C\%$ confident that in the long run the interval from $\text {estimate} - \text {margin of error}$ to $\text {estimate} + \text {margin of error}$ would succeed in $\color{red}{capturing}$ the actual value of the [population parameter in context].”</em></p>
 <div class="note info">If the estimator is unbiased, then $E[\hat x] = x$</div>
 
 <p>注意：</p>
@@ -561,33 +659,33 @@
 <li>主语是interval, 谓语是capture</li>
 <li>估计的是population parameter，而不是sample statistic.</li>
 </ul>
-<h2 id="Confidence-Level-1-alpha"><a href="#Confidence-Level-1-alpha" class="headerlink" title="Confidence Level: $1 - \alpha$"></a>Confidence Level: $1 - \alpha$</h2><p>举个例子，$95%$ confidence的interval，$1 - \alpha = 0.95$</p>
+<h2 id="Confidence-Level-1-alpha"><a href="#Confidence-Level-1-alpha" class="headerlink" title="Confidence Level: $1 - \alpha$"></a>Confidence Level: $1 - \alpha$</h2><p>举个例子，$95\%$ confidence的interval，$1 - \alpha = 0.95$</p>
 <h2 id="临界值-Critical-Value"><a href="#临界值-Critical-Value" class="headerlink" title="临界值 - Critical Value"></a>临界值 - Critical Value</h2><p>记作$z^*$或者$z_{\frac \alpha 2}$，可以理解为，在$[-z^*, z^*]$范围内，”区间”可以包含population parameter。 且$P(z &lt; -z^*) = P(z &gt; z^*) = \displaystyle \frac \alpha 2$，$P(-z^* &lt; z &lt; z^*) = 1 - \alpha$。</p>
 <p>有了这个临界值之后，我们就可以通过变换来求出每次sample所对应的”区间”：因为$z^*$是处于一个标准正态分布$\mathcal N(\mu = 0,\sigma = 1)$，在临界处与population parameter差了$z^*$个标准差。</p>
-<p>$$<br>\text{confident interval} = \text {sample statistic} \pm z^* \times \text{standard deviation of statistic}<br>$$</p>
-<p>以均值这个统计量为例：</p>
-<p>$$<br>\text{confident interval of mean} = \text {sample statistic} \pm z^* \times \sigma_{\bar x} = \text {sample statistic} \pm z^* \times \frac {\sigma}{\sqrt n}<br>$$</p>
-<p>术语：</p>
+<script type="math/tex; mode=display">
+\text{confident interval} = \text {sample statistic} \pm z^* \times \text{standard deviation of statistic}</script><p>以均值这个统计量为例：</p>
+<script type="math/tex; mode=display">
+\text{confident interval of mean} = \text {sample statistic} \pm z^* \times \sigma_{\bar x} = \text {sample statistic} \pm z^* \times \frac {\sigma}{\sqrt n}</script><p>术语：</p>
 <ul>
 <li>$\text {standard error} = \text{standard deviation of statistic}$</li>
 <li>$\text {margin of error} = z^* \times \text{standard deviation of statistic}$</li>
 </ul>
 <p>所以还可以写成：</p>
-<p>$$<br>\text{confident interval} = \text {sample statistic} \pm \text {critical value} \times \text{standard error}<br>$$</p>
-<p>对于大多数统计量而言，如果要降低$\text {margin of error}$，有两种方法</p>
+<script type="math/tex; mode=display">
+\text{confident interval} = \text {sample statistic} \pm \text {critical value} \times \text{standard error}</script><p>对于大多数统计量而言，如果要降低$\text {margin of error}$，有两种方法</p>
 <ul>
-<li>降低置信区间 $C% \downarrow$</li>
+<li>降低置信区间 $C\% \downarrow$</li>
 <li>增加每次的抽样数 $n \uparrow$</li>
 </ul>
 <p>同样，我们把$z$表达出来也可以写出：</p>
-<p>$$<br>-z^* &lt; \frac {x - \mu}{\sigma_x} &lt; z^*<br>$$</p>
-<p>其中$x$为样本的值（statistic），$\mu$为总体均值，$\sigma$为总体标准差，那么</p>
-<p>$$<br>x - \sigma_x z^* &lt; \mu &lt; x + \sigma_x z^*<br>$$</p>
-<h2 id="t-分布-t-Distribution"><a href="#t-分布-t-Distribution" class="headerlink" title="$t$分布 - $t$ Distribution"></a>$t$分布 - $t$ Distribution</h2><p>在我们在根据样本做预测时，我们的统计量会会呈现出一种新的分布，被称为$t$ distribution. 其中</p>
-<p>$$<br>t = \frac {x - \mu}{s_x}<br>$$</p>
-<p>其中，$s_x$为是这个统计量的标准差，其可以转化为关于抽样数据标准差$s$的式子（上面提到过，不同的统计量不同），且有</p>
-<p>$$<br>s = \frac {\sum _{i = 1} ^ n (x_i - \bar x)^2}{n - 1}<br>$$</p>
-<p>这里的自由度（$\text{degree of freedom}$）是$n-1$，由于找不到很严格的说明方法（只是我太菜了看不懂罢了），有一个形象的理解：</p>
+<script type="math/tex; mode=display">
+-z^* < \frac {x - \mu}{\sigma_x} < z^*</script><p>其中$x$为样本的值（statistic），$\mu$为总体均值，$\sigma$为总体标准差，那么</p>
+<script type="math/tex; mode=display">
+x - \sigma_x z^* < \mu < x + \sigma_x z^*</script><h2 id="t-分布-t-Distribution"><a href="#t-分布-t-Distribution" class="headerlink" title="$t$分布 - $t$ Distribution"></a>$t$分布 - $t$ Distribution</h2><p>在我们在根据样本做预测时，我们的统计量会会呈现出一种新的分布，被称为$t$ distribution. 其中</p>
+<script type="math/tex; mode=display">
+t = \frac {x - \mu}{s_x}</script><p>其中，$s_x$为是这个统计量的标准差，其可以转化为关于抽样数据标准差$s$的式子（上面提到过，不同的统计量不同），且有</p>
+<script type="math/tex; mode=display">
+s = \frac {\sum _{i = 1} ^ n (x_i - \bar x)^2}{n - 1}</script><p>这里的自由度（$\text{degree of freedom}$）是$n-1$，由于找不到很严格的说明方法（只是我太菜了看不懂罢了），有一个形象的理解：</p>
 <div class="note primary">一个系统中有$n$个变量，我们要通过抽样得一部分数据来预测population parameter，我们会发现在确定了$n-1$个数据之后，最后一个数据和系统的paramter是密切相关的，可以自由设置的值只有$n-1$个，$\text{df} = n - 1$</div>
 <div class="note default">其实我也觉得很胡扯，但没办法（哭，考试还是得考的嘛</div>
 
@@ -599,12 +697,12 @@
 <div class="note info">When $n \rightarrow \infty$, $t \rightarrow z$.</div>
 
 <h2 id="用样本的标准差估计的置信区间"><a href="#用样本的标准差估计的置信区间" class="headerlink" title="用样本的标准差估计的置信区间"></a>用样本的标准差估计的置信区间</h2><p>因为我们做估计的时候，永远也不可能获得population的标准差，只可能得到sample的标准差，此时就要用自由度为$n-1$的$t$值：</p>
-<p>$$<br>\text {critical value }t^* = t_{\frac{\alpha}{2}^{n - 1}}<br>$$</p>
-<p>$$<br>-t^* &lt; \frac {x - \mu}{s_x} &lt; t^*<br>$$</p>
-<p>$$<br>x - s_x t^* &lt; \mu &lt; x + s_x t^*<br>$$</p>
-<p>置信区间：$x \pm s_xt^*$</p>
-<p>$$<br>\text{confident interval} = \text {sample statistic} \pm t^* \times \text{standard deviation of statistic}<br>$$</p>
-<h2 id="t-值的计算器查找"><a href="#t-值的计算器查找" class="headerlink" title="$t$值的计算器查找"></a>$t$值的计算器查找</h2><p>menu -&gt; 统计 -&gt; 分布 -&gt; 反向t分布</p>
+<script type="math/tex; mode=display">
+\text {critical value }t^* = t_{\frac{\alpha}{2}^{n - 1}}</script><script type="math/tex; mode=display">
+-t^* < \frac {x - \mu}{s_x} < t^*</script><script type="math/tex; mode=display">
+x - s_x t^* < \mu < x + s_x t^*</script><p>置信区间：$x \pm s_xt^*$</p>
+<script type="math/tex; mode=display">
+\text{confident interval} = \text {sample statistic} \pm t^* \times \text{standard deviation of statistic}</script><h2 id="t-值的计算器查找"><a href="#t-值的计算器查找" class="headerlink" title="$t$值的计算器查找"></a>$t$值的计算器查找</h2><p>menu -&gt; 统计 -&gt; 分布 -&gt; 反向t分布</p>
 <div class="note default">Area就是从左到右的面积，在计算时取$\displaystyle\frac{\alpha}{2}$。也就是说如果要$90\%$的置信区间，取$0.025$</div>
 <div class="note default">df ($\text{degree of freedom}$): 自由度</div>
 
@@ -617,23 +715,23 @@
 <h2 id="置信区间的条件"><a href="#置信区间的条件" class="headerlink" title="置信区间的条件"></a>置信区间的条件</h2><ul>
 <li><strong>Random</strong>: The data should come from a well-designed random sample or randomized experiment.</li>
 <li><strong>Normal</strong>: The sampling distribution is exactly Normal if the population distribution is Normal. In the cases that the population distribution is not normal, the Centural Limit Theorem (<strong><em>CLT</em></strong>) tells us that the sampling distribution of sample mean will be approximately normal if $n$ is large ($n \geq 30$). (For proportions, $np \geq 10, n(1 - p) \geq 10$)</li>
-<li><strong>Independent</strong>: Individual observations Individual observations are independent if $n \leq \frac 1 {10} N$. This is called $10%$ condition.</li>
+<li><strong>Independent</strong>: Individual observations Individual observations are independent if $n \leq \frac 1 {10} N$. This is called $10\%$ condition.</li>
 </ul>
-<h2 id="单样本Mean的置信区间"><a href="#单样本Mean的置信区间" class="headerlink" title="单样本Mean的置信区间"></a>单样本Mean的置信区间</h2><p>Population distribution is normal or sample space is large ($n \geq 30$), with $n \leq 10% N$, </p>
-<p>$$<br>\bar x \sim \mathcal N(\mu, \frac{\sigma}{\sqrt n})<br>$$</p>
-<p>When $\sigma$ is known </p>
-<p>$$<br>\text{Confidence Interval: } \bar x \pm z^*\frac{\sigma}{\sqrt n}<br>$$</p>
-<p>When $\sigma$ is unknown</p>
-<p>$$<br>\text{Confidence Interval: } \bar x \pm t^*_{n - 1}\frac{\sigma}{\sqrt n}<br>$$</p>
-<h2 id="双样本Mean的置信区间"><a href="#双样本Mean的置信区间" class="headerlink" title="双样本Mean的置信区间"></a>双样本Mean的置信区间</h2><p>Both population distribution is normal or both sample size is large ($n_1 \geq 30, n_2 \geq 30$), with $n_1 \leq 10% N_1, n_2 \leq 10% N_2$, </p>
-<p>$$<br>\bar {x_1} - \bar {x_2} \sim \mathcal N(\mu_1 - \mu_2, \sqrt {\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}})<br>$$</p>
-<p>When $\sigma_1$ and $\sigma_2$ is known</p>
-<p>$$<br>\text {Confidence Interval: }(\bar{x_1} - \bar{x_2}) \pm z^*\sqrt {\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}<br>$$</p>
-<p>When $\sigma_1$ and $\sigma_2$ is unknown</p>
-<p>$$<br>\text {Confidence Interval: } (\bar{x_1} - \bar{x_2}) \pm t^*_{df}\sqrt {\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}<br>$$</p>
-<p>in which</p>
-<p>$$<br>df = \frac{(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2})}{\frac{1}{n_1 - 1}(\frac{s_1^2}{n_1})^2 + \frac{1}{n_2 - 1}(\frac{s_2^2}{n_2})}<br>$$</p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p><strong>FRQ</strong>  One of the two fire stations in a certain town responds to calls in the northern half of the town, and the other fire station responds to calls in the southern half of the town. One of the town council members believes that the two fire stations have different mean response times. Response time is measured by the differnce between the timwe an emergency call comes into the fire station and the time the first fire truck arrives at the scene of the fire. Data were collected to investigate whether the council member’s beliefis correct. A random sample of $50$ calls selected from the northern fire station had a mean response time of $4.3$ minutes with a standard deviation of $3.7$ minutes. A random sample to $50$ calls selected from the southern fire station had a mean response time of $5.3$ minutes with a standard deviation of $3.2$ minutes. Construct and interpret a $95$ percent confidence interval for the difference in mean response times between the two fire stations.</p>
+<h2 id="单样本Mean的置信区间"><a href="#单样本Mean的置信区间" class="headerlink" title="单样本Mean的置信区间"></a>单样本Mean的置信区间</h2><p>Population distribution is normal or sample space is large ($n \geq 30$), with $n \leq 10\% N$, </p>
+<script type="math/tex; mode=display">
+\bar x \sim \mathcal N(\mu, \frac{\sigma}{\sqrt n})</script><p>When $\sigma$ is known </p>
+<script type="math/tex; mode=display">
+\text{Confidence Interval: } \bar x \pm z^*\frac{\sigma}{\sqrt n}</script><p>When $\sigma$ is unknown</p>
+<script type="math/tex; mode=display">
+\text{Confidence Interval: } \bar x \pm t^*_{n - 1}\frac{\sigma}{\sqrt n}</script><h2 id="双样本Mean的置信区间"><a href="#双样本Mean的置信区间" class="headerlink" title="双样本Mean的置信区间"></a>双样本Mean的置信区间</h2><p>Both population distribution is normal or both sample size is large ($n_1 \geq 30, n_2 \geq 30$), with $n_1 \leq 10\% N_1, n_2 \leq 10\% N_2$, </p>
+<script type="math/tex; mode=display">
+\bar {x_1} - \bar {x_2} \sim \mathcal N(\mu_1 - \mu_2, \sqrt {\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}})</script><p>When $\sigma_1$ and $\sigma_2$ is known</p>
+<script type="math/tex; mode=display">
+\text {Confidence Interval: }(\bar{x_1} - \bar{x_2}) \pm z^*\sqrt {\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}</script><p>When $\sigma_1$ and $\sigma_2$ is unknown</p>
+<script type="math/tex; mode=display">
+\text {Confidence Interval: } (\bar{x_1} - \bar{x_2}) \pm t^*_{df}\sqrt {\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}</script><p>in which</p>
+<script type="math/tex; mode=display">
+df = \frac{(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2})}{\frac{1}{n_1 - 1}(\frac{s_1^2}{n_1})^2 + \frac{1}{n_2 - 1}(\frac{s_2^2}{n_2})}</script><h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p><strong>FRQ</strong>  One of the two fire stations in a certain town responds to calls in the northern half of the town, and the other fire station responds to calls in the southern half of the town. One of the town council members believes that the two fire stations have different mean response times. Response time is measured by the differnce between the timwe an emergency call comes into the fire station and the time the first fire truck arrives at the scene of the fire. Data were collected to investigate whether the council member’s beliefis correct. A random sample of $50$ calls selected from the northern fire station had a mean response time of $4.3$ minutes with a standard deviation of $3.7$ minutes. A random sample to $50$ calls selected from the southern fire station had a mean response time of $5.3$ minutes with a standard deviation of $3.2$ minutes. Construct and interpret a $95$ percent confidence interval for the difference in mean response times between the two fire stations.</p>
 <p><strong>Step 1: State</strong>  The two-sample $t$ interval for $\mu_N - \mu_S$, the difference in population mean response times, is $(\bar x_N - \bar x_S) \pm t^* \sqrt {\displaystyle\frac{s_N^2}{n_N} + \displaystyle\frac{s_S^2}{n_S}}$, where $\mu_N$ denotes the mean response for calls from the northern fire station and $\mu_s$ denotes the mean response for calls from the southern fire station.</p>
 <p><strong>Step 2: Plan</strong>  Conditions</p>
 <ul>
@@ -642,23 +740,28 @@
 <li>Normal (稍微详细写一点): The use of the two-sample $t$ interval is reasonable beacause both sample sizes are large ($n_N = 50 &gt; 30$ and $n_S = 50 &gt; 30$), and by <strong>Centural Limit Theorem</strong>, the sampling distributions for the two sample means are approximately normal. Therefore the sampling distribution of the difference of the sample means $\bar x_N - \bar x_S$ is approximately normal.</li>
 </ul>
 <p><strong>Step 3: Do</strong>  </p>
-<p>$\text{The Degree of freedom}= 96$<br>$$<br>\begin{aligned}<br>&amp;(4.3 - 5.3) \pm 1.985 \sqrt {\frac{3.7^2}{50} + \frac{3.2^2}{50}} \<br>&amp;-1.0 \pm 1.985 \times 0.6918 \<br>&amp;(-2.37,0.37)<br>\end{aligned}<br>$$</p>
-<p><strong>Step 4: Interpretation</strong>  Based on these samples, one can be $95$ percent confident that the difference in the population mean response times (northern - southern) is between $-2.37$ minutes and $0.37$ minutes.</p>
+<p>$\text{The Degree of freedom}= 96$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&(4.3 - 5.3) \pm 1.985 \sqrt {\frac{3.7^2}{50} + \frac{3.2^2}{50}} \\ 
+&-1.0 \pm 1.985 \times 0.6918 \\ 
+&(-2.37,0.37)
+\end{aligned}</script><p><strong>Step 4: Interpretation</strong>  Based on these samples, one can be $95$ percent confident that the difference in the population mean response times (northern - southern) is between $-2.37$ minutes and $0.37$ minutes.</p>
 <div class="note success">这里面的数据其实是靠反推得到的：首先先用计算器计算出「双样本t区间」得到「df」，再用「df」得到「$t^*_{df}$」</div>
 
 <h2 id="The-One-Sample-for-Matched-Pairs-Sample"><a href="#The-One-Sample-for-Matched-Pairs-Sample" class="headerlink" title="The One-Sample for Matched-Pairs Sample"></a>The One-Sample for Matched-Pairs Sample</h2><div class="note danger">这是一个巨大的陷阱：这里的「Matched-Pairs」指的是一组匹配的数据，几个数据是一个pair，那么这种数据是单样本数据</div>
 
 <p>对于这样的单样本数据，（如果我们要看pair里面的差的分布，使用$d = x_1 - x_2$，并且看的是$\bar d$的分布<strong>而非$\bar x_1 - \bar x_2$</strong></p>
-<p>$$<br>\text{Confidence Interval: } \bar {x_d} \pm t^*_{n - 1} \frac{s_d}{\sqrt n}<br>$$</p>
-<h2 id="单样本Prop的置信区间"><a href="#单样本Prop的置信区间" class="headerlink" title="单样本Prop的置信区间"></a>单样本Prop的置信区间</h2><p>Using the normal approximation as long as $n\hat p \geq 10, n(1 - \hat p) \geq 10$, and independent, $n \leq 10% N$,</p>
-<p>$$<br>\hat p \sim \mathcal N(p, \sqrt \frac{p(1 - p)}{n})<br>$$</p>
-<p>用$\hat p$估计替代$p$，而且在Prop里只有$z$分布：</p>
-<p>$$<br>\text{Confidence Interval: }\hat p \pm z^* \sqrt \frac {\hat p(1 - \hat p)}{n}<br>$$</p>
-<h2 id="双样本Prop的置信区间"><a href="#双样本Prop的置信区间" class="headerlink" title="双样本Prop的置信区间"></a>双样本Prop的置信区间</h2><p>Using the normal approximation as long as $n_1\hat p_1 \geq 10, n_1(1 - \hat p_1) \geq 10, n_2\hat p_2 \geq 10, n_2(1 - \hat p_2) \geq 10$, and independent, $n_1 \leq 10% N_1, n_2 \leq 10% N_2$,</p>
-<p>$$<br>\hat p_1 - \hat p_2 \sim \mathcal N(p_1 - p_2, \sqrt {\frac {p_1(1 - p_1)}{n_1} + \frac {p_2(1 - p_2)}{n_2}})<br>$$</p>
-<p>用$\hat p_1$估计替代$p_1$，$\hat p_2$估计替代$p_2$，而且在Prop里只有$z$分布：</p>
-<p>$$<br>\text {Confidence Interval: } (\hat p_1 - \hat p_2) \pm z^* \sqrt {\frac {\hat p_1(1 - \hat p_1)}{n_1} + \frac{\hat p_2(1 - \hat p_2)}{n_2}}<br>$$</p>
-<h1 id="Hypothesis-Test"><a href="#Hypothesis-Test" class="headerlink" title="Hypothesis Test"></a>Hypothesis Test</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Hypothesis test statistical idea: flasifiability 可证伪性</p>
+<script type="math/tex; mode=display">
+\text{Confidence Interval: } \bar {x_d} \pm t^*_{n - 1} \frac{s_d}{\sqrt n}</script><h2 id="单样本Prop的置信区间"><a href="#单样本Prop的置信区间" class="headerlink" title="单样本Prop的置信区间"></a>单样本Prop的置信区间</h2><p>Using the normal approximation as long as $n\hat p \geq 10, n(1 - \hat p) \geq 10$, and independent, $n \leq 10\% N$,</p>
+<script type="math/tex; mode=display">
+\hat p \sim \mathcal N(p, \sqrt \frac{p(1 - p)}{n})</script><p>用$\hat p$估计替代$p$，而且在Prop里只有$z$分布：</p>
+<script type="math/tex; mode=display">
+\text{Confidence Interval: }\hat p \pm z^* \sqrt \frac {\hat p(1 - \hat p)}{n}</script><h2 id="双样本Prop的置信区间"><a href="#双样本Prop的置信区间" class="headerlink" title="双样本Prop的置信区间"></a>双样本Prop的置信区间</h2><p>Using the normal approximation as long as $n_1\hat p_1 \geq 10, n_1(1 - \hat p_1) \geq 10, n_2\hat p_2 \geq 10, n_2(1 - \hat p_2) \geq 10$, and independent, $n_1 \leq 10\% N_1, n_2 \leq 10\% N_2$,</p>
+<script type="math/tex; mode=display">
+\hat p_1 - \hat p_2 \sim \mathcal N(p_1 - p_2, \sqrt {\frac {p_1(1 - p_1)}{n_1} + \frac {p_2(1 - p_2)}{n_2}})</script><p>用$\hat p_1$估计替代$p_1$，$\hat p_2$估计替代$p_2$，而且在Prop里只有$z$分布：</p>
+<script type="math/tex; mode=display">
+\text {Confidence Interval: } (\hat p_1 - \hat p_2) \pm z^* \sqrt {\frac {\hat p_1(1 - \hat p_1)}{n_1} + \frac{\hat p_2(1 - \hat p_2)}{n_2}}</script><h1 id="Hypothesis-Test"><a href="#Hypothesis-Test" class="headerlink" title="Hypothesis Test"></a>Hypothesis Test</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Hypothesis test statistical idea: flasifiability 可证伪性</p>
 <div class="note default">这不重要</div>
 
 <h2 id="显著性实验-Significance-Test"><a href="#显著性实验-Significance-Test" class="headerlink" title="显著性实验 - Significance Test"></a>显著性实验 - Significance Test</h2><p><strong>Definition</strong>: A <strong>significance test</strong> is a formal procedure for comparing observed data with a <strong>claim</strong> whose truth we want to assess. This <strong>claim</strong> is a statement about a <strong>parameter</strong>, like the population proportion $p$ or the population mean $\mu$. We express the results of a significance test in terms of a probability that measures how well the data and the claim agree.</p>
@@ -667,31 +770,31 @@
 <h2 id="Null-Hypothesis-amp-Alternative-Hypothesis"><a href="#Null-Hypothesis-amp-Alternative-Hypothesis" class="headerlink" title="Null Hypothesis &amp; Alternative Hypothesis"></a>Null Hypothesis &amp; Alternative Hypothesis</h2><p>要推翻的理论：Null Hypothesis ($H_0$)</p>
 <p>支持的理论：Alternative Hypothesis ($H_a$)</p>
 <h2 id="Test-Statistic"><a href="#Test-Statistic" class="headerlink" title="Test Statistic"></a>Test Statistic</h2><p><strong>Definition</strong>: A <strong>test statistic</strong> measures how far a sample statistic diverges from what we would expect if the null hypothesis $H_0$ were true, in standardized units. That is</p>
-<p>$$<br>\text{test statistic} = \frac{\text{statistic} - \text{parameter}}{\text{standard deviation of statistic}}<br>$$</p>
-<div class="note info">人话：抽样得statistic相对于，以$H_0$的parameter为$\mu$，自身的标准差为$\sigma$，的$z$值。</div>
+<script type="math/tex; mode=display">
+\text{test statistic} = \frac{\text{statistic} - \text{parameter}}{\text{standard deviation of statistic}}</script><div class="note info">人话：抽样得statistic相对于，以$H_0$的parameter为$\mu$，自身的标准差为$\sigma$，的$z$值。</div>
 
 <h2 id="显著程度-Significance-Level-alpha"><a href="#显著程度-Significance-Level-alpha" class="headerlink" title="显著程度 - Significance Level $\alpha$"></a>显著程度 - Significance Level $\alpha$</h2><p>The <strong>significance level ($\alpha$)</strong> defined for a study is the probability of the study <strong>rejecting</strong> the null hypothesis, given that it were true.</p>
 <div class="note info">人话：我们做的实验得到的数据有多大的概率推翻原假设</div>
 
 <h2 id="Stating-Hypothesis-left-tailed-test"><a href="#Stating-Hypothesis-left-tailed-test" class="headerlink" title="Stating Hypothesis (left-tailed test)"></a>Stating Hypothesis (left-tailed test)</h2><p>When</p>
-<p>$$<br>    H_0 : \text {parameter = claimed value}<br>$$</p>
-<p>$$<br>    H_a : \text {parameter} &lt; \text {claimed value}<br>$$</p>
-<p>If</p>
-<p>$$<br>\text {test statistic} &lt; -z_{\alpha}<br>$$</p>
-<p>then $H_0$ can be rejected.</p>
+<script type="math/tex; mode=display">
+    H_0 : \text {parameter = claimed value}</script><script type="math/tex; mode=display">
+    H_a : \text {parameter} < \text {claimed value}</script><p>If</p>
+<script type="math/tex; mode=display">
+\text {test statistic} < -z_{\alpha}</script><p>then $H_0$ can be rejected.</p>
 <h2 id="Stating-Hypothesis-right-tailed-test"><a href="#Stating-Hypothesis-right-tailed-test" class="headerlink" title="Stating Hypothesis (right-tailed test)"></a>Stating Hypothesis (right-tailed test)</h2><p>When</p>
-<p>$$<br>    H_0 : \text {parameter = claimed value}<br>$$</p>
-<p>$$<br>    H_a : \text {parameter} &gt; \text {claimed value}<br>$$</p>
-<p>If</p>
-<p>$$</p>
-<p>\text {test statistic} &gt; z_\alpha<br>$$</p>
-<p>then $H_0$ can be rejected.</p>
+<script type="math/tex; mode=display">
+    H_0 : \text {parameter = claimed value}</script><script type="math/tex; mode=display">
+    H_a : \text {parameter} > \text {claimed value}</script><p>If</p>
+<script type="math/tex; mode=display">
+
+\text {test statistic} > z_\alpha</script><p>then $H_0$ can be rejected.</p>
 <h2 id="Stating-Hypothesis-two-tailed-test"><a href="#Stating-Hypothesis-two-tailed-test" class="headerlink" title="Stating Hypothesis (two-tailed test)"></a>Stating Hypothesis (two-tailed test)</h2><p>When</p>
-<p>$$<br>    H_0 : \text {parameter = claimed value}<br>$$</p>
-<p>$$<br>    H_a : \text {parameter} \neq \text {claimed value}<br>$$</p>
-<p>If</p>
-<p>$$<br>|\text {test statistic}| &gt; z_{\frac {\alpha}{2}}<br>$$</p>
-<p>then $H_0$ can be rejected.</p>
+<script type="math/tex; mode=display">
+    H_0 : \text {parameter = claimed value}</script><script type="math/tex; mode=display">
+    H_a : \text {parameter} \neq \text {claimed value}</script><p>If</p>
+<script type="math/tex; mode=display">
+|\text {test statistic}| > z_{\frac {\alpha}{2}}</script><p>then $H_0$ can be rejected.</p>
 <h2 id="标准差-sigma-未知的情况"><a href="#标准差-sigma-未知的情况" class="headerlink" title="标准差$\sigma$未知的情况"></a>标准差$\sigma$未知的情况</h2><p>和CI问题相同，使用$t$分布来替代$z$分布，使用$s$代替$\sigma$，上述过程中的所有Inverse-z替换成Inverse-t.</p>
 <div class="note warning">注意自由度$df$</div>
 
@@ -704,8 +807,9 @@
 <li>right-tailed: $P(z &gt; \text {test statistic})$或者$P(t &gt; \text {test statistic})$</li>
 <li>two-tailed: $P(|z| &gt; |\text {test statistic}|)$或者$P(|t| &gt; |\text {test statistic}|)$</li>
 </ul>
-<h3 id="P-text-Values-得到的结论"><a href="#P-text-Values-得到的结论" class="headerlink" title="$P-\text {Values}$得到的结论"></a>$P-\text {Values}$得到的结论</h3><p>$$<br>P-\text{Values} &lt; \alpha \rightarrow \text {reject }H_0 \rightarrow \text {conclude }H_a \text {(in context)}<br>$$<br>$$<br>P-\text{Values} \geq \alpha \rightarrow \text {fail to reject }H_0 \rightarrow \text {cannot conclude }H_a \text {(in context)}<br>$$</p>
-<h2 id="Type-I-and-Type-II-Errors"><a href="#Type-I-and-Type-II-Errors" class="headerlink" title="Type I and Type II Errors"></a>Type I and Type II Errors</h2><h3 id="拒真错误-Type-I-Error"><a href="#拒真错误-Type-I-Error" class="headerlink" title="拒真错误 - Type I Error"></a>拒真错误 - Type I Error</h3><p><strong>Definition</strong>: 当$H_0$为真，reject $H_0$.</p>
+<h3 id="P-text-Values-得到的结论"><a href="#P-text-Values-得到的结论" class="headerlink" title="$P-\text {Values}$得到的结论"></a>$P-\text {Values}$得到的结论</h3><script type="math/tex; mode=display">
+P-\text{Values} < \alpha \rightarrow \text {reject }H_0 \rightarrow \text {conclude }H_a \text {(in context)}</script><script type="math/tex; mode=display">
+P-\text{Values} \geq \alpha \rightarrow \text {fail to reject }H_0 \rightarrow \text {cannot conclude }H_a \text {(in context)}</script><h2 id="Type-I-and-Type-II-Errors"><a href="#Type-I-and-Type-II-Errors" class="headerlink" title="Type I and Type II Errors"></a>Type I and Type II Errors</h2><h3 id="拒真错误-Type-I-Error"><a href="#拒真错误-Type-I-Error" class="headerlink" title="拒真错误 - Type I Error"></a>拒真错误 - Type I Error</h3><p><strong>Definition</strong>: 当$H_0$为真，reject $H_0$.</p>
 <div class="note primary">有$\alpha$的概率产生拒真错误</div>
 
 <div class="note warning">想要减少Type I Error，需要减少$\alpha$</div>
@@ -739,57 +843,56 @@
 </ul>
 <h2 id="The-One-Sample-z-Test"><a href="#The-One-Sample-z-Test" class="headerlink" title="The One-Sample $z$ Test"></a>The One-Sample $z$ Test</h2><p>When conditions are met, we can test a claim about a poulation mean $\mu$ using a <strong>one-sample $z$ test</strong>.</p>
 <p>one-sample $z$ statistic: </p>
-<p>$$<br>z = \frac {\bar x - \mu_0}{\frac {\sigma}{\sqrt n}}<br>$$</p>
-<h2 id="The-One-Sample-t-Test"><a href="#The-One-Sample-t-Test" class="headerlink" title="The One-Sample $t$ Test"></a>The One-Sample $t$ Test</h2><p>When conditions are met, we can test a claim about a population mean $\mu$ using a <strong>one-sample $t$ test</strong>.</p>
+<script type="math/tex; mode=display">
+z = \frac {\bar x - \mu_0}{\frac {\sigma}{\sqrt n}}</script><h2 id="The-One-Sample-t-Test"><a href="#The-One-Sample-t-Test" class="headerlink" title="The One-Sample $t$ Test"></a>The One-Sample $t$ Test</h2><p>When conditions are met, we can test a claim about a population mean $\mu$ using a <strong>one-sample $t$ test</strong>.</p>
 <p>one-sample $t$ statistic: </p>
-<p>$$<br>t = \frac {\bar x - \mu_0}{\displaystyle\frac {s_x}{\sqrt n}}<br>$$</p>
-<div class="note info">$df = n - 1$</div>
+<script type="math/tex; mode=display">
+t = \frac {\bar x - \mu_0}{\displaystyle\frac {s_x}{\sqrt n}}</script><div class="note info">$df = n - 1$</div>
 
 <h2 id="Two-Sample-z-Test-for-The-Difference-Between-Two-Means"><a href="#Two-Sample-z-Test-for-The-Difference-Between-Two-Means" class="headerlink" title="Two-Sample $z$ Test for The Difference Between Two Means"></a>Two-Sample $z$ Test for The Difference Between Two Means</h2><p>Suppose the Random, Normal and Independent conditions are met. To test the hypothesis $H_0: \mu_1 - \mu_2 = \text {hypothesis value}$, compute the $z$ statistic</p>
-<p>$$<br>z = \frac {(\bar x_1 - \bar x_2) - (\mu_1 - \mu_2)}{\displaystyle\sqrt {\frac{\sigma_1 ^2}{n_1}+\frac{\sigma_2 ^2}{n_2}}}<br>$$</p>
-<h2 id="Two-Sample-t-Test-for-The-Difference-Between-Two-Means"><a href="#Two-Sample-t-Test-for-The-Difference-Between-Two-Means" class="headerlink" title="Two-Sample $t$ Test for The Difference Between Two Means"></a>Two-Sample $t$ Test for The Difference Between Two Means</h2><p>Suppose the Random, Normal and Independent conditions are met. To test the hypothesis $H_0: \mu_1 - \mu_2 = \text {hypothesis value}$, compute the $t$ statistic</p>
-<p>$$<br>t = \frac {(\bar x_1 - \bar x_2) - (\mu_1 - \mu_2)}{\displaystyle\sqrt {\frac{s_1 ^2}{n_1}+\frac{s_2 ^2}{n_2}}}<br>$$</p>
-<h2 id="Paired-Data-t-z-Test"><a href="#Paired-Data-t-z-Test" class="headerlink" title="Paired-Data $t$ / $z$ Test"></a>Paired-Data $t$ / $z$ Test</h2><div class="note danger">和CI中的Paired Data一样，这也是陷阱，需要用相同的方式去处理</div>
+<script type="math/tex; mode=display">
+z = \frac {(\bar x_1 - \bar x_2) - (\mu_1 - \mu_2)}{\displaystyle\sqrt {\frac{\sigma_1 ^2}{n_1}+\frac{\sigma_2 ^2}{n_2}}}</script><h2 id="Two-Sample-t-Test-for-The-Difference-Between-Two-Means"><a href="#Two-Sample-t-Test-for-The-Difference-Between-Two-Means" class="headerlink" title="Two-Sample $t$ Test for The Difference Between Two Means"></a>Two-Sample $t$ Test for The Difference Between Two Means</h2><p>Suppose the Random, Normal and Independent conditions are met. To test the hypothesis $H_0: \mu_1 - \mu_2 = \text {hypothesis value}$, compute the $t$ statistic</p>
+<script type="math/tex; mode=display">
+t = \frac {(\bar x_1 - \bar x_2) - (\mu_1 - \mu_2)}{\displaystyle\sqrt {\frac{s_1 ^2}{n_1}+\frac{s_2 ^2}{n_2}}}</script><h2 id="Paired-Data-t-z-Test"><a href="#Paired-Data-t-z-Test" class="headerlink" title="Paired-Data $t$ / $z$ Test"></a>Paired-Data $t$ / $z$ Test</h2><div class="note danger">和CI中的Paired Data一样，这也是陷阱，需要用相同的方式去处理</div>
 
 <h2 id="The-One-Sample-z-Test-for-a-Proportion"><a href="#The-One-Sample-z-Test-for-a-Proportion" class="headerlink" title="The One-Sample $z$ Test for a Proportion"></a>The One-Sample $z$ Test for a Proportion</h2><p>Choose an SRS of size $n$ from a large population that contains an unknown proportion $p$ of successe. To test the hypothesis $H_0 : p = p_0$, compute the $z$ statistic</p>
-<p>$$<br>z = \frac {\hat p - p_0}{\displaystyle\sqrt\frac{p_0(1 - p_0)}{n}}<br>$$</p>
-<div class="note primary">注意：在做比例的CI时，使用的是$\hat p$（因为$p$未知）</div>
+<script type="math/tex; mode=display">
+z = \frac {\hat p - p_0}{\displaystyle\sqrt\frac{p_0(1 - p_0)}{n}}</script><div class="note primary">注意：在做比例的CI时，使用的是$\hat p$（因为$p$未知）</div>
 
 <h2 id="Two-Sample-z-Test-for-the-Difference-Between-Two-Proportions"><a href="#Two-Sample-z-Test-for-the-Difference-Between-Two-Proportions" class="headerlink" title="Two-Sample $z$ Test for the Difference Between Two Proportions"></a>Two-Sample $z$ Test for the Difference Between Two Proportions</h2><p>Suppose the Random, Normal, and Independent conditions are met. To test the hypothesis $H_0 : p_1 - p_2 = 0$, first find the pooled proportion $\hat p_C$ of successes in both samples combined</p>
-<p>$$<br>\hat p_C = \frac {\hat p_1 n_1 + \hat p_2 n_2}{n _ 1 + n _ 2}<br>$$</p>
-<p>Then compute the $z$ statistic</p>
-<p>$$<br>z = \frac {(\hat p_1 - \hat p_2) - 0}{\sqrt {\displaystyle\frac{\hat p_C(1 - \hat p_C)}{n_1} + \displaystyle\frac{\hat p_C(1 - \hat p_C)}{n_2}}}<br>$$</p>
-<div class="note primary">解释：在做区间估计的时候，我们用$\hat p$来替代$p$。在这边我么只是假设了$p_1 = p_2$，但是没有假设$p_1$和$p_2$是多少。如果我们照搬以前的办法，使用$\hat p_1$和$\hat p_2$来替代的话，会发现这会与我们的假设$p_1 = p_2$矛盾，所以定义一个$\hat p_C$。</div>
+<script type="math/tex; mode=display">
+\hat p_C = \frac {\hat p_1 n_1 + \hat p_2 n_2}{n _ 1 + n _ 2}</script><p>Then compute the $z$ statistic</p>
+<script type="math/tex; mode=display">
+z = \frac {(\hat p_1 - \hat p_2) - 0}{\sqrt {\displaystyle\frac{\hat p_C(1 - \hat p_C)}{n_1} + \displaystyle\frac{\hat p_C(1 - \hat p_C)}{n_2}}}</script><div class="note primary">解释：在做区间估计的时候，我们用$\hat p$来替代$p$。在这边我么只是假设了$p_1 = p_2$，但是没有假设$p_1$和$p_2$是多少。如果我们照搬以前的办法，使用$\hat p_1$和$\hat p_2$来替代的话，会发现这会与我们的假设$p_1 = p_2$矛盾，所以定义一个$\hat p_C$。</div>
 
 <h2 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h2><p><strong>FRQ</strong> Investigators at the U.S. Department of Agriculture wished to compare methods of determining the level<br>of $E$ coli bacteria contamination in beef. Two different methods (A and B) of determining the level of contamination were used on each of ten randomly selected specimens of a certain type of beef. The data obtained, in millimicrobes/liter of ground beef, for each of the methods are shown in the table below.</p>
 <div class="note info">这里省略了一堆数据</div>
 
 <p>Is there a significant difference in the mean amount of $E$. coli bacteria detected by the two methods for this type of beef? Provide a statistical justification to support your answer.</p>
 <p><strong>Step 1: State</strong>  </p>
-<p>$$<br>H_0 : \mu_d = 0<br>$$</p>
-<p>$$<br>H_a : \mu_d \neq 0<br>$$</p>
-<p>where $\mu_d$ is the mean difference (method A - method B) in the level of E. coli bacteria contamination in beef detected by the two methods.</p>
+<script type="math/tex; mode=display">
+H_0 : \mu_d = 0</script><script type="math/tex; mode=display">
+H_a : \mu_d \neq 0</script><p>where $\mu_d$ is the mean difference (method A - method B) in the level of E. coli bacteria contamination in beef detected by the two methods.</p>
 <p>Thus, we are gonna use the Paired $t$-test, where</p>
-<p>$$<br>t = \frac {\bar x_d - 0}{\displaystyle\frac{s_d}{\sqrt{n_d}}}<br>$$</p>
-<p><strong>Step 2: Plan</strong></p>
+<script type="math/tex; mode=display">
+t = \frac {\bar x_d - 0}{\displaystyle\frac{s_d}{\sqrt{n_d}}}</script><p><strong>Step 2: Plan</strong></p>
 <p>Conditions:</p>
 <ul>
 <li>Since the observations are obtained on 10 randomly selected specimens, it is reasonable to assume that the 10 data pairs are independent of one another.</li>
 <li>The population distribution of differences is normal. (画图，说为什么Normal)</li>
 </ul>
-<p>The computed differences are:<br>$$<br>-0.3, 0.5, 0.3, 0.6, 0.8, 0.7, 1.2, 0.2, -0.1, -1.0<br>$$</p>
-<p><strong>Step 3: Do</strong></p>
-<p>$$<br>\bar x_d = 0.29<br>$$</p>
-<p>$$<br>s_d = 0.629727<br>$$</p>
-<p>$$<br>t = \frac{0.29}{0.629727 / \sqrt {10}} = 1.46<br>$$</p>
-<p>$$<br>d.f. = 9<br>$$</p>
-<p>$$<br>P-\text {value} = 0.179<br>$$</p>
-<p><strong>Step 4: Intepretation</strong></p>
+<p>The computed differences are:</p>
+<script type="math/tex; mode=display">
+-0.3, 0.5, 0.3, 0.6, 0.8, 0.7, 1.2, 0.2, -0.1, -1.0</script><p><strong>Step 3: Do</strong></p>
+<script type="math/tex; mode=display">
+\bar x_d = 0.29</script><script type="math/tex; mode=display">
+s_d = 0.629727</script><script type="math/tex; mode=display">
+t = \frac{0.29}{0.629727 / \sqrt {10}} = 1.46</script><script type="math/tex; mode=display">
+d.f. = 9</script><script type="math/tex; mode=display">
+P-\text {value} = 0.179</script><p><strong>Step 4: Intepretation</strong></p>
 <p>Since the $P$ -value is greater than $0.05,$ we cannot reject $H_{0} .$ We do NOT have statistically significant evidence to conclude that there is a difference in the mean amount of $E$. coli bacteria detected by the two methods for this type of beef. In other words, there does not appear to be a significant difference in these two methods for measuring the level of $E$. coli contamination in beef.</p>
 <h2 id="HT-2012-FRQ"><a href="#HT-2012-FRQ" class="headerlink" title="HT 2012 FRQ"></a>HT 2012 FRQ</h2><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/08/AP-Statistics-%E4%B8%B4%E6%AD%BB%E5%89%8D%E7%9A%84%E6%8C%A3%E6%89%8E/5.jpg" class="">
-
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/08/AP-Statistics-%E4%B8%B4%E6%AD%BB%E5%89%8D%E7%9A%84%E6%8C%A3%E6%89%8E/6.jpg" class="">
-
 <h2 id="HT的计算器计算"><a href="#HT的计算器计算" class="headerlink" title="HT的计算器计算"></a>HT的计算器计算</h2><p>menu -&gt; 统计 -&gt; 统计检验 -&gt; z检验</p>
 <p>menu -&gt; 统计 -&gt; 统计检验 -&gt; t检验</p>
 <p>menu -&gt; 统计 -&gt; 统计检验 -&gt; 双样本z检验</p>
@@ -799,20 +902,19 @@
 <div class="note info">在比例部分，$x$是成功次数：$x = \hat pn$，其中$\hat p$是实验抽样的概率，$n$是Sample Size。</div>
 
 <h1 id="Inference-for-Categorical-Data-Chi-Square"><a href="#Inference-for-Categorical-Data-Chi-Square" class="headerlink" title="Inference for Categorical Data: Chi-Square"></a>Inference for Categorical Data: Chi-Square</h1><h2 id="卡方统计量-The-Chi-Square-Statistic"><a href="#卡方统计量-The-Chi-Square-Statistic" class="headerlink" title="卡方统计量 - The Chi-Square Statistic"></a>卡方统计量 - The Chi-Square Statistic</h2><p><strong>Definition</strong>: <strong>The Chi-Square Statistic</strong> is a measure of how far the observed counts are from the expected counts. The formula for the statistic is</p>
-<p>$$<br>\chi^2 = \sum \frac{(\text {observed} - \text {expected})^2}{\text {expected}}<br>$$</p>
-<h2 id="The-Chi-Square-Distributions-and-P-Values"><a href="#The-Chi-Square-Distributions-and-P-Values" class="headerlink" title="The Chi-Square Distributions and P-Values"></a>The Chi-Square Distributions and P-Values</h2><p>The chi-square distributions are a family of distributions that take only positive values and are skewed to the right.</p>
+<script type="math/tex; mode=display">
+\chi^2 = \sum \frac{(\text {observed} - \text {expected})^2}{\text {expected}}</script><h2 id="The-Chi-Square-Distributions-and-P-Values"><a href="#The-Chi-Square-Distributions-and-P-Values" class="headerlink" title="The Chi-Square Distributions and P-Values"></a>The Chi-Square Distributions and P-Values</h2><p>The chi-square distributions are a family of distributions that take only positive values and are skewed to the right.</p>
 <p>A particular chi-square distribution is specified by giving its degrees of freedom.</p>
 <div class="note info">The chi-square goodness-of-fit test uses the chi-square distribution with degrees of freedom = $k - 1$, in which $k = \# categories$</div> 
 
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/08/AP-Statistics-%E4%B8%B4%E6%AD%BB%E5%89%8D%E7%9A%84%E6%8C%A3%E6%89%8E/2.png" class="">
-
-<h2 id="The-Chi-Square-Goodness-of-Fit-Test"><a href="#The-Chi-Square-Goodness-of-Fit-Test" class="headerlink" title="The Chi-Square Goodness-of-Fit Test"></a>The Chi-Square Goodness-of-Fit Test</h2><h3 id="Null-Hypothesis-amp-Alternative-Hypothesis-1"><a href="#Null-Hypothesis-amp-Alternative-Hypothesis-1" class="headerlink" title="Null Hypothesis &amp; Alternative Hypothesis"></a>Null Hypothesis &amp; Alternative Hypothesis</h3><p>$$<br>H_0 : \text {The specified distribution of the categorical variable is correct.}<br>$$</p>
-<p>$$<br>H_a : \text {The specified distribution of the categorical variable is not correct.}<br>$$</p>
-<div class="note primary">人话：要反驳一个categorical variable的分布</div>
+<h2 id="The-Chi-Square-Goodness-of-Fit-Test"><a href="#The-Chi-Square-Goodness-of-Fit-Test" class="headerlink" title="The Chi-Square Goodness-of-Fit Test"></a>The Chi-Square Goodness-of-Fit Test</h2><h3 id="Null-Hypothesis-amp-Alternative-Hypothesis-1"><a href="#Null-Hypothesis-amp-Alternative-Hypothesis-1" class="headerlink" title="Null Hypothesis &amp; Alternative Hypothesis"></a>Null Hypothesis &amp; Alternative Hypothesis</h3><script type="math/tex; mode=display">
+H_0 : \text {The specified distribution of the categorical variable is correct.}</script><script type="math/tex; mode=display">
+H_a : \text {The specified distribution of the categorical variable is not correct.}</script><div class="note primary">人话：要反驳一个categorical variable的分布</div>
 
 <h3 id="Conditions"><a href="#Conditions" class="headerlink" title="Conditions"></a>Conditions</h3><ul>
 <li><strong>Random</strong>: The data come from a random sample or a randomized experiment</li>
-<li><strong>Independent</strong>: Individual observations are independent if $n \leq \displaystyle\frac {1}{10}N$. This is called $10%$ condition.</li>
+<li><strong>Independent</strong>: Individual observations are independent if $n \leq \displaystyle\frac {1}{10}N$. This is called $10\%$ condition.</li>
 <li><strong>Large Sample Size</strong>: All expected counts are at least $5$.</li>
 </ul>
 <div class="note warning">注：这里是Expected Counts大于五。</div>
@@ -823,9 +925,9 @@
 <div class="note primary">Expected List: 一个数组，同上</div>
 <div class="note default">Degree of Freedom: 自由度，$k - 1$</div>
 
-<h2 id="The-Chi-Square-Test-for-Association-Independence"><a href="#The-Chi-Square-Test-for-Association-Independence" class="headerlink" title="The Chi-Square Test for Association / Independence"></a>The Chi-Square Test for Association / Independence</h2><h3 id="Null-Hypothesis-amp-Alternative-Hypothesis-2"><a href="#Null-Hypothesis-amp-Alternative-Hypothesis-2" class="headerlink" title="Null Hypothesis &amp; Alternative Hypothesis"></a>Null Hypothesis &amp; Alternative Hypothesis</h3><p>$$<br>H_0 : \text{There is no association between two categorical variables in the population of interest.}<br>$$</p>
-<p>$$<br>H_a : \text{There is an association between two categorical variables in the population of interest.}<br>$$</p>
-<div class="note info">人话：看两件事相不相关</div>
+<h2 id="The-Chi-Square-Test-for-Association-Independence"><a href="#The-Chi-Square-Test-for-Association-Independence" class="headerlink" title="The Chi-Square Test for Association / Independence"></a>The Chi-Square Test for Association / Independence</h2><h3 id="Null-Hypothesis-amp-Alternative-Hypothesis-2"><a href="#Null-Hypothesis-amp-Alternative-Hypothesis-2" class="headerlink" title="Null Hypothesis &amp; Alternative Hypothesis"></a>Null Hypothesis &amp; Alternative Hypothesis</h3><script type="math/tex; mode=display">
+H_0 : \text{There is no association between two categorical variables in the population of interest.}</script><script type="math/tex; mode=display">
+H_a : \text{There is an association between two categorical variables in the population of interest.}</script><div class="note info">人话：看两件事相不相关</div>
 
 <h3 id="Conditions-1"><a href="#Conditions-1" class="headerlink" title="Conditions"></a>Conditions</h3><ul>
 <li><strong>Random</strong>: The data come from a random sample or a randomized experiment</li>
@@ -833,36 +935,36 @@
 </ul>
 <div class="note warning">注：这里是Expected Counts大于五。</div>
 
-<h3 id="Calculations"><a href="#Calculations" class="headerlink" title="Calculations"></a>Calculations</h3><p>$$<br>\chi^2 = \sum \frac{(\text {observed} - \text {expected})^2}{\text {expected}}<br>$$</p>
-<p>in which the expected value is given by</p>
-<p>$$<br>P(row_i \cap col_j) = P(row_i) \times P(col_j) \text {  since assumed independent}<br>$$</p>
-<p>$$<br>\Rightarrow \text {total} \times \text {total} \times P(row_i \cap col_j) = [P(row_i) \times \text {total}] \times [P(col_j) \times \text {total} ]<br>$$</p>
-<p>$$<br>\Rightarrow \text {expected}_{ij} = \frac {\text {row-total}_i \times \text {col-total}_j}{\text {total}}<br>$$</p>
-<p>The degree of freedom is</p>
-<p>$$<br>\text {df} = (#row - 1)(#col - 1)<br>$$</p>
-<div class="note success">使用计算器计算：menu -> Statistics -> Stat Tests -> $\chi^2$ 2-way Test</div>
+<h3 id="Calculations"><a href="#Calculations" class="headerlink" title="Calculations"></a>Calculations</h3><script type="math/tex; mode=display">
+\chi^2 = \sum \frac{(\text {observed} - \text {expected})^2}{\text {expected}}</script><p>in which the expected value is given by</p>
+<script type="math/tex; mode=display">
+P(row_i \cap col_j) = P(row_i) \times P(col_j) \text {  since assumed independent}</script><script type="math/tex; mode=display">
+\Rightarrow \text {total} \times \text {total} \times P(row_i \cap col_j) = [P(row_i) \times \text {total}] \times [P(col_j) \times \text {total} ]</script><script type="math/tex; mode=display">
+\Rightarrow \text {expected}_{ij} = \frac {\text {row-total}_i \times \text {col-total}_j}{\text {total}}</script><p>The degree of freedom is</p>
+<script type="math/tex; mode=display">
+\text {df} = (\#row - 1)(\#col - 1)</script><div class="note success">使用计算器计算：menu -> Statistics -> Stat Tests -> $\chi^2$ 2-way Test</div>
 <div class="note primary">Matrix: 创建矩阵（menu -> Matrix & Vector -> Create -> Matrix）</div>
 
 <h1 id="Inference-for-Quantitative-Data-Slope"><a href="#Inference-for-Quantitative-Data-Slope" class="headerlink" title="Inference for Quantitative Data: Slope"></a>Inference for Quantitative Data: Slope</h1><p>Least Regression Line的斜率$b$也是一个统计量，所以也可以做CI和HT问题。这里直接给出<strong>众多</strong>公式：</p>
 <h2 id="Least-Regression-Line"><a href="#Least-Regression-Line" class="headerlink" title="Least Regression Line"></a>Least Regression Line</h2><p>Line Predicted from the sample:</p>
-<p>$$<br>\hat y = a + bx<br>$$</p>
-<p>Line for the population:</p>
-<p>$$<br>\hat y = \alpha + \beta x<br>$$</p>
-<h2 id="Sampling-Distribution-of-a-Slope"><a href="#Sampling-Distribution-of-a-Slope" class="headerlink" title="Sampling Distribution of a Slope"></a>Sampling Distribution of a Slope</h2><ul>
+<script type="math/tex; mode=display">
+\hat y = a + bx</script><p>Line for the population:</p>
+<script type="math/tex; mode=display">
+\hat y = \alpha + \beta x</script><h2 id="Sampling-Distribution-of-a-Slope"><a href="#Sampling-Distribution-of-a-Slope" class="headerlink" title="Sampling Distribution of a Slope"></a>Sampling Distribution of a Slope</h2><ul>
 <li>The Mean of the sampling distribution of $b$ is $\mu_b = \beta$</li>
-<li>The Standard Deviation of the sampling distribution of $b$ is<br>  $$<pre><code>  \sigma_b = \frac &#123;\sigma&#125;&#123;\sigma_x \sqrt n&#125;</code></pre>
-  $$</li>
-<li>The Standard Error of $b$ is<br>  $$<pre><code>  SE_b = \frac &#123;s&#125;&#123;s_x \sqrt &#123;n - 1&#125;&#125;</code></pre>
-  $$  <div class="note primary">$s$是$b$的标准差，$s_x$是原始数据中$x$的标准差。</div>
+<li>The Standard Deviation of the sampling distribution of $b$ is <script type="math/tex; mode=display">
+      \sigma_b = \frac {\sigma}{\sigma_x \sqrt n}</script></li>
+<li>The Standard Error of $b$ is <script type="math/tex; mode=display">
+      SE_b = \frac {s}{s_x \sqrt {n - 1}}</script>  <div class="note primary">$s$是$b$的标准差，$s_x$是原始数据中$x$的标准差。</div>
 
 </li>
 </ul>
-<h2 id="Confidence-Interval"><a href="#Confidence-Interval" class="headerlink" title="Confidence Interval"></a>Confidence Interval</h2><p>$$<br>b \pm t^* SE_b<br>$$</p>
-<div class="note danger">这里的$df$是$n-2$</div>
+<h2 id="Confidence-Interval"><a href="#Confidence-Interval" class="headerlink" title="Confidence Interval"></a>Confidence Interval</h2><script type="math/tex; mode=display">
+b \pm t^* SE_b</script><div class="note danger">这里的$df$是$n-2$</div>
 
 <h2 id="Hypothesis-Test-1"><a href="#Hypothesis-Test-1" class="headerlink" title="Hypothesis Test"></a>Hypothesis Test</h2><p>Test Statistic</p>
-<p>$$<br>t = \frac {b - \beta _ 0}{SE_b}<br>$$</p>
-<h1 id="计算器使用汇总"><a href="#计算器使用汇总" class="headerlink" title="计算器使用汇总"></a>计算器使用汇总</h1><ul>
+<script type="math/tex; mode=display">
+t = \frac {b - \beta _ 0}{SE_b}</script><h1 id="计算器使用汇总"><a href="#计算器使用汇总" class="headerlink" title="计算器使用汇总"></a>计算器使用汇总</h1><ul>
 <li>定义变量：define xxx = xxx</li>
 <li>矩阵：menu -&gt; 矩阵与向量 -&gt; 创建 -&gt; 矩阵</li>
 <li>求统计量：menu -&gt; 统计 -&gt; 数组计算 -&gt; 需要的统计量 -&gt; 填入数组名称  <div class="note primary">这里数组的计算都是根据列来的，如果有$n$个数据，创建$n$行$1$列的矩阵进行运算。</div></li>
@@ -913,9 +1015,7 @@
 
             <i class="fa fa-quote-right"></i>
           </blockquote>
-
 <h1 id="AP-2020-特辑"><a href="#AP-2020-特辑" class="headerlink" title="AP 2020 特辑"></a>AP 2020 特辑</h1><h2 id="出题点"><a href="#出题点" class="headerlink" title="出题点"></a>出题点</h2><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/08/AP-Statistics-%E4%B8%B4%E6%AD%BB%E5%89%8D%E7%9A%84%E6%8C%A3%E6%89%8E/3.png" class="">
-
 <h2 id="答题切记"><a href="#答题切记" class="headerlink" title="答题切记"></a>答题切记</h2><div class="note primary">结合Context!!!!!!!!!!</div>
 <div class="note primary">结合Context!!!!!!!!!!</div>
 <div class="note primary">结合Context!!!!!!!!!!</div>
@@ -993,7 +1093,6 @@
 <li><strong>y-Intercept</strong>: predicted value of y when x = 0.</li>
 </ul>
 <h3 id="读表格"><a href="#读表格" class="headerlink" title="读表格"></a>读表格</h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/08/AP-Statistics-%E4%B8%B4%E6%AD%BB%E5%89%8D%E7%9A%84%E6%8C%A3%E6%89%8E/4.jpg" class="">
-
 <p>图中，Slope = 174.40, y-Intercept = 72.95, $R^2$ = 73.33%</p>
 <h3 id="描述Scatter-Plot"><a href="#描述Scatter-Plot" class="headerlink" title="描述Scatter Plot"></a>描述Scatter Plot</h3><ul>
 <li><strong>Direction</strong><ul>
@@ -1034,8 +1133,7 @@
 
 <div class="note success">两者都是Influential Points</div>
 
-<h3 id="双变量的计算问题"><a href="#双变量的计算问题" class="headerlink" title="双变量的计算问题"></a>双变量的计算问题</h3><p>$$\text {residual} = y - \hat y$$</p>
-<h2 id="Unit-3-Collecting-Data"><a href="#Unit-3-Collecting-Data" class="headerlink" title="Unit 3 - Collecting Data"></a>Unit 3 - Collecting Data</h2><h3 id="描述抽样方法"><a href="#描述抽样方法" class="headerlink" title="描述抽样方法"></a>描述抽样方法</h3><ol>
+<h3 id="双变量的计算问题"><a href="#双变量的计算问题" class="headerlink" title="双变量的计算问题"></a>双变量的计算问题</h3><script type="math/tex; mode=display">\text {residual} = y - \hat y</script><h2 id="Unit-3-Collecting-Data"><a href="#Unit-3-Collecting-Data" class="headerlink" title="Unit 3 - Collecting Data"></a>Unit 3 - Collecting Data</h2><h3 id="描述抽样方法"><a href="#描述抽样方法" class="headerlink" title="描述抽样方法"></a>描述抽样方法</h3><ol>
 <li><strong>SRS - Simple Random Sample</strong>: Label the subjects (students, patients, etc.) from 1 to N (N = population size). Use random number generator in the calculator randInt(1, N) to generate n (n = sample size) <strong>different</strong> numbers and select these n corresponding subjects (students, patients, etc.) for the sample.</li>
 <li><strong>Stratified Random Sample</strong>: In each strata (gender, plots, etc.), label the individuals (students, trees, etc.) in this strata from 1 to n (n is the number of individuals in this strata). Use randInt(1, n) to generate m <strong>different</strong> numbers and select these m different numbers for the sample. Repeat this procedure for every strata (genders, plots, etc.).<ul>
 <li>注：每个Stata内部的差异越小越好，不同Stata之间的差异越大越好，最终在每个Stata的内部抽样</li>
@@ -1111,10 +1209,10 @@
       <div class="popular-posts-title"><a href="/2020/02/28/中值定理笔记/" rel="bookmark">中值定理笔记</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2020/08/05/面包人哥哥的数论题（雾）/" rel="bookmark">面包人哥哥的数论题（雾）</a></div>
+      <div class="popular-posts-title"><a href="/2020/03/01/307-09-矩阵/" rel="bookmark">307-09-矩阵</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2020/03/01/307-09-矩阵/" rel="bookmark">307-09-矩阵</a></div>
+      <div class="popular-posts-title"><a href="/2020/08/05/面包人哥哥的数论题（雾）/" rel="bookmark">面包人哥哥的数论题（雾）</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2020/05/23/AP正考结束/" rel="bookmark">AP正考结束</a></div>
@@ -1481,13 +1579,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">480k</span>
+    <span title="站点总字数">455k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:17</span>
+    <span title="站点阅读时长">6:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1673,10 +1771,10 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 });
 </script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>
+<script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script></body>
 </html>
