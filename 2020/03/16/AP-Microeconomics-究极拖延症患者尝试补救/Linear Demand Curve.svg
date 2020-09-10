@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="615px" height="386px" viewBox="0 0 615 386" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Linear Demand Curve</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Linear-Demand-Curve">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="1" fill="#FFFFFF" fill-rule="evenodd" x="0.5" y="0.5" width="614" height="385"></rect>
+            <g transform="translate(146.000000, 12.000000)">
+                <text font-family="STSongti-SC-Regular, Songti SC" font-size="12" font-weight="normal" fill="#000000">
+                    <tspan x="66.354" y="358">Linear Demand Curve - 线性需求函数</tspan>
+                </text>
+                <g id="Path">
+                    <polyline stroke="#000000" stroke-width="1" points="12 23.5 12 323.5 322 323.5"></polyline>
+                    <path d="M12,54 L299.5,323" id="Path-2" stroke="#2873C2" stroke-width="3"></path>
+                    <path d="M12,54 L286.5,54" id="Path-2" stroke="#D91414" stroke-width="3" stroke-dasharray="9"></path>
+                    <path d="M299.5,35.5 L299.5,323" id="Path-2" stroke="#000000" stroke-width="3" stroke-dasharray="9"></path>
+                    <circle id="Oval" stroke="#F30000" stroke-width="1" fill="#FC0000" fill-rule="evenodd" cx="161" cy="194" r="5"></circle>
+                    <text id="中点，弹性为1" font-family="STSongti-SC-Regular, Songti SC" font-size="12" font-weight="normal" fill="#2873C2">
+                        <tspan x="78.186" y="212">中点，弹性为1</tspan>
+                    </text>
+                    <text id="刚需，弹性为0" transform="translate(314.500000, 159.000000) rotate(90.000000) translate(-314.500000, -159.000000) " font-family="STSongti-SC-Regular, Songti SC" font-size="12" font-weight="normal" fill="#000000">
+                        <tspan x="275.686" y="163.5">刚需，弹性为0</tspan>
+                    </text>
+                    <text id="弹性为∞" font-family="STSongti-SC-Regular, Songti SC" font-size="12" font-weight="normal" fill="#F70D0D">
+                        <tspan x="132" y="42">弹性为∞</tspan>
+                    </text>
+                    <text id="这一段越往上越大，→∞" font-family="STSongti-SC-Regular, Songti SC" font-size="12" font-weight="normal" fill="#FF0C0C">
+                        <tspan x="51" y="74">这一段越往上越大，→∞</tspan>
+                    </text>
+                    <text id="这一段越往下越小，→0" font-family="STSongti-SC-Regular, Songti SC" font-size="12" font-weight="normal" fill="#000000">
+                        <tspan x="137.186" y="309">这一段越往下越小，→0</tspan>
+                    </text>
+                    <text id="Quantity" font-family="STSongti-SC-Regular, Songti SC" font-size="12" font-weight="normal" fill="#000000">
+                        <tspan x="271.028" y="341">Quantity</tspan>
+                    </text>
+                    <text id="Price" font-family="STSongti-SC-Regular, Songti SC" font-size="12" font-weight="normal" fill="#000000">
+                        <tspan x="0.254" y="13">Price</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

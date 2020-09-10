@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1048px" height="518px" viewBox="0 0 1048 518" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-2" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-3" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-4" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-5" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-6" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-7" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-8" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-9" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-10" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-11" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-12" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-13" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-14" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-15" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-16" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-17" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-18" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-19" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-20" cx="22.5" cy="22.5" r="1"></circle>
+        <circle id="path-21" cx="22.5" cy="22.5" r="1"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rectangle">
+            <rect fill="#F7FEFF" fill-rule="evenodd" x="0" y="0" width="1047.6" height="518.4"></rect>
+            <g id="Oval" transform="translate(23.400000, 14.400000)">
+                <g transform="translate(41.400000, 39.600000)" stroke="#979797" stroke-width="1.8">
+                    <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                    <g id="Oval-2">
+                        <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <use xlink:href="#path-1"></use>
+                    </g>
+                </g>
+                <g transform="translate(241.200000, 0.000000)" stroke="#979797" stroke-width="1.8">
+                    <g transform="translate(0.000000, 79.200000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-2"></use>
+                            <use xlink:href="#path-2"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(45.000000, 79.200000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-3"></use>
+                            <use xlink:href="#path-3"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(90.000000, 79.200000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-4"></use>
+                            <use xlink:href="#path-4"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(135.000000, 79.200000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-5"></use>
+                            <use xlink:href="#path-5"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(0.000000, 79.200000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-6"></use>
+                            <use xlink:href="#path-6"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(45.000000, 79.200000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-7"></use>
+                            <use xlink:href="#path-7"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(23.400000, 39.600000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-8"></use>
+                            <use xlink:href="#path-8"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(68.400000, 39.600000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-9"></use>
+                            <use xlink:href="#path-9"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(113.400000, 39.600000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-10"></use>
+                            <use xlink:href="#path-10"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(158.400000, 39.600000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-11"></use>
+                            <use xlink:href="#path-11"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(23.400000, 39.600000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-12"></use>
+                            <use xlink:href="#path-12"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(68.400000, 39.600000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-13"></use>
+                            <use xlink:href="#path-13"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(45.000000, 0.000000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-14"></use>
+                            <use xlink:href="#path-14"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(90.000000, 0.000000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-15"></use>
+                            <use xlink:href="#path-15"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(135.000000, 0.000000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-16"></use>
+                            <use xlink:href="#path-16"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(180.000000, 0.000000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-17"></use>
+                            <use xlink:href="#path-17"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(45.000000, 0.000000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-18"></use>
+                            <use xlink:href="#path-18"></use>
+                        </g>
+                    </g>
+                    <g transform="translate(90.000000, 0.000000)">
+                        <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                        <g id="Oval-2">
+                            <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-19"></use>
+                            <use xlink:href="#path-19"></use>
+                        </g>
+                    </g>
+                    <path d="M43.2,84.6 L40.5,87.3" id="Path"></path>
+                    <path d="M46.8,84.6 L41.4,90" id="Path-2"></path>
+                    <path d="M50.4,84.6 L42.3,92.7" id="Path-3"></path>
+                    <path d="M88.2,84.6 L85.5,87.3" id="Path"></path>
+                    <path d="M91.8,84.6 L86.4,90" id="Path-2"></path>
+                    <path d="M95.4,84.6 L87.3,92.7" id="Path-3"></path>
+                    <path d="M133.2,84.6 L130.5,87.3" id="Path"></path>
+                    <path d="M136.8,84.6 L131.4,90" id="Path-2"></path>
+                    <path d="M140.4,84.6 L132.3,92.7" id="Path-3"></path>
+                    <path d="M66.6,45 L63.9,47.7" id="Path"></path>
+                    <path d="M70.2,45 L64.8,50.4" id="Path-2"></path>
+                    <path d="M73.8,45 L65.7,53.1" id="Path-3"></path>
+                    <path d="M111.6,45 L108.9,47.7" id="Path"></path>
+                    <path d="M115.2,45 L109.8,50.4" id="Path-2"></path>
+                    <path d="M118.8,45 L110.7,53.1" id="Path-3"></path>
+                    <path d="M156.6,45 L153.9,47.7" id="Path"></path>
+                    <path d="M160.2,45 L154.8,50.4" id="Path-2"></path>
+                    <path d="M163.8,45 L155.7,53.1" id="Path-3"></path>
+                    <g id="Path" transform="translate(135.000000, 35.100000) rotate(-180.000000) translate(-135.000000, -35.100000) translate(84.600000, 30.600000)">
+                        <path d="M3.6,0 L0.9,2.7"></path>
+                        <path d="M7.2,0 L1.8,5.4" id="Path-2"></path>
+                        <path d="M10.8,0 L2.7,8.1" id="Path-3"></path>
+                        <path d="M48.6,0 L45.9,2.7"></path>
+                        <path d="M52.2,0 L46.8,5.4" id="Path-2"></path>
+                        <path d="M55.8,0 L47.7,8.1" id="Path-3"></path>
+                        <path d="M93.6,0 L90.9,2.7"></path>
+                        <path d="M97.2,0 L91.8,5.4" id="Path-2"></path>
+                        <path d="M100.8,0 L92.7,8.1" id="Path-3"></path>
+                    </g>
+                    <g id="Path" transform="translate(113.400000, 74.700000) rotate(-180.000000) translate(-113.400000, -74.700000) translate(63.000000, 70.200000)">
+                        <path d="M3.6,0 L0.9,2.7"></path>
+                        <path d="M7.2,0 L1.8,5.4" id="Path-2"></path>
+                        <path d="M10.8,0 L2.7,8.1" id="Path-3"></path>
+                        <path d="M48.6,0 L45.9,2.7"></path>
+                        <path d="M52.2,0 L46.8,5.4" id="Path-2"></path>
+                        <path d="M55.8,0 L47.7,8.1" id="Path-3"></path>
+                        <path d="M93.6,0 L90.9,2.7"></path>
+                        <path d="M97.2,0 L91.8,5.4" id="Path-2"></path>
+                        <path d="M100.8,0 L92.7,8.1" id="Path-3"></path>
+                    </g>
+                </g>
+                <g transform="translate(579.600000, 39.600000)" stroke="#979797" stroke-width="1.8">
+                    <g>
+                        <g>
+                            <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                            <g id="Oval-2">
+                                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-20"></use>
+                                <use xlink:href="#path-20"></use>
+                            </g>
+                        </g>
+                        <g transform="translate(32.400000, 0.000000)">
+                            <circle fill="#FEFFEC" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                            <g id="Oval-2">
+                                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-21"></use>
+                                <use xlink:href="#path-21"></use>
+                            </g>
+                        </g>
+                        <circle fill-opacity="0" fill="#D8D8D8" fill-rule="evenodd" cx="22.5" cy="22.5" r="22.5"></circle>
+                    </g>
+                    <path d="M38.7,6.3 L38.7,37.8" id="Path" stroke-dasharray="3.6"></path>
+                </g>
+                <g id="Path" transform="translate(806.400000, 9.000000)" stroke="#000000" stroke-width="1.8">
+                    <g transform="translate(0.000000, 46.800000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                    <g transform="translate(0.000000, 16.200000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                    <g transform="translate(108.000000, 46.800000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                    <g transform="translate(108.000000, 16.200000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                    <g transform="translate(27.000000, 0.900000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                    <g transform="translate(27.000000, 62.100000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                    <g transform="translate(27.000000, 31.500000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                    <g transform="translate(54.000000, 46.800000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                    <g transform="translate(54.000000, 16.200000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                    <g transform="translate(81.000000, 0.900000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                    <g transform="translate(81.000000, 62.100000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                    <g transform="translate(81.000000, 31.500000)">
+                        <path d="M10.8,32.4 L28.8,32.4 M2.04981132,16.9557714 L11.0498113,32.5442286 M11.0498113,1.65577137 L2.04981132,17.2442286 M28.8,1.8 L10.8,1.8 M37.5501887,17.2442286 L28.5501887,1.65577137 M28.5501887,32.5442286 L37.5501887,16.9557714" stroke-linecap="round"></path>
+                        <circle id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="19.8" cy="17.1" r="1"></circle>
+                    </g>
+                </g>
+                <g id="Path" transform="translate(288.000000, 255.600000)">
+                    <g stroke="#000000" stroke-width="2.592">
+                        <g transform="translate(0.000000, 69.888000)">
+                            <path d="M15.2791579,45.7038367 L40.7444211,45.7038367 M2.8999436,23.8858707 L15.6325752,45.9394355 M15.6325752,2.30350331 L2.8999436,24.3570681 M40.7444211,2.53910204 L15.2791579,2.53910204 M53.1236354,24.3570681 L40.3910038,2.30350331 M40.3910038,45.9394355 L53.1236354,23.8858707" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="24.1214694" rx="1.27326316" ry="1.26955102"></ellipse>
+                        </g>
+                        <g transform="translate(0.000000, 21.504000)">
+                            <path d="M15.2791579,51.4168163 L40.7444211,51.4168163 M2.8999436,28.2499523 L15.6325752,50.3035171 M15.6325752,3.96978902 L2.8999436,26.0233538 M40.7444211,2.8564898 L15.2791579,2.8564898 M53.1236354,26.0233538 L40.3910038,3.96978902 M40.3910038,50.3035171 L53.1236354,28.2499523" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="27.1366531" rx="1.27326316" ry="1.4282449"></ellipse>
+                        </g>
+                        <g transform="translate(38.304000, 0.000000)">
+                            <path d="M15.2791579,48.5603265 L40.7444211,48.5603265 M2.8999436,26.0679115 L15.6325752,48.1214763 M15.6325752,3.13664617 L2.8999436,25.190211 M40.7444211,2.69779592 L15.2791579,2.69779592 M53.1236354,25.190211 L40.3910038,3.13664617 M40.3910038,48.1214763 L53.1236354,26.0679115" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="25.6290612" rx="1.27326316" ry="1.34889796"></ellipse>
+                        </g>
+                        <g transform="translate(38.304000, 91.392000)">
+                            <path d="M15.2791579,45.7038367 L40.7444211,45.7038367 M2.8999436,23.8858707 L15.6325752,45.9394355 M15.6325752,2.30350331 L2.8999436,24.3570681 M40.7444211,2.53910204 L15.2791579,2.53910204 M53.1236354,24.3570681 L40.3910038,2.30350331 M40.3910038,45.9394355 L53.1236354,23.8858707" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="24.1214694" rx="1.27326316" ry="1.26955102"></ellipse>
+                        </g>
+                        <g transform="translate(38.304000, 45.696000)">
+                            <path d="M15.2791579,48.5603265 L40.7444211,48.5603265 M2.8999436,26.0679115 L15.6325752,48.1214763 M15.6325752,3.13664617 L2.8999436,25.190211 M40.7444211,2.69779592 L15.2791579,2.69779592 M53.1236354,25.190211 L40.3910038,3.13664617 M40.3910038,48.1214763 L53.1236354,26.0679115" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="25.6290612" rx="1.27326316" ry="1.34889796"></ellipse>
+                        </g>
+                        <g transform="translate(76.608000, 69.888000)">
+                            <path d="M15.2791579,45.7038367 L40.7444211,45.7038367 M2.8999436,23.8858707 L15.6325752,45.9394355 M15.6325752,2.30350331 L2.8999436,24.3570681 M40.7444211,2.53910204 L15.2791579,2.53910204 M53.1236354,24.3570681 L40.3910038,2.30350331 M40.3910038,45.9394355 L53.1236354,23.8858707" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="24.1214694" rx="1.27326316" ry="1.26955102"></ellipse>
+                        </g>
+                        <g transform="translate(76.608000, 21.504000)">
+                            <path d="M15.2791579,51.4168163 L40.7444211,51.4168163 M2.8999436,28.2499523 L15.6325752,50.3035171 M15.6325752,3.96978902 L2.8999436,26.0233538 M40.7444211,2.8564898 L15.2791579,2.8564898 M53.1236354,26.0233538 L40.3910038,3.96978902 M40.3910038,50.3035171 L53.1236354,28.2499523" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="27.1366531" rx="1.27326316" ry="1.4282449"></ellipse>
+                        </g>
+                    </g>
+                    <polygon id="Path-2" stroke="#00C5FF" stroke-width="2.16" points="79.3235821 64.8 93.258806 57.24 106.12209 64.8 106.12209 81 93.258806 87.48 79.3235821 78.84"></polygon>
+                </g>
+                <g id="Path" transform="translate(552.600000, 255.600000)">
+                    <g stroke="#000000" stroke-width="2.592">
+                        <g transform="translate(0.000000, 69.888000)">
+                            <path d="M15.2791579,45.7038367 L40.7444211,45.7038367 M2.8999436,23.8858707 L15.6325752,45.9394355 M15.6325752,2.30350331 L2.8999436,24.3570681 M40.7444211,2.53910204 L15.2791579,2.53910204 M53.1236354,24.3570681 L40.3910038,2.30350331 M40.3910038,45.9394355 L53.1236354,23.8858707" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="24.1214694" rx="1.27326316" ry="1.26955102"></ellipse>
+                        </g>
+                        <g transform="translate(0.000000, 21.504000)">
+                            <path d="M15.2791579,51.4168163 L40.7444211,51.4168163 M2.8999436,28.2499523 L15.6325752,50.3035171 M15.6325752,3.96978902 L2.8999436,26.0233538 M40.7444211,2.8564898 L15.2791579,2.8564898 M53.1236354,26.0233538 L40.3910038,3.96978902 M40.3910038,50.3035171 L53.1236354,28.2499523" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="27.1366531" rx="1.27326316" ry="1.4282449"></ellipse>
+                        </g>
+                        <g transform="translate(38.304000, 0.000000)">
+                            <path d="M15.2791579,48.5603265 L40.7444211,48.5603265 M2.8999436,26.0679115 L15.6325752,48.1214763 M15.6325752,3.13664617 L2.8999436,25.190211 M40.7444211,2.69779592 L15.2791579,2.69779592 M53.1236354,25.190211 L40.3910038,3.13664617 M40.3910038,48.1214763 L53.1236354,26.0679115" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="25.6290612" rx="1.27326316" ry="1.34889796"></ellipse>
+                        </g>
+                        <g transform="translate(38.304000, 91.392000)">
+                            <path d="M15.2791579,45.7038367 L40.7444211,45.7038367 M2.8999436,23.8858707 L15.6325752,45.9394355 M15.6325752,2.30350331 L2.8999436,24.3570681 M40.7444211,2.53910204 L15.2791579,2.53910204 M53.1236354,24.3570681 L40.3910038,2.30350331 M40.3910038,45.9394355 L53.1236354,23.8858707" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="24.1214694" rx="1.27326316" ry="1.26955102"></ellipse>
+                        </g>
+                        <g transform="translate(38.304000, 45.696000)">
+                            <path d="M15.2791579,48.5603265 L40.7444211,48.5603265 M2.8999436,26.0679115 L15.6325752,48.1214763 M15.6325752,3.13664617 L2.8999436,25.190211 M40.7444211,2.69779592 L15.2791579,2.69779592 M53.1236354,25.190211 L40.3910038,3.13664617 M40.3910038,48.1214763 L53.1236354,26.0679115" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="25.6290612" rx="1.27326316" ry="1.34889796"></ellipse>
+                        </g>
+                        <g transform="translate(76.608000, 69.888000)">
+                            <path d="M15.2791579,45.7038367 L40.7444211,45.7038367 M2.8999436,23.8858707 L15.6325752,45.9394355 M15.6325752,2.30350331 L2.8999436,24.3570681 M40.7444211,2.53910204 L15.2791579,2.53910204 M53.1236354,24.3570681 L40.3910038,2.30350331 M40.3910038,45.9394355 L53.1236354,23.8858707" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="24.1214694" rx="1.27326316" ry="1.26955102"></ellipse>
+                        </g>
+                        <g transform="translate(76.608000, 21.504000)">
+                            <path d="M15.2791579,51.4168163 L40.7444211,51.4168163 M2.8999436,28.2499523 L15.6325752,50.3035171 M15.6325752,3.96978902 L2.8999436,26.0233538 M40.7444211,2.8564898 L15.2791579,2.8564898 M53.1236354,26.0233538 L40.3910038,3.96978902 M40.3910038,50.3035171 L53.1236354,28.2499523" stroke-linecap="round"></path>
+                            <ellipse id="Oval-2" fill="#D8D8D8" fill-rule="evenodd" cx="28.0117895" cy="27.1366531" rx="1.27326316" ry="1.4282449"></ellipse>
+                        </g>
+                    </g>
+                    <polygon id="Path-2" stroke="#00C5FF" stroke-width="2.16" points="79.3235821 63.72 93.258806 56.16 106.12209 63.72 106.12209 79.92 93.258806 86.4 79.3235821 77.76"></polygon>
+                    <polygon id="Path-2" stroke="#00C5FF" stroke-width="2.16" points="66.4602985 85.32 80.3955224 77.76 93.258806 85.32 93.258806 101.52 80.3955224 108 66.4602985 99.36"></polygon>
+                    <polygon id="Path-2" stroke="#00C5FF" stroke-width="2.16" points="92.1868657 42.12 106.12209 34.56 118.985373 42.12 118.985373 58.32 106.12209 64.8 92.1868657 56.16"></polygon>
+                    <polygon id="Path-2" stroke="#00C5FF" stroke-width="2.16" points="64.3164179 41.58 78.2516418 33.48 92.1868657 41.58 92.1868657 56.6228571 78.8090507 63.72 64.3164179 56.6228571"></polygon>
+                    <polygon id="Path-2" stroke="#00C5FF" stroke-width="2.16" points="78.2516418 18.36 92.1868657 9.72 106.12209 18.9 106.12209 34.56 92.1868657 42.12 78.2516418 33.48"></polygon>
+                    <polygon id="Path-2" stroke="#00C5FF" stroke-width="2.16" points="50.381194 18.36 64.3164179 8.64 78.2516418 18.36 78.2516418 33.48 64.3164179 42.12 50.381194 33.48"></polygon>
+                    <polygon id="Path-2" stroke="#00C5FF" stroke-width="2.16" points="52.5250746 63.72 64.3164179 57.24 79.3235821 64.26 79.3235821 77.76 66.4602985 85.32 52.5250746 77.76"></polygon>
+                    <polygon id="Path-2" stroke="#00C5FF" stroke-width="2.16" points="37.5179104 42.12 50.9171642 33.48 64.3164179 42.12 64.3164179 56.6584615 53.1503731 63.72 37.5179104 56.16"></polygon>
+                    <polygon id="Path-2" stroke="#00C5FF" stroke-width="2.16" points="25.7265672 63.1384615 37.5179104 56.16 52.5250746 63.72 52.5250746 78.2584615 39.661791 86.4 25.7265672 78.2584615"></polygon>
+                    <path d="M74.5472612,71.28 L84.1947239,71.28 M70.4608342,63.3225261 L75.2845655,71.6774739 M75.2845655,55.7625261 L70.4608342,64.1174739 M84.1947239,56.16 L74.5472612,56.16 M88.2811509,64.1174739 L83.4574196,55.7625261 M83.4574196,71.6774739 L88.2811509,63.3225261" id="Path-3" stroke="#FF0000" stroke-width="2.16"></path>
+                    <path d="M61.6839776,63.72 L71.3314403,63.72 M57.5975506,55.7625261 L62.4212819,64.1174739 M62.4212819,48.2025261 L57.5975506,56.5574739 M71.3314403,48.6 L61.6839776,48.6 M75.4178673,56.5574739 L70.594136,48.2025261 M70.594136,64.1174739 L75.4178673,55.7625261" id="Path-3" stroke="#FF0000" stroke-width="2.16"></path>
+                    <path d="M74.5472612,56.16 L84.1947239,56.16 M70.4608342,48.2025261 L75.2845655,56.5574739 M75.2845655,40.6425261 L70.4608342,48.9974739 M84.1947239,41.04 L74.5472612,41.04 M88.2811509,48.9974739 L83.4574196,40.6425261 M83.4574196,56.5574739 L88.2811509,48.2025261" id="Path-3" stroke="#FF0000" stroke-width="2.16"></path>
+                    <path d="M61.6839776,48.6 L71.3314403,48.6 M57.5975506,40.6425261 L62.4212819,48.9974739 M62.4212819,33.0825261 L57.5975506,41.4374739 M71.3314403,33.48 L61.6839776,33.48 M75.4178673,41.4374739 L70.594136,33.0825261 M70.594136,48.9974739 L75.4178673,40.6425261" id="Path-3" stroke="#FF0000" stroke-width="2.16"></path>
+                </g>
+                <text id="中心地及其-服务区呈圆形" font-family="STSongti-SC-Regular, Songti SC" font-size="21.6" font-weight="normal">
+                    <tspan x="10.8" y="107.6" fill="#000000">中心地及其</tspan>
+                    <tspan x="-1.42108547e-14" y="137.6" fill="#000000">服务区呈</tspan>
+                    <tspan x="86.4" y="137.6" fill="#FF0000">圆形</tspan>
+                </text>
+                <text id="3个中心地及服务区-之间出现得不到-服务" font-family="STSongti-SC-Regular, Songti SC" font-size="21.6" font-weight="normal">
+                    <tspan x="263.1348" y="145.4" fill="#000000">3个中心地及服务区</tspan>
+                    <tspan x="279" y="175.4" fill="#000000">之间出现得不到</tspan>
+                    <tspan x="289.8" y="205.4" fill="#000000">服务的</tspan>
+                    <tspan x="354.6" y="205.4" fill="#FF0000">阴影区</tspan>
+                </text>
+                <text id="两个相邻的中心地-的服务区重叠，-充分竞" font-family="STSongti-SC-Regular, Songti SC" font-size="21.6" font-weight="normal">
+                    <tspan x="532.8" y="114.8" fill="#000000">两个相邻的中心地</tspan>
+                    <tspan x="543.6" y="144.8" fill="#000000">的</tspan>
+                    <tspan x="565.2" y="144.8" fill="#FF0000">服务区重叠</tspan>
+                    <tspan x="673.2" y="144.8" fill="#000000">，</tspan>
+                    <tspan x="532.8" y="174.8" fill="#000000">充分竞争然后彻底</tspan>
+                    <tspan x="554.4" y="204.8" fill="#000000">瓜分相交部分</tspan>
+                </text>
+                <text id="形成紧密的六边形服务区" font-family="STSongti-SC-Regular, Songti SC" font-size="21.6" font-weight="normal">
+                    <tspan x="761.4" y="158" fill="#000000">形成紧密的</tspan>
+                    <tspan x="869.4" y="158" fill="#FF0000">六边形服务区</tspan>
+                </text>
+                <path d="M150.3,62.1 L210.6,62.1" id="Line" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <path id="Line-decoration-1" d="M210.6,62.1 L199.8,59.1 L199.8,65.1 L210.6,62.1 Z" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <path d="M481.5,60.3 L541.8,60.3" id="Line" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <path id="Line-decoration-1" d="M541.8,60.3 L531,57.3 L531,63.3 L541.8,60.3 Z" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <path d="M715.5,60.3 L775.8,60.3" id="Line" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <path id="Line-decoration-1" d="M775.8,60.3 L765,57.3 L765,63.3 L775.8,60.3 Z" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <path d="M150.3,330.3 L210.6,330.3" id="Line" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <path id="Line-decoration-1" d="M210.6,330.3 L199.8,327.3 L199.8,333.3 L210.6,330.3 Z" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <path d="M481.5,328.5 L541.8,328.5" id="Line" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <path id="Line-decoration-1" d="M541.8,328.5 L531,325.5 L531,331.5 L541.8,328.5 Z" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <path d="M715.5,328.5 L775.8,328.5" id="Line" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <path id="Line-decoration-1" d="M775.8,328.5 L765,325.5 L765,331.5 L775.8,328.5 Z" stroke="#FF0000" stroke-width="3.6" fill="#FF0000" fill-rule="evenodd" stroke-linecap="square"></path>
+                <text id="次一级中心地在服务-最薄弱处产生，-即在" font-family="STSongti-SC-Regular, Songti SC" font-size="21.6" font-weight="normal">
+                    <tspan x="257.4" y="419" fill="#000000">次一级中心地在服务</tspan>
+                    <tspan x="279" y="449" fill="#FF0000">最薄弱处</tspan>
+                    <tspan x="365.4" y="449" fill="#000000">产生，</tspan>
+                    <tspan x="268.2" y="479" fill="#000000">即在</tspan>
+                    <tspan x="311.4" y="479" fill="#FF0000">六边形结点</tspan>
+                    <tspan x="419.4" y="479" fill="#000000">上</tspan>
+                </text>
+                <text id="中心地之间相互-协调，形成不同-等级的中" font-family="STSongti-SC-Regular, Songti SC" font-size="21.6" font-weight="normal">
+                    <tspan x="543.6" y="419" fill="#000000">中心地之间相互</tspan>
+                    <tspan x="543.6" y="449" fill="#000000">协调，形成不同</tspan>
+                    <tspan x="532.8" y="479" fill="#000000">等级的</tspan>
+                    <tspan x="597.6" y="479" fill="#FF0000">中心地体系</tspan>
+                </text>
+                <text id="发展成为城市体系" font-family="STSongti-SC-Regular, Songti SC" font-size="21.6" font-weight="normal">
+                    <tspan x="811.8" y="336.2" fill="#000000">发展成为</tspan>
+                    <tspan x="898.2" y="336.2" fill="#FF0000">城市体系</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

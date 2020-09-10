@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="307-13-14-子集枚举DPP3959 宝藏题目描述参与考古挖掘的小明得到了一份藏宝图，藏宝图上标出了$n$个深埋在地下的宝藏屋， 也给出了这$n$个宝藏屋之间可供开发的$m$条道路和它们的长度。 小明决心亲自前往挖掘所有宝藏屋中的宝藏。但是，每个宝藏屋距离地面都很远， 也就是说，从地面打通一条到某个宝藏屋的道路是很困难的，而开发宝藏屋之间的道路 则相对容易很多。 小明的决心感动了考古挖掘的赞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="307-13-子集枚举DP">
+<meta property="og:url" content="http://gyrojeff.moe/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/index.html">
+<meta property="og:site_name" content="gyro永不抽风">
+<meta property="og:description" content="307-13-14-子集枚举DPP3959 宝藏题目描述参与考古挖掘的小明得到了一份藏宝图，藏宝图上标出了$n$个深埋在地下的宝藏屋， 也给出了这$n$个宝藏屋之间可供开发的$m$条道路和它们的长度。 小明决心亲自前往挖掘所有宝藏屋中的宝藏。但是，每个宝藏屋距离地面都很远， 也就是说，从地面打通一条到某个宝藏屋的道路是很困难的，而开发宝藏屋之间的道路 则相对容易很多。 小明的决心感动了考古挖掘的赞">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.luogu.org/upload/pic/10868.png">
+<meta property="og:image" content="http://gyrojeff.moe/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/image-20190722222654915.png">
+<meta property="og:image" content="http://gyrojeff.moe/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/image-20190722223224745.png">
+<meta property="og:image" content="http://gyrojeff.moe/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/image-20190722223809879.png">
+<meta property="article:published_time" content="2020-03-01T13:05:42.000Z">
+<meta property="article:modified_time" content="2020-03-09T11:31:48.000Z">
+<meta property="article:author" content="Haoyun Qin">
+<meta property="article:tag" content="OI">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="DP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.luogu.org/upload/pic/10868.png">
+
+<link rel="canonical" href="http://gyrojeff.moe/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+ <!-- jquery -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- live2d -->
+
+<!-- div class="waifu">
+    <div class="waifu-tips"></div>
+</div>
+<script async src="/lib/poster-girl/waifu-tips.js"></script -->
+  <title>307-13-子集枚举DP | gyro永不抽风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">gyro永不抽风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">ああああああああああああああああおおおおおおおおおおおおおおおお</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">125</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">141</span></a>
+
+  </li>
+        <li class="menu-item menu-item-done">
+
+    <a href="/done/" rel="section"><i class="fa fa-calendar fa-fw"></i>记录</a>
+
+  </li>
+        <li class="menu-item menu-item-online-course-index-(2020)">
+
+    <a href="/net-class-index/" rel="section"><i class="fa fa-book fa-fw"></i>网课索引 (2020)</a>
+
+  </li>
+        <li class="menu-item menu-item-remote-control">
+
+    <a href="/rmctrl/" rel="section"><i class="fa fa-book fa-fw"></i>Remote Control</a>
+
+  </li>
+        <li class="menu-item menu-item-cs193p-demo-01">
+
+    <a href="/playingcarddemo/" rel="section"><i class="fa fa-book fa-fw"></i>CS193P Demo 01</a>
+
+  </li>
+        <li class="menu-item menu-item-dewarper">
+
+    <a href="/dewarper/" rel="section"><i class="fa fa-book fa-fw"></i>Dewarper (Beta)</a>
+
+  </li>
+        <li class="menu-item menu-item-media">
+
+    <a href="http://home.gyrojeff.moe:10086/" rel="noopener" target="_blank"><i class="fa fa-download fa-fw"></i>媒体库</a>
+
+  </li>
+        <li class="menu-item menu-item-acg">
+
+    <a href="/2020/02/29/%E7%BA%B8%E7%89%87%E4%BA%BA-%E4%BB%AC/" rel="section"><i class="fab fa-youtube fa-fw"></i>纸片人(们)</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/JeffersonQin" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          307-13-子集枚举DP
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-01 21:05:42" itemprop="dateCreated datePublished" datetime="2020-03-01T21:05:42+08:00">2020-03-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-09 19:31:48" itemprop="dateModified" datetime="2020-03-09T19:31:48+08:00">2020-03-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/" class="post-meta-item leancloud_visitors" data-flag-title="307-13-子集枚举DP" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="307-13-14-子集枚举DP"><a href="#307-13-14-子集枚举DP" class="headerlink" title="307-13-14-子集枚举DP"></a>307-13-14-子集枚举DP</h1><h2 id="P3959-宝藏"><a href="#P3959-宝藏" class="headerlink" title="P3959 宝藏"></a>P3959 宝藏</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>参与考古挖掘的小明得到了一份藏宝图，藏宝图上标出了$n$个深埋在地下的宝藏屋， 也给出了这$n$个宝藏屋之间可供开发的$m$条道路和它们的长度。</p>
+<p>小明决心亲自前往挖掘所有宝藏屋中的宝藏。但是，每个宝藏屋距离地面都很远， 也就是说，从地面打通一条到某个宝藏屋的道路是很困难的，而开发宝藏屋之间的道路 则相对容易很多。</p>
+<p>小明的决心感动了考古挖掘的赞助商，赞助商决定免费赞助他打通一条从地面到某 个宝藏屋的通道，通往哪个宝藏屋则由小明来决定。</p>
+<p>在此基础上，小明还需要考虑如何开凿宝藏屋之间的道路。已经开凿出的道路可以 任意通行不消耗代价。每开凿出一条新道路，小明就会与考古队一起挖掘出由该条道路 所能到达的宝藏屋的宝藏。另外，小明不想开发无用道路，即两个已经被挖掘过的宝藏 屋之间的道路无需再开发。</p>
+<p>新开发一条道路的代价是：$L \times K$</p>
+<p>$L$代表这条道路的长度，$K$代表从赞助商帮你打通的宝藏屋到这条道路起点的宝藏屋所经过的 宝藏屋的数量（包括赞助商帮你打通的宝藏屋和这条道路起点的宝藏屋） 。</p>
+<p>请你编写程序为小明选定由赞助商打通的宝藏屋和之后开凿的道路，使得工程总代 价最小，并输出这个最小值。</p>
+<a id="more"></a>
+
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行两个用空格分离的正整数$n,m$，代表宝藏屋的个数和道路数。</p>
+<p>接下来$m$行，每行三个用空格分离的正整数，分别是由一条道路连接的两个宝藏 屋的编号（编号为$1  \sim n$），和这条道路的长度 $v$。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>一个正整数，表示最小的总代价。</p>
+<div data-v-44182ca5="" data-v-e7be449e="" class="sample-wrap sample" show-idx="true"><div data-v-c1761324="" data-v-44182ca5="" class="input"><strong data-v-c1761324="">输入 #1</strong> <button data-v-6b5ddc32="" data-v-c1761324="" type="button" class="copy-btn lfe-form-sz-middle" style="border-color: rgb(52, 152, 219); color: rgb(52, 152, 219); background-color: rgba(52, 152, 219, 0);">
+    复制
+  </button> <pre data-v-c1761324="">4 5 
+1 2 1 
+1 3 3 
+1 4 1 
+2 3 4 
+3 4 1 
+ </pre></div> <div data-v-c1761324="" data-v-44182ca5="" class="output"><strong data-v-c1761324="">输出 #1</strong> <button data-v-6b5ddc32="" data-v-c1761324="" type="button" class="copy-btn lfe-form-sz-middle" style="border-color: rgb(52, 152, 219); color: rgb(52, 152, 219); background-color: rgba(52, 152, 219, 0);">
+    复制
+  </button> <pre data-v-c1761324="">4</pre></div></div>
+
+<div data-v-44182ca5="" data-v-e7be449e="" class="sample-wrap sample" show-idx="true"><div data-v-c1761324="" data-v-44182ca5="" class="input"><strong data-v-c1761324="">输入 #2</strong> <button data-v-6b5ddc32="" data-v-c1761324="" type="button" class="copy-btn lfe-form-sz-middle" style="border-color: rgb(52, 152, 219); color: rgb(52, 152, 219); background-color: rgba(52, 152, 219, 0);">
+    复制
+  </button> <pre data-v-c1761324="">4 5 
+1 2 1 
+1 3 3 
+1 4 1 
+2 3 4 
+3 4 2  </pre></div> <div data-v-c1761324="" data-v-44182ca5="" class="output"><strong data-v-c1761324="">输出 #2</strong> <button data-v-6b5ddc32="" data-v-c1761324="" type="button" class="copy-btn lfe-form-sz-middle" style="border-color: rgb(52, 152, 219); color: rgb(52, 152, 219); background-color: rgba(52, 152, 219, 0);">
+    复制
+  </button> <pre data-v-c1761324="">5</pre></div></div>
+
+<h3 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h3><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.luogu.org/upload/pic/10868.png" alt="img"></p>
+<p>【样例解释1】</p>
+<p>小明选定让赞助商打通了1 11 号宝藏屋。小明开发了道路$1 \to 2$，挖掘了$2$号宝 藏。开发了道路$1 \to 4$，挖掘了$4$号宝藏。还开发了道路$4\to 3$，挖掘了$3$号宝 藏。工程总代价为：$1×1+1×1+1×2=4$</p>
+<p>【样例解释2】</p>
+<p>小明选定让赞助商打通了$1$号宝藏屋。小明开发了道路$1\to 2$，挖掘了$2$号宝 藏。开发了道路$1 \to 3$，挖掘了$3$号宝藏。还开发了道路$1\to 4$，挖掘了$4$号宝 藏。工程总代价为：$1×1+3×1+1×1=5$</p>
+<p>【数据规模与约定】</p>
+<p>对于$20%$的数据： 保证输入是一棵树，$1≤n≤8$，$v≤5000$且所有的$v$都相等。</p>
+<p>对于$40%$的数据：$ 1≤n≤81$，$0≤m≤10000$，$v≤5000$且所有的$v$都相等。</p>
+<p>对于$70%$的数据： $1≤n≤8$，$0≤m≤1000$，$v≤5000$</p>
+<p>对于$100%$的数据： $1≤n≤12$，$0≤m≤1000$，$v≤500000$</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>我们可以想到，将整张图分为一块一块的（分层图），类似于下面这样的金字塔的形状：</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/image-20190722222654915.png" class="">
+
+<p>这样做的意义是我们只允许每层的元素与上一层相连，就达到了题目的用意，这样每个节点的$L\times K$就是$w(u,v) \times lv,<del>u\in S_{lv-1},</del>v\in S_{lv}$，其中$lv0$的只能有一个节点，就是赞助商免费送的根，总结下来可以得到下面这张构图的结论：</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/image-20190722223224745.png" class="">
+
+<p>定义$f(lv,S)$，$S$为一个点集，$f(lv,S)$表示的是截至到$0\sim lv$层中所有点分别为$S$的这$lv + 1$层的总共的花费是多少。那么会有以下的式子：（枚举$T$为$S$的真子集）<br>$$<br>f(lv,S) = \min_{T\subset S} \Big { f(lv - 1,S-T) + lv \times b\sum_{u\in T}\min_{a\in S-T}w(u, a)\Big }<br>$$<br>但是仔细观察上式，还是存在问题，就是$\sum_{u\in T}\min_{a\in S-T}w(u,a)$的部分，其会出现下图的情况（单单对于$P9$而言的图）：</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/image-20190722223809879.png" class="">
+
+<p>换句话说，其可能不止访问上一层的，还会访问更加上面的点。但是我们分析后会发现，这无伤大雅，因为我们假设访问上面的点为$u$，层数为$lv’$，且$lv’ &lt; lv - 1$，则此时的费用为：<br>$$<br>L’\times K = w(u,P_9) \times lv &gt; w(u,P_9)\times (lv’ + 1)<br>$$<br>很好理解，这种状态不是最优的，所以在方程迭代的过程中，这种状态会被更好地状态所替代。</p>
+<p>接下来，就是研究方程的边界问题：<br>$$<br>f_{i\in V} (0,{i}) = 0,<del>f_{S \subset V,</del>|S| ≥2}(0,S) = \infty<br>$$<br>或者我们可以化为：<br>$$<br>f(i,S) =<br>\begin {cases}<br><del>0</del>i\in V,S={i} \<br>\infty<del>\text{otherwise}<br>\end {cases}<br>$$<br>接下来我们可以思考一下这个方程的实现，因为表示集合与判断属于或者包含的关系并不是一件简单的事情。最终，我们想到可以使用二进制数来表示集合，例如$1,</del>2,<del>3,</del>7,<del>8$都有，$4,</del>5,<del>6$没有的集合可以表示为：<br>$$<br>\begin {align*}<br>S=(&amp;</del>11000111<del>)_2 \<br>&amp;\downarrow\downarrow\downarrow\downarrow\downarrow\downarrow\downarrow\downarrow \<br>&amp;</del>87654321<br>\end {align*}<br>$$<br>用这种思想，我们可以得到以下的结论：</p>
+<ol>
+<li><p>要判断$T$是否为$S$的子集，只需要判断：</p>
+<p>$(S<del>|</del>T)==S$即可。</p>
+</li>
+<li><p>如果要判断$e$是否在集合$S$当中，只需要判断</p>
+<p>$(S <del>|</del>(1<del>\text{&lt;&lt;}</del>e)) == S$即可。</p>
+</li>
+<li><p>想要求$S-T$这个集合：</p>
+<p>$S-T=S<del>\text{^}</del>T$。</p>
+</li>
+<li><p>迭代递归求子集：</p>
+<p>$T = (T-1) <del>&amp;</del> S$，其中$T$为子集$S$为全集，$T$的初始值为$S$，这样可以枚举$S$的所有子集，时间复杂度为$O(3^n)$而不是$O(4^n)$。</p>
+</li>
+</ol>
+<p>所以可以基于方程，给出代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 1e9;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line">ll n, m, w[<span class="number">13</span>][(<span class="number">1</span> &lt;&lt; <span class="number">12</span>) + <span class="number">5</span>], f[<span class="number">13</span>][(<span class="number">1</span> &lt;&lt; <span class="number">12</span>) + <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span> &amp;&amp; m == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; <span class="number">13</span>; i ++)</span><br><span class="line">        <span class="keyword">for</span> (ll s = <span class="number">0</span>; s &lt; (<span class="number">1</span> &lt;&lt; n); s ++)</span><br><span class="line">            w[i][s] = inf;</span><br><span class="line">    <span class="keyword">while</span> (m --&gt; <span class="number">0</span>) &#123;</span><br><span class="line">        ll u, v, len; <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v &gt;&gt; len;</span><br><span class="line">        u --; v --;</span><br><span class="line">        w[u][<span class="number">1</span> &lt;&lt; v] = min(w[u][<span class="number">1</span> &lt;&lt; v], len);</span><br><span class="line">        w[v][<span class="number">1</span> &lt;&lt; u] = min(w[v][<span class="number">1</span> &lt;&lt; u], len);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">        <span class="keyword">for</span> (ll s = <span class="number">1</span>; s &lt; (<span class="number">1</span> &lt;&lt; n); s ++) &#123;</span><br><span class="line">            ll lb = s &amp; (-s);</span><br><span class="line">            w[i][s] = min(w[i][s - lb], w[i][lb]);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (ll s = <span class="number">0</span>; s &lt; (<span class="number">1</span> &lt;&lt; n); s ++)</span><br><span class="line">            f[i][s] = inf;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (ll j = <span class="number">0</span>; j &lt; n; j ++)</span><br><span class="line">        f[<span class="number">0</span>][<span class="number">1</span> &lt;&lt; j] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll lv = <span class="number">1</span>; lv &lt; n; lv ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (ll s = <span class="number">0</span>; s &lt; (<span class="number">1</span> &lt;&lt; n); s ++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (ll t = s - <span class="number">1</span>; t &gt; <span class="number">0</span>; t = (t - <span class="number">1</span>) &amp; s) &#123;</span><br><span class="line">                ll sum = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (ll x = <span class="number">0</span>; x &lt; n; x ++)</span><br><span class="line">                    <span class="keyword">if</span> ((t | (<span class="number">1</span> &lt;&lt; x)) == t) sum += w[x][s ^ t];</span><br><span class="line">                f[lv][s] = min(f[lv][s], f[lv - <span class="number">1</span>][s ^ t] + lv * sum);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = inf;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt; n; i ++)</span><br><span class="line">        ans = min(ans, f[i][(<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>]);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="P3052-USACO12MAR-摩天大楼里的奶牛Cows-in-a-Skyscraper"><a href="#P3052-USACO12MAR-摩天大楼里的奶牛Cows-in-a-Skyscraper" class="headerlink" title="P3052 [USACO12MAR]摩天大楼里的奶牛Cows in a Skyscraper"></a>P3052 [USACO12MAR]摩天大楼里的奶牛Cows in a Skyscraper</h2><div class="lg-content-left">
+<div class="lg-article am-g">
+<h3>题目描述</h3>
+<p>A little known fact about Bessie and friends is that they love stair climbing races. A better known fact is that cows really don't like going down stairs. So after the cows finish racing to the top of their favorite skyscraper, they had a problem. Refusing to climb back down using the stairs, the cows are forced to use the elevator in order to get back to the ground floor.</p>
+<p>The elevator has a maximum weight capacity of W (1 &lt;= W &lt;= 100,000,000) pounds and cow i weighs C_i (1 &lt;= C_i &lt;= W) pounds. Please help Bessie figure out how to get all the N (1 &lt;= N &lt;= 18) of the cows to the ground floor using the least number of elevator rides. The sum of the weights of the cows on each elevator ride must be no larger than W.</p>
+<p>给出n个物品，体积为w[i]，现把其分成若干组，要求每组总体积&lt;=W，问最小分组。(n&lt;=18)</p>
+<h2>输入输出格式</h2>
+<strong>输入格式：</strong><br>
+<p></p><p>* Line 1: N and W separated by a space.</p>
+<p>* Lines 2..1+N: Line i+1 contains the integer C_i, giving the weight of one of the cows.</p><p></p>
+<strong>输出格式：</strong><br>
+<p></p><p>* A single integer, R, indicating the minimum number of elevator rides needed.</p>
+<p>one of the R trips down the elevator. </p><p></p>
+<h3>输入输出样例</h3>
+<div class="am-g">
+<div class="am-u-md-6 copy-region">
+<strong>输入样例#1：</strong>
+<a class="am-badge am-radius lg-bg-orange sample-copy">复制</a>
+<pre>4 10 
+5 
+6 
+3 
+7 
+</pre>
+</div>
+<div class="am-u-md-6 copy-region">
+<strong>输出样例#1：</strong>
+<a class="am-badge am-radius lg-bg-orange sample-copy">复制</a>
+<pre>3 </pre>
+</div>
+</div>
+<h2>说明</h2>
+<p>There are four cows weighing 5, 6, 3, and 7 pounds. The elevator has a maximum weight capacity of 10 pounds.</p>
+<p>We can put the cow weighing 3 on the same elevator as any other cow but the other three cows are too heavy to be combined. For the solution above, elevator ride 1 involves cow #1 and #3, elevator ride 2 involves cow #2, and elevator ride 3 involves cow #4. Several other solutions are possible for this input.</p>
+</div>
+<div class="lg-article-sub am-g" id="sub" style="display: none;"></div>
+</div>
+
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>这道题使用一种另类的贪心想法，<font color="#FF0000">这种贪心的转移状态比较特殊</font>，在这里设了两个转移方程，分别为：<br>$$<br>\left [\begin {matrix} f(S) \g(S) \end {matrix}\right ] = \min_{u\in S}<br>\begin {cases}<br>\left [\begin {matrix} f(\complement _S{u}) \g(\complement_S{u}) +w(u) \end {matrix}\right ] </p>
+<p><del>~</del>&amp;g(\complement_S{u}) + w(u) ≤C<br>\<br>\left [\begin {matrix} f(\complement_S{u})  + 1 \w(u) \end {matrix}\right ]&amp;\text{otherwise}<br>\end {cases}<br>$$<br>其中是将<br>$$\left [\begin {matrix} f(S) \g(S) \end {matrix}\right ]$$<br>定义为一个关于$S$矩阵。$f(S)$代表以$S$为集合的牛已经关闭的电梯的数量，即电梯不再对牛开放，已经完成运送了，$g(S)$表示这集合$S$当中，除了$f(S)$中已经被送走的牛，剩下的牛的重量。<font color="#FF0000">注</font>：其中，一定存在$g(S) &lt; C$（没有一头的重量超过$C$）。</p>
+<p>有了上述定义，这个方程非常容易理解，所以只需要进行子集枚举的背包就可以了，故时间复杂度为$O(n3^n)$。</p>
+<p>AC代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; f[<span class="number">1</span> &lt;&lt; <span class="number">23</span>];</span><br><span class="line"><span class="keyword">int</span> n, c, w[<span class="number">1</span> &lt;&lt; <span class="number">23</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; c;</span><br><span class="line">    <span class="keyword">int</span> all = (<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; w[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> s = <span class="number">1</span>; s &lt;= all; s ++) &#123;</span><br><span class="line">        f[s] = <span class="built_in">make_pair</span>(n, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>; u &lt; n; u ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s &amp; (<span class="number">1</span> &lt;&lt; u)) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = f[s ^ (<span class="number">1</span> &lt;&lt; u)].first;</span><br><span class="line">                <span class="keyword">int</span> y = f[s ^ (<span class="number">1</span> &lt;&lt; u)].second;</span><br><span class="line">                <span class="keyword">if</span> (y + w[u] &lt;= c) &#123;</span><br><span class="line">                    f[s] = min(f[s], <span class="built_in">make_pair</span>(x, y + w[u]));</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    f[s] = min(f[s], <span class="built_in">make_pair</span>(x + <span class="number">1</span>, w[u]));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[all].first + (f[all].second ? <span class="number">1</span> : <span class="number">0</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>PDF: </p>
+<div class="pdfobject-container" data-target="file.pdf" data-height="500px"></div>
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+            <div style="text-align:center;color: #ccc;font-size:14px;">__EOF__</div>
+            <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        
+    </div>
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/02/28/307-01-树形背包/" rel="bookmark">307-01-树形背包</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/03/01/307-07-逐行递推/" rel="bookmark">307-07-逐行递推</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/03/01/307-08-背包应用/" rel="bookmark">307-08-背包应用</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/03/01/307-15-背包的二进制优化/" rel="bookmark">307-15-背包的二进制优化</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/02/28/306-07关系型容器/" rel="bookmark">306-07-关系型容器</a></div>
+    </li>
+  </ul>
+
+
+    
+      <style>
+.my_post_copyright {
+  width: 85%;
+  max-width: 45em;
+  margin: 2.8em auto 0;
+  padding: 0.5em 1.0em;
+  border: 1px solid #d3d3d3;
+  font-size: 0.93rem;
+  line-height: 1.6em;
+  word-break: break-all;
+  background: rgba(255,255,255,0.4);
+}
+.my_post_copyright p{margin:0;}
+.my_post_copyright span {
+  display: inline-block;
+  width: 5.2em;
+  color: #b5b5b5;
+  font-weight: bold;
+}
+.my_post_copyright .raw {
+  margin-left: 1em;
+  width: 5em;
+}
+.my_post_copyright a {
+  color: #a3d2a3;
+  border-bottom:0;
+}
+.my_post_copyright a:hover {
+  color: #a3d2a3;
+  text-decoration: underline;
+}
+.my_post_copyright:hover .fa-clipboard {
+  color: #000;
+}
+.my_post_copyright .post-url:hover {
+  font-weight: normal;
+}
+.my_post_copyright .copy-path {
+  margin-left: 1em;
+  width: 1em;
+  +mobile(){display:none;}
+}
+.my_post_copyright .copy-path:hover {
+  color: #808080;
+  cursor: pointer;
+}
+</style>
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/">307-13-子集枚举DP</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问  的个人博客"></a></p>
+  <p><span>发布时间:</span>2020年03月01日 - 21:03</p>
+  <p><span>最后更新:</span>2020年03月09日 - 19:03</p>
+  <p><span>原始链接:</span><a href="/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/" title="307-13-子集枚举DP">http://gyrojeff.moe/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gyrojeff.moe/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fab fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-SA 4.0)">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a> 转载请保留原文链接及作者！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+	  $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	    });
+    });  
+</script>
+    
+        <div class="reward-container">
+  <div>真的不买杯奶茶吗？T^T</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/wechatpay.JPG" alt="Haoyun Qin 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/alipay.JPG" alt="Haoyun Qin 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Haoyun Qin
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://gyrojeff.moe/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/" title="307-13-子集枚举DP">http://gyrojeff.moe/2020/03/01/307-13-子集枚举DP/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/OI/" rel="tag"><i class="fa fa-tag"></i> OI</a>
+              <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+              <a href="/tags/DP/" rel="tag"><i class="fa fa-tag"></i> DP</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/01/307-09-%E7%9F%A9%E9%98%B5/" rel="prev" title="307-09-矩阵">
+      <i class="fa fa-chevron-left"></i> 307-09-矩阵
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/01/307-15-%E8%83%8C%E5%8C%85%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BC%98%E5%8C%96/" rel="next" title="307-15-背包的二进制优化">
+      307-15-背包的二进制优化 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+
+    
+        <div id="comple-dark-button-wrap" style="z-index: 100000; position: fixed; right: 20px; bottom: 20px;">
+            <style>
+                .control-mask-button {
+                    display: block;
+                    width: 42px;
+                    height: 42px;
+                    line-height: 42px;
+                    color: #ff8572;
+                    background: #ffd9d3;
+                    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+                    width: 2.5em;
+                    height: 2.5em;
+                    line-height: 2.5em;
+                    border-radius: 50%;
+                    -webkit-transform: translateZ(0);
+                    transform: translateZ(0);
+                    overflow: hidden;
+                    position: relative;
+                    cursor: pointer;
+                    display: inline-block;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    -webkit-tap-highlight-color: transparent;
+                }
+                .control-mask-button:hover {
+                    color: #FFBDFF;
+                    transition-duration: 0.5s;
+                }
+            </style>
+            <a href="javascript:;" id="jeffMaskControl" class="control-mask-button"></a>
+            <script>
+                var click_time = 0;
+                
+                document.querySelector('a[id="jeffMaskControl"]').addEventListener('click', function(){
+                    click_time += 1;
+                    var content_wrap = document.getElementsByClassName('content-wrap')[0];
+                    if (click_time % 2 == 1) {
+                        content_wrap.style.cssText += 'background: rgba(175,210,237,1);';
+                    } else {
+                        content_wrap.style.cssText += 'background: rgba(175,210,237,0);';
+                    }
+                })
+            </script>
+        </div>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#307-13-14-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP"><span class="nav-number">1.</span> <span class="nav-text">307-13-14-子集枚举DP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#P3959-%E5%AE%9D%E8%97%8F"><span class="nav-number">1.1.</span> <span class="nav-text">P3959 宝藏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E-%E6%8F%90%E7%A4%BA"><span class="nav-number">1.1.4.</span> <span class="nav-text">说明&#x2F;提示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">1.1.5.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P3052-USACO12MAR-%E6%91%A9%E5%A4%A9%E5%A4%A7%E6%A5%BC%E9%87%8C%E7%9A%84%E5%A5%B6%E7%89%9BCows-in-a-Skyscraper"><span class="nav-number">1.2.</span> <span class="nav-text">P3052 [USACO12MAR]摩天大楼里的奶牛Cows in a Skyscraper</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.1.</span> <span class="nav-text">题目描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.1.</span> <span class="nav-text">输入输出样例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.4.</span> <span class="nav-text">说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">题解</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Haoyun Qin"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">Haoyun Qin</p>
+  <div class="site-description" itemprop="description">更新？咕咕咕...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+        
+          <span class="site-state-item-count">141</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">125</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JeffersonQin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JeffersonQin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1247006353@qq.com" title="E-Mail → mailto:1247006353@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/5981714994" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;5981714994" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/200035" title="洛谷 → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;200035" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/114418778" title="bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;114418778" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://music.163.com/#/user/home?nickname=gyro%E6%B0%B8%E4%B8%8D%E6%8A%BD%E9%A3%8E" title="网易云音乐 → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?nickname&#x3D;gyro%E6%B0%B8%E4%B8%8D%E6%8A%BD%E9%A3%8E" rel="noopener" target="_blank"><i class="fa fa-music fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1247006353" title="QQ → tencent:&#x2F;&#x2F;AddContact&#x2F;?fromId&#x3D;50&amp;fromSubId&#x3D;1&amp;subcmd&#x3D;all&amp;uin&#x3D;1247006353" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-coffee fa-fw"></i>
+      奶茶铺的邻居(们)
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://maplewithered.github.io/" title="https:&#x2F;&#x2F;maplewithered.github.io&#x2F;" rel="noopener" target="_blank">枫亚</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/wennitao222" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;wennitao222" rel="noopener" target="_blank">wennitao</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Haoyun Qin</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">480k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">7:17</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 23852,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'xsPOyPe0OqD5qQNhU8zV4LJg-gzGzoHsz',
+      appKey     : 'XPsvRKcStjoksikeRS8ms22q',
+      placeholder: "ヾﾉ≧∀≦)o 来呀！快活呀！~",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>
