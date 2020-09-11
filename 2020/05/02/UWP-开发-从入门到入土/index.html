@@ -331,18 +331,17 @@
 <hr>
 <h1 id="UWP-04-What-is-XAML"><a href="#UWP-04-What-is-XAML" class="headerlink" title="UWP-04 - What is XAML?"></a>UWP-04 - What is XAML?</h1><p>XAML - XML Syntax, create instances of Classes that define the UI.</p>
 <h1 id="UWP-05-Understanding-Type-Converters"><a href="#UWP-05-Understanding-Type-Converters" class="headerlink" title="UWP-05 - Understanding Type Converters"></a>UWP-05 - Understanding Type Converters</h1><p>Type Converters - Convert literal strings in XAML into enumerations, instances of classes, etc.</p>
-<h1 id="UWP-06-Understanding-Default-Properties-Complex-Properties-and-the-Property-Element-Syntax"><a href="#UWP-06-Understanding-Default-Properties-Complex-Properties-and-the-Property-Element-Syntax" class="headerlink" title="UWP-06 - Understanding Default Properties, Complex Properties and the Property Element Syntax"></a>UWP-06 - Understanding Default Properties, Complex Properties and the Property Element Syntax</h1><p>Default Property … Ex. sets Content property:</p>
-<Button>Click Me</Button>
-
-
+<h1 id="UWP-06-Understanding-Default-Properties-Complex-Properties-and-the-Property-Element-Syntax"><a href="#UWP-06-Understanding-Default-Properties-Complex-Properties-and-the-Property-Element-Syntax" class="headerlink" title="UWP-06 - Understanding Default Properties, Complex Properties and the Property Element Syntax"></a>UWP-06 - Understanding Default Properties, Complex Properties and the Property Element Syntax</h1><p>Default Property … Ex. sets Content property:<br><Button>Click Me</Button></p>
 <p>Complex Properties - Break out a property into its own element syntax:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button Name&#x3D;&quot;ClickMeButton&quot;</span><br><span class="line">        HorizontalAlignment&#x3D;&quot;Left&quot;</span><br><span class="line">        Content&#x3D;&quot;Click Me&quot;</span><br><span class="line">        Margin&#x3D;&quot;20,20,0,0&quot; </span><br><span class="line">        VerticalAlignment&#x3D;&quot;Top&quot; </span><br><span class="line">        Click&#x3D;&quot;ClickMeButton_Click&quot;</span><br><span class="line">        Width&#x3D;&quot;200&quot;</span><br><span class="line">        Height&#x3D;&quot;100&quot;</span><br><span class="line">        &gt;</span><br><span class="line">    &lt;Button.Background&gt;</span><br><span class="line">        &lt;LinearGradientBrush EndPoint&#x3D;&quot;0.5,1&quot; StartPoint&#x3D;&quot;0.5,0&quot;&gt;</span><br><span class="line">            &lt;GradientStop Color&#x3D;&quot;Black&quot; Offset&#x3D;&quot;0&quot;&#x2F;&gt;</span><br><span class="line">            &lt;GradientStop Color&#x3D;&quot;Red&quot; Offset&#x3D;&quot;1&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;LinearGradientBrush&gt;</span><br><span class="line">    &lt;&#x2F;Button.Background&gt;</span><br><span class="line">&lt;&#x2F;Button&gt;</span><br></pre></td></tr></table></figure>
+
 <h1 id="UWP-07-Understanding-XAML-Schemas-and-Namespace-Declarations"><a href="#UWP-07-Understanding-XAML-Schemas-and-Namespace-Declarations" class="headerlink" title="UWP-07 - Understanding XAML Schemas and Namespace Declarations"></a>UWP-07 - Understanding XAML Schemas and Namespace Declarations</h1><p>Don’t touch the schema stuff - it’s necessary!</p>
 <p>Schemas define rules for XAML, for UWP, for designer support, etc.</p>
 <p>Namespaces tell XAML parser where to find the definition / rules for a given element in the XAML.</p>
 <h1 id="UWP-08-XAML-Layout-with-Grids"><a href="#UWP-08-XAML-Layout-with-Grids" class="headerlink" title="UWP-08 - XAML Layout with Grids"></a>UWP-08 - XAML Layout with Grids</h1><p>Layout controls don’t have a content property … they have a Chidren property of type UIElementCollection.</p>
 <p>By embedding any control inside of a layout control, you are implicitly calling the Add method of the Children collection property.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;Grid Background&#x3D;&quot;Black&quot;&gt;</span><br><span class="line">  &lt;Grid.RowDefinitions&gt;</span><br><span class="line">    &lt;RowDefinition Height&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">    &lt;RowDefinition Height&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">    &lt;RowDefinition Height&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;Grid.RowDefinitions&gt;</span><br><span class="line">  &lt;Grid.ColumnDefinitions&gt;</span><br><span class="line">    &lt;ColumnDefinition Width&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">    &lt;ColumnDefinition Width&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">    &lt;ColumnDefinition Width&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;Grid.ColumnDefinitions&gt;</span><br><span class="line">&lt;&#x2F;Grid&gt;</span><br></pre></td></tr></table></figure>
+
 <p>Sizes expressed in terms of:</p>
 <ul>
 <li>Explicit pixels - 100</li>
@@ -357,19 +356,23 @@
 <p>6 total shares … 3* would be 50% of the available width / height.</p>
 <p>Elements put themselves into rows and columns using attached property syntax:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">  ...</span><br><span class="line">  &lt;Button Grid.Row&#x3D;&quot;0&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;Grid&gt;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>When referencing Rows and Columns … 0-based.</li>
 <li>There’s always one default implicit cell: Row 0, Column 0</li>
 <li>If not specified, element will be in the default cell</li>
 </ul>
 <h1 id="UWP-09-XAML-Layout-with-StackPanel"><a href="#UWP-09-XAML-Layout-with-StackPanel" class="headerlink" title="UWP-09 - XAML Layout with StackPanel"></a>UWP-09 - XAML Layout with StackPanel</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;StackPanel&gt;</span><br><span class="line">  &lt;TextBlock&gt;Top&lt;&#x2F;TextBlock&gt;</span><br><span class="line">  &lt;TextBlock&gt;Bottom&lt;&#x2F;TextBlock&gt;</span><br><span class="line">&lt;&#x2F;StackPanel&gt;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>Vertical Orientation by default.</li>
 <li>Left-to-right flow by default when Horizontal orientation.</li>
 <li>Most layouts will combine multiple layout controls.</li>
 <li>Grid will overlap controls.  StackPanel will stack them.</li>
 </ul>
-<h1 id="UWP-14-Legendary-Layout"><a href="#UWP-14-Legendary-Layout" class="headerlink" title="UWP-14 - Legendary Layout"></a>UWP-14 - Legendary Layout</h1><p>For the Textbox that you want to cross multiy lines:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextBox TextWrapping&#x3D;&quot;Wrap&quot;&gt;&lt;&#x2F;TextBox&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="UWP-14-Legendary-Layout"><a href="#UWP-14-Legendary-Layout" class="headerlink" title="UWP-14 - Legendary Layout"></a>UWP-14 - Legendary Layout</h1><p>For the Textbox that you want to cross multiy lines:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextBox TextWrapping&#x3D;&quot;Wrap&quot;&gt;&lt;&#x2F;TextBox&gt;</span><br></pre></td></tr></table></figure>
+
 <h1 id="UWP-17-Relative-Panel"><a href="#UWP-17-Relative-Panel" class="headerlink" title="UWP-17 - Relative Panel"></a>UWP-17 - Relative Panel</h1><p>Relative Panel can make layout relative to other components</p>
 <p>Priorities:</p>
 <ul>
@@ -788,13 +791,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">455k</span>
+    <span title="站点总字数">480k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:54</span>
+    <span title="站点阅读时长">7:17</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

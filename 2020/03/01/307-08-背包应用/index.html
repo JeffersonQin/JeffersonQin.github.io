@@ -327,17 +327,24 @@
 
       
         <h1 id="307-08-背包"><a href="#307-08-背包" class="headerlink" title="307-08-背包"></a>307-08-背包</h1><hr>
-<h2 id="P2160-SHOI2007-书柜的尺寸"><a href="#P2160-SHOI2007-书柜的尺寸" class="headerlink" title="P2160 [SHOI2007]书柜的尺寸"></a>P2160 [SHOI2007]书柜的尺寸</h2><p><h3>题目描述</h3></p>
-<p><p>Tom不喜欢那种一字长龙式的大书架，他只想要一个小书柜来存放他的系列工具书。Tom打算把书柜放在桌子的后面，这样需要查书的时候就可以不用起身离开了。</p></p>
-<p><p>显然，这种书柜不能太大，Tom希望它的体积越小越好。另外，出于他的审美要求，他只想要一个三层的书柜。为了物尽其用，Tom规定每层必须至少放一本书。现在的问题是，Tom怎么分配他的工具书，才能让木匠造出最小的书柜来呢？ </p></p>
-<p><p>Tom很快意识到这是一个数学问题。每本书都有自己的高度hi和厚度ti。我们需要求的是一个分配方案，也就是要求把所有的书分配在S1、S2和S3三个非空集合里面的一个，不重复也不遗漏，那么，很明显，书柜正面表面积（S）的计算公式就是： </p></p>
-<script type="math/tex; mode=display">
-S = \Bigg(\sum_{j = 1}^3 \max_{i \in S_j}h_i\Bigg) \times \Big(\max_{j=1}^3 \sum_{i \in S_j}t_i\Big)</script><p><p>由于书柜的深度是固定的（显然，它应该等于那本最宽的书的长度），所以要求书柜的体积最小就是要求S最小。Tom离答案只有一步之遥了。不过很遗憾，Tom并不擅长于编程，于是他邀请你来帮助他解决这个问题。</p><br><a id="more"></a></p>
-<p><h3>输入输出格式</h3><br><strong>输入格式：</strong></p>
-<p><p>文件的第一行只有一个整数n（3≤n≤70），代表书本的本数。<br>
-接下来有n行，每行有两个整数hi和ti，代表每本书的高度和厚度，我们保证150≤hi≤300，5≤ti≤30。</p><strong>输出格式：</strong></p>
-<p><p>只有一行，即输出最小的S。</p></p>
-<p><h3>输入输出样例</h3></p>
+<h2 id="P2160-SHOI2007-书柜的尺寸"><a href="#P2160-SHOI2007-书柜的尺寸" class="headerlink" title="P2160 [SHOI2007]书柜的尺寸"></a>P2160 [SHOI2007]书柜的尺寸</h2><h3>题目描述</h3>
+<p>Tom不喜欢那种一字长龙式的大书架，他只想要一个小书柜来存放他的系列工具书。Tom打算把书柜放在桌子的后面，这样需要查书的时候就可以不用起身离开了。</p>
+<p>显然，这种书柜不能太大，Tom希望它的体积越小越好。另外，出于他的审美要求，他只想要一个三层的书柜。为了物尽其用，Tom规定每层必须至少放一本书。现在的问题是，Tom怎么分配他的工具书，才能让木匠造出最小的书柜来呢？ </p>
+<p>Tom很快意识到这是一个数学问题。每本书都有自己的高度hi和厚度ti。我们需要求的是一个分配方案，也就是要求把所有的书分配在S1、S2和S3三个非空集合里面的一个，不重复也不遗漏，那么，很明显，书柜正面表面积（S）的计算公式就是： </p>
+$$
+S = \Bigg(\sum_{j = 1}^3 \max_{i \in S_j}h_i\Bigg) \times \Big(\max_{j=1}^3 \sum_{i \in S_j}t_i\Big)
+$$
+
+<p>由于书柜的深度是固定的（显然，它应该等于那本最宽的书的长度），所以要求书柜的体积最小就是要求S最小。Tom离答案只有一步之遥了。不过很遗憾，Tom并不擅长于编程，于是他邀请你来帮助他解决这个问题。</p>
+<a id="more"></a>
+<h3>输入输出格式</h3>
+<strong>输入格式：</strong>
+
+<p>文件的第一行只有一个整数n（3≤n≤70），代表书本的本数。<br>
+接下来有n行，每行有两个整数hi和ti，代表每本书的高度和厚度，我们保证150≤hi≤300，5≤ti≤30。</p><strong>输出格式：</strong>
+
+<p>只有一行，即输出最小的S。</p>
+<h3>输入输出样例</h3>
 <div class="am-g">
 <div class="am-u-md-6 copy-region">
 <strong>输入样例#1：</strong>
@@ -355,31 +362,30 @@ S = \Bigg(\sum_{j = 1}^3 \max_{i \in S_j}h_i\Bigg) \times \Big(\max_{j=1}^3 \sum
 </div>
 </div>
 
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>首先将书按照高度</p>
-<script type="math/tex; mode=display">
-f[i][j][k][l] = \min
-\begin {cases}
-f[i-1][j-t[i]][k][l] + (j ==t[i]) * h[i] \\
-f[i-1][j][k-t[i]][l] + (k ==t[i]) * h[i] \\
-f[i-1][j][k][l-t[i]] + (l ==t[i]) * h[i]
-\end {cases}</script><p>但是我们可以发现这样空间复杂度会太高，所以为了解决这个问题，可以有以下做法：</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>首先将书按照高度<br>$$<br>f[i][j][k][l] = \min<br>\begin {cases}<br>f[i-1][j-t[i]][k][l] + (j ==t[i]) * h[i] \<br>f[i-1][j][k-t[i]][l] + (k ==t[i]) * h[i] \<br>f[i-1][j][k][l-t[i]] + (l ==t[i]) * h[i]<br>\end {cases}<br>$$</p>
+<p>但是我们可以发现这样空间复杂度会太高，所以为了解决这个问题，可以有以下做法：</p>
 <ol>
 <li>最后一维可以同过维护前缀和：$l = s[i]-j-k$来得到，可以省略一维</li>
 <li>第一维$i$可以用滚动数组滚掉</li>
 </ol>
 <p>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll maxn = <span class="number">2105</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">    ll h, t;</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node &amp;a, <span class="keyword">const</span> node &amp;b) &#123;</span><br><span class="line">        <span class="keyword">return</span> a.h &gt; b.h;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; a[maxn];</span><br><span class="line"></span><br><span class="line">ll n, s[maxn], f[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i].h &gt;&gt; a[i].t;</span><br><span class="line">    sort(a + <span class="number">1</span>, a + n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        s[i] = s[i - <span class="number">1</span>] + a[i].t;</span><br><span class="line">    ll sum = s[n];</span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (ll j = sum; j &gt;= <span class="number">0</span>; j --) &#123;</span><br><span class="line">            <span class="keyword">for</span> (ll k = sum - j; k &gt;= <span class="number">0</span>; k --) &#123;</span><br><span class="line">                ll x1 = j - a[i].t;</span><br><span class="line">                ll x2 = k - a[i].t;</span><br><span class="line">                ll x3 = s[i] - j - k - a[i].t;</span><br><span class="line">                ll t1 = <span class="number">1e9</span>, t2 = <span class="number">1e9</span>, t3 = <span class="number">1e9</span>;</span><br><span class="line">                <span class="keyword">if</span> (x1 &gt;= <span class="number">0</span>) t1 = f[x1][k];</span><br><span class="line">                <span class="keyword">if</span> (x1 == <span class="number">0</span>) t1 += a[i].h;</span><br><span class="line">                <span class="keyword">if</span> (x2 &gt;= <span class="number">0</span>) t2 = f[j][x2];</span><br><span class="line">                <span class="keyword">if</span> (x2 == <span class="number">0</span>) t2 += a[i].h;</span><br><span class="line">                <span class="keyword">if</span> (x3 &gt;= <span class="number">0</span>) t3 = f[j][k];</span><br><span class="line">                <span class="keyword">if</span> (x3 == <span class="number">0</span>) t3 += a[i].h;</span><br><span class="line">                f[j][k] = min(t1, min(t2, t3));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">8e18</span>;</span><br><span class="line">  	<span class="comment">// i，j，l至少为1</span></span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= sum - <span class="number">2</span>; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (ll j = <span class="number">1</span>; i + j &lt; sum; j ++) &#123;</span><br><span class="line">            ans = min(ans, max(i, max(j, sum - i - j)) * f[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><h2 data-v-16e69265="" data-v-7231c4e6="" class="lfe-h1"> P2967 [USACO09DEC]视频游戏的麻烦Video Game Troubles</h2></p>
-<p><h3>题意翻译</h3></p>
-<p><p>农夫约翰的奶牛们打游戏上瘾了！本来约翰是想要按照调教兽的做法拿她们去电击戒瘾的，可后来他发现奶牛们玩游戏之后比原先产更多的奶。很明显，这是因为满足的牛会产更多的奶。</p></p>
-<p><p>但是，奶牛们因何者为最好的游戏主机而吵得不可开交。约翰想要在给定的预算内购入一些游戏平台和一些游戏，使他的奶牛们生产最多的奶牛以养育最多的小牛。</p><br>约翰考察了 N 种游戏主机，第 i 种主机的价格是 $P_i$，该主机有 $G_i$ 个独占游戏。很明显，奶牛必须先买进一种游戏主机，才能买进在这种主机上运行的游戏。在每种主机中，游戏 j 的价格为 ，$GP_j$每头奶牛在玩了该游戏后的牛奶产量为 $PV_j$。</p>
+
+
+
+
+
+<h2 data-v-16e69265="" data-v-7231c4e6="" class="lfe-h1"> P2967 [USACO09DEC]视频游戏的麻烦Video Game Troubles</h2>
+<h3>题意翻译</h3>
+<p>农夫约翰的奶牛们打游戏上瘾了！本来约翰是想要按照调教兽的做法拿她们去电击戒瘾的，可后来他发现奶牛们玩游戏之后比原先产更多的奶。很明显，这是因为满足的牛会产更多的奶。</p>
+<p>但是，奶牛们因何者为最好的游戏主机而吵得不可开交。约翰想要在给定的预算内购入一些游戏平台和一些游戏，使他的奶牛们生产最多的奶牛以养育最多的小牛。</p>
+约翰考察了 N 种游戏主机，第 i 种主机的价格是 $P_i$，该主机有 $G_i$ 个独占游戏。很明显，奶牛必须先买进一种游戏主机，才能买进在这种主机上运行的游戏。在每种主机中，游戏 j 的价格为 ，$GP_j$每头奶牛在玩了该游戏后的牛奶产量为 $PV_j$。
+
 <p>农夫约翰的预算为 V。请帮助他确定应该买什么游戏主机和游戏，使得他能够获得的产出值的和最大。</p>
 <h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>定义：</p>
 <p>$h[i]$：总共花费$i$元可以获得的最大产出</p>
 <p>$f[i]$：花费$i$元且购买<strong>当前</strong>游戏机所获得的最大产出</p>
-<p>背包问题方程：</p>
-<script type="math/tex; mode=display">
-f[i] = \max\{f[i],~f[i-gp[j]] + pv[j]\}</script><p>则可以有以下过程：</p>
+<p>背包问题方程：<br>$$<br>f[i] = \max{f[i],~f[i-gp[j]] + pv[j]}<br>$$<br>则可以有以下过程：</p>
 <p>每次循环：</p>
 <ol>
 <li>将上一轮的$h[i]$赋值给$f[i]$</li>
@@ -389,8 +395,8 @@ f[i] = \max\{f[i],~f[i-gp[j]] + pv[j]\}</script><p>则可以有以下过程：</
 <p><strong>注</strong>：在整个过程中，要注意<strong>边界</strong>的问题。</p>
 <p>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1000005</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, v;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> f[maxn], h[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; v;</span><br><span class="line">    <span class="keyword">while</span> (n --&gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> p, g; <span class="built_in">cin</span> &gt;&gt; p &gt;&gt; g;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = v; i &gt;= <span class="number">0</span>; i --) f[i] = h[i];</span><br><span class="line">        <span class="keyword">while</span> (g --&gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> gp, pv; <span class="built_in">cin</span> &gt;&gt; gp &gt;&gt; pv;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = v; i &gt;= gp; i --)</span><br><span class="line">                f[i] = max(f[i], f[i - gp] + pv);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = v; i &gt;= p; i --)</span><br><span class="line">            h[i] = max(h[i], f[i - p]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; h[v] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>PDF:<br><div class="pdfobject-container" data-target="file.pdf" data-height="500px"></div></p>
-
+<p>PDF: </p>
+<div class="pdfobject-container" data-target="file.pdf" data-height="500px"></div>
     </div>
 
     
@@ -419,7 +425,7 @@ f[i] = \max\{f[i],~f[i-gp[j]] + pv[j]\}</script><p>则可以有以下过程：</
       <div class="popular-posts-title"><a href="/2020/03/01/307-13-子集枚举DP/" rel="bookmark">307-13-子集枚举DP</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2020/02/28/306-07关系型容器/" rel="bookmark">306-07-关系型容器</a></div>
+      <div class="popular-posts-title"><a href="/2020/02/28/306-03-逆序对的应用/" rel="bookmark">306-03-逆序对的应用</a></div>
     </li>
   </ul>
 
@@ -785,13 +791,13 @@ f[i] = \max\{f[i],~f[i-gp[j]] + pv[j]\}</script><p>则可以有以下过程：</
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">455k</span>
+    <span title="站点总字数">480k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:54</span>
+    <span title="站点阅读时长">7:17</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
