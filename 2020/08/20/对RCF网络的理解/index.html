@@ -141,7 +141,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">21</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -287,7 +287,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -321,12 +321,16 @@
 <li>每一层中有<em>deconv</em>层进行上采样，将图像大小映射回原来的大小，最后在<em>fusion</em>部分将每一个<em>stage</em>的输出叠加，在进行一遍$1\times 1 - 1$的卷积将多通道合并，来达到获取多种混合信息的能力。</li>
 </ul>
 <h1 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h1><p>由于数据集通常是由多个标记者 (Annotator) 标记的。虽然每个人的认知不同，但是大家的结果都具有很高的一致性。对于每一张图片，我们将所有人的标记取平均值来生成一个边缘存在的概率图。对于每一个点，$0$代表没有标记者认为这个点是边缘，$1$则代表所有人都认为这个点是边缘。这里定义一个超参数$\eta$：如果一个点是边缘的概率大于$\eta$，则这个点我们认为其是边缘；若这个点的概率是$ 0 $，则其不是边缘；此外，认为那些概率介于$ 0 $和$ \eta $之间的点是属于有争议的点，不计入损失函数。所以，每一个点的损失函数可以记为：</p>
-<p>$$ l(X_i; W) = \begin{cases}<br>    \alpha \cdot \log (1 - P(X_i; W)) &amp; \text {if } y_i = 0 \<br>    0 &amp; \text {if } 0 &lt; y_i \leq \eta \<br>    \beta \cdot \log P(X_i; W) &amp; \text {otherwise},<br>\end{cases} $$</p>
-<p>其中，</p>
-<p>$$<br>    \alpha = \lambda \cdot \frac {|Y^+|} {|Y^+| + |Y^-|}<br>$$<br>$$<br>    \beta = \cdot \frac {|Y^-|} {|Y^+| + |Y^-|}<br>$$</p>
-<p>$|Y^+|$表示图中一定是边缘的点的个数，$|Y^-|$表示图中<strong>一定不是</strong>边缘的点的个数，$\lambda$则是超参数。在像素$i$的特征向量和是否为边缘的事实表示分别为$X_i$和$y_i$，$P(X)$是一个标准的Sigmoid激活函数，$W$则代表网络中的所有学习参数。所以，整个图片的损失函数可以记为：</p>
-<p>$$<br>    L(W) = \sum _ {i = 1} ^ {|I|} \Big ( \sum _ {k = 1} ^ K l(X_i ^ {(k)}; W) + l(X_i ^ {\text {fuse}}; W)\Big )<br>$$</p>
-<p>其中，$X_i ^ {(k)}$表示<em>stage k</em>的特征向量，$X_i ^ \text {fuse}$表示<em>stage fusion</em>的特征向量，$|I|$代表像素个数，$|K|$代表阶段数（此处为5）</p>
+<script type="math/tex; mode=display">l(X_i; W) = \begin{cases}
+    \alpha \cdot \log (1 - P(X_i; W)) & \text {if } y_i = 0 \\
+    0 & \text {if } 0 < y_i \leq \eta \\
+    \beta \cdot \log P(X_i; W) & \text {otherwise}, 
+\end{cases}</script><p>其中，</p>
+<script type="math/tex; mode=display">
+    \alpha = \lambda \cdot \frac {|Y^+|} {|Y^+| + |Y^-|}</script><script type="math/tex; mode=display">
+    \beta = \cdot \frac {|Y^-|} {|Y^+| + |Y^-|}</script><p>$|Y^+|$表示图中一定是边缘的点的个数，$|Y^-|$表示图中<strong>一定不是</strong>边缘的点的个数，$\lambda$则是超参数。在像素$i$的特征向量和是否为边缘的事实表示分别为$X_i$和$y_i$，$P(X)$是一个标准的Sigmoid激活函数，$W$则代表网络中的所有学习参数。所以，整个图片的损失函数可以记为：</p>
+<script type="math/tex; mode=display">
+    L(W) = \sum _ {i = 1} ^ {|I|} \Big ( \sum _ {k = 1} ^ K l(X_i ^ {(k)}; W) + l(X_i ^ {\text {fuse}}; W)\Big )</script><p>其中，$X_i ^ {(k)}$表示<em>stage k</em>的特征向量，$X_i ^ \text {fuse}$表示<em>stage fusion</em>的特征向量，$|I|$代表像素个数，$|K|$代表阶段数（此处为5）</p>
 <h1 id="Online-Demo"><a href="#Online-Demo" class="headerlink" title="Online Demo"></a>Online Demo</h1><p><a target="_blank" rel="noopener" href="https://mc.nankai.edu.cn/edge">https://mc.nankai.edu.cn/edge</a></p>
 
     </div>
@@ -627,7 +631,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -713,13 +717,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">482k</span>
+    <span title="站点总字数">457k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:18</span>
+    <span title="站点阅读时长">6:56</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -921,10 +925,10 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 </html>

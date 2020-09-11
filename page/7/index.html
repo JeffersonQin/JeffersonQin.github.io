@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">21</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -299,19 +299,14 @@
 <h1 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h1><p>New File -&gt; Objective-C，系统会弹出弹窗问要不要Create Bridge File，选择Yes。然后在Objective-C文件中import这个Bridge File作为头文件，开放的接口写在Bridge File当中</p>
 <p>Objective-C:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;xxxxx-Bridge-File.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation ClassA</span><br><span class="line">	+ (void) testMethod :(double) parameterA :(double) parameterB &#123;</span><br><span class="line">		NSLog(@&quot;Hello World!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-
 <p>Header:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation&#x2F;Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface ClassA : NSObject</span><br><span class="line"></span><br><span class="line">+ (void) testMethod :(double) parameterA :(double) parameterB;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-
-<p>Swift调用：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ClassA</span>.testMethod(<span class="number">1.0</span>, <span class="number">2.0</span>)</span><br></pre></td></tr></table></figure>
-
+<p>Swift调用：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ClassA</span>.testMethod(<span class="number">1.0</span>, <span class="number">2.0</span>)</span><br></pre></td></tr></table></figure></p>
 <h1 id="关于在项目中的设置"><a href="#关于在项目中的设置" class="headerlink" title="关于在项目中的设置"></a>关于在项目中的设置</h1><p>设置部分可以在Build Setting中找到（项目文件中）</p>
 <h1 id="C、C-混编的实现"><a href="#C、C-混编的实现" class="headerlink" title="C、C++混编的实现"></a>C、C++混编的实现</h1><p>我们会发现，Objective-C的语法糖不多，我们更想要的是C++。而众所周知，Objective-C是可以调用Cpp的，而且将后缀名改为<code>.mm</code>之后，是Objective-C++，支持C++的方法及语法。全部都不难实现。其实只需要将所有东西分装起来即可。</p>
 <p>比如我做OpenCV处理时分装的库：</p>
 <p><code>HQMatProcessor.hpp</code>：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  HQMatProcessor.hpp</span></span><br><span class="line"><span class="comment">//  Page Dewarper</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Jefferson Qin on 2020/4/8.</span></span><br><span class="line"><span class="comment">//  Copyright &amp;copy; 2020 Jefferson Qin. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> HQMatProcessor_hpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> HQMatProcessor_hpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> HQCV &#123;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSharpened</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getGray</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobelX</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobelY</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobel</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getGaussian</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">drawPoint</span><span class="params">(cv::Mat src, <span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">drawLine</span><span class="params">(cv::Mat src, <span class="keyword">double</span> x1, <span class="keyword">double</span> y1, <span class="keyword">double</span> x2, <span class="keyword">double</span> y2)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* HQMatProcessor_hpp */</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p><code>HQMatProcessor.cpp</code>：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  HQMatProcessor.cpp</span></span><br><span class="line"><span class="comment">//  Page Dewarper</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Jefferson Qin on 2020/4/8.</span></span><br><span class="line"><span class="comment">//  Copyright &amp;copy; 2020 Jefferson Qin. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;HQMatProcessor.hpp&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> HQCV &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSharpened</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat kernel = (cv::Mat_&lt;<span class="keyword">char</span>&gt;(<span class="number">3</span>, <span class="number">3</span>) &lt;&lt; <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">5</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>);</span><br><span class="line">        cv::Mat ret;</span><br><span class="line">        cv::filter2D(src, ret, CV_32F, kernel);</span><br><span class="line">        cv::convertScaleAbs(ret, ret);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getGray</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst;</span><br><span class="line">        cv::cvtColor(src, dst, cv::COLOR_BGR2GRAY);</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobelX</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst;</span><br><span class="line">        cv::Sobel(src, dst, CV_16S, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, cv::BORDER_DEFAULT);</span><br><span class="line">        cv::convertScaleAbs(dst, dst);</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobelY</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst;</span><br><span class="line">        cv::Sobel(src, dst, CV_16S, <span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, cv::BORDER_DEFAULT);</span><br><span class="line">        cv::convertScaleAbs(dst, dst);</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobel</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst;</span><br><span class="line">        cv::addWeighted(HQCV::getSobelX(src), <span class="number">0.5</span>, HQCV::getSobelY(src), <span class="number">0.5</span>, <span class="number">0</span>, dst);</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getGaussian</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst;</span><br><span class="line">        cv::GaussianBlur(src, dst, cv::Size(<span class="number">3</span>, <span class="number">3</span>), <span class="number">0</span>, <span class="number">0</span>, cv::BORDER_DEFAULT);</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">drawPoint</span><span class="params">(cv::Mat src, <span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst = src.clone();</span><br><span class="line">        cv::circle(dst, cv::Point(x, y), <span class="number">8</span>, cv::Scalar(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>));</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">drawLine</span><span class="params">(cv::Mat src, <span class="keyword">double</span> x1, <span class="keyword">double</span> y1, <span class="keyword">double</span> x2, <span class="keyword">double</span> y2)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst = src.clone();</span><br><span class="line">        cv::line(dst, cv::Point(x1, y1), cv::Point(x2, y2), cv::Scalar(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>));</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
@@ -413,9 +408,7 @@
 <div class="note danger">注：opencv的库一定要在最前面，否则编译过不了，具体原因可以试试写错，然后源码中有提示，是宏的定义产生的问题</div></li>
 <li>Objective-C当中需要开放的接口在Bridge File中写</li>
 </ul>
-<h1 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h1><p>不可以随便</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv</span><br></pre></td></tr></table></figure>
-<p>因为有很多class的名称会和Swift冲突，所以还是老老实实<code>cv::Point</code>之类的。</p>
+<h1 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h1><p>不可以随便<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv</span><br></pre></td></tr></table></figure><br>因为有很多class的名称会和Swift冲突，所以还是老老实实<code>cv::Point</code>之类的。</p>
 
       
     </div>
@@ -508,66 +501,70 @@
 
       
           <h1 id="4-10-地理课-世界主要农业地域类型"><a href="#4-10-地理课-世界主要农业地域类型" class="headerlink" title="4/10 地理课 - 世界主要农业地域类型"></a>4/10 地理课 - 世界主要农业地域类型</h1><p>基本概念：<strong>农业地域类型</strong>是指在不同地内形成的具有不同部门结构和特点的农业生产类型</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">农业地域类型</th>
-<th align="center">主要农产品</th>
-<th align="center">主要分布地区</th>
-<th align="center">区位条件</th>
-<th align="center">生产主要特点</th>
+<th style="text-align:center">农业地域类型</th>
+<th style="text-align:center">主要农产品</th>
+<th style="text-align:center">主要分布地区</th>
+<th style="text-align:center">区位条件</th>
+<th style="text-align:center">生产主要特点</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">水田农业</td>
-<td align="center">水稻等</td>
-<td align="center">东亚、南亚、东南亚，我国主要分布在东部季风区的秦岭淮河以南地区</td>
-<td align="center">主要分布在季风气候区，光热水资源丰富；以平原、丘陵低山为主，人口稠密，劳动力资源丰富</td>
-<td align="center">生产规模小；单位面积产量高；商品率低；机械化水平低和科技水平低</td>
+<tbody>
+<tr>
+<td style="text-align:center">水田农业</td>
+<td style="text-align:center">水稻等</td>
+<td style="text-align:center">东亚、南亚、东南亚，我国主要分布在东部季风区的秦岭淮河以南地区</td>
+<td style="text-align:center">主要分布在季风气候区，光热水资源丰富；以平原、丘陵低山为主，人口稠密，劳动力资源丰富</td>
+<td style="text-align:center">生产规模小；单位面积产量高；商品率低；机械化水平低和科技水平低</td>
 </tr>
 <tr>
-<td align="center">旱作农业</td>
-<td align="center">玉米、高粱、小麦、棉花、花生等</td>
-<td align="center">中亚、南亚、非洲、拉丁美洲的干旱和半干旱地区；中国的东北、华北、西北地区</td>
-<td align="center">水资源并不丰富；人口密度一般比水田地区低，生产水平不高</td>
-<td align="center">机械化程度不高，生产水平较低，商品率低</td>
+<td style="text-align:center">旱作农业</td>
+<td style="text-align:center">玉米、高粱、小麦、棉花、花生等</td>
+<td style="text-align:center">中亚、南亚、非洲、拉丁美洲的干旱和半干旱地区；中国的东北、华北、西北地区</td>
+<td style="text-align:center">水资源并不丰富；人口密度一般比水田地区低，生产水平不高</td>
+<td style="text-align:center">机械化程度不高，生产水平较低，商品率低</td>
 </tr>
 <tr>
-<td align="center">牧场畜牧业</td>
-<td align="center">牛羊为主</td>
-<td align="center">美国、澳大利亚、新西兰、阿根廷等</td>
-<td align="center">气候温和、曹磊茂盛，有优良天然草场；地广人稀</td>
-<td align="center">经营规模大，专业化水平、商品率和机械化程度高</td>
+<td style="text-align:center">牧场畜牧业</td>
+<td style="text-align:center">牛羊为主</td>
+<td style="text-align:center">美国、澳大利亚、新西兰、阿根廷等</td>
+<td style="text-align:center">气候温和、曹磊茂盛，有优良天然草场；地广人稀</td>
+<td style="text-align:center">经营规模大，专业化水平、商品率和机械化程度高</td>
 </tr>
 <tr>
-<td align="center">高度发达的商品化混合农业</td>
-<td align="center">麦类、玉米和畜产品</td>
-<td align="center">北美东部、西欧和中欧、澳大利亚东南部和西南部</td>
-<td align="center">处于温带、亚热带地区、水热条件比较好；水源充足；地势平坦；交通便利；生产力水平高，经济发达；市场广大</td>
-<td align="center">规模大，机械化、专业化、商品化程度高，实行农牧结合</td>
+<td style="text-align:center">高度发达的商品化混合农业</td>
+<td style="text-align:center">麦类、玉米和畜产品</td>
+<td style="text-align:center">北美东部、西欧和中欧、澳大利亚东南部和西南部</td>
+<td style="text-align:center">处于温带、亚热带地区、水热条件比较好；水源充足；地势平坦；交通便利；生产力水平高，经济发达；市场广大</td>
+<td style="text-align:center">规模大，机械化、专业化、商品化程度高，实行农牧结合</td>
 </tr>
 <tr>
-<td align="center">地中海型农业</td>
-<td align="center">小麦、大麦、蔬菜、葡萄等</td>
-<td align="center">南欧、西欧、北非地中海沿岸、南北美洲西海岸的地中海气候区</td>
-<td align="center">地中海气候，夏季炎热干燥，有利于糖分的积累；冬季温和湿润，有利于作物越冬</td>
-<td align="center">生产规模小，机械化程度低</td>
+<td style="text-align:center">地中海型农业</td>
+<td style="text-align:center">小麦、大麦、蔬菜、葡萄等</td>
+<td style="text-align:center">南欧、西欧、北非地中海沿岸、南北美洲西海岸的地中海气候区</td>
+<td style="text-align:center">地中海气候，夏季炎热干燥，有利于糖分的积累；冬季温和湿润，有利于作物越冬</td>
+<td style="text-align:center">生产规模小，机械化程度低</td>
 </tr>
 <tr>
-<td align="center">热带种植园农业</td>
-<td align="center">橡胶、咖啡、香蕉、菠萝等</td>
-<td align="center">亚洲、非洲、拉丁美洲一些热带地区。我国分布在海南省、云南、广东南部地区</td>
-<td align="center">热带气候，劳动力充足</td>
-<td align="center">专门生产一种或几种热带经济作物，商品率高，生产力低</td>
+<td style="text-align:center">热带种植园农业</td>
+<td style="text-align:center">橡胶、咖啡、香蕉、菠萝等</td>
+<td style="text-align:center">亚洲、非洲、拉丁美洲一些热带地区。我国分布在海南省、云南、广东南部地区</td>
+<td style="text-align:center">热带气候，劳动力充足</td>
+<td style="text-align:center">专门生产一种或几种热带经济作物，商品率高，生产力低</td>
 </tr>
 <tr>
-<td align="center">游牧畜牧业</td>
-<td align="center">牛羊为主</td>
-<td align="center">中亚、西亚、北非、南非、我国四大牧区</td>
-<td align="center">干旱、半干旱、科技水平低</td>
-<td align="center">游牧为主、自给为主</td>
+<td style="text-align:center">游牧畜牧业</td>
+<td style="text-align:center">牛羊为主</td>
+<td style="text-align:center">中亚、西亚、北非、南非、我国四大牧区</td>
+<td style="text-align:center">干旱、半干旱、科技水平低</td>
+<td style="text-align:center">游牧为主、自给为主</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 
       
     </div>
@@ -646,7 +643,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>780</span>
+              <span>768</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -713,15 +710,12 @@
 <li>政策因素</li>
 </ol>
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/04/09/200409-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/1.jpg" class="">
-
 <h2 id="案例分析：丹麦农业区位变化"><a href="#案例分析：丹麦农业区位变化" class="headerlink" title="案例分析：丹麦农业区位变化"></a>案例分析：丹麦农业区位变化</h2><ul>
 <li>早期：全年温和多雨，地势平坦、国土狭小，土壤贫瘠，排水较差，只能发展牧羊业。</li>
 <li>19世纪中叶：通过排干沼泽的水，大量使用肥料，开始发展小麦种职业。</li>
 <li>现在：北美联佳小麦夺走了欧洲市场，考虑欧洲人爱吃面包需要牛油、奶酪和肉类，开始发展牛畜牧业。</li>
 </ul>
-<p>$$技术、交通、市场$$</p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>$$\color{white}{\colorbox{red}{自然因素：影响力不断下降}}$$<br>$$\color{white}{\colorbox{green}{社会经济因素：影响力不断上升}}$$</p>
-
+<script type="math/tex; mode=display">技术、交通、市场</script><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><script type="math/tex; mode=display">\color{white}{\colorbox{red}{自然因素：影响力不断下降}}</script><script type="math/tex; mode=display">\color{white}{\colorbox{green}{社会经济因素：影响力不断上升}}</script>
       
     </div>
 
@@ -793,7 +787,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -813,26 +807,25 @@
 
       
           <h1 id="4-7-化学课"><a href="#4-7-化学课" class="headerlink" title="4/7 化学课"></a>4/7 化学课</h1><h2 id="固氮"><a href="#固氮" class="headerlink" title="固氮"></a>固氮</h2><ol>
-<li>大气固氮<br>$$\ce {N2 + O2 -&gt;[放电] 2NO}$$</li>
-<li>生物固氮<br>$$\ce {N2 -&gt;[固氮酶][H^+] 氨基酸}$$</li>
-<li>人工合成固氮<br>$$\ce {N2 + 3H2 &lt;=&gt;[高温、高压][催化剂] 2NH3}$$</li>
+<li>大气固氮<script type="math/tex; mode=display">\ce {N2 + O2 ->[放电] 2NO}</script></li>
+<li>生物固氮<script type="math/tex; mode=display">\ce {N2 ->[固氮酶][H^+] 氨基酸}</script></li>
+<li>人工合成固氮<script type="math/tex; mode=display">\ce {N2 + 3H2 <=>[高温、高压][催化剂] 2NH3}</script></li>
 </ol>
 <h2 id="氮气与氮氧化物"><a href="#氮气与氮氧化物" class="headerlink" title="氮气与氮氧化物"></a>氮气与氮氧化物</h2><ol>
 <li>$\ce {NO}$无色气体</li>
 <li>$\ce {NO2}$红棕色气体</li>
 <li>$\ce {N2}$无色无味气体</li>
 </ol>
-<p>$$\ce {N2 + 3Mg -&gt;[点燃] Mg3N2}$$<br>$$\ce {N2 + 3H2 &lt;=&gt;[高温高压][催化剂]2NH3}$$<br>$$\ce {N2 + O2 -&gt;[放电] 2NO}$$<br>$$\ce {2NO + O2 -&gt; 2NO2}$$<br>$$\ce {3NO2 + H2O -&gt; 2HNO3 + NO}$$</p>
-<h2 id="氨气"><a href="#氨气" class="headerlink" title="氨气"></a>氨气</h2><ol>
-<li>水溶液呈碱性<br>$$\ce {NH3 + H2O &lt;=&gt; NH3<em>H2O &lt;=&gt; NH4+ + OH-}$$<br>$$\ce {3NH3</em>H2O + Fe^3+ -&gt; Fe(OH)3 v + 3NH4+}$$</li>
-<li>与酸反应生成铵盐<br>$$\ce {NH3 + H+ -&gt; NH4+}$$<br>$$\ce {NH3 + HCl -&gt; NH4Cl}$$<br>$$\ce {2NH3 + H2SO4 -&gt; (NH4)2SO4}$$</li>
-<li>还原性<br>$$\ce {4NH3 + 5O2 -&gt;[催化剂][加热] 4NO + 6H2O + Q}$$<br>$$\ce {4NH3 + 3O2 -&gt;[点燃] 2N2 + 6H2O}$$</li>
+<script type="math/tex; mode=display">\ce {N2 + 3Mg ->[点燃] Mg3N2}</script><script type="math/tex; mode=display">\ce {N2 + 3H2 <=>[高温高压][催化剂]2NH3}</script><script type="math/tex; mode=display">\ce {N2 + O2 ->[放电] 2NO}</script><script type="math/tex; mode=display">\ce {2NO + O2 -> 2NO2}</script><script type="math/tex; mode=display">\ce {3NO2 + H2O -> 2HNO3 + NO}</script><h2 id="氨气"><a href="#氨气" class="headerlink" title="氨气"></a>氨气</h2><ol>
+<li>水溶液呈碱性<script type="math/tex; mode=display">\ce {NH3 + H2O <=> NH3*H2O <=> NH4+ + OH-}</script><script type="math/tex; mode=display">\ce {3NH3*H2O + Fe^3+ -> Fe(OH)3 v + 3NH4+}</script></li>
+<li>与酸反应生成铵盐<script type="math/tex; mode=display">\ce {NH3 + H+ -> NH4+}</script><script type="math/tex; mode=display">\ce {NH3 + HCl -> NH4Cl}</script><script type="math/tex; mode=display">\ce {2NH3 + H2SO4 -> (NH4)2SO4}</script></li>
+<li>还原性<script type="math/tex; mode=display">\ce {4NH3 + 5O2 ->[催化剂][加热] 4NO + 6H2O + Q}</script><script type="math/tex; mode=display">\ce {4NH3 + 3O2 ->[点燃] 2N2 + 6H2O}</script></li>
 </ol>
 <h2 id="铵盐"><a href="#铵盐" class="headerlink" title="铵盐"></a>铵盐</h2><ol>
-<li>不稳定性<br>$$\ce {NH4Cl -&gt;[\Delta] NH3 ^ + HCl ^}$$<br>$$\ce {NH4HCO3 -&gt;[\Delta] NH3 ^ + CO2 ^ + H2O}$$<br>$$\ce {(NH4)2CO3 -&gt;[\Delta] 2NH3 ^ + CO2 ^ + H2O}$$<br>$$\ce {(NH4)SO4 -&gt;[\Delta] NH3 ^ + NH4HSO4}$$<br>$$\ce {2NH4NO3 -&gt;[\geq 300^\circ C][或撞击] 2N2 ^ + O2 ^ + 4H2O}$$<br>碳酸氢铵和氯化铵的分解现象不一样，氯化铵分解生成的氨气和氯化氢可以再化合生成氯化铵。</li>
-<li>与碱反应<br>$$\ce {NH4+ + OH- -&gt;[\Delta] NH3 ^ + H2O}$$<br>$$\ce {NH4Cl + NaOH -&gt;[\Delta] NaCl + NH3 ^ + H2O}$$<br>$$\ce {NH4NO3 + NaOH -&gt;[\Delta] NaNO3 + NH3 ^ + H2O}$$<br>$$\ce {(NH4)2SO4 + 2NaOH -&gt;[\Delta] Na2SO4 + 2NH3 ^ + 2H2O}$$<br>因为氨气极易溶于水，所以需要加热才能放出气体</li>
+<li>不稳定性<script type="math/tex; mode=display">\ce {NH4Cl ->[\Delta] NH3 ^ + HCl ^}</script><script type="math/tex; mode=display">\ce {NH4HCO3 ->[\Delta] NH3 ^ + CO2 ^ + H2O}</script><script type="math/tex; mode=display">\ce {(NH4)2CO3 ->[\Delta] 2NH3 ^ + CO2 ^ + H2O}</script><script type="math/tex; mode=display">\ce {(NH4)SO4 ->[\Delta] NH3 ^ + NH4HSO4}</script><script type="math/tex; mode=display">\ce {2NH4NO3 ->[\geq 300^\circ C][或撞击] 2N2 ^ + O2 ^ + 4H2O}</script>碳酸氢铵和氯化铵的分解现象不一样，氯化铵分解生成的氨气和氯化氢可以再化合生成氯化铵。</li>
+<li>与碱反应<script type="math/tex; mode=display">\ce {NH4+ + OH- ->[\Delta] NH3 ^ + H2O}</script><script type="math/tex; mode=display">\ce {NH4Cl + NaOH ->[\Delta] NaCl + NH3 ^ + H2O}</script><script type="math/tex; mode=display">\ce {NH4NO3 + NaOH ->[\Delta] NaNO3 + NH3 ^ + H2O}</script><script type="math/tex; mode=display">\ce {(NH4)2SO4 + 2NaOH ->[\Delta] Na2SO4 + 2NH3 ^ + 2H2O}</script>因为氨气极易溶于水，所以需要加热才能放出气体</li>
 <li>应用：<ul>
-<li>制氨气<br>$$\ce {(NH4)2SO4 + Ca(OH)2 -&gt;[\Delta] CaSO4 + 2NH3 ^ + 2H2O}$$<br>$$\ce {s + s / \Delta}$$<br>氨气不可以用无水$\ce {CaCl2}$干燥，用碱石灰，氢氧化钠固体干燥。</li>
+<li>制氨气<script type="math/tex; mode=display">\ce {(NH4)2SO4 + Ca(OH)2 ->[\Delta] CaSO4 + 2NH3 ^ + 2H2O}</script><script type="math/tex; mode=display">\ce {s + s / \Delta}</script>氨气不可以用无水$\ce {CaCl2}$干燥，用碱石灰，氢氧化钠固体干燥。</li>
 <li>检验铵盐：取样、加氢氧化钠溶液、加热、产生的气体使湿润的红色石蕊试纸变蓝——有$\ce {NH4+}$</li>
 <li>铵态氮肥的储存——阴凉处</li>
 <li>氮肥不能与碱性物质混用</li>
@@ -1041,8 +1034,15 @@
           <h1 id="4-3-地理课-农业区位条件"><a href="#4-3-地理课-农业区位条件" class="headerlink" title="4/3 地理课 - 农业区位条件"></a>4/3 地理课 - 农业区位条件</h1><ol>
 <li>基本概念：<strong>农业区位条件</strong>是指影响农业生产布局的各种自然因素和社会经济因素。</li>
 </ol>
-<p>$$<br>    农业区位因素<br>    \begin{cases}<br>        自然因素 \begin{cases}<br>            气候 \ 地形 \ 土壤 \ 水源 \ \cdots<br>        \end{cases} \ 社会经济因素 \begin{cases}<br>            市场 \ 交通 \ 劳动力 \ 政策 \ 技术 \ \cdots<br>        \end{cases}<br>    \end{cases}<br>$$</p>
-<h2 id="影响农业生产布局的自然因素"><a href="#影响农业生产布局的自然因素" class="headerlink" title="影响农业生产布局的自然因素"></a>影响农业生产布局的自然因素</h2><ol>
+<script type="math/tex; mode=display">
+    农业区位因素
+    \begin{cases}
+        自然因素 \begin{cases}
+            气候 \\ 地形 \\ 土壤 \\ 水源 \\ \cdots
+        \end{cases} \\ 社会经济因素 \begin{cases}
+            市场 \\ 交通 \\ 劳动力 \\ 政策 \\ 技术 \\ \cdots
+        \end{cases}
+    \end{cases}</script><h2 id="影响农业生产布局的自然因素"><a href="#影响农业生产布局的自然因素" class="headerlink" title="影响农业生产布局的自然因素"></a>影响农业生产布局的自然因素</h2><ol>
 <li>气候因素<ol>
 <li>光照：<strong>光照</strong>长短和强度影响作物的品质和产量。</li>
 <li>热量：<strong>热量</strong>影响农作物的品种、生长期和熟制。</li>
@@ -1171,7 +1171,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>389</span>
+              <span>339</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1199,7 +1199,8 @@
 <li>能电离出铵离子</li>
 </ol>
 <h3 id="化学性质"><a href="#化学性质" class="headerlink" title="化学性质"></a>化学性质</h3><ol>
-<li><p>与$\ce {OH-}$反应<br>$$\ce {NH4+ + OH- -&gt;[\Delta] NH3 ^ + H2O}$$<br>实验室制备氨气：</p>
+<li><p>与$\ce {OH-}$反应</p>
+<script type="math/tex; mode=display">\ce {NH4+ + OH- ->[\Delta] NH3 ^ + H2O}</script><p>实验室制备氨气：</p>
 <ul>
 <li>气体发生装置：固固加热</li>
 <li>药品：氢氧化钙固体 + 铵盐<ul>
@@ -1208,16 +1209,15 @@
 </li>
 <li>向下排空气法收集（氨气密度比空气小）</li>
 <li>湿润的红色石蕊试纸检验<ul>
-<li>$$\ce {NH3 + H2O &lt;=&gt; NH3*H2O &lt;=&gt; NH4+ + OH-}$$</li>
+<li><script type="math/tex; mode=display">\ce {NH3 + H2O <=> NH3*H2O <=> NH4+ + OH-}</script></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>受热分解<br> $$\ce {NH4HCO3 -&gt;[\Delta] NH3 ^ + H2O + CO2 ^}$$<br> $$\ce {NH4Cl -&gt;[\Delta] NH3 ^ + HCl ^}$$<br> $$\ce {NH3 + HCl -&gt; NH4Cl}$$</p>
-<p> 受热分解 – 低温、密封、深施盖土<br> 与碱反应生成氨气 – 不能与碱性物质混合使用</p>
+<li><p>受热分解</p>
+<script type="math/tex; mode=display">\ce {NH4HCO3 ->[\Delta] NH3 ^ + H2O + CO2 ^}</script><script type="math/tex; mode=display">\ce {NH4Cl ->[\Delta] NH3 ^ + HCl ^}</script><script type="math/tex; mode=display">\ce {NH3 + HCl -> NH4Cl}</script><p> 受热分解 — 低温、密封、深施盖土<br> 与碱反应生成氨气 — 不能与碱性物质混合使用</p>
 </li>
-<li><p>尿素：$\ce {CO(NH2)2}$</p>
-</li>
+<li>尿素：$\ce {CO(NH2)2}$</li>
 </ol>
 
       
@@ -1331,7 +1331,6 @@
 <div class="note info no-icon">
             <h3 id="宏观层面"><a href="#宏观层面" class="headerlink" title="宏观层面"></a>宏观层面</h3><ul><li>进行科学合力的城市规划，开发新区，建立卫星城市，分散城市职能。</li><li>完善现代城市管理制度，优化大城市治理体系。</li></ul>
           </div>
-
 <div class="note success no-icon">
             <h3 id="微观层面"><a href="#微观层面" class="headerlink" title="微观层面"></a>微观层面</h3><ul><li><strong>环境问题</strong>：保护和智力环境、减少污染排放、加强绿化建设</li><li><strong>交通问题</strong>：积极发展共欧诺个交通、大力发展节能环保“绿色交通”，如轨道交通和大运量公交等，合理规划城市交通设施。</li><li><strong>居住问题</strong>：改善居住条件、推广廉价租房等。</li><li><strong>社会问题</strong>：提高就业率、完善社会保障和治理体系。</li></ul>
           </div>
@@ -1412,7 +1411,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>829</span>
+              <span>703</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1434,9 +1433,9 @@
           <h1 id="3-31-化学课"><a href="#3-31-化学课" class="headerlink" title="3/31 化学课"></a>3/31 化学课</h1><h2 id="固氮"><a href="#固氮" class="headerlink" title="固氮"></a>固氮</h2><ol>
 <li>定义：把大气中游离态的氮转化为氮的化合物的过程</li>
 <li>途经<ol>
-<li>大气固氮（打雷，氧气和氮气反应生成一氧化氮）<br>$$\ce {O2 + N2 -&gt;[放电] 2NO}$$<br>$$\ce {2NO + O2 -&gt; 2NO2（红棕色）}$$<br>$$\ce {3NO2 + H2O -&gt; 2HNO3 + NO}$$<br>$$\ce {NH3 + HNO3 -&gt; NH4NO3}$$<br>重点：这里会发生一系列反应，是考察重点。</li>
-<li>生物固氮（根瘤菌）<br>$$\ce {N2 -&gt;[固氮酶][H^+] 氨基酸}$$</li>
-<li>$$\ce {N2 + 3H2 &lt;=&gt;[高温、高压][催化剂] 2NH3}$$</li>
+<li>大气固氮（打雷，氧气和氮气反应生成一氧化氮）<script type="math/tex; mode=display">\ce {O2 + N2 ->[放电] 2NO}</script><script type="math/tex; mode=display">\ce {2NO + O2 -> 2NO2（红棕色）}</script><script type="math/tex; mode=display">\ce {3NO2 + H2O -> 2HNO3 + NO}</script><script type="math/tex; mode=display">\ce {NH3 + HNO3 -> NH4NO3}</script>重点：这里会发生一系列反应，是考察重点。</li>
+<li>生物固氮（根瘤菌）<script type="math/tex; mode=display">\ce {N2 ->[固氮酶][H^+] 氨基酸}</script></li>
+<li><script type="math/tex; mode=display">\ce {N2 + 3H2 <=>[高温、高压][催化剂] 2NH3}</script></li>
 </ol>
 </li>
 </ol>
@@ -1450,9 +1449,9 @@
 </ul>
 </li>
 <li>化学性质<ol>
-<li>水溶液呈碱性<br>$$\ce {NH3 + H2O &lt;=&gt; NH3*H2O &lt;=&gt; NH4+ + OH-}$$<br>一水合氨：一元弱碱，浓氨气可以挥发出氨气。<br>使用浓氨水和生石灰制备氨气：<br>$$\ce {CaO(s) + H2O(l) -&gt; Ca(OH)2 + Q} \Rightarrow T \uparrow$$</li>
-<li>与酸反应（生成铵盐）<br>$$\ce {NH3 + H+ -&gt; NH4+}$$<br>$$\ce {NH3 + HCl -&gt; NH4Cl}$$<br>浓盐酸和浓氨水 -&gt; 白烟（浓硫酸不挥发，看不到）<br>$$\ce {2NH3 + H2SO4 -&gt; (NH4)2SO4}$$<br>注意和碳酸反应是可能生成碳酸铵和碳酸氢铵，取决于过量和不过量。<br>$$\ce {NH3 + H2O + CO2 -&gt; NH4+ + HCO3-}$$<br>$$\ce {3NH3*H2O + Fe^3+ -&gt; Fe(OH)3 v + 3NH4+}$$</li>
-<li>还原性（催化氧化）<br>$$\ce {4NH3 + 5O2 -&gt;[催化剂][加热] 4NO + 6H2O }$$<br>在氧气中安静地燃烧<br>$$\ce {4NH3 + 3O2 -&gt;[点燃] 2N2 + 6H2O}$$<br>注意：这里氮气和氧气在不同的条件下会发生不同的反应，需要格外注意。</li>
+<li>水溶液呈碱性<script type="math/tex; mode=display">\ce {NH3 + H2O <=> NH3*H2O <=> NH4+ + OH-}</script>一水合氨：一元弱碱，浓氨气可以挥发出氨气。<br>使用浓氨水和生石灰制备氨气：<script type="math/tex; mode=display">\ce {CaO(s) + H2O(l) -> Ca(OH)2 + Q} \Rightarrow T \uparrow</script></li>
+<li>与酸反应（生成铵盐）<script type="math/tex; mode=display">\ce {NH3 + H+ -> NH4+}</script><script type="math/tex; mode=display">\ce {NH3 + HCl -> NH4Cl}</script>浓盐酸和浓氨水 -&gt; 白烟（浓硫酸不挥发，看不到）<script type="math/tex; mode=display">\ce {2NH3 + H2SO4 -> (NH4)2SO4}</script>注意和碳酸反应是可能生成碳酸铵和碳酸氢铵，取决于过量和不过量。<script type="math/tex; mode=display">\ce {NH3 + H2O + CO2 -> NH4+ + HCO3-}</script><script type="math/tex; mode=display">\ce {3NH3*H2O + Fe^3+ -> Fe(OH)3 v + 3NH4+}</script></li>
+<li>还原性（催化氧化）<script type="math/tex; mode=display">\ce {4NH3 + 5O2 ->[催化剂][加热] 4NO + 6H2O }</script>在氧气中安静地燃烧<script type="math/tex; mode=display">\ce {4NH3 + 3O2 ->[点燃] 2N2 + 6H2O}</script>注意：这里氮气和氧气在不同的条件下会发生不同的反应，需要格外注意。</li>
 </ol>
 </li>
 </ol>
@@ -1559,7 +1558,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1645,13 +1644,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">482k</span>
+    <span title="站点总字数">457k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:18</span>
+    <span title="站点阅读时长">6:56</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1834,10 +1833,10 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
   
 
 
-<script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 </html>

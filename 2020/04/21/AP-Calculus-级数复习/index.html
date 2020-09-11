@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="绪论考试在即，但却还没学完，心中诚惶诚恐，遂，学。 几何级数 - Geometric Series几何级数的定义几何级数，又称等比级数： $$    \sum_{n &#x3D; 0} ^ {\infty} aq^n &#x3D; a + aq + aq ^2 + \cdots  + aq^n + \cdots$$ 几何级数的敛散性根据等比数列前$n$项求和公式，若$|q| ≠ 1$，则部分和为 $$    S_n">
+  <meta name="description" content="绪论考试在即，但却还没学完，心中诚惶诚恐，遂，学。 几何级数 - Geometric Series几何级数的定义几何级数，又称等比级数：      \sum_{n &#x3D; 0} ^ {\infty} aq^n &#x3D; a + aq + aq ^2 + \cdots  + aq^n + \cdots几何级数的敛散性根据等比数列前$n$项求和公式，若$|q| ≠ 1$，则部分和为      S_n &#x3D; a +">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AP Calculus - 级数复习">
 <meta property="og:url" content="http://gyrojeff.moe/2020/04/21/AP-Calculus-%E7%BA%A7%E6%95%B0%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="gyro永不抽风">
-<meta property="og:description" content="绪论考试在即，但却还没学完，心中诚惶诚恐，遂，学。 几何级数 - Geometric Series几何级数的定义几何级数，又称等比级数： $$    \sum_{n &#x3D; 0} ^ {\infty} aq^n &#x3D; a + aq + aq ^2 + \cdots  + aq^n + \cdots$$ 几何级数的敛散性根据等比数列前$n$项求和公式，若$|q| ≠ 1$，则部分和为 $$    S_n">
+<meta property="og:description" content="绪论考试在即，但却还没学完，心中诚惶诚恐，遂，学。 几何级数 - Geometric Series几何级数的定义几何级数，又称等比级数：      \sum_{n &#x3D; 0} ^ {\infty} aq^n &#x3D; a + aq + aq ^2 + \cdots  + aq^n + \cdots几何级数的敛散性根据等比数列前$n$项求和公式，若$|q| ≠ 1$，则部分和为      S_n &#x3D; a +">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-21T07:38:43.000Z">
 <meta property="article:modified_time" content="2020-05-12T07:30:08.000Z">
@@ -136,7 +136,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">21</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -273,7 +273,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -294,34 +294,37 @@
       
         <h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>考试在即，但却还没学完，心中诚惶诚恐，遂，学。</p>
 <h1 id="几何级数-Geometric-Series"><a href="#几何级数-Geometric-Series" class="headerlink" title="几何级数 - Geometric Series"></a>几何级数 - Geometric Series</h1><h2 id="几何级数的定义"><a href="#几何级数的定义" class="headerlink" title="几何级数的定义"></a>几何级数的定义</h2><p>几何级数，又称等比级数：</p>
-<p>$$<br>    \sum_{n = 0} ^ {\infty} aq^n = a + aq + aq ^2 + \cdots  + aq^n + \cdots<br>$$</p>
-<h2 id="几何级数的敛散性"><a href="#几何级数的敛散性" class="headerlink" title="几何级数的敛散性"></a>几何级数的敛散性</h2><p>根据等比数列前$n$项求和公式，若$|q| ≠ 1$，则部分和为</p>
-<p>$$<br>    S_n = a + aq + aq ^ 2 + \cdots + aq ^ {n - 1} = \frac {a - aq ^ n}{1 - q}<br>$$</p>
-<ul>
-<li>当$|q| &lt; 1$时：<br>  $$<pre><code>  \sum_&#123;n = 0&#125; ^ \infty a q ^ n = \lim _ &#123;n \rightarrow \infty&#125; S_n = \frac &#123;a&#125;&#123;1 - q&#125;</code></pre>
-  $$<br>  级数收敛</li>
-<li>当$q = 1$时：<br>  $$<pre><code>  \lim _ &#123; n \rightarrow \infty &#125; S_n = \lim _ &#123;n \rightarrow \infty&#125; na = \infty</code></pre>
-  $$<br>  级数发散</li>
-<li>当$q = -1$时：<br>  $$<pre><code>  \sum _ &#123; n = 0 &#125; ^ \infty a q ^ n= a - a + a - a + a - \cdots</code></pre>
-  $$<br>  $$<pre><code>  S_n = \begin&#123;cases&#125;
-      0 &amp; n \text &#123; is even&#125; \\
-      a &amp; n \text &#123; is odd&#125;
-  \end&#123;cases&#125; \Rightarrow \lim _ &#123;n \rightarrow \infty&#125; S_n = DNE</code></pre>
-  $$<br>  级数发散</li>
-<li>当$|q| &gt; 1$时：<br>  $$<pre><code>  \lim _ &#123; n \rightarrow \infty &#125; S_n = \infty</code></pre>
-  $$<br>  级数发散</li>
+<script type="math/tex; mode=display">
+    \sum_{n = 0} ^ {\infty} aq^n = a + aq + aq ^2 + \cdots  + aq^n + \cdots</script><h2 id="几何级数的敛散性"><a href="#几何级数的敛散性" class="headerlink" title="几何级数的敛散性"></a>几何级数的敛散性</h2><p>根据等比数列前$n$项求和公式，若$|q| ≠ 1$，则部分和为</p>
+<script type="math/tex; mode=display">
+    S_n = a + aq + aq ^ 2 + \cdots + aq ^ {n - 1} = \frac {a - aq ^ n}{1 - q}</script><ul>
+<li>当$|q| &lt; 1$时：<script type="math/tex; mode=display">
+      \sum_{n = 0} ^ \infty a q ^ n = \lim _ {n \rightarrow \infty} S_n = \frac {a}{1 - q}</script>  级数收敛</li>
+<li>当$q = 1$时：<script type="math/tex; mode=display">
+      \lim _ { n \rightarrow \infty } S_n = \lim _ {n \rightarrow \infty} na = \infty</script>  级数发散</li>
+<li>当$q = -1$时：<script type="math/tex; mode=display">
+      \sum _ { n = 0 } ^ \infty a q ^ n= a - a + a - a + a - \cdots</script><script type="math/tex; mode=display">
+      S_n = \begin{cases}
+          0 & n \text { is even} \\
+          a & n \text { is odd}
+      \end{cases} \Rightarrow \lim _ {n \rightarrow \infty} S_n = DNE</script>  级数发散</li>
+<li>当$|q| &gt; 1$时：<script type="math/tex; mode=display">
+      \lim _ { n \rightarrow \infty } S_n = \infty</script>  级数发散</li>
 </ul>
 <p>综上所述：</p>
 <ul>
 <li>$|q| &lt; 1$时，几何级数$\displaystyle \sum_{n = 0} ^ \infty aq ^ n$收敛，其和为$\displaystyle\frac a {1 - q}$。</li>
 <li>$|q| ≥ 1$时，几何级数$\displaystyle \sum_{n = 0} ^ \infty aq ^ n$发散。</li>
 </ul>
-<h1 id="调和级数-Harmonic-Series"><a href="#调和级数-Harmonic-Series" class="headerlink" title="调和级数 - Harmonic Series"></a>调和级数 - Harmonic Series</h1><h2 id="调和级数的定义"><a href="#调和级数的定义" class="headerlink" title="调和级数的定义"></a>调和级数的定义</h2><p>$$<br>    \sum _ { n = 1 } ^ \infty \frac 1 n = 1 + \frac 1 2 + \frac 1 3 + \frac 1 4 + \cdots<br>$$</p>
-<h2 id="调和级数的敛散性"><a href="#调和级数的敛散性" class="headerlink" title="调和级数的敛散性"></a>调和级数的敛散性</h2><p>有图像易得：调和级数$\displaystyle \sum _ { n = 1 } ^ \infty \frac 1 n$为广义积分$\displaystyle \int _ 1 ^ \infty\frac 1 x \mathrm dx$的Left-Riemann Sum，且</p>
-<p>$$<br>    \begin{aligned}<br>        \sum _ {n = 1} ^ \infty \frac 1 n &amp;&gt; \int _ 1 ^ \infty \frac 1 x \mathrm dx \<br>        &amp;=\ln x \Big |_1 ^ {\infty} \rightarrow \infty<br>    \end{aligned}<br>$$</p>
-<p>故调和级数发散。</p>
-<h1 id="p-级数-p-Series"><a href="#p-级数-p-Series" class="headerlink" title="$p$级数 - $p$-Series"></a>$p$级数 - $p$-Series</h1><h2 id="p-级数的定义"><a href="#p-级数的定义" class="headerlink" title="$p$级数的定义"></a>$p$级数的定义</h2><p>$$<br>    \sum _ {n = 1} ^ \infty \frac 1 {n ^ p} = 1 + \frac 1 {2 ^ p} + \frac 1 {3 ^ p} + \cdots + \frac 1 {n ^ p} + \cdots,  (p &gt; 0)<br>$$</p>
-<h2 id="p-级数的敛散性"><a href="#p-级数的敛散性" class="headerlink" title="$p$级数的敛散性"></a>$p$级数的敛散性</h2><ul>
+<h1 id="调和级数-Harmonic-Series"><a href="#调和级数-Harmonic-Series" class="headerlink" title="调和级数 - Harmonic Series"></a>调和级数 - Harmonic Series</h1><h2 id="调和级数的定义"><a href="#调和级数的定义" class="headerlink" title="调和级数的定义"></a>调和级数的定义</h2><script type="math/tex; mode=display">
+    \sum _ { n = 1 } ^ \infty \frac 1 n = 1 + \frac 1 2 + \frac 1 3 + \frac 1 4 + \cdots</script><h2 id="调和级数的敛散性"><a href="#调和级数的敛散性" class="headerlink" title="调和级数的敛散性"></a>调和级数的敛散性</h2><p>有图像易得：调和级数$\displaystyle \sum _ { n = 1 } ^ \infty \frac 1 n$为广义积分$\displaystyle \int _ 1 ^ \infty\frac 1 x \mathrm dx$的Left-Riemann Sum，且</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        \sum _ {n = 1} ^ \infty \frac 1 n &> \int _ 1 ^ \infty \frac 1 x \mathrm dx \\
+        &=\ln x \Big |_1 ^ {\infty} \rightarrow \infty
+    \end{aligned}</script><p>故调和级数发散。</p>
+<h1 id="p-级数-p-Series"><a href="#p-级数-p-Series" class="headerlink" title="$p$级数 - $p$-Series"></a>$p$级数 - $p$-Series</h1><h2 id="p-级数的定义"><a href="#p-级数的定义" class="headerlink" title="$p$级数的定义"></a>$p$级数的定义</h2><script type="math/tex; mode=display">
+    \sum _ {n = 1} ^ \infty \frac 1 {n ^ p} = 1 + \frac 1 {2 ^ p} + \frac 1 {3 ^ p} + \cdots + \frac 1 {n ^ p} + \cdots,  (p > 0)</script><h2 id="p-级数的敛散性"><a href="#p-级数的敛散性" class="headerlink" title="$p$级数的敛散性"></a>$p$级数的敛散性</h2><ul>
 <li>当$p ≤ 1$时，根据比较审敛法，因为$\displaystyle\frac 1 {n ^ p} ≥ \frac 1 n$，由于调和级数发散，故$p$级数也发散。</li>
 <li>当$p &gt; 1$时，$p$级数收敛，证明略。</li>
 </ul>
@@ -338,11 +341,11 @@
 <li>当$l = 1$时，级数可能收敛也可能发散</li>
 </ul>
 <h1 id="用泰勒多项式来近似函数"><a href="#用泰勒多项式来近似函数" class="headerlink" title="用泰勒多项式来近似函数"></a>用泰勒多项式来近似函数</h1><p>The function $f(x)$ at the point $x = a$ is approximated by a <em>Taylor polynomial</em> $P_n(x)$ of order $n$: </p>
-<p>$$<br>    f(x) \approx P_n(x) = f(a) + f’(a)(x - a) + \frac {f’’(a)}{2!}(x - a) ^ 2 + \cdots + \frac {f^{(n)}(a)}{n!}(x - a) ^ n<br>$$</p>
-<p>麦克劳林多项式就是函数在$x=0$的泰勒展开。</p>
+<script type="math/tex; mode=display">
+    f(x) \approx P_n(x) = f(a) + f'(a)(x - a) + \frac {f''(a)}{2!}(x - a) ^ 2 + \cdots + \frac {f^{(n)}(a)}{n!}(x - a) ^ n</script><p>麦克劳林多项式就是函数在$x=0$的泰勒展开。</p>
 <p>用$f(x)$在$x = 0$的切线去近似：</p>
-<p>$$<br>f(x) \approx P_1(x) = f(0) + f’(0) x<br>$$</p>
-<h1 id="绝对收敛和条件收敛"><a href="#绝对收敛和条件收敛" class="headerlink" title="绝对收敛和条件收敛"></a>绝对收敛和条件收敛</h1><ol>
+<script type="math/tex; mode=display">
+f(x) \approx P_1(x) = f(0) + f'(0) x</script><h1 id="绝对收敛和条件收敛"><a href="#绝对收敛和条件收敛" class="headerlink" title="绝对收敛和条件收敛"></a>绝对收敛和条件收敛</h1><ol>
 <li>若$\displaystyle \sum_{i = 1} ^ \infty u_i$收敛，且$\displaystyle \sum_{i = 1} ^ \infty |u_i|$也收敛，则级数$\displaystyle \sum _ {i = 1} ^ \infty u _ 1$绝对收敛。</li>
 <li>若$\displaystyle \sum_{i = 1} ^ \infty u_i$收敛，且$\displaystyle \sum_{i = 1} ^ \infty |u_i|$不收敛，则级数$\displaystyle \sum _ {i = 1} ^ \infty u _ 1$条件收敛。</li>
 <li>如果绝对收敛则一定条件收敛，条件收敛不一定绝对收敛。</li>
@@ -630,7 +633,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -716,13 +719,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">482k</span>
+    <span title="站点总字数">457k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:18</span>
+    <span title="站点阅读时长">6:56</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -924,10 +927,10 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 </html>
