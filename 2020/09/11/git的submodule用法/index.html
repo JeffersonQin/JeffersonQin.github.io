@@ -20,17 +20,18 @@
     var CONFIG = {"hostname":"gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="更新？咕咕咕...">
+  <meta name="description" content="submodule介绍submodule，即子模块，在项目中添加一个submodule就相当于引用了一个别的repo，记下来我将分别针对不同的情形展开讨论 添加submodule在main project当中： 1git submodule add &lt;submodule_url&gt; &lt;path&gt; 其中，submodule_url为submodule的repo地址，path为接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git的submodule用法">
 <meta property="og:url" content="http://gyrojeff.moe/2020/09/11/git%E7%9A%84submodule%E7%94%A8%E6%B3%95/index.html">
 <meta property="og:site_name" content="gyro永不抽风">
-<meta property="og:description" content="更新？咕咕咕...">
+<meta property="og:description" content="submodule介绍submodule，即子模块，在项目中添加一个submodule就相当于引用了一个别的repo，记下来我将分别针对不同的情形展开讨论 添加submodule在main project当中： 1git submodule add &lt;submodule_url&gt; &lt;path&gt; 其中，submodule_url为submodule的repo地址，path为接">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-11T02:11:28.000Z">
-<meta property="article:modified_time" content="2020-09-11T02:11:28.641Z">
+<meta property="article:modified_time" content="2020-09-11T10:49:47.210Z">
 <meta property="article:author" content="Haoyun Qin">
-<meta property="article:tag" content="蒟蒻">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://gyrojeff.moe/2020/09/11/git%E7%9A%84submodule%E7%94%A8%E6%B3%95/">
@@ -131,17 +132,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">125</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">129</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">21</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">144</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">145</span></a>
 
   </li>
         <li class="menu-item menu-item-done">
@@ -256,8 +257,18 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-09-11 10:11:28" itemprop="dateCreated datePublished" datetime="2020-09-11T10:11:28+08:00">2020-09-11</time>
+              <time title="创建时间：2020-09-11 10:11:28 / 修改时间：18:49:47" itemprop="dateCreated datePublished" datetime="2020-09-11T10:11:28+08:00">2020-09-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                </span>
             </span>
 
           <br>
@@ -266,7 +277,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -285,7 +296,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="submodule介绍"><a href="#submodule介绍" class="headerlink" title="submodule介绍"></a><code>submodule</code>介绍</h1><p><code>submodule</code>，即子模块，在项目中添加一个<code>submodule</code>就相当于引用了一个别的<code>repo</code>，记下来我将分别针对不同的情形展开讨论</p>
+<h1 id="添加submodule"><a href="#添加submodule" class="headerlink" title="添加submodule"></a>添加<code>submodule</code></h1><p>在<code>main project</code>当中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add &lt;submodule_url&gt; &lt;path&gt;</span><br></pre></td></tr></table></figure>
+<p>其中，<code>submodule_url</code>为<code>submodule</code>的<code>repo</code>地址，<code>path</code>为接下来<code>clone</code>的地址。运行之后，会发现目录下多出了<code>.gitmodule</code>文件。</p>
+<h1 id="已经clone了一个项目，添加为submodule"><a href="#已经clone了一个项目，添加为submodule" class="headerlink" title="已经clone了一个项目，添加为submodule"></a>已经<code>clone</code>了一个项目，添加为<code>submodule</code></h1><p>和上面一样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add &lt;submodule_url&gt; &lt;path&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="改动了submodule内的代码"><a href="#改动了submodule内的代码" class="headerlink" title="改动了submodule内的代码"></a>改动了<code>submodule</code>内的代码</h1><p>首先明确一个概念：<code>submodule</code>是一个独立、完整的<code>repo</code>。这意味着，你可以像往常一样在<code>submodule</code>的根目录下进行<code>add/commit/push</code>，这都是完全没有问题的。但是，如果<code>submodule</code>没有<code>commit</code>，主项目是无法<code>commit</code>的，所以如果要<code>commit</code>主项目，首先要确保<code>submodule</code>内各个项目都没有问题。在此之外，当<code>submodule</code>内已经好了之后，我们便可以<code>commit</code>主项目，并可以发现主项目当中<code>submodule</code>是作为一个整体来计算的。</p>
+<h1 id="删除submodule"><a href="#删除submodule" class="headerlink" title="删除submodule"></a>删除<code>submodule</code></h1><p>写在一个子模块：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule deinit</span><br></pre></td></tr></table></figure>
+<p>如果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule deinit --force</span><br></pre></td></tr></table></figure>
+<p>那么即使本地<code>repo</code>有未提交的更改也会被移除. 上述命令是删除<code>.git/config</code>中的配置文件，若要继续删除本地的文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm &lt;submodule&gt;</span><br></pre></td></tr></table></figure>
+<p>来删除。</p>
+<p>操作完毕之后我们发现主项目就有更改了，进行<code>commit</code>来提交更改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;Deleted the submodule project.&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="submodule有远程更新"><a href="#submodule有远程更新" class="headerlink" title="submodule有远程更新"></a><code>submodule</code>有远程更新</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;path&gt;</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<p>如果有多个<code>submodule</code>，可以：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule foreach <span class="string">&#x27;git pull origin master&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="clone带有submodule的项目"><a href="#clone带有submodule的项目" class="headerlink" title="clone带有submodule的项目"></a><code>clone</code>带有<code>submodule</code>的项目</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;repo-url&gt; --recurse-submodules</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;repo-url&gt;</span><br><span class="line">git submodule init</span><br><span class="line">git submodule update</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -299,6 +335,12 @@
         
     </div>
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/07/11/对开源社区的一些小小的感慨/" rel="bookmark">对开源社区的一些小小的感慨</a></div>
+    </li>
+  </ul>
 
 
     
@@ -358,7 +400,7 @@
   <p><span>本文标题:</span><a href="/2020/09/11/git%E7%9A%84submodule%E7%94%A8%E6%B3%95/">git的submodule用法</a></p>
   <p><span>文章作者:</span><a href="/" title="访问  的个人博客"></a></p>
   <p><span>发布时间:</span>2020年09月11日 - 10:09</p>
-  <p><span>最后更新:</span>2020年09月11日 - 10:09</p>
+  <p><span>最后更新:</span>2020年09月11日 - 18:09</p>
   <p><span>原始链接:</span><a href="/2020/09/11/git%E7%9A%84submodule%E7%94%A8%E6%B3%95/" title="git的submodule用法">http://gyrojeff.moe/2020/09/11/git%E7%9A%84submodule%E7%94%A8%E6%B3%95/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gyrojeff.moe/2020/09/11/git%E7%9A%84submodule%E7%94%A8%E6%B3%95/"  aria-label="复制成功！"></i></span>
   </p>
@@ -417,6 +459,11 @@
 
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+          </div>
 
         
   <div class="post-widgets">
@@ -544,6 +591,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#submodule%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">submodule介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0submodule"><span class="nav-number">2.</span> <span class="nav-text">添加submodule</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%B2%E7%BB%8Fclone%E4%BA%86%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%EF%BC%8C%E6%B7%BB%E5%8A%A0%E4%B8%BAsubmodule"><span class="nav-number">3.</span> <span class="nav-text">已经clone了一个项目，添加为submodule</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%B9%E5%8A%A8%E4%BA%86submodule%E5%86%85%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">改动了submodule内的代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E9%99%A4submodule"><span class="nav-number">5.</span> <span class="nav-text">删除submodule</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#submodule%E6%9C%89%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0"><span class="nav-number">6.</span> <span class="nav-text">submodule有远程更新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#clone%E5%B8%A6%E6%9C%89submodule%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="nav-number">7.</span> <span class="nav-text">clone带有submodule的项目</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -560,20 +608,20 @@
           <a href="/archives/">
         
         
-          <span class="site-state-item-count">144</span>
+          <span class="site-state-item-count">145</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">125</span>
+        <span class="site-state-item-count">129</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -653,13 +701,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">480k</span>
+    <span title="站点总字数">482k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:17</span>
+    <span title="站点阅读时长">7:18</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -861,10 +909,10 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>
+<script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script></body>
 </html>
