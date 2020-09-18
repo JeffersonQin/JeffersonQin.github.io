@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="TestTest">
+  <meta name="description" content="Hardcodet.NotifyIcon.Wpf这个是使用系统托盘图标来完成通知的推送的，前半段请参照这里 推送通知的例子：1App.TaskbarIcon.ShowBalloonTip(&quot;UIToy Notification&quot;, &quot;Window Rect is null.&quot;, Hardcodet.Wpf.TaskbarNotification.Balloo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WPF实现通知的两种方式（NuGet）">
 <meta property="og:url" content="http://gyrojeff.moe/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%9F%A5%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88NuGet%EF%BC%89/index.html">
 <meta property="og:site_name" content="gyro永不抽风">
-<meta property="og:description" content="TestTest">
+<meta property="og:description" content="Hardcodet.NotifyIcon.Wpf这个是使用系统托盘图标来完成通知的推送的，前半段请参照这里 推送通知的例子：1App.TaskbarIcon.ShowBalloonTip(&quot;UIToy Notification&quot;, &quot;Window Rect is null.&quot;, Hardcodet.Wpf.TaskbarNotification.Balloo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-10T05:08:43.000Z">
-<meta property="article:modified_time" content="2020-09-14T15:51:12.280Z">
+<meta property="article:modified_time" content="2020-09-18T15:21:11.022Z">
 <meta property="article:author" content="Haoyun Qin">
 <meta property="article:tag" content="C#">
 <meta property="article:tag" content=".NET">
@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">133</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">141</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">148</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">153</span></a>
 
   </li>
         <li class="menu-item menu-item-done">
@@ -267,7 +267,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-14 23:51:12" itemprop="dateModified" datetime="2020-09-14T23:51:12+08:00">2020-09-14</time>
+                <time title="修改时间：2020-09-18 23:21:11" itemprop="dateModified" datetime="2020-09-18T23:21:11+08:00">2020-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -299,7 +299,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8</span>
+              <span>562</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -328,7 +328,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Test<br>Test</p>
+        <h1 id="Hardcodet-NotifyIcon-Wpf"><a href="#Hardcodet-NotifyIcon-Wpf" class="headerlink" title="Hardcodet.NotifyIcon.Wpf"></a><code>Hardcodet.NotifyIcon.Wpf</code></h1><p>这个是使用系统托盘图标来完成通知的推送的，前半段请参照<a href="/2020/09/10/WPF实现系统托盘/">这里</a></p>
+<p>推送通知的例子：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">App.TaskbarIcon.ShowBalloonTip(<span class="string">&quot;UIToy Notification&quot;</span>, <span class="string">&quot;Window Rect is null.&quot;</span>, Hardcodet.Wpf.TaskbarNotification.BalloonIcon.Error);</span><br></pre></td></tr></table></figure></p>
+<p>这里我直接把<code>TaskbarIcon</code>当作全局的静态变量定义在<code>App.xaml.cs</code>里面了。</p>
+<h1 id="Notifications-Wpf"><a href="#Notifications-Wpf" class="headerlink" title="Notifications.Wpf"></a><code>Notifications.Wpf</code></h1><p>具体用法可以参见作者GitHub：<a target="_blank" rel="noopener" href="https://github.com/Federerer/Notifications.Wpf">https://github.com/Federerer/Notifications.Wpf</a></p>
+<p>例子：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MaskWindowManager.notificationManager.Show(</span><br><span class="line">    <span class="keyword">new</span> NotificationContent </span><br><span class="line">    &#123; </span><br><span class="line">        Title = <span class="string">&quot;UIToy Notification&quot;</span>, </span><br><span class="line">        Message = <span class="string">&quot;UI Analyzation Started.&quot;</span>, </span><br><span class="line">        Type = NotificationType.Information </span><br><span class="line">    &#125;, areaName: <span class="string">&quot;WindowArea&quot;</span>);</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -417,7 +421,7 @@
   <p><span>本文标题:</span><a href="/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%9F%A5%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88NuGet%EF%BC%89/">WPF实现通知的两种方式（NuGet）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问gyro永不抽风的个人博客">gyro永不抽风</a></p>
   <p><span>发布时间:</span>2020年09月10日 - 13:09</p>
-  <p><span>最后更新:</span>2020年09月14日 - 23:09</p>
+  <p><span>最后更新:</span>2020年09月18日 - 23:09</p>
   <p><span>原始链接:</span><a href="/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%9F%A5%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88NuGet%EF%BC%89/" title="WPF实现通知的两种方式（NuGet）">http://gyrojeff.moe/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%9F%A5%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88NuGet%EF%BC%89/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gyrojeff.moe/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%9F%A5%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88NuGet%EF%BC%89/"  aria-label="复制成功！"></i></span>
   </p>
@@ -629,6 +633,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hardcodet-NotifyIcon-Wpf"><span class="nav-number">1.</span> <span class="nav-text">Hardcodet.NotifyIcon.Wpf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Notifications-Wpf"><span class="nav-number">2.</span> <span class="nav-text">Notifications.Wpf</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -645,7 +650,7 @@
           <a href="/archives/">
         
         
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">153</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -658,7 +663,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">133</span>
+        <span class="site-state-item-count">141</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -738,13 +743,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">457k</span>
+    <span title="站点总字数">480k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:56</span>
+    <span title="站点阅读时长">7:16</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
