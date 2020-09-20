@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">156</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">157</span></a>
 
   </li>
         <li class="menu-item menu-item-done">
@@ -227,6 +227,136 @@
 
           <div class="content index posts-expand">
             
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/01/307-15-%E8%83%8C%E5%8C%85%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BC%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/01/307-15-%E8%83%8C%E5%8C%85%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">307-15-背包的二进制优化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-01 21:12:17" itemprop="dateCreated datePublished" datetime="2020-03-01T21:12:17+08:00">2020-03-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 07:56:49" itemprop="dateModified" datetime="2020-09-15T07:56:49+08:00">2020-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/03/01/307-15-%E8%83%8C%E5%8C%85%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BC%98%E5%8C%96/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/01/307-15-背包的二进制优化/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="307-15-背包的二进制优化"><a href="#307-15-背包的二进制优化" class="headerlink" title="307-15-背包的二进制优化"></a>307-15-背包的二进制优化</h1><h2 id="P2851-USACO06DEC-最少的硬币The-Fewest-Coins"><a href="#P2851-USACO06DEC-最少的硬币The-Fewest-Coins" class="headerlink" title="P2851 [USACO06DEC]最少的硬币The Fewest Coins"></a>P2851 [USACO06DEC]最少的硬币The Fewest Coins</h2><div data-v-1162f790="" data-v-1e7c6884=""><!----> <div data-v-796309f8="" data-v-1162f790="" class="card problem-card padding-default"><div data-v-a277ed48="" data-v-1162f790="" data-v-796309f8=""><!----> <!----> <h3 data-v-a277ed48="" class="lfe-h3">题目描述</h3> <div data-v-6156e5d2="" data-v-a277ed48="" class="marked"><p>Farmer John has gone to town to buy some farm supplies. Being a very efficient man, he always pays for his goods in such a way that the smallest number of coins changes hands, i.e., the number of coins he uses to pay plus the number of coins he receives in change is minimized. Help him to determine what this minimum number is.</p>
+<p>FJ wants to buy T (1 ≤ T ≤ 10,000) cents of supplies. The currency system has N (1 ≤ N ≤ 100) different coins, with values V1, V2, ..., VN (1 ≤ Vi ≤ 120). Farmer John is carrying C1 coins of value V1, C2 coins of value V2, ...., and CN coins of value VN (0 ≤ Ci ≤ 10,000). The shopkeeper has an unlimited supply of all the coins, and always makes change in the most efficient manner (although Farmer John must be sure to pay in a way that makes it possible to make the correct change).</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/01/307-15-%E8%83%8C%E5%8C%85%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BC%98%E5%8C%96/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
     
           
   
@@ -1411,139 +1541,6 @@ S = \Bigg(\sum_{j = 1}^3 \max_{i \in S_j}h_i\Bigg) \times \Big(\max_{j=1}^3 \sum
   
 
     
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/02/28/306-14-CDQ%E5%88%86%E6%B2%BB-%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/28/306-14-CDQ%E5%88%86%E6%B2%BB-%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80/" class="post-title-link" itemprop="url">306-14-CDQ分治-陌上花开</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-28 23:39:59" itemprop="dateCreated datePublished" datetime="2020-02-28T23:39:59+08:00">2020-02-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-15 07:55:33" itemprop="dateModified" datetime="2020-09-15T07:55:33+08:00">2020-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/02/28/306-14-CDQ%E5%88%86%E6%B2%BB-%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/28/306-14-CDQ分治-陌上花开/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>90</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-            <br>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fas fa-rss"></i>
-              </span>
-              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>对于给遗传给定的序列：</p>
-<script type="math/tex; mode=display">
-(x,y,z)_1, (x,y,z)_2, (x,y,z)_3, \cdots, (x,y,z)_n</script><p>求：</p>
-<script type="math/tex; mode=display">
-\sum_{x_i < x_j,~y_i < y_j,~z_i<z_j,~i ≠j}1</script>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/28/306-14-CDQ%E5%88%86%E6%B2%BB-%E9%99%8C%E4%B8%8A%E8%8A%B1%E5%BC%80/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
 
   
   <nav class="pagination">
@@ -1616,7 +1613,7 @@ S = \Bigg(\sum_{j = 1}^3 \max_{i \in S_j}h_i\Bigg) \times \Big(\max_{j=1}^3 \sum
           <a href="/archives/">
         
         
-          <span class="site-state-item-count">156</span>
+          <span class="site-state-item-count">157</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1709,13 +1706,13 @@ S = \Bigg(\sum_{j = 1}^3 \max_{i \in S_j}h_i\Bigg) \times \Big(\max_{j=1}^3 \sum
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">488k</span>
+    <span title="站点总字数">490k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:23</span>
+    <span title="站点阅读时长">7:26</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1897,7 +1894,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1908,6 +1904,7 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
 </script>
+
 
 <script>
             window.imageLazyLoadSetting = {
