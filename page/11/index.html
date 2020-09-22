@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">146</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">155</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">157</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">163</span></a>
 
   </li>
         <li class="menu-item menu-item-done">
@@ -227,6 +227,775 @@
 
           <div class="content index posts-expand">
             
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/22/TI-nspire-%E8%AE%A1%E7%AE%97%E5%99%A8%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/22/TI-nspire-%E8%AE%A1%E7%AE%97%E5%99%A8%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">TI-nspire 计算器开发总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-22 16:30:39" itemprop="dateCreated datePublished" datetime="2020-03-22T16:30:39+08:00">2020-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 07:57:49" itemprop="dateModified" datetime="2020-09-15T07:57:49+08:00">2020-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TI-nspire/" itemprop="url" rel="index"><span itemprop="name">TI-nspire</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/03/22/TI-nspire-%E8%AE%A1%E7%AE%97%E5%99%A8%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/22/TI-nspire-计算器开发总结/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>929</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>由于要考AP，所以破费买了一个TI-nspire CX II CAS。和隔壁茶铺老板交流了之后就好像发现了新大陆一样。昨天终于有时间玩一下，然后就开始了瞎搞。</p>
+<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>由于TI的软件是Java写的，故需要JDK安装好。软件在官网上有，由于这个系统已经达到了5.*，所以要下载更高级的版本（学生软件）。（Connector是无效的）</p>
+<p>使用数据线将计算器和电脑连接起来，就可以传文件。注：如果连接中断，需要重启软件。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/22/TI-nspire-%E8%AE%A1%E7%AE%97%E5%99%A8%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/20/%E6%AE%8B%E5%B3%A8%E7%9C%89%E4%B8%8B%E7%9A%84%E6%B3%AA%E6%B0%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/20/%E6%AE%8B%E5%B3%A8%E7%9C%89%E4%B8%8B%E7%9A%84%E6%B3%AA%E6%B0%B4/" class="post-title-link" itemprop="url">残峨眉下的泪水</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-20 23:47:50 / 修改时间：23:49:39" itemprop="dateCreated datePublished" datetime="2020-03-20T23:47:50+08:00">2020-03-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E6%83%B3/" itemprop="url" rel="index"><span itemprop="name">随想</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/03/20/%E6%AE%8B%E5%B3%A8%E7%9C%89%E4%B8%8B%E7%9A%84%E6%B3%AA%E6%B0%B4/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/20/残峨眉下的泪水/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>32</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>看了一个京吹的番评，确实，</p>
+<blockquote class="blockquote-center">
+            <i class="fa fa-quote-left"></i>
+            <p>京阿尼给残酷的青春上了一层浪漫的滤镜。</p>
+
+            <i class="fa fa-quote-right"></i>
+          </blockquote>
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/20/200320-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/20/200320-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/" class="post-title-link" itemprop="url">200320-市地理课</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-20 15:27:53" itemprop="dateCreated datePublished" datetime="2020-03-20T15:27:53+08:00">2020-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-22 17:41:01" itemprop="dateModified" datetime="2020-09-22T17:41:01+08:00">2020-09-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B8%82%E6%95%99%E5%A7%94%E7%BD%91%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">市教委网课</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/03/20/200320-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/20/200320-市地理课/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>992</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="3-20-地理课"><a href="#3-20-地理课" class="headerlink" title="3/20 地理课"></a>3/20 地理课</h1><h2 id="城市功能分区"><a href="#城市功能分区" class="headerlink" title="城市功能分区"></a>城市功能分区</h2><ol>
+<li>基本概念：城市内部有商业、工业、居住、行政、文化教育、金融等<strong>不同功能</strong>的地区，在布局上有自己独特的<strong>要求和特点</strong>。</li>
+<li>城市的主要功能分区：<ul>
+<li>商业区</li>
+<li>工业区</li>
+<li>居住区</li>
+<li>文教区、风景区等</li>
+</ul>
+</li>
+<li>不同时期，城市的功能分区会发生变化</li>
+<li>城市工业区、居住区、商业区等<strong>不同功能区</strong>对土地利用、交通等的要求不同，<strong>合理分区</strong>有利于充分发挥城市功能，<strong>缓解城市问题</strong>，如交通拥挤、居住环境优化、发挥商业效益、提高文教辐射影响。</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/20/200320-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/19/200319-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/19/200319-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/" class="post-title-link" itemprop="url">200319-市地理课</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-19 09:35:25" itemprop="dateCreated datePublished" datetime="2020-03-19T09:35:25+08:00">2020-03-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-22 17:11:38" itemprop="dateModified" datetime="2020-03-22T17:11:38+08:00">2020-03-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B8%82%E6%95%99%E5%A7%94%E7%BD%91%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">市教委网课</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/03/19/200319-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/19/200319-市地理课/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>329</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="3-19-地理课"><a href="#3-19-地理课" class="headerlink" title="3/19 地理课"></a>3/19 地理课</h1><h2 id="城市的基本特征"><a href="#城市的基本特征" class="headerlink" title="城市的基本特征"></a>城市的基本特征</h2><ol>
+<li><strong>基本概念</strong>：城市是具有一定人口规模，以<strong>非农业人口</strong>为主的居民聚居地，是人类活动的主要场所，也是区域将经济发展的核心</li>
+<li>城市的特征：<ol>
+<li>人口和经济活动高度集中</li>
+<li>产业结构以第二、第三产业为主</li>
+<li>科技、教育、文化事业发达</li>
+</ol>
+</li>
+<li><strong>具有动态性强、节奏快、效率高的特点</strong></li>
+</ol>
+<h2 id="城市土地利用的空间结构"><a href="#城市土地利用的空间结构" class="headerlink" title="城市土地利用的空间结构"></a>城市土地利用的空间结构</h2><script type="math/tex; mode=display">
+商业用地为主 \rightarrow 居住用地为主 \rightarrow 工业用地为主 \rightarrow 农业用地为主</script><script type="math/tex; mode=display">
+市中区 \longrightarrow 郊区</script><p><strong><em>重要影响因素：地价</em></strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/19/200319-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/18/200318-%E5%B8%82%E7%89%A9%E7%90%86%E8%AF%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/18/200318-%E5%B8%82%E7%89%A9%E7%90%86%E8%AF%BE/" class="post-title-link" itemprop="url">200318-市物理课</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-18 13:08:20" itemprop="dateCreated datePublished" datetime="2020-03-18T13:08:20+08:00">2020-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-22 17:40:59" itemprop="dateModified" datetime="2020-09-22T17:40:59+08:00">2020-09-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B8%82%E6%95%99%E5%A7%94%E7%BD%91%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">市教委网课</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/03/18/200318-%E5%B8%82%E7%89%A9%E7%90%86%E8%AF%BE/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/18/200318-市物理课/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>377</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="3-18-物理课"><a href="#3-18-物理课" class="headerlink" title="3/18 物理课"></a>3/18 物理课</h1><script type="math/tex; mode=display">
+机械振动 \begin {cases}
+概念：物体在某一中心位置附近做往复运动，简称振动 \\
+条件：存在指向平衡位置（中心位置）的回复力 
+\begin{cases}
+    平衡位置F_回为零的位置 \\ 回复力有力提供是效果力
+\end{cases} \\
+运动情况：变加速运动 \begin{cases}
+    弹簧振子是一种理想化模型 \\ x,F_回,a,v做周期性变化
+\end{cases} \\ 
+描述\begin {cases}
+图像：振动位移- 时间图像，通常叫做振动图像，是正弦或余弦函数的图像 \\
+物理量 \begin{cases}
+    周期(T)：物体完成一次全振动所用的时间，单位：s \\
+    频率(f)：单位时间内完成全振动的次数，单位：\text {Hz} \\
+    振幅(A)：物体振动过程中，离开平衡位置的最大距离，单位：m
+\end{cases}
+\end {cases}
+\end{cases}</script><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/18/200318-%E5%B8%82%E7%89%A9%E7%90%86%E8%AF%BE/1.jpg" class="">
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/17/200317-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/17/200317-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/" class="post-title-link" itemprop="url">200317-市化学课</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-17 13:32:06" itemprop="dateCreated datePublished" datetime="2020-03-17T13:32:06+08:00">2020-03-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-22 20:59:22" itemprop="dateModified" datetime="2020-09-22T20:59:22+08:00">2020-09-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B8%82%E6%95%99%E5%A7%94%E7%BD%91%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">市教委网课</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/03/17/200317-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/17/200317-市化学课/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>753</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="3-17-化学课"><a href="#3-17-化学课" class="headerlink" title="3/17 化学课"></a>3/17 化学课</h1><h2 id="配置一定物质的量浓度的溶液"><a href="#配置一定物质的量浓度的溶液" class="headerlink" title="配置一定物质的量浓度的溶液"></a>配置一定物质的量浓度的溶液</h2><script type="math/tex; mode=display">
+c = \frac n V</script><p>精确确实溶质的质量</p>
+<ul>
+<li>仪器：电子天平<br>精确确定溶液的体积</li>
+<li>仪器：容量瓶（容量固定）</li>
+<li>使用前需检漏</li>
+<li>体积不具有可加性</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/17/200317-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
     
           
   
@@ -625,7 +1394,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-14 23:51:21" itemprop="dateModified" datetime="2020-09-14T23:51:21+08:00">2020-09-14</time>
+                <time title="修改时间：2020-09-22 20:59:31" itemprop="dateModified" datetime="2020-09-22T20:59:31+08:00">2020-09-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -712,739 +1481,10 @@
   
 
     
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x20-DNS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x20-DNS/" class="post-title-link" itemprop="url">面包人小课堂 - 0x20 - DNS</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-16 12:46:05 / 修改时间：12:57:09" itemprop="dateCreated datePublished" datetime="2020-03-16T12:46:05+08:00">2020-03-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">面包人小课堂</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x20-DNS/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/16/面包人小课堂-0x20-DNS/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>968</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote class="blockquote-center">
-            <i class="fa fa-quote-left"></i>
-            <p>DNS的工作原理：你发一条域名给dns，dns服务器回复你你应该找谁（比如说回复你另一个域名，或是回复你ip地址，balabala）<br>比如说www.baidu.com<br>在你获得到一个ip地址后，操作系统会自动记录下来<br>这样下次再访问百度的时候就用上次拿到的ip地址先进行尝试了<br>DNS如果是自动的话<br>电脑：路由器，我现在想要一个dns地址，你给我一个dns地址吧。<br>路由器：我自己有dns功能，可以充当一个正常的dns服务器，你就以我为dns服务器吧<br>电脑：好的，那么我就以192.168.110.1作为默认的dns地址了<br>然后访问百度：<br>电脑：192.168.110.1（dns），我想知道百度的ip<br>路由器：我不知道百度的ip，但是我可以再帮你问一问其他人<br>路由器：光猫，你知道不知道百度的ip地址<br>光猫：我不知道百度的ip，但是电信告诉我要以202.96.209.133（例子）为默认的dns服务器，我去问问他<br>然后202.96.209.133告诉光猫：我知道，百度的ip地址是180.101.49.11<br>光猫告诉路由器：我问到了，百度的ip是180.101.49.11<br>路由器告诉电脑：我问到了，百度的ip是180.101.49.11<br>电脑：开始访问180.101.49.11<br>与此同时，路由器：我拿个小本本记一下，百度的ip是180.101.49.11<br>光猫：我拿个小本本记一下，百度的ip是180.101.49.11<br>第二次的时候：<br>电脑：（假设系统内缓存的时效过期了）192.168.110.1（默认dns），我想知道百度的ip<br>路由器：我这里缓存还没过期，我告诉你，百度的ip是180.101.49.11<br>但是路由器并不知道的是，他的缓存时长是有问题的<br>此时的百度已经不同于以往的百度了<br>百度，她变了。<br>（像这种大公司的cdn，公网使用动态ip是很常见的事情<br>所以用原来的ip就访问不到百度了<br>计算机：路由器你这tm不是坑我吗……访问不了，你再给我去搞一个<br>路由器：我再去问问……<br>同（1）。<br>但是像dns这种分布式的东西<br>就很容易出现玄学问题<br>（因为是分布式的，所以缓存时间有各种奇奇怪怪的问题<br>所以有的时候大家问来问去都不知道steam的ip<br>那就好友网络无法访问了<br>所以一般来说<br>手动指定一个固定的dns<br>（比如说阿里dns就不错<br>那么每次问固定的人，出现这种缓存时间差的概率就会变得小很多</p>
-
-            <i class="fa fa-quote-right"></i>
-          </blockquote>
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/" class="post-title-link" itemprop="url">面包人小课堂 - 0x10 - DHCP</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-16 12:30:10 / 修改时间：12:35:30" itemprop="dateCreated datePublished" datetime="2020-03-16T12:30:10+08:00">2020-03-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">面包人小课堂</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/16/面包人小课堂-0x10-DHCP/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>667</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>「首先下一个定义：DHCP是一种协议」<br>「当电脑连上路由器时」<br>「电脑自己是没有ip地址的」<br>「所以电脑发了一条信息给网关：我要一个ip地址。」<br>「（此处省略各种握手 以及省略UDP层封包 省略冗余报文格式」<br>「（仅表达目的」<br>「草这是不是太草率了一点」<br>「反正就是电脑告诉网关：给劳资一个ip地址，没地址的话我tm没法和其他人通信」<br>「路由器在子网中充当网关的角色」<br>「网关是一种角色」<br>「然后网关告诉电脑：那我这里帮你登记好了，192.168.110.5你可以直接用，在120分钟内（举例）我不会把这个ip提供给其他的设备用，在120分钟后建议你再来向我确认一下这个ip是不是还能用，以免冲突。」<br>「然后电脑就能心安理得地在这120分钟（举例）内用这个ip了。」<br>「如果不开DHCP」<br>「那么就是像jdh那样的网络拓扑」<br>「电脑：哪个憨批让我不开dhcp的，那你tm自己填ip地址，填完我去告诉路由器去。」<br>「路由器收到了电脑的消息，将这个ip从自己DHCP“可用的ip地址池”内删去，这样其他的设备在DHCP时就不会获取到这个地址了」<br>「如果存在静态ip的话」<br>「那么就有可能会出现一种情况」<br>「路由器：刚刚不是有人和我说了192.168.110.6他要用吗……怎么现在又冒出来一个新的人说自己要用192.168.110.6了……我到底把消息发给谁啊……」<br>「然后那么这两台192.168.110.6（声称的ip地址）就都别想上网了。」<br>「所以说这种方法既麻烦 又存在风险」<br>「还不如DHCP来得香嘞」<br>「（此处省略了子网掩码相关内容」<br>「自动获得就是DHCP，手动填写就是静态」</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/15/%E3%80%8E%E9%9A%8F%E6%83%B3%E3%80%8F%E3%80%8C%E5%AD%A6%E5%A7%90%E5%9C%A8%E7%9A%84%E6%97%B6%E5%80%99%E5%AE%89%E5%BF%83%E6%84%9F%E5%B0%B1%E6%98%AF%E4%B8%8D%E4%B8%80%E6%A0%B7%E3%80%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/15/%E3%80%8E%E9%9A%8F%E6%83%B3%E3%80%8F%E3%80%8C%E5%AD%A6%E5%A7%90%E5%9C%A8%E7%9A%84%E6%97%B6%E5%80%99%E5%AE%89%E5%BF%83%E6%84%9F%E5%B0%B1%E6%98%AF%E4%B8%8D%E4%B8%80%E6%A0%B7%E3%80%8D/" class="post-title-link" itemprop="url">『随想』「学姐在的时候安心感就是不一样」</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-15 01:53:22" itemprop="dateCreated datePublished" datetime="2020-03-15T01:53:22+08:00">2020-03-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-22 17:13:21" itemprop="dateModified" datetime="2020-03-22T17:13:21+08:00">2020-03-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E6%83%B3/" itemprop="url" rel="index"><span itemprop="name">随想</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/03/15/%E3%80%8E%E9%9A%8F%E6%83%B3%E3%80%8F%E3%80%8C%E5%AD%A6%E5%A7%90%E5%9C%A8%E7%9A%84%E6%97%B6%E5%80%99%E5%AE%89%E5%BF%83%E6%84%9F%E5%B0%B1%E6%98%AF%E4%B8%8D%E4%B8%80%E6%A0%B7%E3%80%8D/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/15/『随想』「学姐在的时候安心感就是不一样」/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>216</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/15/%E3%80%8E%E9%9A%8F%E6%83%B3%E3%80%8F%E3%80%8C%E5%AD%A6%E5%A7%90%E5%9C%A8%E7%9A%84%E6%97%B6%E5%80%99%E5%AE%89%E5%BF%83%E6%84%9F%E5%B0%B1%E6%98%AF%E4%B8%8D%E4%B8%80%E6%A0%B7%E3%80%8D/1.png" class="">
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/15/%E3%80%8E%E9%9A%8F%E6%83%B3%E3%80%8F%E3%80%8C%E5%AD%A6%E5%A7%90%E5%9C%A8%E7%9A%84%E6%97%B6%E5%80%99%E5%AE%89%E5%BF%83%E6%84%9F%E5%B0%B1%E6%98%AF%E4%B8%8D%E4%B8%80%E6%A0%B7%E3%80%8D/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/13/200313-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/13/200313-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/" class="post-title-link" itemprop="url">200313-市地理课</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-13 15:29:57" itemprop="dateCreated datePublished" datetime="2020-03-13T15:29:57+08:00">2020-03-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-19 17:39:29" itemprop="dateModified" datetime="2020-03-19T17:39:29+08:00">2020-03-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B8%82%E6%95%99%E5%A7%94%E7%BD%91%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">市教委网课</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/03/13/200313-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/13/200313-市地理课/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>848</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="3-13-地理课"><a href="#3-13-地理课" class="headerlink" title="3/13 地理课"></a>3/13 地理课</h1><h2 id="人口容量"><a href="#人口容量" class="headerlink" title="人口容量"></a>人口容量</h2><ol>
-<li><strong>环境人口容量</strong>，简称<strong>人口容量</strong>。指一个地区在<strong>一定时间以内</strong>，能够容纳的享有<strong>合力生活水平</strong>的人口数量。</li>
-<li>合力生活水平的两个方面：<ul>
-<li>满足物质需求</li>
-<li>满足精神需求和未来发展</li>
-</ul>
-</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/13/200313-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/12/200312-%E5%B8%82%E5%8E%86%E5%8F%B2%E8%AF%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/12/200312-%E5%B8%82%E5%8E%86%E5%8F%B2%E8%AF%BE/" class="post-title-link" itemprop="url">200312-市历史课</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-12 23:07:47 / 修改时间：23:09:53" itemprop="dateCreated datePublished" datetime="2020-03-12T23:07:47+08:00">2020-03-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B8%82%E6%95%99%E5%A7%94%E7%BD%91%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">市教委网课</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/03/12/200312-%E5%B8%82%E5%8E%86%E5%8F%B2%E8%AF%BE/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/12/200312-市历史课/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>935</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="第二课-古代世界的帝国与文明的交流"><a href="#第二课-古代世界的帝国与文明的交流" class="headerlink" title="第二课 古代世界的帝国与文明的交流"></a>第二课 古代世界的帝国与文明的交流</h1><h2 id="古代文明的扩展"><a href="#古代文明的扩展" class="headerlink" title="古代文明的扩展"></a>古代文明的扩展</h2><h3 id="最初的文明：亚非欧大陆的若干地区，但是之间联系比较少"><a href="#最初的文明：亚非欧大陆的若干地区，但是之间联系比较少" class="headerlink" title="最初的文明：亚非欧大陆的若干地区，但是之间联系比较少"></a>最初的文明：亚非欧大陆的若干地区，但是之间联系比较少</h3><h3 id="扩展的条件-原因"><a href="#扩展的条件-原因" class="headerlink" title="扩展的条件 / 原因"></a>扩展的条件 / 原因</h3><ul>
-<li><p>农耕文明</p>
-<ul>
-<li>比较发达的社会分工</li>
-<li>相对较高的劳动生产率</li>
-<li>复杂的社会组织和管理系统</li>
-</ul>
-</li>
-<li><p>海洋文明</p>
-<ul>
-<li>组织能力</li>
-<li>航海技术</li>
-<li>武器</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/12/200312-%E5%B8%82%E5%8E%86%E5%8F%B2%E8%AF%BE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/12/200312-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/12/200312-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/" class="post-title-link" itemprop="url">200312-市化学课</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-12 13:32:01" itemprop="dateCreated datePublished" datetime="2020-03-12T13:32:01+08:00">2020-03-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-19 16:11:04" itemprop="dateModified" datetime="2020-03-19T16:11:04+08:00">2020-03-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B8%82%E6%95%99%E5%A7%94%E7%BD%91%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">市教委网课</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/03/12/200312-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/12/200312-市化学课/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>677</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="3-12-化学课"><a href="#3-12-化学课" class="headerlink" title="3/12 化学课"></a>3/12 化学课</h1><h2 id="物质的量浓度"><a href="#物质的量浓度" class="headerlink" title="物质的量浓度"></a>物质的量浓度</h2><ul>
-<li>用$1L$溶液中所含溶质（分子、离子）的物质的量来表示的溶液浓度</li>
-<li>定义：单位体积溶液中所含溶质的物质的量来表示的浓度</li>
-<li>表达式：</li>
-</ul>
-<script type="math/tex; mode=display">
-    c = \frac {n}{V_{\text{溶液}}}</script><ul>
-<li>单位：$\text {mol / L}$，亦可表示为：$\text {mol}\cdot \text {L}^{-1}$
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/12/200312-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1513,7 +1553,7 @@
           <a href="/archives/">
         
         
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1526,7 +1566,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-count">155</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1606,13 +1646,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">490k</span>
+    <span title="站点总字数">503k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:26</span>
+    <span title="站点阅读时长">7:38</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

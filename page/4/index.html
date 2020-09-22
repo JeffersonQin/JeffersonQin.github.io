@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">146</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">155</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">157</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">163</span></a>
 
   </li>
         <li class="menu-item menu-item-done">
@@ -227,6 +227,910 @@
 
           <div class="content index posts-expand">
             
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/08/20/%E5%AF%B9RCF%E7%BD%91%E7%BB%9C%E7%9A%84%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/20/%E5%AF%B9RCF%E7%BD%91%E7%BB%9C%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">对RCF网络的理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-20 16:15:37" itemprop="dateCreated datePublished" datetime="2020-08-20T16:15:37+08:00">2020-08-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-22 17:41:39" itemprop="dateModified" datetime="2020-09-22T17:41:39+08:00">2020-09-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/08/20/%E5%AF%B9RCF%E7%BD%91%E7%BB%9C%E7%9A%84%E7%90%86%E8%A7%A3/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/20/对RCF网络的理解/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="原论文"><a href="#原论文" class="headerlink" title="原论文"></a>原论文</h1><blockquote>
+<p>原论文：<br><a target="_blank" rel="noopener" href="https://mmcheng.net/rcfEdge/">https://mmcheng.net/rcfEdge/</a></p>
+</blockquote>
+<h1 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h1><p>下图为RCF网络架构：</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/20/%E5%AF%B9RCF%E7%BD%91%E7%BB%9C%E7%9A%84%E7%90%86%E8%A7%A3/rcf.svg" class="">
+<div align=center>RCF网络架构</div>
+
+<p>其建立在VGG16之上，根据其修改而来。与原来的VGG16相比：</p>
+<ul>
+<li>RCF网络去除了原来所有的全连接层（最后的三个全连接层）以及最后的池化层。这样做是因为与VGG网络的设计初衷——图像分类问题不同，这个网络旨在边缘检测，VGG最后的全连接层得到的$1 \times 1 \times 4096$的输出是没有意义的，所以将其删去。</li>
+<li>为了进行边缘信息的提取，所以需要对像素值本身进行重新计算，所以在VGG16的每个卷积层后，都添加了一个$1\times 1 - 21$的卷积层，先升维，后通过$1 \times 1 - 1$进行降维。</li>
+<li>其在每一个<em>stage</em>的最后添加了<em>cross-entropy loss / sigmoid</em>层以计算损失，更新参数。</li>
+<li>每一层中有<em>deconv</em>层进行上采样，将图像大小映射回原来的大小，最后在<em>fusion</em>部分将每一个<em>stage</em>的输出叠加，在进行一遍$1\times 1 - 1$的卷积将多通道合并，来达到获取多种混合信息的能力。</li>
+</ul>
+<h1 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h1><p>由于数据集通常是由多个标记者 (Annotator) 标记的。虽然每个人的认知不同，但是大家的结果都具有很高的一致性。对于每一张图片，我们将所有人的标记取平均值来生成一个边缘存在的概率图。对于每一个点，$0$代表没有标记者认为这个点是边缘，$1$则代表所有人都认为这个点是边缘。这里定义一个超参数$\eta$：如果一个点是边缘的概率大于$\eta$，则这个点我们认为其是边缘；若这个点的概率是$ 0 $，则其不是边缘；此外，认为那些概率介于$ 0 $和$ \eta $之间的点是属于有争议的点，不计入损失函数。所以，每一个点的损失函数可以记为：</p>
+<script type="math/tex; mode=display">l(X_i; W) = \begin{cases}
+    \alpha \cdot \log (1 - P(X_i; W)) & \text {if } y_i = 0 \\
+    0 & \text {if } 0 < y_i \leq \eta \\
+    \beta \cdot \log P(X_i; W) & \text {otherwise}, 
+\end{cases}</script><p>其中，</p>
+<script type="math/tex; mode=display">
+    \alpha = \lambda \cdot \frac {|Y^+|} {|Y^+| + |Y^-|}</script><script type="math/tex; mode=display">
+    \beta = \cdot \frac {|Y^-|} {|Y^+| + |Y^-|}</script><p>$|Y^+|$表示图中一定是边缘的点的个数，$|Y^-|$表示图中<strong>一定不是</strong>边缘的点的个数，$\lambda$则是超参数。在像素$i$的特征向量和是否为边缘的事实表示分别为$X_i$和$y_i$，$P(X)$是一个标准的Sigmoid激活函数，$W$则代表网络中的所有学习参数。所以，整个图片的损失函数可以记为：</p>
+<script type="math/tex; mode=display">
+    L(W) = \sum _ {i = 1} ^ {|I|} \Big ( \sum _ {k = 1} ^ K l(X_i ^ {(k)}; W) + l(X_i ^ {\text {fuse}}; W)\Big )</script><p>其中，$X_i ^ {(k)}$表示<em>stage k</em>的特征向量，$X_i ^ \text {fuse}$表示<em>stage fusion</em>的特征向量，$|I|$代表像素个数，$|K|$代表阶段数（此处为5）</p>
+<h1 id="Online-Demo"><a href="#Online-Demo" class="headerlink" title="Online Demo"></a>Online Demo</h1><p><a target="_blank" rel="noopener" href="https://mc.nankai.edu.cn/edge">https://mc.nankai.edu.cn/edge</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/08/20/%E5%AF%B9SRAM%E4%B8%ADStack%E7%9A%84%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/20/%E5%AF%B9SRAM%E4%B8%ADStack%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">对SRAM中Stack的理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-20 15:54:37" itemprop="dateCreated datePublished" datetime="2020-08-20T15:54:37+08:00">2020-08-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 07:59:56" itemprop="dateModified" datetime="2020-09-15T07:59:56+08:00">2020-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SoC/" itemprop="url" rel="index"><span itemprop="name">SoC</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/08/20/%E5%AF%B9SRAM%E4%B8%ADStack%E7%9A%84%E7%90%86%E8%A7%A3/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/20/对SRAM中Stack的理解/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>854</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在七月份学习SoC的时候，教授谈到了SRAM中的stack部分。当时上课的时候，教授让我猜这到底是干什么的，我当时说可能是存放临时变量的地方，真没想到是真的。</p>
+<p>下图是M2e芯片对地址的索引：</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/20/%E5%AF%B9SRAM%E4%B8%ADStack%E7%9A%84%E7%90%86%E8%A7%A3/1.jpg" class="">
+<p>stack其实就是栈，是一种LIFO的数据结构。一开始写汇编的时候可能没什么感觉，但是当汇编写多了，使用到了子程序（submodule）以后就会发现，stack其实是有作用的。先扯一点关系不大的事情。在最开始学习寄存器的时候，我们会发现那张表上面有一个saved registers和temporary register。如果只用汇编的话，我们会发现混起来用一点关系都没有，因为我们其实只是在操作寄存器。然而，当我们在使用C和汇编混编的时候就会发现端倪。temporary寄存器是在函数跳转之后不被保存的寄存器，然而save寄存器则是在函数跳转之后还被保存的寄存器。这里我们谈到的“保存”其实就是和stack有关的操作。如果我们要保存一个32位的数，那我们其实只需要将stack pointer（sp）减去4，然后把值放在sp的位置，要取回的时候再加上四。注意：stack pointer的操作在自己的子程序当中一定要对称，即进来的时候sp是多少，出去的时候sp还是多少。其实这里的stack就是我们手动实现的，stack pointer就是栈顶指针罢了。接下来，我举一个例子：</p>
+<p>C语言中正在执行一个void，叫做a()，a()调用了汇编中的子程序b()，那么在调用b之前，如果运行的时候save寄存器中有东西，那就C编译器编译时就会有若干条指令来吧这些寄存器当中的值压回stack当中，并不会管temporary寄存器当中的值（因为一般来说C的编译器只有在使用临时变量是会使用$t*。接下来，进入b子程序之后，如果b子程序要调用C的一个子程序c()，那么在汇编当中，上述的保存过程就要手动实现了。</p>
+<p>总之，对于MIPS而言，他就是一个load-and-store structure，一切都可以通过操作寄存器、储存，使用ALU运算完成。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">VGG网络可以支持任意尺寸的理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-20 15:28:08" itemprop="dateCreated datePublished" datetime="2020-08-20T15:28:08+08:00">2020-08-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 08:00:07" itemprop="dateModified" datetime="2020-09-15T08:00:07+08:00">2020-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/20/VGG网络可以支持任意尺寸的理解/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>原论文：</p>
+<p><strong>Very Deep Convolutional Networks for Large-Scale Image Recognition</strong></p>
+<ul>
+<li>arXiv：<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1409.1556">[1409.1556] Very Deep Convolutional Networks for Large-Scale Image Recognition</a></li>
+<li>intro：ICLR 2015</li>
+<li>homepage：<a href="https://link.zhihu.com/?target=http%3A//www.robots.ox.ac.uk/~vgg/research/very_deep/">Visual Geometry Group Home Page</a></li>
+</ul>
+</blockquote>
+<p>下图为VGG网络的网络结构</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/1.png" class="">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/2.jpg" class="">
+<p>在这里我就不多赘述为什么要用小卷积核，小卷积核有什么好处，感受野，等等，诸如此类问题。这些东西网上讲解的非常详尽。我这里主要想探讨一下关于VGG可以接受任意大小的图片的原因。</p>
+<p>众所周知，卷积层和池化层不会对长宽有着硬性规定。因为卷积层迭代的其实就是卷积核当中的参数，与输入做卷积运算，不会有什么影响。注意到最后的全连接层。全连接层其实是可以和卷积层互换的，而且他们的参数规模都是一样的。具体原因，可以看下面这篇文章：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jyy555555/article/details/80515562">https://blog.csdn.net/jyy555555/article/details/80515562</a></p>
+<p>引用：</p>
+<blockquote>
+<p>上图是VGG网络最后三层的替换过程，上半部分是训练阶段，此时最后三层都是全连接层（输出分别是4096、4096、1000），下半部分是测试阶段（输出分别是1x1x4096、1x1x4096、1x1x1000），最后三层都是卷积层。下面我们来看一下详细的转换过程（以下过程都没有考虑bias，略了）：</p>
+<p>先看训练阶段，有4096个输出的全连接层FC6的输入是一个7x7x512的feature map，因为全连接层的缘故，不需要考虑局部性， 可以把7x7x512看成一个整体，25508（=7x7x512）个输入的每个元素都会与输出的每个元素（或者说是神经元）产生连接，所以每个输入都会有4096个系数对应4096个输出，所以网络的参数（也就是两层之间连线的个数，也就是每个输入元素的系数个数）规模就是7x7x512x4096。对于FC7，输入是4096个，输出是4096个，因为每个输入都会和输出相连，即每个输出都有4096条连线（系数），那么4096个输入总共有4096x4096条连线（系数），最后一个FC8计算方式一样，略。</p>
+<p>再看测试阶段，由于换成了卷积，第一个卷积后要得到4096（或者说是1x1x4096）的输出，那么就要对输入的7x7x512的feature map的宽高（即width、height维度）进行降维，同时对深度（即Channel/depth维度）进行升维。要把7x7降维到1x1，那么干脆直接一点，就用7x7的卷积核就行，另外深度层级的升维，因为7x7的卷积把宽高降到1x1，那么刚好就升高到4096就好了，最后得到了1x1x4096的feature map。这其中卷积的参数量上，把7x7x512看做一组卷积参数，因为该层的输出是4096，那么相当于要有4096组这样7x7x512的卷积参数，那么总共的卷积参数量就是：</p>
+<p>[7x7x512]x4096，这里将7x7x512用中括号括起来，目的是把这看成是一组，就不会懵。</p>
+<p>第二个卷积依旧得到1x1x4096的输出，因为输入也是1x1x4096，三个维度（宽、高、深）都没变化，可以很快计算出这层的卷积的卷积核大小也是1x1，而且，通道数也是4096，因为对于输入来说，1x1x4096是一组卷积参数，即一个完整的filter，那么考虑所有4096个输出的情况下，卷积参数的规模就是[1x1x4096]x4096。第三个卷积的计算一样，略。</p>
+<p>其实VGG的作者把训练阶段的全连接替换为卷积是参考了OverFeat的工作，如下图是OverFeat将全连接换成卷积后，带来可以处理任意分辨率（在整张图）上计算卷积，而无需对原图resize的优势。</p>
+</blockquote>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/3.jpeg" class="">
+<p>Digression：前段时间看了RCF网络，他之所以可以输出和输入同样尺寸的图片，就是因为其只有卷积层和池化层，去除了所有全连接层。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/08/14/GAN-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E6%95%B0%E5%AD%A6%E8%AF%81%E6%98%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/14/GAN-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E6%95%B0%E5%AD%A6%E8%AF%81%E6%98%8E/" class="post-title-link" itemprop="url">GAN 基本原理以及数学证明</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-14 19:40:17" itemprop="dateCreated datePublished" datetime="2020-08-14T19:40:17+08:00">2020-08-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-22 21:03:40" itemprop="dateModified" datetime="2020-09-22T21:03:40+08:00">2020-09-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/08/14/GAN-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E6%95%B0%E5%AD%A6%E8%AF%81%E6%98%8E/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/14/GAN-基本原理以及数学证明/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>今天在PD Lib和DL斗智斗勇时，突然想起了自己非常想学的GAN，机缘巧合下便百度了，得到了以下两篇文章：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/72279816">https://zhuanlan.zhihu.com/p/72279816</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/jizhidexiaoming/article/details/96485095">https://blog.csdn.net/jizhidexiaoming/article/details/96485095</a></li>
+</ul>
+<p>于是便对GAN有了初步的了解（以前肯定是心不在焉才没有理解的（划掉）），随后又在五楼<code>生命科学</code>的书架上找到了相关资料，遂学了一波。</p>
+<h1 id="GAN概述"><a href="#GAN概述" class="headerlink" title="GAN概述"></a>GAN概述</h1><blockquote>
+<p>2014 年，Ian Goodfellow 和他在蒙特利尔大学的同事发表了一篇震撼学界的论文。没错，我说的就是《Generative Adversarial Nets》，这标志着生成对抗网络（GAN）的诞生，而这是通过对计算图和博弈论的创新性结合。他们的研究展示，给定充分的建模能力，两个博弈模型能够通过简单的反向传播（backpropagation）来协同训练。</p>
+<p>这两个模型的角色定位十分鲜明。给定真实数据集 R，G 是生成器（generator），它的任务是生成能以假乱真的假数据；而 D 是判别器 （discriminator），它从真实数据集或者 G 那里获取数据， 然后做出判别真假的标记。Ian Goodfellow 的比喻是，G 就像一个赝品作坊，想要让做出来的东西尽可能接近真品，蒙混过关。而 D 就是文物鉴定专家，要能区分出真品和高仿（但在这个例子中，造假者 G 看不到原始数据，而只有 D 的鉴定结果——前者是在盲干）。</p>
+<p>理想情况下，D 和 G 都会随着不断训练，做得越来越好——直到 G 基本上成为了一个“赝品制造大师”，而 D 因无法正确区分两种数据分布输给 G。</p>
+<p>实践中，Ian Goodfellow 展示的这项技术在本质上是：G 能够对原始数据集进行一种无监督学习，找到以更低维度的方式（lower-dimensional manner）来表示数据的某种方法。而无监督学习之所以重要，就好像 Yann LeCun 的那句话：“无监督学习是蛋糕的糕体”。这句话中的蛋糕，指的是无数学者、开发者苦苦追寻的“真正的 AI”。<br>——<a target="_blank" rel="noopener" href="https://blog.csdn.net/jizhidexiaoming/article/details/96485095">pytorch实现GAN</a></p>
+</blockquote>
+<p>GAN - Generative Adversarial Nets, 生成对抗网络，简单来讲其有两个组成部分：</p>
+<ul>
+<li>D (Discriminator) - 判别器，判断输入时捏造的还是真实的</li>
+<li>G (Generator) - 生成器，从随机噪声中生成我们想要的数据</li>
+</ul>
+<p>随着训练的进行，我们要提高D的辨析能力，但同时也要G的能力来骗过D，因为我们的最终目的是要让G来生成可以骗过D的信息。总结来说，通过对这两个模型的训练，我们就可以找到随机噪声与有意义数据的映射，达到<code>创作</code>的目的。</p>
+<h1 id="GAN的流程和目标函数"><a href="#GAN的流程和目标函数" class="headerlink" title="GAN的流程和目标函数"></a>GAN的流程和目标函数</h1><h2 id="GAN的目标函数"><a href="#GAN的目标函数" class="headerlink" title="GAN的目标函数"></a>GAN的目标函数</h2><p>GAN的目标函数如下：</p>
+<script type="math/tex; mode=display">
+    V(D, G) = \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))]</script><p>其中，$D$为<code>Discriminator</code>的模型函数，$G$为<code>Generator</code>的模型函数，随机变量$x$服从原来正确的数据集的分布$P_\text {data}$，随机变量（这里可能是高维随机变量，取决于模型具体实现）$\boldsymbol {z}$服从分布$P_z$（生成噪音），$\mathbb E$代表期望。</p>
+<h2 id="GAN的流程"><a href="#GAN的流程" class="headerlink" title="GAN的流程"></a>GAN的流程</h2><script type="math/tex; mode=display">
+    G^* = \arg \min _G \max _D V(D, G)</script><p>即，可以分为两步理解：</p>
+<ol>
+<li>在$G$为常数的情况下，选择合适的$D$使得$V(D,G)$能够最大化。</li>
+<li>在这之后，选取合适的$G$来最小化$V(D, G)$，这个$G$就是我们想要的生成模型。</li>
+</ol>
+<p>在每一步的训练中：</p>
+<ul>
+<li>取$m$个真实数据：<script type="math/tex; mode=display">
+  \{x^{(1)}, x^{(2)}, x^{(3)}, \cdots, x^{(m)}\}</script>使用$G$和$m$组随机数（服从于噪音分布$P_G$，一般使用服从正态分布的随机数）<script type="math/tex; mode=display">
+  \{\boldsymbol {z}^{(1)}, \boldsymbol {z}^{(2)}, \boldsymbol {z}^{(3)}, \cdots, \boldsymbol {z}^{(m)}\}</script>生成$m$个假数据，其中<script type="math/tex; mode=display">
+  \forall i \in [1, m], i \in \mathbb Z \Rightarrow x^{(i)} \sim P_{\text{data}}, \boldsymbol {z} ^ {(i)} \sim P_z</script></li>
+<li>根据$\max$部分的目标使用随机梯度上升（Stochastic Gradient Ascent）更新$D$的参数，提高$D$的分辨能力<script type="math/tex; mode=display">
+  \theta_d := \theta_d + \alpha_d \nabla_{\theta_d} \frac 1 m \sum _ {i = 1} ^ m \Big [ \log D\big ( x^{(i)} \big) + \log \big ( 1 - D \big ( G(\boldsymbol{z}^{(i)}) \big ) \big ) \Big]</script></li>
+<li>根据$\min$部分的目标使用随机梯度下降（Stochastic Gradient Descent）更新$G$的参数，使$G$生成的数据更有迷惑性<script type="math/tex; mode=display">
+  \theta_g := \theta_g - \alpha_g\nabla_{\theta_g} \frac 1 m \sum _{i = 1} ^ m\log \Big ( 1 - D\big ( G(\boldsymbol{z} ^ {(i)})\big ) \Big )</script></li>
+</ul>
+<h1 id="GAN的数学原理"><a href="#GAN的数学原理" class="headerlink" title="GAN的数学原理"></a>GAN的数学原理</h1><h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><h3 id="信息量-自信息"><a href="#信息量-自信息" class="headerlink" title="信息量(自信息)"></a>信息量(自信息)</h3><p>信息量是指信息多少的量度，即，对于一条信息，传达这条信息所需的最少信息长度为自信息。</p>
+<p>信息论创始人C.E.Shannon，1938年首次使用比特（bit）概念：1（bit）= $\log_2 2$。它相当于对二个可能结局所作的一次选择量。信息论采用对随机分布概率取对数的办法，解决了不定度的度量问题。</p>
+<p>定义：符合分布$P$的某一事件$x$出现，传达出这条信息的信息量记为：</p>
+<script type="math/tex; mode=display">
+    I = \log \frac 1 {P(x)} = - \log P(x)</script><h3 id="香农熵"><a href="#香农熵" class="headerlink" title="香农熵"></a>香农熵</h3><p>从离散分布$P$中随机抽选一个事件，传达这条信息所需的最优平均信息长度为香农熵，表达为：</p>
+<script type="math/tex; mode=display">
+    H(P) = \sum_x P(x) \log \frac 1 {P(x)} = - \sum_x P(x) \log P(x)</script><p>若分布是连续的，则：</p>
+<script type="math/tex; mode=display">
+    H(P) = \int_x P(x) \log \frac 1 {P(x)} \mathrm dx = -\int_x P(x) \log P(x) \mathrm dx</script><h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h3><p>用分布$P$的最佳信息传递方式来传达分布$Q$中随机抽选的一个事件，所需的平均信息长度为交叉熵，表达为</p>
+<script type="math/tex; mode=display">
+    H_P(Q) = \sum_x Q(x) \log \frac 1 {P(x)} = - \sum_x Q(x) \log P(x)</script><script type="math/tex; mode=display">
+    H_P(Q) = \int_x Q(x) \log \frac 1 {P(x)} \mathrm dx = - \int_x Q(x) \log P(x) \mathrm dx</script><h3 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="$KL$ Divergence"></a>$KL$ Divergence</h3><p>$KL$散度：用分布$P$的最佳信息传递方式来传达分布$Q$，比用分布$Q$自己的最佳信息传递方式来传达分布$Q$，平均多耗费的信息长度为$KL$散度，表达为$D_P(Q)$或$D_{KL}(Q||P)$，$KL$散度衡量了两个分布之间的差异。</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        D_{KL}(Q||P) = D_P(Q) &= H_P(Q) - H(Q) \\
+        &= \sum_x Q(x) \log \frac 1 {P(x)} - \sum _x Q(x) \log \frac 1 {Q(x)} \\
+        &= \sum_x Q(x) \log \frac {Q(x)} {P(x)}
+    \end{aligned}</script><p>对于连续分布：</p>
+<script type="math/tex; mode=display">
+    D_{KL}(Q||P) = D_P(Q) = \int_{-\infty} ^ {\infty} P(x)\log \frac {P(x)}{Q(x)} \mathrm dx</script><p>KL Divergence越大，两个分布差异越大，反之差异越小。</p>
+<h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><p>看完Prerequisites，我们回归正题讨论GAN的原理。我们现在想要做的事情，其实就是将一个服从$P_G$的随机噪声$\boldsymbol z$通过一个生成网络$G$得到一个和真实数据分布$P_{\text {data}}(x)$差不多的生成分布$P_G(x;\theta_g)$，其中$\theta_g$为生成网络$G$的参数。我们希望找到一个$\theta_g$使得两个分布$P_{\text {data}}(x)$与$P_G(x;\theta)$尽可能地相似（使得他们地KL散度尽可能得小）。</p>
+<p>我们从真实数据分布$P_\text{data}(x)$中取$m$个样本，记作：</p>
+<script type="math/tex; mode=display">
+    \{x^{(1)}, x^{(2)}, x^{(3)}, \cdots, x^{(m)}\}</script><p>根据生成网络的参数$\theta_g$，我们可以计算出这$m$个真实样本在生成网络中出现的概率$P_G(x^{(i)}; \theta_g)$，那么生成这样的$m$个样本数据的似然（likelihood）为：</p>
+<script type="math/tex; mode=display">
+    L = \prod_{i = 1} ^ m P_G(x^{(i)}; \theta_g)</script><p>由于我们想要两个分布尽量相似，那么我们肯定希望这个似然$L$尽量大，即生成这样的真实数据的概率尽量大，遂我们最大化这个似然，找到$\theta_g^*$：</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        \theta_g^* &= \arg \max _ {\theta_g} \prod _ {i = 1} ^ m P_G(x^{(i)}; \theta_g) \\
+        &\Leftrightarrow \arg \max _ {\theta_g} \log \prod _ {i = 1} ^ m P_G(x^{(i)}; \theta_g) \\
+        &= \arg \max _ {\theta_g} \sum_{i = 1} ^ m \log P_G(x^{(i)}; \theta_g) \\
+        &\approx \arg \max _ {\theta_g} \mathbb E_{x \sim P_{\text {data}}} [\log P_G(x; \theta_g)] \\
+        &= \arg \max _ {\theta_g} \int _ x P_\text{data}(x) \log P_G(x; \theta_g)\mathrm dx \\
+        &= \arg \max _ {\theta_g} \int _ x P_\text{data}(x) \log P_G(x; \theta_g)\mathrm dx \\&~~~~- \int _ x P_\text{data}(x) \log P_\text {data}(x)\mathrm dx \\
+        &= \arg \max _ {\theta_g} \int _ x P_\text {data} (x) \log \frac {P_G(x; \theta_g)} {P_\text {data}(x)} \mathrm dx \\ 
+        &= \arg \max _ {\theta_g} - \int _ x P_\text {data} (x) \log \frac {P_\text {data}(x)} {P_G(x; \theta_g)} \mathrm dx \\
+        &= \arg \min _ {\theta_g} KL(P_\text {data} || P_G(x; \theta))
+    \end{aligned}</script><p>所以可见，其实最大化这个似然，和最小化KL散度是基本相同的。</p>
+<p>上述式子中，$P_G(x;\theta_g)$代表在生成分布中出现$x$的概率，也可以如下计算得到：</p>
+<script type="math/tex; mode=display">
+    P_G(x) = \int _ \boldsymbol{z} P_z(z)\cdot 1\{G(z) = x\} \mathrm dz</script><p>注：$1{\cdot}$的含义是若打括号内的逻辑运算为真则取$1$，假则取$0$. 即</p>
+<script type="math/tex; mode=display">1\{\text {True}\} = 1, 1 \{\text {False}\} = 0</script><p>但是我们发现，上述的过程是难以进行计算的，甚至完全没办法求$P_G(x)$，这只是模型的想法而已。</p>
+<p>现在我们看回之前我们提到的目标函数：</p>
+<script type="math/tex; mode=display">
+    V(D, G) = \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))]</script><p>与最优化生成模型：</p>
+<script type="math/tex; mode=display">
+    G^* = \arg \min _G \max _D V(D, G)</script><p>我们接下来分步解释。</p>
+<p>首先，我们不妨解释一下$\max_D V(G, D)$，这部分的含义之前也解释过，是在给定$G$的情况下，最大化$V(G, D)$。观察发现，其形式其实与交叉熵损失函数非常相似：</p>
+<script type="math/tex; mode=display">
+    \mathcal L(\hat y, y) = -(y\log \hat y + (1 - y) \log (1 - \hat y))</script><p>其实他们表达的目的也差不多。我们先化简一下$V(G, D)$看看能得到什么结果：</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+            V(G, D) &= \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))] \\
+            &= \int_x P_\text {data}(x) \log D(x) \mathrm dx + \int_\boldsymbol{z} P_z(\boldsymbol{z}) \log (1 - D(G(\boldsymbol{z})))\mathrm dz \\
+            &= \int_x P_\text {data}(x) \log D(x) \mathrm dx + \int_x P_G(x)\log (1 - D(x)) \mathrm dx \\
+            &= \int_x [P_\text {data}(x) \log D(x) + P_G(x)\log (1 - D(x))] \mathrm dx
+    \end{aligned}</script><p>让我们考察积分内部的项，我们可以对它做指数运算，即：</p>
+<script type="math/tex; mode=display">
+    e^{P_\text {data}(x) \log D(x) + P_G(x)\log (1 - D(x))} = D(x) ^ {P_\text {data}}\times(1- D(x))^{P_G(x)}</script><p>其想表达什么便不言而喻了，它表达的就是判别器判别是真的的正确率和判别是假的的正确率，总体来说就是衡量$D$的能力，所以我们想要最大化$V$，提高$D$的判别能力。</p>
+<p>令</p>
+<script type="math/tex; mode=display">
+    f(D) = P_\text {data}(x) \log D(x) \mathrm dx + P_G(x)\log (1 - D(x))</script><p>因为这里$P_\text {data} (x)$和$P_G(x)$都可以看作常数，所以</p>
+<script type="math/tex; mode=display">
+    \arg \max _ D \int_x f(D) \mathrm dx = \arg \max _D f(D)</script><p>最大化$f(D)$，即令其导数为$0$：</p>
+<script type="math/tex; mode=display">
+    \frac {\mathrm d f(D)} {\mathrm dD } = \frac {P_\text {data}(x)}{D} - \frac {P_G(x)} {1 - D} = 0</script><p>则：</p>
+<script type="math/tex; mode=display">
+    \frac {P_\text {data}(x)}{D} = \frac {P_G(x)} {1 - D}</script><script type="math/tex; mode=display">
+    D^*(x) = \frac {P_\text {data}(x)}{P_\text {data}(x) + P_G(x)}</script><p>这样，我们就得到了那个状态下最优的$D^*$的表达式。我们将这个能够最大化$V$的$D$代入回$V(G, D)$：</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        \max V(G, D) &= V(G, D^*) \\
+        &= \mathbb E_{x \sim P_\text {data}} \Big [ \log \frac {P_\text {data}(x)}{P_\text {data}(x) + P_G(x)} \Big] + \mathbb E_{x \sim P_G} \Big [ \frac {P_G(x)}{P_\text {data}(x) + P_G(x)}\Big ] \\
+        &= \int_x P_\text {data} (x) \log \frac {\frac 1 2 P_\text {data}}{\frac 1 2 (P_\text{data}(x) + P_G(x))} \mathrm dx + \int _ x P_G(x) \log \frac {\frac 1 2 P_G(x)} {\frac 1 2 (P_\text {data} (x) + P_G(x))} \mathrm dx \\
+        &= -2\log 2 + D_{KL} (P_\text {data} || \frac 1 2 [P_\text{data}(x) + P_G(x)]) + D_{KL} (P_G(x) || \frac 1 2 [P_\text {data}(x) + P_G(x)]) \\
+        &= -2\log 2 + JSD (P_\text{data}(x) || P_G(x))
+    \end{aligned}</script><p>其中，我们引入了$JS$ Divergence，定义如下：</p>
+<script type="math/tex; mode=display">
+    JSD(P||Q) = \frac 1 2 D_{KL} (P||M) + \frac 1 2 D_{KL} (Q || M), M = \frac 1 2 (P + Q)</script><p>容易得到，KL Divergence是不对称的，而JS Divergence是对称的。他们都可以衡量两组分布建的差异。这里我们想要两组分布差异最小，故取$\min$</p>
+<p>所以，这也就解释了为什么：</p>
+<script type="math/tex; mode=display">
+\arg \min _G \max _D V(G, D)</script><p>是我们的目标过程。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/08/05/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%93%A5%E5%93%A5%E7%9A%84%E6%95%B0%E8%AE%BA%E9%A2%98%EF%BC%88%E9%9B%BE%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/05/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%93%A5%E5%93%A5%E7%9A%84%E6%95%B0%E8%AE%BA%E9%A2%98%EF%BC%88%E9%9B%BE%EF%BC%89/" class="post-title-link" itemprop="url">面包人哥哥的数论题（雾）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-05 16:14:31" itemprop="dateCreated datePublished" datetime="2020-08-05T16:14:31+08:00">2020-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-10 19:17:53" itemprop="dateModified" datetime="2020-09-10T19:17:53+08:00">2020-09-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/08/05/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%93%A5%E5%93%A5%E7%9A%84%E6%95%B0%E8%AE%BA%E9%A2%98%EF%BC%88%E9%9B%BE%EF%BC%89/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/05/面包人哥哥的数论题（雾）/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>825</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>鄙人正在学校摸鱼，面包人就发来了一道魔鬼题（雾），知识背景：</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/05/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%93%A5%E5%93%A5%E7%9A%84%E6%95%B0%E8%AE%BA%E9%A2%98%EF%BC%88%E9%9B%BE%EF%BC%89/1.png" class="">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/05/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%93%A5%E5%93%A5%E7%9A%84%E6%95%B0%E8%AE%BA%E9%A2%98%EF%BC%88%E9%9B%BE%EF%BC%89/2.png" class="">
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>求证：$\forall n \in E, 0_\mathbb K.n = 0_E$</p>
+<p>我的证法：</p>
+<p>$\forall x \in \mathbb K, \exists !y \in \mathbb K$, $x + y = y + x = 0_\mathbb K, y = -x$.</p>
+<p>Thus $x + (-x) = 0 _ \mathbb K$</p>
+<p>From which, $0_\mathbb K . n = (x + (-x)).n = n.x + (-x).n = n.x - n.x$</p>
+<p>Since $n \in E, x \in \mathbb K$, we may have $n.x \in E$, thus according to the definition, $0_\mathbb K.n = n.x - n.x = 0_E$</p>
+<p>但是非常不幸，这个证法是假的。注意到$n.x + (-x).n$，没有定义可以让负号提出。</p>
+<h1 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h1><p>对于某个$x \in E$, 有</p>
+<script type="math/tex; mode=display">0_\mathbb K .x = (0_\mathbb K + 0_\mathbb K).x = 0_\mathbb K.x + 0_\mathbb K.x \tag 1</script><p>所以</p>
+<script type="math/tex; mode=display">0_\mathbb K.x = 0_\mathbb K.x + 0_\mathbb K.x \tag 2</script><p>构造一个式子</p>
+<script type="math/tex; mode=display">0_\mathbb K.x - 0_\mathbb K.x = 0_\mathbb K.x - 0_\mathbb K.x \tag 3</script><p>将上一步中得到的</p>
+<script type="math/tex; mode=display">0_\mathbb K.x = 0_\mathbb K.x + 0_\mathbb K.x</script><p>代入$(3)$得到</p>
+<script type="math/tex; mode=display">0_\mathbb K.x - 0_\mathbb K.x = (0_\mathbb K.x + 0_\mathbb K.x) - 0_\mathbb K.x \tag 4</script><p>因为$x \in E, 0_\mathbb K \in \mathbb K$，所以$0_\mathbb K.x \in E$，所以根据$0_E$的定义有</p>
+<script type="math/tex; mode=display">0_\mathbb K.x - 0_\mathbb K.x = 0_E</script><p>代入$(4)$，有</p>
+<script type="math/tex; mode=display">
+0_E = 0_\mathbb K .x + 0_E</script><p>所以$0_\mathbb K.x = 0_E$，得证.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/07/31/%E4%B8%83%E6%9C%88%E6%9C%AB%E7%9A%84%E6%84%9F%E6%83%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/31/%E4%B8%83%E6%9C%88%E6%9C%AB%E7%9A%84%E6%84%9F%E6%83%B3/" class="post-title-link" itemprop="url">七月末的感想</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-31 22:05:34 / 修改时间：22:12:58" itemprop="dateCreated datePublished" datetime="2020-07-31T22:05:34+08:00">2020-07-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E6%83%B3/" itemprop="url" rel="index"><span itemprop="name">随想</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/07/31/%E4%B8%83%E6%9C%88%E6%9C%AB%E7%9A%84%E6%84%9F%E6%83%B3/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/07/31/七月末的感想/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>205</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>暑假开始前，我想了无数想做的事。七月已尽，暑假过半，方才想到自己的无能与无力。摸鱼和osu成为生活的常态，在烈日的洗礼下，人奇怪得变得好动了起来。不再想被关在家里，出去骑车兜风从未感到如此快乐。</p>
+<p>说起这个月，也并非一无所获。装了台式（谢谢杰爹，谢谢杰娘www），学了SoC，和汇编和C语言斗志斗勇，在网课中发奋图强，osu打上了500pp，摸鱼日益见长。</p>
+<p>翻新了博客背景，从这个月开始，好好学习，天天向上（确信）。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
     
           
   
@@ -684,838 +1588,10 @@
   
 
     
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/07/04/%E8%83%8C%E9%94%85%E4%BE%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/04/%E8%83%8C%E9%94%85%E4%BE%A0/" class="post-title-link" itemprop="url">背锅侠</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-04 11:39:25 / 修改时间：11:40:33" itemprop="dateCreated datePublished" datetime="2020-07-04T11:39:25+08:00">2020-07-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E6%83%B3/" itemprop="url" rel="index"><span itemprop="name">随想</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/07/04/%E8%83%8C%E9%94%85%E4%BE%A0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/07/04/背锅侠/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>103</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>看到了一句非常真实的话：</p>
-<blockquote class="blockquote-center">
-            <i class="fa fa-quote-left"></i>
-            <p>我们只是需要一个背锅侠，一个可以掩盖家庭教育失败、学校教育失败、社会教育失败的东西。40年前它是武侠小说。30年前它是香港电影，20年前它是网络，10年前它是游戏，5年前是智能手机。</p>
-
-            <i class="fa fa-quote-right"></i>
-          </blockquote>
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/07/02/%E6%B7%B1%E5%A4%9C%E9%9A%8F%E6%83%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/02/%E6%B7%B1%E5%A4%9C%E9%9A%8F%E6%83%B3/" class="post-title-link" itemprop="url">深夜随想</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-02 00:36:19" itemprop="dateCreated datePublished" datetime="2020-07-02T00:36:19+08:00">2020-07-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-31 22:06:33" itemprop="dateModified" datetime="2020-07-31T22:06:33+08:00">2020-07-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E6%83%B3/" itemprop="url" rel="index"><span itemprop="name">随想</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/07/02/%E6%B7%B1%E5%A4%9C%E9%9A%8F%E6%83%B3/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/07/02/深夜随想/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>62</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>清除自己想要什么，坚持道路自信。这可能就是学习政治最大的收获？不为言语所迷茫，不为世事而困扰，剥开雾般的眼障，行走险径钢丝。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/05/23/AP%E6%AD%A3%E8%80%83%E7%BB%93%E6%9D%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/23/AP%E6%AD%A3%E8%80%83%E7%BB%93%E6%9D%9F/" class="post-title-link" itemprop="url">AP正考结束</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-23 03:13:07 / 修改时间：03:28:37" itemprop="dateCreated datePublished" datetime="2020-05-23T03:13:07+08:00">2020-05-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E6%83%B3/" itemprop="url" rel="index"><span itemprop="name">随想</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/05/23/AP%E6%AD%A3%E8%80%83%E7%BB%93%E6%9D%9F/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/23/AP正考结束/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>416</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>AP最后一门统计，前面考完了。还剩下一门Calculus的Makeup。这两周考试下来，特别是最近三天，我甚至开始怀疑，我真的适合学习吗？没有好的学习规划，永远被DDL牵着鼻子走。拿学习的时间去刷番和搞技术，但这样真的有意义吗？两门经济都没有做完，本想向别人寻求心理安慰但却发现大家都觉得很简单。12月份不努力学习，1月份美其名曰SAT，2月份自顾自地写代码，3月份开始网课摸鱼。我好像学习态度真的很差。学校里数学考试给自己找借口，其实就是不会，不熟，没刷题。为了保持那一点点可怜的自尊心这样真的有意义吗？好像也没有必要逃避了，也不能再逃避了，也没办法再逃避了。其实我好像早就意识到吃老本总会吃完的，但真的没想到这一天来得这么快。上一次因为担心课内而刷题还是在初三上直升考的时候啊。</p>
-<p>再这样下去，我连GPA可能都不保了。</p>
-<p>我要熬更多的夜，翘更多的课学习，刷更多的题，看更多的书。</p>
-<p>于2020年5月23日AP Statistics后记。共勉。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/05/15/200515-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/15/200515-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/" class="post-title-link" itemprop="url">200515-市地理课</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-15 15:28:21 / 修改时间：15:52:13" itemprop="dateCreated datePublished" datetime="2020-05-15T15:28:21+08:00">2020-05-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B8%82%E6%95%99%E5%A7%94%E7%BD%91%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">市教委网课</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/05/15/200515-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/15/200515-市地理课/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>888</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="5-15-世界文化圈"><a href="#5-15-世界文化圈" class="headerlink" title="5/15 世界文化圈"></a>5/15 世界文化圈</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><div class="note info">文化圈又称文化区,指具有相似的**文化现象和生存方式**的地理区域</div>
-
-<ul>
-<li>表现: <strong>语言文字、生活习惯、宗教信仰、思想观念</strong>等比较类似, 并有共同的渊源和紧密的联系。</li>
-<li>划分: 文化圈的划分以<strong>文化源地</strong>为中心, 以<strong>民族</strong>为单位进行组合。</li>
-</ul>
-<h2 id="世界文化圈"><a href="#世界文化圈" class="headerlink" title="世界文化圈"></a>世界文化圈</h2><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/05/15/200515-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/1.jpg" class="">
-<ol>
-<li>西欧文化圈<ul>
-<li><strong>分布地区</strong>：西欧、北美和澳大利亚等地区</li>
-<li><strong>特点</strong>：西欧文化发源地，深受英国影响</li>
-<li><strong>代表文化事物和现象</strong>：<ul>
-<li>乳畜生产文化,普遍使用刀叉</li>
-<li>信奉基督教新教、罗马天主教</li>
-<li>不同风格的西方古典建筑</li>
-<li>各种基督教节日庆典</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>东欧文化圈<ul>
-<li><strong>分布地区</strong>：以斯拉夫民族为主的东欧地区</li>
-<li><strong>特点</strong>：深受俄罗斯影响</li>
-<li><strong>代表文化事物和现象</strong>：<ul>
-<li>信奉东正教</li>
-<li>圆形穹顶的东正教堂</li>
-<li>俄罗斯精湛的芭蕾舞技术</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>东亚文化圈<ul>
-<li><strong>分布地区</strong>：中国、日本、朝鲜半岛、蒙古</li>
-<li><strong>特点</strong>：深受中国古代文化,特别是儒家思想和汉字影响</li>
-<li><strong>代表文化事物和现象</strong>：<ul>
-<li>稻米生产文化,普遍使用筷子</li>
-<li>中国旗袍、日本和服、朝鲜高腰长裙、蒙古袍等</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>南亚文化圈<ul>
-<li><strong>分布地区</strong>：印度、巴基斯坦、尼泊尔、孟加拉国、斯里兰卡等</li>
-<li><strong>特点</strong>：<ul>
-<li>深受古印度文明影响</li>
-<li>民族、语言、宗教都比较复杂</li>
-</ul>
-</li>
-<li><strong>代表文化事物和现象</strong>：<ul>
-<li>印度教、锡克教、佛教、伊斯兰教等多种宗教</li>
-<li>泰姬陵、印度舞蹈、纱丽服饰</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>东南亚文化圈<ul>
-<li><strong>分布地区</strong>：中南半岛、马来群岛</li>
-<li><strong>特点</strong>：受中国、印度及欧美影响,文化丰富多样,体现多元特色</li>
-<li><strong>代表文化事物和现象</strong>：<ul>
-<li>主要信奉佛教和伊斯兰教(菲律宾以天主教为国教)</li>
-<li>吴哥窟(柬埔寨)、婆罗浮屠(印度尼西亚)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>伊斯兰文化圈<ul>
-<li><strong>分布地区</strong>：中亚、西亚和北非地区</li>
-<li><strong>特点</strong>：阿拉伯民族为主、典型的伊斯兰宗教文化地区</li>
-<li><strong>代表文化事物和现象</strong>：阿拉伯长袍、清真寺、穆斯林</li>
-</ul>
-</li>
-<li>非洲文化圈<ul>
-<li><strong>分布地区</strong>：撒哈拉以南的非洲地区</li>
-<li><strong>特点</strong>：<ul>
-<li>以黑色人种为主,民族、宗教复杂</li>
-<li>崇尚自然,多信奉原始宗教</li>
-</ul>
-</li>
-<li><strong>代表文化事物和现象</strong>：<ul>
-<li>原始的图腾崇拜</li>
-<li>神秘的宗教仪式</li>
-<li>刚劲粗犷的鼓声和舞蹈</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>拉丁美洲文化圈<ul>
-<li><strong>分布地区</strong>：墨西哥及其以南的美洲地区</li>
-<li><strong>特点</strong>：外来文化与本地文化相互融合</li>
-<li><strong>代表文化事物和现象</strong><ul>
-<li>原始的图腾崇拜</li>
-<li>神秘的宗教仪式</li>
-<li>刚劲粗犷的鼓声和舞蹈</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>太平洋文化圈<ul>
-<li><strong>分布地区</strong>：太平洋中的岛屿,包括波利尼西亚、密克罗尼西亚、美拉尼西亚三大岛群</li>
-<li><strong>特点</strong>：居民原崇拜多种神灵,相信巫术,后多改信基督教</li>
-<li><strong>代表文化事物和现象</strong>：<ul>
-<li>擅长航海</li>
-<li>土风歌舞</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/05/14/200514-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/14/200514-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/" class="post-title-link" itemprop="url">200514-市化学课</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-14 13:32:15 / 修改时间：16:14:33" itemprop="dateCreated datePublished" datetime="2020-05-14T13:32:15+08:00">2020-05-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B8%82%E6%95%99%E5%A7%94%E7%BD%91%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">市教委网课</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/05/14/200514-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/14/200514-市化学课/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>430</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="工业制硫酸"><a href="#工业制硫酸" class="headerlink" title="工业制硫酸"></a>工业制硫酸</h1><h2 id="硫酸的用途与我国硫酸产量"><a href="#硫酸的用途与我国硫酸产量" class="headerlink" title="硫酸的用途与我国硫酸产量"></a>硫酸的用途与我国硫酸产量</h2><p>第一阶段：二氧化硫的制备</p>
-<script type="math/tex; mode=display">\ce {S + O2 ->[点燃] SO2}</script><p>或者</p>
-<script type="math/tex; mode=display">\ce {4FeS2 + 11O2 ->[煅烧] 2Fe2O3 + 8SO2}</script><ul>
-<li>把硫铁矿矿石粉碎成细小的颗粒,然后把它放在沸腾炉中进行煅烧。</li>
-<li>将矿石粉碎成很细的颗粒,增大了矿石颗粒的表面积,有利于矿石与空气充分接触,加快煅烧速率。</li>
-<li>矿石颗粒在炉内一定空间里剧烈翻腾,与空气接触充分,煅烧速率快,煅烧充分</li>
-</ul>
-<p>第二阶段：二氧化硫的催化氧化</p>
-<script type="math/tex; mode=display">\ce {2SO2 + O2 <=>[催化剂][\Delta] 2SO3}</script><p>第三阶段：三氧化硫的吸收</p>
-<script type="math/tex; mode=display">\ce {SO3 + H2O -> H2SO4}</script><h2 id="原料选择"><a href="#原料选择" class="headerlink" title="原料选择"></a>原料选择</h2><ol>
-<li>硫铁矿制硫酸</li>
-<li>硫磺制硫酸</li>
-<li>冶炼烟气制硫酸</li>
-<li>其他</li>
-</ol>
-<h2 id="二氧化硫的催化氧化"><a href="#二氧化硫的催化氧化" class="headerlink" title="二氧化硫的催化氧化"></a>二氧化硫的催化氧化</h2><ul>
-<li><strong>生产设备</strong>：接触室</li>
-<li><strong>基本过程</strong>:精制后的炉气补充空气后送入装有五氧化二矾催化剂的接触室,氧化生成$\ce {SO3}$。</li>
-</ul>
-<h2 id="三氧化硫的吸收和硫酸生成"><a href="#三氧化硫的吸收和硫酸生成" class="headerlink" title="三氧化硫的吸收和硫酸生成"></a>三氧化硫的吸收和硫酸生成</h2><ul>
-<li>用98.3%的硫酸吸收SO3,不易形成酸雾,吸收速率快。</li>
-<li>SO3从塔的下部通入,98.3%的硫酸从塔顶喷下,两者逆流接触,吸收充分。</li>
-</ul>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/05/14/200514-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/1.png" class="">
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/05/13/200513-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/13/200513-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/" class="post-title-link" itemprop="url">200513-市地理课</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-13 22:07:20 / 修改时间：22:48:32" itemprop="dateCreated datePublished" datetime="2020-05-13T22:07:20+08:00">2020-05-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B8%82%E6%95%99%E5%A7%94%E7%BD%91%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">市教委网课</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/05/13/200513-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/13/200513-市地理课/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="5-13-地理课-民族文化、地方文化及文化整合"><a href="#5-13-地理课-民族文化、地方文化及文化整合" class="headerlink" title="5/13 地理课 - 民族文化、地方文化及文化整合"></a>5/13 地理课 - 民族文化、地方文化及文化整合</h1><h2 id="民族文化和地方文化"><a href="#民族文化和地方文化" class="headerlink" title="民族文化和地方文化"></a>民族文化和地方文化</h2><ul>
-<li>民族<ul>
-<li>民族是指不同地域的人,由于经济生活、语言文字、风俗习惯和历史发展的不同而形成的社会共同体。</li>
-<li>世界上有2000多个民族,人口最多的是汉族,人数最少的民族只有几十个人。</li>
-<li>一般,各个民族都有自己的民族语言,但也有几个民族使用同一种语言,或个别的民族使用两、三种不同语言。</li>
-<li>民族是历史文化的产物,在创造文化的过程中形成民族文化的<strong>人文特色</strong>。</li>
-<li>民族无高低贵贱之分,只有生产力发展水平、文化先进与落后的差异。这种差异是在自然、社会环境中后天形成的,是一种历史现象,而不是永恒的。</li>
-</ul>
-</li>
-</ul>
-<div class="note info no-icon">
-            <h3 id="不同民族的人文特色"><a href="#不同民族的人文特色" class="headerlink" title="不同民族的人文特色"></a>不同民族的人文特色</h3><ul><li>中华民族 — 勤劳刻苦</li><li>法兰西民族 -— 热情浪漫</li><li>德意志民族 —- 严谨善思</li><li>英吉利民族 — 矜持幽默</li><li>美利坚民族 — 冒险求新</li></ul>
-          </div>
-<div class="note success no-icon">
-            <h3 id="民族与种族"><a href="#民族与种族" class="headerlink" title="民族与种族"></a>民族与种族</h3><ul><li>民族:不同地域的人,由于经济生活、语言文字、风俗习惯和历史发展的不同而形成的社会共同体。<ul><li><strong><em>(属于社会历史范畴)</em></strong></li></ul></li><li>种族:体质形态上具有某些共同遗传特征的人群,是人类对自然环境长期适应的结果。<ul><li><strong><em>(属于自然范畴)</em></strong></li></ul></li></ul>
-          </div>
-<ul>
-<li>世界各地不同人群形成的地域文化具有<strong>地方性、民族性、民间性和传统性</strong>,是经过长期的交流和选择而<strong>传承</strong>下来的。</li>
-<li>民族文化和地方文化具有鲜明特征,只有民族的才是世界的。</li>
-<li>世界文化多姿多彩,是各民族、各地方优秀文化的集成。</li>
-</ul>
-<div class="note success no-icon">
-            <h3 id="保护民族文化和地方文化的意义"><a href="#保护民族文化和地方文化的意义" class="headerlink" title="保护民族文化和地方文化的意义"></a>保护民族文化和地方文化的意义</h3><ul><li>就是保护人类文化,有利于人类文化的发展和进步。</li><li>是研究古代文明的重要依据,有利于对古代文明的研究</li><li>是对少数民族、土著居民的尊重,有利于民族团结和社会稳定。</li><li>是重要的旅游资源,有利于促进当地社会、文化、经济的发展。</li><li>是文化多样性的体现，一旦消失就难以再现，是世界文化的损失</li><li>……</li></ul>
-          </div>
-<h2 id="文化整合"><a href="#文化整合" class="headerlink" title="文化整合"></a>文化整合</h2><ol>
-<li>文化整合是指各种地方文化、民族文化通过<strong>接触、交流、传播、融合和吸收</strong>,形成<strong>新的文化</strong>的过程。</li>
-<li>文化整合不是一种文化取代另一种文化,而是各种文化的协调、发展和提升。</li>
-</ol>
-<div class="note danger">新文化的进步是融合吸收其他文化,摒弃落后过时文化,吐故纳新的过程。</div>
-
-<div class="note warning no-icon">
-            <h3 id="影响文化整合的因素"><a href="#影响文化整合的因素" class="headerlink" title="影响文化整合的因素"></a>影响文化整合的因素</h3><ul><li>环境因素————相同、相近的自然环境有助于文化整合。</li><li>社会因素————文化整合与政治、经济因素有密切的关系。</li><li>人口、民族迁移因素————造成不同文化的碰撞、交流和整合。</li><li>文化自身因素————优秀、合理、符合时代要求的先进文化,在文化整合中发挥巨大的作用。</li><li>时间因素————需要长时间的选择和吸收,逐渐融合。</li></ul>
-          </div>
-<div class="note info no-icon">
-            <h3 id="文化整合的社会意义"><a href="#文化整合的社会意义" class="headerlink" title="文化整合的社会意义"></a>文化整合的社会意义</h3><p>通过文化整合,提高内部凝聚力,实现民族团结,促进各民族文化和地方文化的交流融合,推动各民族文化和国家乃至世界整体文化的繁荣和发展。</p>
-          </div>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/05/13/200513-%E5%B8%82%E5%9C%B0%E7%90%86%E8%AF%BE/1.jpg" class="">
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1584,7 +1660,7 @@
           <a href="/archives/">
         
         
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1597,7 +1673,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-count">155</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1677,13 +1753,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">490k</span>
+    <span title="站点总字数">503k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:26</span>
+    <span title="站点阅读时长">7:38</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

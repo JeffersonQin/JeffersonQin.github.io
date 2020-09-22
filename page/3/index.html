@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">146</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">155</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">157</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时间线<span class="badge">163</span></a>
 
   </li>
         <li class="menu-item menu-item-done">
@@ -227,6 +227,773 @@
 
           <div class="content index posts-expand">
             
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/09/11/git%E7%9A%84submodule%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/11/git%E7%9A%84submodule%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">git的submodule用法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-11 10:11:28" itemprop="dateCreated datePublished" datetime="2020-09-11T10:11:28+08:00">2020-09-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 08:00:32" itemprop="dateModified" datetime="2020-09-15T08:00:32+08:00">2020-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/09/11/git%E7%9A%84submodule%E7%94%A8%E6%B3%95/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/11/git的submodule用法/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="submodule介绍"><a href="#submodule介绍" class="headerlink" title="submodule介绍"></a><code>submodule</code>介绍</h1><p><code>submodule</code>，即子模块，在项目中添加一个<code>submodule</code>就相当于引用了一个别的<code>repo</code>，记下来我将分别针对不同的情形展开讨论</p>
+<h1 id="添加submodule"><a href="#添加submodule" class="headerlink" title="添加submodule"></a>添加<code>submodule</code></h1><p>在<code>main project</code>当中：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add &lt;submodule_url&gt; &lt;path&gt;</span><br></pre></td></tr></table></figure><br>其中，<code>submodule_url</code>为<code>submodule</code>的<code>repo</code>地址，<code>path</code>为接下来<code>clone</code>的地址。运行之后，会发现目录下多出了<code>.gitmodule</code>文件。</p>
+<h1 id="已经clone了一个项目，添加为submodule"><a href="#已经clone了一个项目，添加为submodule" class="headerlink" title="已经clone了一个项目，添加为submodule"></a>已经<code>clone</code>了一个项目，添加为<code>submodule</code></h1><p>和上面一样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add &lt;submodule_url&gt; &lt;path&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="改动了submodule内的代码"><a href="#改动了submodule内的代码" class="headerlink" title="改动了submodule内的代码"></a>改动了<code>submodule</code>内的代码</h1><p>首先明确一个概念：<code>submodule</code>是一个独立、完整的<code>repo</code>。这意味着，你可以像往常一样在<code>submodule</code>的根目录下进行<code>add/commit/push</code>，这都是完全没有问题的。但是，如果<code>submodule</code>没有<code>commit</code>，主项目是无法<code>commit</code>的，所以如果要<code>commit</code>主项目，首先要确保<code>submodule</code>内各个项目都没有问题。在此之外，当<code>submodule</code>内已经好了之后，我们便可以<code>commit</code>主项目，并可以发现主项目当中<code>submodule</code>是作为一个整体来计算的。</p>
+<h1 id="删除submodule"><a href="#删除submodule" class="headerlink" title="删除submodule"></a>删除<code>submodule</code></h1><p>写在一个子模块：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule deinit</span><br></pre></td></tr></table></figure><br>如果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule deinit --force</span><br></pre></td></tr></table></figure><br>那么即使本地<code>repo</code>有未提交的更改也会被移除. 上述命令是删除<code>.git/config</code>中的配置文件，若要继续删除本地的文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm &lt;submodule&gt;</span><br></pre></td></tr></table></figure><br>来删除。</p>
+<p>操作完毕之后我们发现主项目就有更改了，进行<code>commit</code>来提交更改：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;Deleted the submodule project.&quot;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="submodule有远程更新"><a href="#submodule有远程更新" class="headerlink" title="submodule有远程更新"></a><code>submodule</code>有远程更新</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;path&gt;</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<p>如果有多个<code>submodule</code>，可以：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule foreach <span class="string">&#x27;git pull origin master&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="clone带有submodule的项目"><a href="#clone带有submodule的项目" class="headerlink" title="clone带有submodule的项目"></a><code>clone</code>带有<code>submodule</code>的项目</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;repo-url&gt; --recurse-submodules</span><br></pre></td></tr></table></figure>
+<p>或者：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;repo-url&gt;</span><br><span class="line">git submodule init</span><br><span class="line">git submodule update</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/09/11/Hexo%E5%8D%9A%E5%AE%A2%E5%8D%87%E7%BA%A7%E5%92%8C%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/11/Hexo%E5%8D%9A%E5%AE%A2%E5%8D%87%E7%BA%A7%E5%92%8C%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Hexo博客升级和版本管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-11 10:11:05" itemprop="dateCreated datePublished" datetime="2020-09-11T10:11:05+08:00">2020-09-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-18 23:11:31" itemprop="dateModified" datetime="2020-09-18T23:11:31+08:00">2020-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/09/11/Hexo%E5%8D%9A%E5%AE%A2%E5%8D%87%E7%BA%A7%E5%92%8C%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/11/Hexo博客升级和版本管理/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>602</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>之前在做文件备份的时候，对于博客文件夹总是十分烦恼。由于一直在更改，百度云热备可能会出问题，然而我这个人冷备这种事绝对会忘，遂出现了本文。</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>一开始我是准备整个项目直接扔到<code>GitHub</code>上面去的，但是很不巧，出现了报错，提示了<code>submodule</code>问题。出现了这个问题之后，我就决定好好整理之前杂乱不堪的工程文件。</p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="第一步-重新Hexo-init"><a href="#第一步-重新Hexo-init" class="headerlink" title="第一步 重新Hexo init"></a>第一步 重新Hexo init</h2><p>按照之前的教程（在Hexo分类下的建站指南），新建Hexo项目</p>
+<h2 id="第二步-重新导入之前的配置"><a href="#第二步-重新导入之前的配置" class="headerlink" title="第二步 重新导入之前的配置"></a>第二步 重新导入之前的配置</h2><p>包括<code>_config.yml</code>等，同步一下，注意版本之间的差异</p>
+<h2 id="第三步-git-init"><a href="#第三步-git-init" class="headerlink" title="第三步 git init"></a>第三步 git init</h2><p>在博客的工程文件下，直接进行<code>git init</code>，到现在位置的话应该还不会产生问题。</p>
+<h2 id="第四步-Fork-Next主题"><a href="#第四步-Fork-Next主题" class="headerlink" title="第四步 Fork Next主题"></a>第四步 Fork Next主题</h2><p>由于Next主题是开源的，我们不妨直接Fork。这里建议是私有Clone一下，因为毕竟要储存一些密钥啥的。</p>
+<h2 id="第五步-添加Submodule"><a href="#第五步-添加Submodule" class="headerlink" title="第五步 添加Submodule"></a>第五步 添加Submodule</h2><p>在<code>博客</code>工程文件的<code>git</code>里面<code>add submodule</code>，详细用法参加之前写过的一篇<code>git submodule</code>文章（在<code>git</code>分类下）</p>
+<h2 id="第六步-重新配置Next"><a href="#第六步-重新配置Next" class="headerlink" title="第六步 重新配置Next"></a>第六步 重新配置Next</h2><p>由于升级之后和原来的版本差异较大，这里就可以利用<code>git</code>的版本控制优势，良好地筛选出配置文件变动很大的地方。</p>
+<h2 id="第七步-文件全部导入"><a href="#第七步-文件全部导入" class="headerlink" title="第七步 文件全部导入"></a>第七步 文件全部导入</h2><p>就是把之前所有的文件直接copy/paste，不会遇到什么大问题。</p>
+<h1 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h1><p>接下来其实就和平时使用<code>git</code>没什么区别了，只不过<code>submodule</code>也是一个独立的<code>git</code>，所以我们要分别进行版本控制。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%9F%A5%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88NuGet%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%9F%A5%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88NuGet%EF%BC%89/" class="post-title-link" itemprop="url">WPF实现通知的两种方式（NuGet）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-10 13:08:43" itemprop="dateCreated datePublished" datetime="2020-09-10T13:08:43+08:00">2020-09-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-18 23:21:11" itemprop="dateModified" datetime="2020-09-18T23:21:11+08:00">2020-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NET/" itemprop="url" rel="index"><span itemprop="name">.NET</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%9F%A5%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88NuGet%EF%BC%89/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/10/WPF实现通知的两种方式（NuGet）/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>562</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Hardcodet-NotifyIcon-Wpf"><a href="#Hardcodet-NotifyIcon-Wpf" class="headerlink" title="Hardcodet.NotifyIcon.Wpf"></a><code>Hardcodet.NotifyIcon.Wpf</code></h1><p>这个是使用系统托盘图标来完成通知的推送的，前半段请参照<a href="/2020/09/10/WPF实现系统托盘/">这里</a></p>
+<p>推送通知的例子：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">App.TaskbarIcon.ShowBalloonTip(<span class="string">&quot;UIToy Notification&quot;</span>, <span class="string">&quot;Window Rect is null.&quot;</span>, Hardcodet.Wpf.TaskbarNotification.BalloonIcon.Error);</span><br></pre></td></tr></table></figure></p>
+<p>这里我直接把<code>TaskbarIcon</code>当作全局的静态变量定义在<code>App.xaml.cs</code>里面了。</p>
+<h1 id="Notifications-Wpf"><a href="#Notifications-Wpf" class="headerlink" title="Notifications.Wpf"></a><code>Notifications.Wpf</code></h1><p>具体用法可以参见作者GitHub：<a target="_blank" rel="noopener" href="https://github.com/Federerer/Notifications.Wpf">https://github.com/Federerer/Notifications.Wpf</a></p>
+<p>例子：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MaskWindowManager.notificationManager.Show(</span><br><span class="line">    <span class="keyword">new</span> NotificationContent </span><br><span class="line">    &#123; </span><br><span class="line">        Title = <span class="string">&quot;UIToy Notification&quot;</span>, </span><br><span class="line">        Message = <span class="string">&quot;UI Analyzation Started.&quot;</span>, </span><br><span class="line">        Type = NotificationType.Information </span><br><span class="line">    &#125;, areaName: <span class="string">&quot;WindowArea&quot;</span>);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/09/10/WPF%E5%AE%9E%E7%8E%B0Win10%E7%B3%BB%E7%BB%9F%E6%88%AA%E5%9B%BE%E7%9A%84%E6%A8%A1%E6%8B%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/10/WPF%E5%AE%9E%E7%8E%B0Win10%E7%B3%BB%E7%BB%9F%E6%88%AA%E5%9B%BE%E7%9A%84%E6%A8%A1%E6%8B%9F/" class="post-title-link" itemprop="url">WPF实现Win10系统截图的模拟</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-10 13:08:18" itemprop="dateCreated datePublished" datetime="2020-09-10T13:08:18+08:00">2020-09-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 08:00:47" itemprop="dateModified" datetime="2020-09-15T08:00:47+08:00">2020-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NET/" itemprop="url" rel="index"><span itemprop="name">.NET</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/09/10/WPF%E5%AE%9E%E7%8E%B0Win10%E7%B3%BB%E7%BB%9F%E6%88%AA%E5%9B%BE%E7%9A%84%E6%A8%A1%E6%8B%9F/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/10/WPF实现Win10系统截图的模拟/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>在项目中想要直接调用系统的截图工具，毕竟这样感觉有原生的流畅丝滑般的感觉（雾），但是几经查找并未找到API，所以便萌生了直接模拟系统快捷键进行实现。在Windows10当中，截图工具的快捷键为<code>Shift + Win + S</code>，故模拟即可。为了以后方便调用，我将这些函数抽象成了工具类</p>
+<h1 id="VirtualKey"><a href="#VirtualKey" class="headerlink" title="VirtualKey"></a>VirtualKey</h1><p>由于在C#当中，系统提供的Key的数值和ASCII码里的不太一样（当初就在这里被坑了），所以就Enumerate了一下。（码分之所以前后有区别是因为前半段是使用代码直接生成的，C++的语法糖好好吃）</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Elegant.Keyboard</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> VirtualKey</span><br><span class="line">    &#123;</span><br><span class="line">        VK_a = <span class="number">97</span>,</span><br><span class="line">        VK_b = <span class="number">98</span>,</span><br><span class="line">        VK_c = <span class="number">99</span>,</span><br><span class="line">        VK_d = <span class="number">100</span>,</span><br><span class="line">        VK_e = <span class="number">101</span>,</span><br><span class="line">        VK_f = <span class="number">102</span>,</span><br><span class="line">        VK_g = <span class="number">103</span>,</span><br><span class="line">        VK_h = <span class="number">104</span>,</span><br><span class="line">        VK_i = <span class="number">105</span>,</span><br><span class="line">        VK_j = <span class="number">106</span>,</span><br><span class="line">        VK_k = <span class="number">107</span>,</span><br><span class="line">        VK_l = <span class="number">108</span>,</span><br><span class="line">        VK_m = <span class="number">109</span>,</span><br><span class="line">        VK_n = <span class="number">110</span>,</span><br><span class="line">        VK_o = <span class="number">111</span>,</span><br><span class="line">        VK_p = <span class="number">112</span>,</span><br><span class="line">        VK_q = <span class="number">113</span>,</span><br><span class="line">        VK_r = <span class="number">114</span>,</span><br><span class="line">        VK_s = <span class="number">115</span>,</span><br><span class="line">        VK_t = <span class="number">116</span>,</span><br><span class="line">        VK_u = <span class="number">117</span>,</span><br><span class="line">        VK_v = <span class="number">118</span>,</span><br><span class="line">        VK_w = <span class="number">119</span>,</span><br><span class="line">        VK_x = <span class="number">120</span>,</span><br><span class="line">        VK_y = <span class="number">121</span>,</span><br><span class="line">        VK_z = <span class="number">122</span>,</span><br><span class="line">        VK_A = <span class="number">65</span>,</span><br><span class="line">        VK_B = <span class="number">66</span>,</span><br><span class="line">        VK_C = <span class="number">67</span>,</span><br><span class="line">        VK_D = <span class="number">68</span>,</span><br><span class="line">        VK_E = <span class="number">69</span>,</span><br><span class="line">        VK_F = <span class="number">70</span>,</span><br><span class="line">        VK_G = <span class="number">71</span>,</span><br><span class="line">        VK_H = <span class="number">72</span>,</span><br><span class="line">        VK_I = <span class="number">73</span>,</span><br><span class="line">        VK_J = <span class="number">74</span>,</span><br><span class="line">        VK_K = <span class="number">75</span>,</span><br><span class="line">        VK_L = <span class="number">76</span>,</span><br><span class="line">        VK_M = <span class="number">77</span>,</span><br><span class="line">        VK_N = <span class="number">78</span>,</span><br><span class="line">        VK_O = <span class="number">79</span>,</span><br><span class="line">        VK_P = <span class="number">80</span>,</span><br><span class="line">        VK_Q = <span class="number">81</span>,</span><br><span class="line">        VK_R = <span class="number">82</span>,</span><br><span class="line">        VK_S = <span class="number">83</span>,</span><br><span class="line">        VK_T = <span class="number">84</span>,</span><br><span class="line">        VK_U = <span class="number">85</span>,</span><br><span class="line">        VK_V = <span class="number">86</span>,</span><br><span class="line">        VK_W = <span class="number">87</span>,</span><br><span class="line">        VK_X = <span class="number">88</span>,</span><br><span class="line">        VK_Y = <span class="number">89</span>,</span><br><span class="line">        VK_Z = <span class="number">90</span>,</span><br><span class="line">        VK_0 = <span class="number">48</span>,</span><br><span class="line">        VK_1 = <span class="number">49</span>,</span><br><span class="line">        VK_2 = <span class="number">50</span>,</span><br><span class="line">        VK_3 = <span class="number">51</span>,</span><br><span class="line">        VK_4 = <span class="number">52</span>,</span><br><span class="line">        VK_5 = <span class="number">53</span>,</span><br><span class="line">        VK_6 = <span class="number">54</span>,</span><br><span class="line">        VK_7 = <span class="number">55</span>,</span><br><span class="line">        VK_8 = <span class="number">56</span>,</span><br><span class="line">        VK_9 = <span class="number">57</span>,</span><br><span class="line">        VK_LBUTTON = <span class="number">0x01</span>, </span><br><span class="line">        VK_RBUTTON = <span class="number">0x02</span>, </span><br><span class="line">        VK_CANCEL = <span class="number">0x03</span>, </span><br><span class="line">        VK_MBUTTON = <span class="number">0x04</span>, </span><br><span class="line">        VK_BACK = <span class="number">0x08</span>, </span><br><span class="line">        VK_TAB = <span class="number">0x09</span>, </span><br><span class="line">        VK_CLEAR = <span class="number">0x0C</span>,</span><br><span class="line">        VK_RETURN = <span class="number">0x0D</span>, </span><br><span class="line">        VK_SHIFT = <span class="number">0x10</span>,</span><br><span class="line">        VK_CONTROL = <span class="number">0x11</span>,</span><br><span class="line">        VK_MENU = <span class="number">0x12</span>, </span><br><span class="line">        VK_PAUSE = <span class="number">0x13</span>,</span><br><span class="line">        VK_CAPITAL = <span class="number">0x14</span>, </span><br><span class="line">        VK_KANA = <span class="number">0x15</span>,</span><br><span class="line">        VK_HANGEUL = <span class="number">0x15</span>,</span><br><span class="line">        VK_HANGUL = <span class="number">0x15</span>,</span><br><span class="line">        VK_JUNJA = <span class="number">0x17</span>,</span><br><span class="line">        VK_FINAL = <span class="number">0x18</span>,</span><br><span class="line">        VK_HANJA = <span class="number">0x19</span>,</span><br><span class="line">        VK_KANJI = <span class="number">0x19</span>,</span><br><span class="line">        VK_ESCAPE = <span class="number">0x1B</span>, </span><br><span class="line">        VK_CONVERT = <span class="number">0x1C</span>,</span><br><span class="line">        VK_NONCONVERT = <span class="number">0x1D</span>,</span><br><span class="line">        VK_ACCEPT = <span class="number">0x1E</span>,</span><br><span class="line">        VK_MODECHANGE = <span class="number">0x1F</span>,</span><br><span class="line">        VK_SPACE = <span class="number">0x20</span>, </span><br><span class="line">        VK_PRIOR = <span class="number">0x21</span>, </span><br><span class="line">        VK_NEXT = <span class="number">0x22</span>, </span><br><span class="line">        VK_END = <span class="number">0x23</span>, </span><br><span class="line">        VK_HOME = <span class="number">0x24</span>, </span><br><span class="line">        VK_LEFT = <span class="number">0x25</span>,</span><br><span class="line">        VK_UP = <span class="number">0x26</span>,</span><br><span class="line">        VK_RIGHT = <span class="number">0x27</span>,</span><br><span class="line">        VK_DOWN = <span class="number">0x28</span>,</span><br><span class="line">        VK_SELECT = <span class="number">0x29</span>,</span><br><span class="line">        VK_PRINT = <span class="number">0x2A</span>,</span><br><span class="line">        VK_EXECUTE = <span class="number">0x2B</span>,</span><br><span class="line">        VK_SNAPSHOT = <span class="number">0x2C</span>, </span><br><span class="line">        VK_INSERT = <span class="number">0x2D</span>, </span><br><span class="line">        VK_DELETE = <span class="number">0x2E</span>, </span><br><span class="line">        VK_HELP = <span class="number">0x2F</span>,</span><br><span class="line">        VK_LWIN = <span class="number">0x5B</span>, </span><br><span class="line">        VK_RWIN = <span class="number">0x5C</span>, </span><br><span class="line">        VK_APPS = <span class="number">0x5D</span>, </span><br><span class="line">        VK_NUMPAD0 = <span class="number">0x60</span>, </span><br><span class="line">        VK_NUMPAD1 = <span class="number">0x61</span>,</span><br><span class="line">        VK_NUMPAD2 = <span class="number">0x62</span>,</span><br><span class="line">        VK_NUMPAD3 = <span class="number">0x63</span>,</span><br><span class="line">        VK_NUMPAD4 = <span class="number">0x64</span>,</span><br><span class="line">        VK_NUMPAD5 = <span class="number">0x65</span>,</span><br><span class="line">        VK_NUMPAD6 = <span class="number">0x66</span>,</span><br><span class="line">        VK_NUMPAD7 = <span class="number">0x67</span>,</span><br><span class="line">        VK_NUMPAD8 = <span class="number">0x68</span>,</span><br><span class="line">        VK_NUMPAD9 = <span class="number">0x69</span>,</span><br><span class="line">        VK_MULTIPLY = <span class="number">0x6A</span>, </span><br><span class="line">        VK_ADD = <span class="number">0x6B</span>, </span><br><span class="line">        VK_SEPARATOR = <span class="number">0x6C</span>, </span><br><span class="line">        VK_SUBTRACT = <span class="number">0x6D</span>, </span><br><span class="line">        VK_DECIMAL = <span class="number">0x6E</span>, </span><br><span class="line">        VK_DIVIDE = <span class="number">0x6F</span>,</span><br><span class="line">        VK_F1 = <span class="number">0x70</span>, </span><br><span class="line">        VK_F2 = <span class="number">0x71</span>,</span><br><span class="line">        VK_F3 = <span class="number">0x72</span>,</span><br><span class="line">        VK_F4 = <span class="number">0x73</span>,</span><br><span class="line">        VK_F5 = <span class="number">0x74</span>,</span><br><span class="line">        VK_F6 = <span class="number">0x75</span>,</span><br><span class="line">        VK_F7 = <span class="number">0x76</span>,</span><br><span class="line">        VK_F8 = <span class="number">0x77</span>,</span><br><span class="line">        VK_F9 = <span class="number">0x78</span>,</span><br><span class="line">        VK_F10 = <span class="number">0x79</span>,</span><br><span class="line">        VK_F11 = <span class="number">0x7A</span>,</span><br><span class="line">        VK_F12 = <span class="number">0x7B</span>,</span><br><span class="line">        VK_F13 = <span class="number">0x7C</span>,</span><br><span class="line">        VK_F14 = <span class="number">0x7D</span>,</span><br><span class="line">        VK_F15 = <span class="number">0x7E</span>,</span><br><span class="line">        VK_F16 = <span class="number">0x7F</span>,</span><br><span class="line">        VK_F17 = <span class="number">0x80</span>,</span><br><span class="line">        VK_F18 = <span class="number">0x81</span>,</span><br><span class="line">        VK_F19 = <span class="number">0x82</span>,</span><br><span class="line">        VK_F20 = <span class="number">0x83</span>,</span><br><span class="line">        VK_F21 = <span class="number">0x84</span>,</span><br><span class="line">        VK_F22 = <span class="number">0x85</span>,</span><br><span class="line">        VK_F23 = <span class="number">0x86</span>,</span><br><span class="line">        VK_F24 = <span class="number">0x87</span>,</span><br><span class="line">        VK_NUMLOCK = <span class="number">0x90</span>, </span><br><span class="line">        VK_SCROLL = <span class="number">0x91</span>, </span><br><span class="line">        VK_LSHIFT = <span class="number">0xA0</span>,</span><br><span class="line">        VK_RSHIFT = <span class="number">0xA1</span>,</span><br><span class="line">        VK_LCONTROL = <span class="number">0xA2</span>,</span><br><span class="line">        VK_RCONTROL = <span class="number">0xA3</span>,</span><br><span class="line">        VK_LMENU = <span class="number">0xA4</span>,</span><br><span class="line">        VK_RMENU = <span class="number">0xA5</span>,</span><br><span class="line">        VK_PROCESSKEY = <span class="number">0xE5</span>,</span><br><span class="line">        VK_ATTN = <span class="number">0xF6</span>,</span><br><span class="line">        VK_CRSEL = <span class="number">0xF7</span>,</span><br><span class="line">        VK_EXSEL = <span class="number">0xF8</span>,</span><br><span class="line">        VK_EREOF = <span class="number">0xF9</span>,</span><br><span class="line">        VK_PLAY = <span class="number">0xFA</span>,</span><br><span class="line">        VK_ZOOM = <span class="number">0xFB</span>,</span><br><span class="line">        VK_NONAME = <span class="number">0xFC</span>,</span><br><span class="line">        VK_PA1 = <span class="number">0xFD</span>,</span><br><span class="line">        VK_OEM_CLEAR = <span class="number">0xFE</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="VirtualKeyHelper"><a href="#VirtualKeyHelper" class="headerlink" title="VirtualKeyHelper"></a>VirtualKeyHelper</h1><p>直接使用<code>char</code>来获得<code>VirtualKey</code>：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Elegant.Keyboard</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">VirtualKeyHelper</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> VirtualKey <span class="title">GetVirtualKey</span>(<span class="params"><span class="keyword">char</span> Key</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (Key &gt; <span class="number">127</span>) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;Not Valid Char.&quot;</span>); &#125;</span><br><span class="line">            <span class="keyword">return</span> (VirtualKey)Key;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="KeyboardSimulator"><a href="#KeyboardSimulator" class="headerlink" title="KeyboardSimulator"></a>KeyboardSimulator</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Runtime.InteropServices;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Elegant.Keyboard</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">KeyboardSimulator</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">region</span> Win32API调用</span></span><br><span class="line">        [<span class="meta">DllImport(<span class="meta-string">&quot;user32.dll&quot;</span>, EntryPoint = <span class="meta-string">&quot;keybd_event&quot;</span>, SetLastError = true)</span>]</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">keybd_event</span>(<span class="params"><span class="keyword">byte</span> bVk, <span class="keyword">byte</span> bScan, <span class="keyword">uint</span> dwFlags, <span class="keyword">uint</span> dwExtraInfo</span>)</span>;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="meta-keyword">region</span> 常量声明</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> KEYEVENTF_KEY_DOWN = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> KEYEVENTF_KEY_UP = <span class="number">2</span>;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="meta-keyword">region</span> 模拟方法</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">KeyPress</span>(<span class="params">VirtualKey Key</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            keybd_event((<span class="keyword">byte</span>)Key, <span class="number">0</span>, KEYEVENTF_KEY_DOWN, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">KeyRelease</span>(<span class="params">VirtualKey Key</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            keybd_event((<span class="keyword">byte</span>)Key, <span class="number">0</span>, KEYEVENTF_KEY_UP, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="实现截图"><a href="#实现截图" class="headerlink" title="实现截图"></a>实现截图</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">KeyPress(VirtualKey.VK_LSHIFT);</span><br><span class="line">KeyPress(VirtualKey.VK_LWIN);</span><br><span class="line">KeyPress(VirtualKey.VK_S);</span><br><span class="line">KeyRelease(VirtualKey.VK_S);</span><br><span class="line">KeyRelease(VirtualKey.VK_LWIN);</span><br><span class="line">KeyRelease(VirtualKey.VK_LSHIFT);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/09/10/WPF%E5%AE%9E%E7%8E%B0Win32API%E7%9A%84%E8%B0%83%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/10/WPF%E5%AE%9E%E7%8E%B0Win32API%E7%9A%84%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">WPF实现Win32API的调用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-10 13:08:00" itemprop="dateCreated datePublished" datetime="2020-09-10T13:08:00+08:00">2020-09-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 08:00:51" itemprop="dateModified" datetime="2020-09-15T08:00:51+08:00">2020-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NET/" itemprop="url" rel="index"><span itemprop="name">.NET</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/09/10/WPF%E5%AE%9E%E7%8E%B0Win32API%E7%9A%84%E8%B0%83%E7%94%A8/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/10/WPF实现Win32API的调用/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>427</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>之前在暑假的时候学了FDU的SoC课程，故对编译时的情况有了一定的了解。在WPF当中，如果我们要调用Win32API（这里以<code>keybd_event</code>为例）：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">DllImport(<span class="meta-string">&quot;user32.dll&quot;</span>, EntryPoint = <span class="meta-string">&quot;keybd_event&quot;</span>, SetLastError = true)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">keybd_event</span>(<span class="params"><span class="keyword">byte</span> bVk, <span class="keyword">byte</span> bScan, <span class="keyword">uint</span> dwFlags, <span class="keyword">uint</span> dwExtraInfo</span>)</span>;</span><br></pre></td></tr></table></figure><br>上述代码的意思也显而易见，<code>DllImport</code>是一个<code>attribute</code>标签。值得注意的是下面的<code>extern</code>关键词。众所周知，<code>.dll</code>的全称是<code>Dynamic Link Library</code>，即在编译时编译器会根据代码中的声明对库中的方法动态链接。这里的<code>extern</code>即，是对<code>keybd_event</code>做了声明，并明确是在<code>user32.dll</code>当中。其他<code>Win32API</code>的调用同理。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
+    
+          
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E7%B3%BB%E7%BB%9F%E6%89%98%E7%9B%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Haoyun Qin">
+      <meta itemprop="description" content="更新？咕咕咕...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gyro永不抽风">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E7%B3%BB%E7%BB%9F%E6%89%98%E7%9B%98/" class="post-title-link" itemprop="url">WPF实现系统托盘</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-10 13:07:42" itemprop="dateCreated datePublished" datetime="2020-09-10T13:07:42+08:00">2020-09-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 08:00:45" itemprop="dateModified" datetime="2020-09-15T08:00:45+08:00">2020-09-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NET/" itemprop="url" rel="index"><span itemprop="name">.NET</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E7%B3%BB%E7%BB%9F%E6%89%98%E7%9B%98/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/10/WPF实现系统托盘/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+          
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在WinForm当中，我们可以使用非常轻松地实现系统托盘，在.NET Core的WPF当中，<code>System.Windows.Form</code>并不能作为命名空间引用，本文将讲述如何在WPF中实现系统托盘，以及如何将窗口最小化到系统托盘。</p>
+<h1 id="安装NuGet包"><a href="#安装NuGet包" class="headerlink" title="安装NuGet包"></a>安装NuGet包</h1><p>搜索<code>Hardcodet.NotifyIcon.Wpf</code>并安装：</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/09/10/WPF%E5%AE%9E%E7%8E%B0%E7%B3%BB%E7%BB%9F%E6%89%98%E7%9B%98/1.jpg" class="">
+<h1 id="编写ViewModel"><a href="#编写ViewModel" class="headerlink" title="编写ViewModel"></a>编写ViewModel</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">NotifyIconViewModel</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 激活窗口</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> ICommand ShowWindowCommand</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> DelegateCommand</span><br><span class="line">            &#123;</span><br><span class="line">                CommandAction = () =&gt;</span><br><span class="line">                &#123;</span><br><span class="line">                    Application.Current.MainWindow.Activate();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 隐藏窗口</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> ICommand HideWindowCommand</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> DelegateCommand</span><br><span class="line">            &#123;</span><br><span class="line">                CommandAction = () =&gt; Application.Current.MainWindow.Hide()</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 关闭软件</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> ICommand ExitApplicationCommand</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> DelegateCommand &#123; CommandAction = () =&gt; Application.Current.Shutdown() &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中，虽然代码中用到了<code>DelegateCommand</code>类，但实际上并未实际发生作用，只是为了更好地封装代码，增加某些特定条件下的可读性，读者也可自行将其更改为普通的Command。下面为<code>DelegateCommand</code>类代码：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">DelegateCommand</span> : <span class="title">ICommand</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Action CommandAction &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> Func&lt;<span class="keyword">bool</span>&gt; CanExecuteFunc &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Execute</span>(<span class="params"><span class="keyword">object</span> parameter</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        CommandAction();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">CanExecute</span>(<span class="params"><span class="keyword">object</span> parameter</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> CanExecuteFunc == <span class="literal">null</span> || CanExecuteFunc();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">event</span> EventHandler CanExecuteChanged</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">add</span> &#123; CommandManager.RequerySuggested += <span class="keyword">value</span>; &#125;</span><br><span class="line">        <span class="keyword">remove</span> &#123; CommandManager.RequerySuggested -= <span class="keyword">value</span>; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="在App-xaml中添加托盘信息并关联ViewModel"><a href="#在App-xaml中添加托盘信息并关联ViewModel" class="headerlink" title="在App.xaml中添加托盘信息并关联ViewModel"></a>在App.xaml中添加托盘信息并关联ViewModel</h1><p>在App.xaml添加命名空间：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmlns:tb&#x3D;&quot;http:&#x2F;&#x2F;www.hardcodet.net&#x2F;taskbar&quot;</span><br></pre></td></tr></table></figure><br>如果策略并不是隐藏窗口而是直接关闭窗口，那么为了防止所有窗口都退出导致的程序关闭，我们需要添加额外的一行属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ShutdownMode&#x3D;&quot;OnExplicitShutdown&quot;</span><br></pre></td></tr></table></figure><br>而不是原来的<code>OnLastWindowClose</code>。接下来，我们在<code>Application.Resource</code>标签内添加系统托盘：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;Application.Resources&gt;</span><br><span class="line">    &lt;ContextMenu x:Shared&#x3D;&quot;false&quot; x:Key&#x3D;&quot;SysTrayMenu&quot;&gt;</span><br><span class="line">        &lt;MenuItem Header&#x3D;&quot;显示窗口&quot; Command&#x3D;&quot;&#123;Binding ShowWindowCommand&#125;&quot; &#x2F;&gt;</span><br><span class="line">        &lt;MenuItem Header&#x3D;&quot;关闭窗口&quot; Command&#x3D;&quot;&#123;Binding HideWindowCommand&#125;&quot; &#x2F;&gt;</span><br><span class="line">        &lt;Separator &#x2F;&gt;</span><br><span class="line">        &lt;MenuItem Header&#x3D;&quot;退出&quot; Command&#x3D;&quot;&#123;Binding ExitApplicationCommand&#125;&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;ContextMenu&gt;</span><br><span class="line">    &lt;tb:TaskbarIcon x:Key&#x3D;&quot;Taskbar&quot;</span><br><span class="line">                    ToolTipText&#x3D;&quot;UIToy by Haoyun Qin&quot;</span><br><span class="line">                    DoubleClickCommand&#x3D;&quot;&#123;Binding ShowWindowCommand&#125;&quot;</span><br><span class="line">                    ContextMenu&#x3D;&quot;&#123;StaticResource SysTrayMenu&#125;&quot;</span><br><span class="line">                    IconSource&#x3D;&quot;UIToy.ico&quot;&gt;</span><br><span class="line">        &lt;tb:TaskbarIcon.DataContext&gt;</span><br><span class="line">            &lt;local:NotifyIconViewModel &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;tb:TaskbarIcon.DataContext&gt;</span><br><span class="line">    &lt;&#x2F;tb:TaskbarIcon&gt;</span><br><span class="line">&lt;&#x2F;Application.Resources&gt;</span><br></pre></td></tr></table></figure><br>上面，我们针对不同的操作，绑定了相关的命令。还需要添加一个<code>ico</code>文件（这里我添加的是<code>UIToy.ico</code>）</p>
+<h1 id="在启动时显示系统托盘"><a href="#在启动时显示系统托盘" class="headerlink" title="在启动时显示系统托盘"></a>在启动时显示系统托盘</h1><p>在<code>App.xaml.cs</code>当中初始化<code>Taskbar</code>：<br><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">App</span> : <span class="title">Application</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> TaskbarIcon TaskbarIcon;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnStartup</span>(<span class="params">StartupEventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">base</span>.OnStartup(e);</span><br><span class="line">        TaskbarIcon = (TaskbarIcon)FindResource(<span class="string">&quot;Taskbar&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>然后我们就可以发现，图标已经在系统托盘当中显示了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+        
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+    
+  </article>
+  
+  
+  
+
+    
     
           
   
@@ -752,914 +1519,10 @@
   
 
     
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/08/20/%E5%AF%B9RCF%E7%BD%91%E7%BB%9C%E7%9A%84%E7%90%86%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/20/%E5%AF%B9RCF%E7%BD%91%E7%BB%9C%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">对RCF网络的理解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-20 16:15:37" itemprop="dateCreated datePublished" datetime="2020-08-20T16:15:37+08:00">2020-08-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-15 07:59:06" itemprop="dateModified" datetime="2020-09-15T07:59:06+08:00">2020-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/08/20/%E5%AF%B9RCF%E7%BD%91%E7%BB%9C%E7%9A%84%E7%90%86%E8%A7%A3/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/20/对RCF网络的理解/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-            <br>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fas fa-rss"></i>
-              </span>
-              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="原论文"><a href="#原论文" class="headerlink" title="原论文"></a>原论文</h1><blockquote>
-<p>原论文：<br><a target="_blank" rel="noopener" href="https://mmcheng.net/rcfEdge/">https://mmcheng.net/rcfEdge/</a></p>
-</blockquote>
-<h1 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h1><p>下图为RCF网络架构：</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/20/%E5%AF%B9RCF%E7%BD%91%E7%BB%9C%E7%9A%84%E7%90%86%E8%A7%A3/rcf.svg" class="">
-<div align=center>RCF网络架构</div>
-
-<p>其建立在VGG16之上，根据其修改而来。与原来的VGG16相比：</p>
-<ul>
-<li>RCF网络去除了原来所有的全连接层（最后的三个全连接层）以及最后的池化层。这样做是因为与VGG网络的设计初衷——图像分类问题不同，这个网络旨在边缘检测，VGG最后的全连接层得到的$1 \times 1 \times 4096$的输出是没有意义的，所以将其删去。</li>
-<li>为了进行边缘信息的提取，所以需要对像素值本身进行重新计算，所以在VGG16的每个卷积层后，都添加了一个$1\times 1 - 21$的卷积层，先升维，后通过$1 \times 1 - 1$进行降维。</li>
-<li>其在每一个<em>stage</em>的最后添加了<em>cross-entropy loss / sigmoid</em>层以计算损失，更新参数。</li>
-<li>每一层中有<em>deconv</em>层进行上采样，将图像大小映射回原来的大小，最后在<em>fusion</em>部分将每一个<em>stage</em>的输出叠加，在进行一遍$1\times 1 - 1$的卷积将多通道合并，来达到获取多种混合信息的能力。</li>
-</ul>
-<h1 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h1><p>由于数据集通常是由多个标记者 (Annotator) 标记的。虽然每个人的认知不同，但是大家的结果都具有很高的一致性。对于每一张图片，我们将所有人的标记取平均值来生成一个边缘存在的概率图。对于每一个点，$0$代表没有标记者认为这个点是边缘，$1$则代表所有人都认为这个点是边缘。这里定义一个超参数$\eta$：如果一个点是边缘的概率大于$\eta$，则这个点我们认为其是边缘；若这个点的概率是$ 0 $，则其不是边缘；此外，认为那些概率介于$ 0 $和$ \eta $之间的点是属于有争议的点，不计入损失函数。所以，每一个点的损失函数可以记为：</p>
-<script type="math/tex; mode=display">l(X_i; W) = \begin{cases}
-    \alpha \cdot \log (1 - P(X_i; W)) & \text {if } y_i = 0 \\
-    0 & \text {if } 0 < y_i \leq \eta \\
-    \beta \cdot \log P(X_i; W) & \text {otherwise}, 
-\end{cases}</script><p>其中，</p>
-<script type="math/tex; mode=display">
-    \alpha = \lambda \cdot \frac {|Y^+|} {|Y^+| + |Y^-|}</script><script type="math/tex; mode=display">
-    \beta = \cdot \frac {|Y^-|} {|Y^+| + |Y^-|}</script><p>$|Y^+|$表示图中一定是边缘的点的个数，$|Y^-|$表示图中<strong>一定不是</strong>边缘的点的个数，$\lambda$则是超参数。在像素$i$的特征向量和是否为边缘的事实表示分别为$X_i$和$y_i$，$P(X)$是一个标准的Sigmoid激活函数，$W$则代表网络中的所有学习参数。所以，整个图片的损失函数可以记为：</p>
-<script type="math/tex; mode=display">
-    L(W) = \sum _ {i = 1} ^ {|I|} \Big ( \sum _ {k = 1} ^ K l(X_i ^ {(k)}; W) + l(X_i ^ {\text {fuse}}; W)\Big )</script><p>其中，$X_i ^ {(k)}$表示<em>stage k</em>的特征向量，$X_i ^ \text {fuse}$表示<em>stage fusion</em>的特征向量，$|I|$代表像素个数，$|K|$代表阶段数（此处为5）</p>
-<h1 id="Online-Demo"><a href="#Online-Demo" class="headerlink" title="Online Demo"></a>Online Demo</h1><p><a target="_blank" rel="noopener" href="https://mc.nankai.edu.cn/edge">https://mc.nankai.edu.cn/edge</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/08/20/%E5%AF%B9SRAM%E4%B8%ADStack%E7%9A%84%E7%90%86%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/20/%E5%AF%B9SRAM%E4%B8%ADStack%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">对SRAM中Stack的理解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-20 15:54:37" itemprop="dateCreated datePublished" datetime="2020-08-20T15:54:37+08:00">2020-08-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-15 07:59:56" itemprop="dateModified" datetime="2020-09-15T07:59:56+08:00">2020-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SoC/" itemprop="url" rel="index"><span itemprop="name">SoC</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/08/20/%E5%AF%B9SRAM%E4%B8%ADStack%E7%9A%84%E7%90%86%E8%A7%A3/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/20/对SRAM中Stack的理解/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>854</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-            <br>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fas fa-rss"></i>
-              </span>
-              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在七月份学习SoC的时候，教授谈到了SRAM中的stack部分。当时上课的时候，教授让我猜这到底是干什么的，我当时说可能是存放临时变量的地方，真没想到是真的。</p>
-<p>下图是M2e芯片对地址的索引：</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/20/%E5%AF%B9SRAM%E4%B8%ADStack%E7%9A%84%E7%90%86%E8%A7%A3/1.jpg" class="">
-<p>stack其实就是栈，是一种LIFO的数据结构。一开始写汇编的时候可能没什么感觉，但是当汇编写多了，使用到了子程序（submodule）以后就会发现，stack其实是有作用的。先扯一点关系不大的事情。在最开始学习寄存器的时候，我们会发现那张表上面有一个saved registers和temporary register。如果只用汇编的话，我们会发现混起来用一点关系都没有，因为我们其实只是在操作寄存器。然而，当我们在使用C和汇编混编的时候就会发现端倪。temporary寄存器是在函数跳转之后不被保存的寄存器，然而save寄存器则是在函数跳转之后还被保存的寄存器。这里我们谈到的“保存”其实就是和stack有关的操作。如果我们要保存一个32位的数，那我们其实只需要将stack pointer（sp）减去4，然后把值放在sp的位置，要取回的时候再加上四。注意：stack pointer的操作在自己的子程序当中一定要对称，即进来的时候sp是多少，出去的时候sp还是多少。其实这里的stack就是我们手动实现的，stack pointer就是栈顶指针罢了。接下来，我举一个例子：</p>
-<p>C语言中正在执行一个void，叫做a()，a()调用了汇编中的子程序b()，那么在调用b之前，如果运行的时候save寄存器中有东西，那就C编译器编译时就会有若干条指令来吧这些寄存器当中的值压回stack当中，并不会管temporary寄存器当中的值（因为一般来说C的编译器只有在使用临时变量是会使用$t*。接下来，进入b子程序之后，如果b子程序要调用C的一个子程序c()，那么在汇编当中，上述的保存过程就要手动实现了。</p>
-<p>总之，对于MIPS而言，他就是一个load-and-store structure，一切都可以通过操作寄存器、储存，使用ALU运算完成。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">VGG网络可以支持任意尺寸的理解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-20 15:28:08" itemprop="dateCreated datePublished" datetime="2020-08-20T15:28:08+08:00">2020-08-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-15 08:00:07" itemprop="dateModified" datetime="2020-09-15T08:00:07+08:00">2020-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/20/VGG网络可以支持任意尺寸的理解/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-            <br>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fas fa-rss"></i>
-              </span>
-              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>原论文：</p>
-<p><strong>Very Deep Convolutional Networks for Large-Scale Image Recognition</strong></p>
-<ul>
-<li>arXiv：<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1409.1556">[1409.1556] Very Deep Convolutional Networks for Large-Scale Image Recognition</a></li>
-<li>intro：ICLR 2015</li>
-<li>homepage：<a href="https://link.zhihu.com/?target=http%3A//www.robots.ox.ac.uk/~vgg/research/very_deep/">Visual Geometry Group Home Page</a></li>
-</ul>
-</blockquote>
-<p>下图为VGG网络的网络结构</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/1.png" class="">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/2.jpg" class="">
-<p>在这里我就不多赘述为什么要用小卷积核，小卷积核有什么好处，感受野，等等，诸如此类问题。这些东西网上讲解的非常详尽。我这里主要想探讨一下关于VGG可以接受任意大小的图片的原因。</p>
-<p>众所周知，卷积层和池化层不会对长宽有着硬性规定。因为卷积层迭代的其实就是卷积核当中的参数，与输入做卷积运算，不会有什么影响。注意到最后的全连接层。全连接层其实是可以和卷积层互换的，而且他们的参数规模都是一样的。具体原因，可以看下面这篇文章：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jyy555555/article/details/80515562">https://blog.csdn.net/jyy555555/article/details/80515562</a></p>
-<p>引用：</p>
-<blockquote>
-<p>上图是VGG网络最后三层的替换过程，上半部分是训练阶段，此时最后三层都是全连接层（输出分别是4096、4096、1000），下半部分是测试阶段（输出分别是1x1x4096、1x1x4096、1x1x1000），最后三层都是卷积层。下面我们来看一下详细的转换过程（以下过程都没有考虑bias，略了）：</p>
-<p>先看训练阶段，有4096个输出的全连接层FC6的输入是一个7x7x512的feature map，因为全连接层的缘故，不需要考虑局部性， 可以把7x7x512看成一个整体，25508（=7x7x512）个输入的每个元素都会与输出的每个元素（或者说是神经元）产生连接，所以每个输入都会有4096个系数对应4096个输出，所以网络的参数（也就是两层之间连线的个数，也就是每个输入元素的系数个数）规模就是7x7x512x4096。对于FC7，输入是4096个，输出是4096个，因为每个输入都会和输出相连，即每个输出都有4096条连线（系数），那么4096个输入总共有4096x4096条连线（系数），最后一个FC8计算方式一样，略。</p>
-<p>再看测试阶段，由于换成了卷积，第一个卷积后要得到4096（或者说是1x1x4096）的输出，那么就要对输入的7x7x512的feature map的宽高（即width、height维度）进行降维，同时对深度（即Channel/depth维度）进行升维。要把7x7降维到1x1，那么干脆直接一点，就用7x7的卷积核就行，另外深度层级的升维，因为7x7的卷积把宽高降到1x1，那么刚好就升高到4096就好了，最后得到了1x1x4096的feature map。这其中卷积的参数量上，把7x7x512看做一组卷积参数，因为该层的输出是4096，那么相当于要有4096组这样7x7x512的卷积参数，那么总共的卷积参数量就是：</p>
-<p>[7x7x512]x4096，这里将7x7x512用中括号括起来，目的是把这看成是一组，就不会懵。</p>
-<p>第二个卷积依旧得到1x1x4096的输出，因为输入也是1x1x4096，三个维度（宽、高、深）都没变化，可以很快计算出这层的卷积的卷积核大小也是1x1，而且，通道数也是4096，因为对于输入来说，1x1x4096是一组卷积参数，即一个完整的filter，那么考虑所有4096个输出的情况下，卷积参数的规模就是[1x1x4096]x4096。第三个卷积的计算一样，略。</p>
-<p>其实VGG的作者把训练阶段的全连接替换为卷积是参考了OverFeat的工作，如下图是OverFeat将全连接换成卷积后，带来可以处理任意分辨率（在整张图）上计算卷积，而无需对原图resize的优势。</p>
-</blockquote>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/20/VGG%E7%BD%91%E7%BB%9C%E5%8F%AF%E4%BB%A5%E6%94%AF%E6%8C%81%E4%BB%BB%E6%84%8F%E5%B0%BA%E5%AF%B8%E7%9A%84%E7%90%86%E8%A7%A3/3.jpeg" class="">
-<p>Digression：前段时间看了RCF网络，他之所以可以输出和输入同样尺寸的图片，就是因为其只有卷积层和池化层，去除了所有全连接层。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/08/14/GAN-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E6%95%B0%E5%AD%A6%E8%AF%81%E6%98%8E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/14/GAN-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E6%95%B0%E5%AD%A6%E8%AF%81%E6%98%8E/" class="post-title-link" itemprop="url">GAN 基本原理以及数学证明</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-14 19:40:17" itemprop="dateCreated datePublished" datetime="2020-08-14T19:40:17+08:00">2020-08-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-15 08:00:04" itemprop="dateModified" datetime="2020-09-15T08:00:04+08:00">2020-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/08/14/GAN-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E6%95%B0%E5%AD%A6%E8%AF%81%E6%98%8E/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/14/GAN-基本原理以及数学证明/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-          
-            <br>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fas fa-rss"></i>
-              </span>
-              <span class="post-meta-item-text" id="cnblogs_sync_text"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>今天在PD Lib和DL斗智斗勇时，突然想起了自己非常想学的GAN，机缘巧合下便百度了，得到了以下两篇文章：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/72279816">https://zhuanlan.zhihu.com/p/72279816</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/jizhidexiaoming/article/details/96485095">https://blog.csdn.net/jizhidexiaoming/article/details/96485095</a></li>
-</ul>
-<p>于是便对GAN有了初步的了解（以前肯定是心不在焉才没有理解的（划掉）），随后又在五楼<code>生命科学</code>的书架上找到了相关资料，遂学了一波。</p>
-<h1 id="GAN概述"><a href="#GAN概述" class="headerlink" title="GAN概述"></a>GAN概述</h1><blockquote>
-<p>2014 年，Ian Goodfellow 和他在蒙特利尔大学的同事发表了一篇震撼学界的论文。没错，我说的就是《Generative Adversarial Nets》，这标志着生成对抗网络（GAN）的诞生，而这是通过对计算图和博弈论的创新性结合。他们的研究展示，给定充分的建模能力，两个博弈模型能够通过简单的反向传播（backpropagation）来协同训练。</p>
-<p>这两个模型的角色定位十分鲜明。给定真实数据集 R，G 是生成器（generator），它的任务是生成能以假乱真的假数据；而 D 是判别器 （discriminator），它从真实数据集或者 G 那里获取数据， 然后做出判别真假的标记。Ian Goodfellow 的比喻是，G 就像一个赝品作坊，想要让做出来的东西尽可能接近真品，蒙混过关。而 D 就是文物鉴定专家，要能区分出真品和高仿（但在这个例子中，造假者 G 看不到原始数据，而只有 D 的鉴定结果——前者是在盲干）。</p>
-<p>理想情况下，D 和 G 都会随着不断训练，做得越来越好——直到 G 基本上成为了一个“赝品制造大师”，而 D 因无法正确区分两种数据分布输给 G。</p>
-<p>实践中，Ian Goodfellow 展示的这项技术在本质上是：G 能够对原始数据集进行一种无监督学习，找到以更低维度的方式（lower-dimensional manner）来表示数据的某种方法。而无监督学习之所以重要，就好像 Yann LeCun 的那句话：“无监督学习是蛋糕的糕体”。这句话中的蛋糕，指的是无数学者、开发者苦苦追寻的“真正的 AI”。<br>——<a target="_blank" rel="noopener" href="https://blog.csdn.net/jizhidexiaoming/article/details/96485095">pytorch实现GAN</a></p>
-</blockquote>
-<p>GAN - Generative Adversarial Nets, 生成对抗网络，简单来讲其有两个组成部分：</p>
-<ul>
-<li>D (Discriminator) - 判别器，判断输入时捏造的还是真实的</li>
-<li>G (Generator) - 生成器，从随机噪声中生成我们想要的数据</li>
-</ul>
-<p>随着训练的进行，我们要提高D的辨析能力，但同时也要G的能力来骗过D，因为我们的最终目的是要让G来生成可以骗过D的信息。总结来说，通过对这两个模型的训练，我们就可以找到随机噪声与有意义数据的映射，达到<code>创作</code>的目的。</p>
-<h1 id="GAN的流程和目标函数"><a href="#GAN的流程和目标函数" class="headerlink" title="GAN的流程和目标函数"></a>GAN的流程和目标函数</h1><h2 id="GAN的目标函数"><a href="#GAN的目标函数" class="headerlink" title="GAN的目标函数"></a>GAN的目标函数</h2><p>GAN的目标函数如下：</p>
-<script type="math/tex; mode=display">
-    V(D, G) = \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))]</script><p>其中，$D$为<code>Discriminator</code>的模型函数，$G$为<code>Generator</code>的模型函数，随机变量$x$服从原来正确的数据集的分布$P_\text {data}$，随机变量（这里可能是高维随机变量，取决于模型具体实现）$\boldsymbol {z}$服从分布$P_z$（生成噪音），$\mathbb E$代表期望。</p>
-<h2 id="GAN的流程"><a href="#GAN的流程" class="headerlink" title="GAN的流程"></a>GAN的流程</h2><script type="math/tex; mode=display">
-    G^* = \arg \min _G \max _D V(D, G)</script><p>即，可以分为两步理解：</p>
-<ol>
-<li>在$G$为常数的情况下，选择合适的$D$使得$V(D,G)$能够最大化。</li>
-<li>在这之后，选取合适的$G$来最小化$V(D, G)$，这个$G$就是我们想要的生成模型。</li>
-</ol>
-<p>在每一步的训练中：</p>
-<ul>
-<li>取$m$个真实数据：<script type="math/tex; mode=display">
-  \{x^{(1)}, x^{(2)}, x^{(3)}, \cdots, x^{(m)}\}</script>使用$G$和$m$组随机数（服从于噪音分布$P_G$，一般使用服从正态分布的随机数）<script type="math/tex; mode=display">
-  \{\boldsymbol {z}^{(1)}, \boldsymbol {z}^{(2)}, \boldsymbol {z}^{(3)}, \cdots, \boldsymbol {z}^{(m)}\}</script>生成$m$个假数据，其中<script type="math/tex; mode=display">
-  \forall i \in [1, m], i \in \mathbb Z \Rightarrow x^{(i)} \sim P_{\text{data}}, \boldsymbol {z} ^ {(i)} \sim P_z</script></li>
-<li>根据$\max$部分的目标使用随机梯度上升（Stochastic Gradient Ascent）更新$D$的参数，提高$D$的分辨能力<script type="math/tex; mode=display">
-  \theta_d := \theta_d + \alpha_d \nabla_{\theta_d} \frac 1 m \sum _ {i = 1} ^ m \Big [ \log D\big ( x^{(i)} \big) + \log \big ( 1 - D \big ( G(\boldsymbol{z}^{(i)}) \big ) \big ) \Big]</script></li>
-<li>根据$\min$部分的目标使用随机梯度下降（Stochastic Gradient Descent）更新$G$的参数，使$G$生成的数据更有迷惑性<script type="math/tex; mode=display">
-  \theta_g := \theta_g - \alpha_g\nabla_{\theta_g} \frac 1 m \sum _{i = 1} ^ m\log \Big ( 1 - D\big ( G(\boldsymbol{z} ^ {(i)})\big ) \Big )</script></li>
-</ul>
-<h1 id="GAN的数学原理"><a href="#GAN的数学原理" class="headerlink" title="GAN的数学原理"></a>GAN的数学原理</h1><h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><h3 id="信息量-自信息"><a href="#信息量-自信息" class="headerlink" title="信息量(自信息)"></a>信息量(自信息)</h3><p>信息量是指信息多少的量度，即，对于一条信息，传达这条信息所需的最少信息长度为自信息。</p>
-<p>信息论创始人C.E.Shannon，1938年首次使用比特（bit）概念：1（bit）= $\log_2 2$。它相当于对二个可能结局所作的一次选择量。信息论采用对随机分布概率取对数的办法，解决了不定度的度量问题。</p>
-<p>定义：符合分布$P$的某一事件$x$出现，传达出这条信息的信息量记为：</p>
-<script type="math/tex; mode=display">
-    I = \log \frac 1 {P(x)} = - \log P(x)</script><h3 id="香农熵"><a href="#香农熵" class="headerlink" title="香农熵"></a>香农熵</h3><p>从离散分布$P$中随机抽选一个事件，传达这条信息所需的最优平均信息长度为香农熵，表达为：</p>
-<script type="math/tex; mode=display">
-    H(P) = \sum_x P(x) \log \frac 1 {P(x)} = - \sum_x P(x) \log P(x)</script><p>若分布是连续的，则：</p>
-<script type="math/tex; mode=display">
-    H(P) = \int_x P(x) \log \frac 1 {P(x)} \mathrm dx = -\int_x P(x) \log P(x) \mathrm dx</script><h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h3><p>用分布$P$的最佳信息传递方式来传达分布$Q$中随机抽选的一个事件，所需的平均信息长度为交叉熵，表达为</p>
-<script type="math/tex; mode=display">
-    H_P(Q) = \sum_x Q(x) \log \frac 1 {P(x)} = - \sum_x Q(x) \log P(x)</script><script type="math/tex; mode=display">
-    H_P(Q) = \int_x Q(x) \log \frac 1 {P(x)} \mathrm dx = - \int_x Q(x) \log P(x) \mathrm dx</script><h3 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="$KL$ Divergence"></a>$KL$ Divergence</h3><p>$KL$散度：用分布$P$的最佳信息传递方式来传达分布$Q$，比用分布$Q$自己的最佳信息传递方式来传达分布$Q$，平均多耗费的信息长度为$KL$散度，表达为$D_P(Q)$或$D_{KL}(Q||P)$，$KL$散度衡量了两个分布之间的差异。</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-        D_{KL}(Q||P) = D_P(Q) &= H_P(Q) - H(Q) \\
-        &= \sum_x Q(x) \log \frac 1 {P(x)} - \sum _x Q(x) \log \frac 1 {Q(x)} \\
-        &= \sum_x Q(x) \log \frac {Q(x)} {P(x)}
-    \end{aligned}</script><p>对于连续分布：</p>
-<script type="math/tex; mode=display">
-    D_{KL}(Q||P) = D_P(Q) = \int_{-\infty} ^ {\infty} P(x)\log \frac {P(x)}{Q(x)} \mathrm dx</script><p>KL Divergence越大，两个分布差异越大，反之差异越小。</p>
-<h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><p>看完Prerequisites，我们回归正题讨论GAN的原理。我们现在想要做的事情，其实就是将一个服从$P_G$的随机噪声$\boldsymbol z$通过一个生成网络$G$得到一个和真实数据分布$P_{\text {data}}(x)$差不多的生成分布$P_G(x;\theta_g)$，其中$\theta_g$为生成网络$G$的参数。我们希望找到一个$\theta_g$使得两个分布$P_{\text {data}}(x)$与$P_G(x;\theta)$尽可能地相似（使得他们地KL散度尽可能得小）。</p>
-<p>我们从真实数据分布$P_\text{data}(x)$中取$m$个样本，记作：</p>
-<script type="math/tex; mode=display">
-    \{x^{(1)}, x^{(2)}, x^{(3)}, \cdots, x^{(m)}\}</script><p>根据生成网络的参数$\theta_g$，我们可以计算出这$m$个真实样本在生成网络中出现的概率$P_G(x^{(i)}; \theta_g)$，那么生成这样的$m$个样本数据的似然（likelihood）为：</p>
-<script type="math/tex; mode=display">
-    L = \prod_{i = 1} ^ m P_G(x^{(i)}; \theta_g)</script><p>由于我们想要两个分布尽量相似，那么我们肯定希望这个似然$L$尽量大，即生成这样的真实数据的概率尽量大，遂我们最大化这个似然，找到$\theta_g^*$：</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-        \theta_g^* &= \arg \max _ {\theta_g} \prod _ {i = 1} ^ m P_G(x^{(i)}; \theta_g) \\
-        &\Leftrightarrow \arg \max _ {\theta_g} \log \prod _ {i = 1} ^ m P_G(x^{(i)}; \theta_g) \\
-        &= \arg \max _ {\theta_g} \sum_{i = 1} ^ m \log P_G(x^{(i)}; \theta_g) \\
-        &\approx \arg \max _ {\theta_g} \mathbb E_{x \sim P_{\text {data}}} [\log P_G(x; \theta_g)] \\
-        &= \arg \max _ {\theta_g} \int _ x P_\text{data}(x) \log P_G(x; \theta_g)\mathrm dx \\
-        &= \arg \max _ {\theta_g} \int _ x P_\text{data}(x) \log P_G(x; \theta_g)\mathrm dx \\&~~~~- \int _ x P_\text{data}(x) \log P_\text {data}(x)\mathrm dx \\
-        &= \arg \max _ {\theta_g} \int _ x P_\text {data} (x) \log \frac {P_G(x; \theta_g)} {P_\text {data}(x)} \mathrm dx \\ 
-        &= \arg \max _ {\theta_g} - \int _ x P_\text {data} (x) \log \frac {P_\text {data}(x)} {P_G(x; \theta_g)} \mathrm dx \\
-        &= \arg \min _ {\theta_g} KL(P_\text {data} || P_G(x; \theta))
-    \end{aligned}</script><p>所以可见，其实最大化这个似然，和最小化KL散度是基本相同的。</p>
-<p>上述式子中，$P_G(x;\theta_g)$代表在生成分布中出现$x$的概率，也可以如下计算得到：</p>
-<script type="math/tex; mode=display">
-    P_G(x) = \int _ \boldsymbol{z} P_z(z)\cdot 1\{G(z) = x\} \mathrm dz</script><p>注：$1{\cdot}$的含义是若打括号内的逻辑运算为真则取$1$，假则取$0$. 即</p>
-<script type="math/tex; mode=display">1\{\text {True}\} = 1, 1 \{\text {False}\} = 0</script><p>但是我们发现，上述的过程是难以进行计算的，甚至完全没办法求$P_G(x)$，这只是模型的想法而已。</p>
-<p>现在我们看回之前我们提到的目标函数：</p>
-<script type="math/tex; mode=display">
-    V(D, G) = \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))]</script><p>与最优化生成模型：</p>
-<script type="math/tex; mode=display">
-    G^* = \arg \min _G \max _D V(D, G)</script><p>我们接下来分步解释。</p>
-<p>首先，我们不妨解释一下$\max_D V(G, D)$，这部分的含义之前也解释过，是在给定$G$的情况下，最大化$V(G, D)$。观察发现，其形式其实与交叉熵损失函数非常相似：</p>
-<script type="math/tex; mode=display">
-    \mathcal L(\hat y, y) = -(y\log \hat y + (1 - y) \log (1 - \hat y))</script><p>其实他们表达的目的也差不多。我们先化简一下$V(G, D)$看看能得到什么结果：</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-            V(G, D) &= \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))] \\
-            &= \int_x P_\text {data}(x) \log D(x) \mathrm dx + \int_\boldsymbol{z} P_z(\boldsymbol{z}) \log (1 - D(G(\boldsymbol{z})))\mathrm dz \\
-            &= \int_x P_\text {data}(x) \log D(x) \mathrm dx + \int_x P_G(x)\log (1 - D(x)) \mathrm dx \\
-            &= \int_x [P_\text {data}(x) \log D(x) + P_G(x)\log (1 - D(x))] \mathrm dx
-    \end{aligned}</script><p>让我们考察积分内部的项，我们可以对它做指数运算，即：</p>
-<script type="math/tex; mode=display">
-    e^{P_\text {data}(x) \log D(x) + P_G(x)\log (1 - D(x))} = D(x) ^ {P_\text {data}}\times(1- D(x))^{P_G(x)}</script><p>其想表达什么便不言而喻了，它表达的就是判别器判别是真的的正确率和判别是假的的正确率，总体来说就是衡量$D$的能力，所以我们想要最大化$V$，提高$D$的判别能力。</p>
-<p>令</p>
-<script type="math/tex; mode=display">
-    f(D) = P_\text {data}(x) \log D(x) \mathrm dx + P_G(x)\log (1 - D(x))</script><p>因为这里$P_\text {data} (x)$和$P_G(x)$都可以看作常数，所以</p>
-<script type="math/tex; mode=display">
-    \arg \max _ D \int_x f(D) \mathrm dx = \arg \max _D f(D)</script><p>最大化$f(D)$，即令其导数为$0$：</p>
-<script type="math/tex; mode=display">
-    \frac {\mathrm d f(D)} {\mathrm dD } = \frac {P_\text {data}(x)}{D} - \frac {P_G(x)} {1 - D} = 0</script><p>则：</p>
-<script type="math/tex; mode=display">
-    \frac {P_\text {data}(x)}{D} = \frac {P_G(x)} {1 - D}</script><script type="math/tex; mode=display">
-    D^*(x) = \frac {P_\text {data}(x)}{P_\text {data}(x) + P_G(x)}</script><p>这样，我们就得到了那个状态下最优的$D^*$的表达式。我们将这个能够最大化$V$的$D$代入回$V(G, D)$：</p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-        \max V(G, D) &= V(G, D^*) \\
-        &= \mathbb E_{x \sim P_\text {data}} \Big [ \log \frac {P_\text {data}(x)}{P_\text {data}(x) + P_G(x)} \Big] + \mathbb E_{x \sim P_G} \Big [ \frac {P_G(x)}{P_\text {data}(x) + P_G(x)}\Big ] \\
-        &= \int_x P_\text {data} (x) \log \frac {\frac 1 2 P_\text {data}}{\frac 1 2 (P_\text{data}(x) + P_G(x))} \mathrm dx + \int _ x P_G(x) \log \frac {\frac 1 2 P_G(x)} {\frac 1 2 (P_\text {data} (x) + P_G(x))} \mathrm dx \\
-        &= -2\log 2 + D_{KL} (P_\text {data} || \frac 1 2 [P_\text{data}(x) + P_G(x)]) + D_{KL} (P_G(x) || \frac 1 2 [P_\text {data}(x) + P_G(x)]) \\
-        &= -2\log 2 + JSD (P_\text{data}(x) || P_G(x))
-    \end{aligned}</script><p>其中，我们引入了$JS$ Divergence，定义如下：</p>
-<script type="math/tex; mode=display">
-    JSD(P||Q) = \frac 1 2 D_{KL} (P||M) + \frac 1 2 D_{KL} (Q || M), M = \frac 1 2 (P + Q)</script><p>容易得到，KL Divergence是不对称的，而JS Divergence是对称的。他们都可以衡量两组分布建的差异。这里我们想要两组分布差异最小，故取$\min$</p>
-<p>所以，这也就解释了为什么：</p>
-<script type="math/tex; mode=display">
-\arg \min _G \max _D V(G, D)</script><p>是我们的目标过程。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/08/05/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%93%A5%E5%93%A5%E7%9A%84%E6%95%B0%E8%AE%BA%E9%A2%98%EF%BC%88%E9%9B%BE%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/05/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%93%A5%E5%93%A5%E7%9A%84%E6%95%B0%E8%AE%BA%E9%A2%98%EF%BC%88%E9%9B%BE%EF%BC%89/" class="post-title-link" itemprop="url">面包人哥哥的数论题（雾）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-05 16:14:31" itemprop="dateCreated datePublished" datetime="2020-08-05T16:14:31+08:00">2020-08-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-10 19:17:53" itemprop="dateModified" datetime="2020-09-10T19:17:53+08:00">2020-09-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/08/05/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%93%A5%E5%93%A5%E7%9A%84%E6%95%B0%E8%AE%BA%E9%A2%98%EF%BC%88%E9%9B%BE%EF%BC%89/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/05/面包人哥哥的数论题（雾）/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>825</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>鄙人正在学校摸鱼，面包人就发来了一道魔鬼题（雾），知识背景：</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/05/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%93%A5%E5%93%A5%E7%9A%84%E6%95%B0%E8%AE%BA%E9%A2%98%EF%BC%88%E9%9B%BE%EF%BC%89/1.png" class="">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/08/05/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%93%A5%E5%93%A5%E7%9A%84%E6%95%B0%E8%AE%BA%E9%A2%98%EF%BC%88%E9%9B%BE%EF%BC%89/2.png" class="">
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>求证：$\forall n \in E, 0_\mathbb K.n = 0_E$</p>
-<p>我的证法：</p>
-<p>$\forall x \in \mathbb K, \exists !y \in \mathbb K$, $x + y = y + x = 0_\mathbb K, y = -x$.</p>
-<p>Thus $x + (-x) = 0 _ \mathbb K$</p>
-<p>From which, $0_\mathbb K . n = (x + (-x)).n = n.x + (-x).n = n.x - n.x$</p>
-<p>Since $n \in E, x \in \mathbb K$, we may have $n.x \in E$, thus according to the definition, $0_\mathbb K.n = n.x - n.x = 0_E$</p>
-<p>但是非常不幸，这个证法是假的。注意到$n.x + (-x).n$，没有定义可以让负号提出。</p>
-<h1 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h1><p>对于某个$x \in E$, 有</p>
-<script type="math/tex; mode=display">0_\mathbb K .x = (0_\mathbb K + 0_\mathbb K).x = 0_\mathbb K.x + 0_\mathbb K.x \tag 1</script><p>所以</p>
-<script type="math/tex; mode=display">0_\mathbb K.x = 0_\mathbb K.x + 0_\mathbb K.x \tag 2</script><p>构造一个式子</p>
-<script type="math/tex; mode=display">0_\mathbb K.x - 0_\mathbb K.x = 0_\mathbb K.x - 0_\mathbb K.x \tag 3</script><p>将上一步中得到的</p>
-<script type="math/tex; mode=display">0_\mathbb K.x = 0_\mathbb K.x + 0_\mathbb K.x</script><p>代入$(3)$得到</p>
-<script type="math/tex; mode=display">0_\mathbb K.x - 0_\mathbb K.x = (0_\mathbb K.x + 0_\mathbb K.x) - 0_\mathbb K.x \tag 4</script><p>因为$x \in E, 0_\mathbb K \in \mathbb K$，所以$0_\mathbb K.x \in E$，所以根据$0_E$的定义有</p>
-<script type="math/tex; mode=display">0_\mathbb K.x - 0_\mathbb K.x = 0_E</script><p>代入$(4)$，有</p>
-<script type="math/tex; mode=display">
-0_E = 0_\mathbb K .x + 0_E</script><p>所以$0_\mathbb K.x = 0_E$，得证.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
-    
-          
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/07/31/%E4%B8%83%E6%9C%88%E6%9C%AB%E7%9A%84%E6%84%9F%E6%83%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Haoyun Qin">
-      <meta itemprop="description" content="更新？咕咕咕...">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gyro永不抽风">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/31/%E4%B8%83%E6%9C%88%E6%9C%AB%E7%9A%84%E6%84%9F%E6%83%B3/" class="post-title-link" itemprop="url">七月末的感想</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-31 22:05:34 / 修改时间：22:12:58" itemprop="dateCreated datePublished" datetime="2020-07-31T22:05:34+08:00">2020-07-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E6%83%B3/" itemprop="url" rel="index"><span itemprop="name">随想</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/07/31/%E4%B8%83%E6%9C%88%E6%9C%AB%E7%9A%84%E6%84%9F%E6%83%B3/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/07/31/七月末的感想/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>205</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>暑假开始前，我想了无数想做的事。七月已尽，暑假过半，方才想到自己的无能与无力。摸鱼和osu成为生活的常态，在烈日的洗礼下，人奇怪得变得好动了起来。不再想被关在家里，出去骑车兜风从未感到如此快乐。</p>
-<p>说起这个月，也并非一无所获。装了台式（谢谢杰爹，谢谢杰娘www），学了SoC，和汇编和C语言斗志斗勇，在网课中发奋图强，osu打上了500pp，摸鱼日益见长。</p>
-<p>翻新了博客背景，从这个月开始，好好学习，天天向上（确信）。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-        
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-
-    
-  </article>
-  
-  
-  
-
-    
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1728,7 +1591,7 @@
           <a href="/archives/">
         
         
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1741,7 +1604,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-count">155</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1821,13 +1684,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">490k</span>
+    <span title="站点总字数">503k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:26</span>
+    <span title="站点阅读时长">7:38</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
