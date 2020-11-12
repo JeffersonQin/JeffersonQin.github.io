@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"hexo.gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="撤回commit并保留代码1git reset --soft HEAD^ 更改commit注释1git commit --amend">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git撤销commit和更改commit注释的方法">
-<meta property="og:url" content="http://gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:url" content="http://hexo.gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="gyro永不抽风">
 <meta property="og:description" content="撤回commit并保留代码1git reset --soft HEAD^ 更改commit注释1git commit --amend">
 <meta property="og:locale" content="zh_CN">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/">
+<link rel="canonical" href="http://hexo.gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -86,6 +86,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="gyro永不抽风" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -234,7 +235,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://hexo.gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -410,8 +411,8 @@
   <p><span>文章作者:</span><a href="/" title="访问gyro永不抽风的个人博客">gyro永不抽风</a></p>
   <p><span>发布时间:</span>2020年09月11日 - 10:09</p>
   <p><span>最后更新:</span>2020年09月18日 - 23:09</p>
-  <p><span>原始链接:</span><a href="/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/" title="git撤销commit和更改commit注释的方法">http://gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/" title="git撤销commit和更改commit注释的方法">http://hexo.gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://hexo.gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fab fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-SA 4.0)">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a> 转载请保留原文链接及作者！</p>  
 </div>
@@ -458,13 +459,32 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/" title="git撤销commit和更改commit注释的方法">http://gyrojeff.moe/2020/09/11/git撤销commit和更改commit注释的方法/</a>
+    <a href="http://hexo.gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/" title="git撤销commit和更改commit注释的方法">http://hexo.gyrojeff.moe/2020/09/11/git撤销commit和更改commit注释的方法/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
 
 
       <footer class="post-footer">
@@ -928,7 +948,7 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/";
+    this.page.url = "http://hexo.gyrojeff.moe/2020/09/11/git%E6%92%A4%E9%94%80commit%E5%92%8C%E6%9B%B4%E6%94%B9commit%E6%B3%A8%E9%87%8A%E7%9A%84%E6%96%B9%E6%B3%95/";
     this.page.identifier = "2020/09/11/git撤销commit和更改commit注释的方法/";
     this.page.title = "git撤销commit和更改commit注释的方法";
     };

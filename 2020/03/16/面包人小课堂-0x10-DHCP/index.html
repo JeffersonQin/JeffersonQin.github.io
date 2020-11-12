@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"hexo.gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="「首先下一个定义：DHCP是一种协议」「当电脑连上路由器时」「电脑自己是没有ip地址的」「所以电脑发了一条信息给网关：我要一个ip地址。」「（此处省略各种握手 以及省略UDP层封包 省略冗余报文格式」「（仅表达目的」「草这是不是太草率了一点」「反正就是电脑告诉网关：给劳资一个ip地址，没地址的话我tm没法和其他人通信」「路由器在子网中充当网关的角色」「网关是一种角色」「然后网关告诉电脑：那我这里">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面包人小课堂 - 0x10 - DHCP">
-<meta property="og:url" content="http://gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/index.html">
+<meta property="og:url" content="http://hexo.gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/index.html">
 <meta property="og:site_name" content="gyro永不抽风">
 <meta property="og:description" content="「首先下一个定义：DHCP是一种协议」「当电脑连上路由器时」「电脑自己是没有ip地址的」「所以电脑发了一条信息给网关：我要一个ip地址。」「（此处省略各种握手 以及省略UDP层封包 省略冗余报文格式」「（仅表达目的」「草这是不是太草率了一点」「反正就是电脑告诉网关：给劳资一个ip地址，没地址的话我tm没法和其他人通信」「路由器在子网中充当网关的角色」「网关是一种角色」「然后网关告诉电脑：那我这里">
 <meta property="og:locale" content="zh_CN">
@@ -34,7 +34,7 @@
 <meta property="article:tag" content="DHCP">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/">
+<link rel="canonical" href="http://hexo.gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/">
 
 
 <script id="page-configurations">
@@ -87,6 +87,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="gyro永不抽风" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -235,7 +236,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/">
+    <link itemprop="mainEntityOfPage" href="http://hexo.gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -332,13 +333,13 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/08/21/关于内网穿透/" rel="bookmark">关于内网穿透</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2020/03/16/面包人小课堂-0x20-DNS/" rel="bookmark">面包人小课堂 - 0x20 - DNS</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2020/03/08/面包人小课堂-网络-0x00/" rel="bookmark">面包人小课堂 - 0x00 - IP地址</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2020/08/21/关于内网穿透/" rel="bookmark">关于内网穿透</a></div>
     </li>
   </ul>
 
@@ -401,8 +402,8 @@
   <p><span>文章作者:</span><a href="/" title="访问gyro永不抽风的个人博客">gyro永不抽风</a></p>
   <p><span>发布时间:</span>2020年03月16日 - 12:03</p>
   <p><span>最后更新:</span>2020年03月16日 - 12:03</p>
-  <p><span>原始链接:</span><a href="/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/" title="面包人小课堂 - 0x10 - DHCP">http://gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/" title="面包人小课堂 - 0x10 - DHCP">http://hexo.gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://hexo.gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fab fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-SA 4.0)">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a> 转载请保留原文链接及作者！</p>  
 </div>
@@ -449,13 +450,32 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/" title="面包人小课堂 - 0x10 - DHCP">http://gyrojeff.moe/2020/03/16/面包人小课堂-0x10-DHCP/</a>
+    <a href="http://hexo.gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/" title="面包人小课堂 - 0x10 - DHCP">http://hexo.gyrojeff.moe/2020/03/16/面包人小课堂-0x10-DHCP/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
 
 
       <footer class="post-footer">
@@ -919,7 +939,7 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/";
+    this.page.url = "http://hexo.gyrojeff.moe/2020/03/16/%E9%9D%A2%E5%8C%85%E4%BA%BA%E5%B0%8F%E8%AF%BE%E5%A0%82-0x10-DHCP/";
     this.page.identifier = "2020/03/16/面包人小课堂-0x10-DHCP/";
     this.page.title = "面包人小课堂 - 0x10 - DHCP";
     };
