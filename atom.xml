@@ -998,9 +998,9 @@ spa</summary>
     
     <category term="WPF" scheme="http://hexo.gyrojeff.moe/tags/WPF/"/>
     
-    <category term="NuGet" scheme="http://hexo.gyrojeff.moe/tags/NuGet/"/>
-    
     <category term="系统托盘" scheme="http://hexo.gyrojeff.moe/tags/%E7%B3%BB%E7%BB%9F%E6%89%98%E7%9B%98/"/>
+    
+    <category term="NuGet" scheme="http://hexo.gyrojeff.moe/tags/NuGet/"/>
     
   </entry>
   
@@ -1213,19 +1213,19 @@ spa</summary>
     <category term="深度学习" scheme="http://hexo.gyrojeff.moe/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="VGG" scheme="http://hexo.gyrojeff.moe/tags/VGG/"/>
-    
-    <category term="CNN" scheme="http://hexo.gyrojeff.moe/tags/CNN/"/>
-    
     <category term="ML" scheme="http://hexo.gyrojeff.moe/tags/ML/"/>
     
     <category term="DL" scheme="http://hexo.gyrojeff.moe/tags/DL/"/>
     
-    <category term="AI" scheme="http://hexo.gyrojeff.moe/tags/AI/"/>
-    
     <category term="机器学习" scheme="http://hexo.gyrojeff.moe/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="深度学习" scheme="http://hexo.gyrojeff.moe/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="VGG" scheme="http://hexo.gyrojeff.moe/tags/VGG/"/>
+    
+    <category term="CNN" scheme="http://hexo.gyrojeff.moe/tags/CNN/"/>
+    
+    <category term="AI" scheme="http://hexo.gyrojeff.moe/tags/AI/"/>
     
   </entry>
   
@@ -1520,9 +1520,9 @@ spa</summary>
     <category term="随想" scheme="http://hexo.gyrojeff.moe/categories/%E9%9A%8F%E6%83%B3/"/>
     
     
-    <category term="AP" scheme="http://hexo.gyrojeff.moe/tags/AP/"/>
-    
     <category term="随想" scheme="http://hexo.gyrojeff.moe/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+    <category term="AP" scheme="http://hexo.gyrojeff.moe/tags/AP/"/>
     
   </entry>
   
@@ -2412,9 +2412,9 @@ spa</summary>
     
     <category term="Xcode" scheme="http://hexo.gyrojeff.moe/tags/Xcode/"/>
     
-    <category term="iOS开发" scheme="http://hexo.gyrojeff.moe/tags/iOS%E5%BC%80%E5%8F%91/"/>
-    
     <category term="iOS" scheme="http://hexo.gyrojeff.moe/tags/iOS/"/>
+    
+    <category term="iOS开发" scheme="http://hexo.gyrojeff.moe/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -2776,9 +2776,9 @@ spa</summary>
     
     <category term="Xcode" scheme="http://hexo.gyrojeff.moe/tags/Xcode/"/>
     
-    <category term="iOS开发" scheme="http://hexo.gyrojeff.moe/tags/iOS%E5%BC%80%E5%8F%91/"/>
-    
     <category term="iOS" scheme="http://hexo.gyrojeff.moe/tags/iOS/"/>
+    
+    <category term="iOS开发" scheme="http://hexo.gyrojeff.moe/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -3747,11 +3747,11 @@ c = \frac n V&lt;/script&gt;&lt;p&gt;精确确实溶质的质量&lt;/p&gt;
     <category term="Ubuntu" scheme="http://hexo.gyrojeff.moe/categories/Ubuntu/"/>
     
     
+    <category term="LaTeX" scheme="http://hexo.gyrojeff.moe/tags/LaTeX/"/>
+    
     <category term="Linux" scheme="http://hexo.gyrojeff.moe/tags/Linux/"/>
     
     <category term="Ubuntu" scheme="http://hexo.gyrojeff.moe/tags/Ubuntu/"/>
-    
-    <category term="LaTeX" scheme="http://hexo.gyrojeff.moe/tags/LaTeX/"/>
     
     <category term="VSCode" scheme="http://hexo.gyrojeff.moe/tags/VSCode/"/>
     
