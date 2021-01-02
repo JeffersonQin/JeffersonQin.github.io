@@ -10,6 +10,7 @@
     s.parentNode.insertBefore(hm, s);
   })();
   </script>
+  <script data-ad-client="ca-pub-6413104386702312" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -55,10 +56,6 @@
     lang   : 'zh-CN'
   };
 </script>
- <!-- jquery -->
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
 <!-- live2d -->
 
 <!-- div class="waifu">
@@ -307,14 +304,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>546</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
           
@@ -337,6 +334,7 @@
 
       
         <h2 id="高等数学-高汝熹-4-1-中值定理"><a href="#高等数学-高汝熹-4-1-中值定理" class="headerlink" title="高等数学-高汝熹 4.1 中值定理"></a>高等数学-高汝熹 4.1 中值定理</h2><a id="more"></a>
+
 <ol>
 <li><p>罗尔定理</p>
 <ul>
@@ -353,30 +351,9 @@
 <p>此时最大值和最小值相等，都在同一直线上，说明点$a,b​$之间为一条直线，在这种情况之下，函数上处处导数为0，得证，可以找到$\xi​$使得$f’(\xi)=0​$，此时$\xi​$可以去$(a,b)​$之间的一切实数。</p>
 </li>
 <li><p>$M\ne m$时：</p>
-<p>我们不妨设$f(a)\ne M,f(\xi)=M​$则可得：</p>
-<script type="math/tex; mode=display">
-  \begin{align*}
-f(x+\Delta x) \le f(x)
-\end{align*}</script><p>移项，可得：</p>
-<script type="math/tex; mode=display">
-  \begin{align*}
-        f(\xi+\Delta x)-f(\xi)\le 0 \\\\
-\Delta x >0: \frac {f(\xi+\Delta x)-f(\xi)}{\Delta x} \le 0 \\\\
-\Delta x <0: \frac {f(\xi+\Delta x)-f(\xi)}{\Delta x} \ge 0 \\\\
-\end{align*}</script><p>由于连续，可导所以以下极限必定存在：</p>
-<script type="math/tex; mode=display">
-  \begin{align*}
-\lim_{\Delta x \to 0} {\frac {f(\xi + \Delta x) - f(\xi)}{\Delta x}} = f'(\xi)
-\end{align*}</script><p>通过（1）、（2）两式可对其求单侧极限：</p>
-<script type="math/tex; mode=display">
-  \begin{align*}
-\lim_{\Delta x \to +0} {\frac {f(\xi + \Delta x) - f(\xi)}{\Delta x}} \le 0 \\\\
-\lim_{\Delta x \to -0} {\frac {f(\xi + \Delta x) - f(\xi)}{\Delta x}} \ge 0
-\end{align*}</script><p>即：</p>
-<script type="math/tex; mode=display">
-  \begin{align*}
-f'(\xi) =\lim_{\Delta x \to 0} {\frac {f(\xi + \Delta x) - f(\xi)}{\Delta x}} = 0
-\end{align*}</script><p>得证。</p>
+<p>我们不妨设$f(a)\ne M,f(\xi)=M​$则可得：<br>$$<br>  \begin{align*}<br>f(x+\Delta x) \le f(x)<br>\end{align*}<br>$$<br>移项，可得：<br>$$<br>  \begin{align*}</p>
+<pre><code>    f(\xi+\Delta x)-f(\xi)\le 0 \\\\</code></pre>
+<p>\Delta x &gt;0: \frac {f(\xi+\Delta x)-f(\xi)}{\Delta x} \le 0 \\<br>\Delta x &lt;0: \frac {f(\xi+\Delta x)-f(\xi)}{\Delta x} \ge 0 \\<br>\end{align*}<br>$$<br>由于连续，可导所以以下极限必定存在：<br>$$<br>  \begin{align*}<br>\lim_{\Delta x \to 0} {\frac {f(\xi + \Delta x) - f(\xi)}{\Delta x}} = f’(\xi)<br>\end{align*}<br>$$<br>通过（1）、（2）两式可对其求单侧极限：<br>$$<br>  \begin{align*}<br>\lim_{\Delta x \to +0} {\frac {f(\xi + \Delta x) - f(\xi)}{\Delta x}} \le 0 \\<br>\lim_{\Delta x \to -0} {\frac {f(\xi + \Delta x) - f(\xi)}{\Delta x}} \ge 0<br>\end{align*}<br>$$<br>即：<br>$$<br>  \begin{align*}<br>f’(\xi) =\lim_{\Delta x \to 0} {\frac {f(\xi + \Delta x) - f(\xi)}{\Delta x}} = 0<br>\end{align*}<br>$$<br>得证。</p>
 </li>
 </ol>
 </li>
@@ -384,80 +361,39 @@ f'(\xi) =\lim_{\Delta x \to 0} {\frac {f(\xi + \Delta x) - f(\xi)}{\Delta x}} = 
 <ul>
 <li>若函数$f(x)$在闭区间$[a,b]$连续，在开区间$(a,b)$内可导，则在开区间$(a,b)$内必定存在$\xi$使得：</li>
 </ul>
-<script type="math/tex; mode=display">
-     \begin{align*}
-f(b)-f(a)=(b-a)f'(\xi)
-   \end{align*}</script><p>​    成立。</p>
+<p>$$</p>
+<pre><code> \begin&#123;align*&#125;</code></pre>
+<p>f(b)-f(a)=(b-a)f’(\xi)<br>   \end{align*}<br>$$</p>
+<p>​    成立。</p>
 <ul>
 <li><p>几何意义：我们可以注意到(6)式可以改写成：</p>
 </li>
-<li><script type="math/tex; mode=display">
-   \begin{align*}
-f'(\xi)=\frac {f(b)-f(a)}{b-a}
- \end{align*}</script><p>也就是说函数上必定存在一点$\xi$使得$f’(\xi)$等于$a,b$两点的切线斜率，即其平行于此点处的切线。</p>
+<li><p>$$<br>   \begin{align*}<br>f’(\xi)=\frac {f(b)-f(a)}{b-a}<br> \end{align*}<br>$$</p>
+<p>也就是说函数上必定存在一点$\xi$使得$f’(\xi)$等于$a,b$两点的切线斜率，即其平行于此点处的切线。</p>
 </li>
 <li><p>证明：<br>首先，构造函数：</p>
 </li>
-<li><script type="math/tex; mode=display">
-   \begin{align*}
-\varphi(x) = f(x)-f(a)-\frac {f(b)-f(a)}{b-a}(x-a)
- \end{align*}</script><p>很容易的出结论：$\varphi(a)=\varphi(b)=0$。也就是说$\varphi(x)$满足罗尔定理的一切条件，即可得式(5)的结论。</p>
-<p>设此点为$\xi$则必有：</p>
-<script type="math/tex; mode=display">
-   \begin{align*}
-\varphi'(\xi)=0
- \end{align*}</script><p>成立，即：</p>
-<script type="math/tex; mode=display">
-   \begin{align*}
-\varphi'(\xi)=f'(\xi)-\frac {f(b)-f(a)}{b-a}=0
- \end{align*}</script><script type="math/tex; mode=display">
-   \begin{align*}
-f'(\xi)=\frac {f(b)-f(a)}{b-a}
- \end{align*}</script><p>得证。</p>
+<li><p>$$<br>   \begin{align*}<br>\varphi(x) = f(x)-f(a)-\frac {f(b)-f(a)}{b-a}(x-a)<br> \end{align*}<br>$$</p>
+<p>很容易的出结论：$\varphi(a)=\varphi(b)=0$。也就是说$\varphi(x)$满足罗尔定理的一切条件，即可得式(5)的结论。</p>
+<p>设此点为$\xi$则必有：<br>$$<br>   \begin{align*}<br>\varphi’(\xi)=0<br> \end{align*}<br>$$<br>成立，即：<br>$$<br>   \begin{align*}<br>\varphi’(\xi)=f’(\xi)-\frac {f(b)-f(a)}{b-a}=0<br> \end{align*}<br>$$</p>
+<p>$$<br>   \begin{align*}<br>f’(\xi)=\frac {f(b)-f(a)}{b-a}<br> \end{align*}<br>$$</p>
+<p>得证。</p>
 </li>
 <li><p>拉格朗日中值定理的应用：</p>
-<p>由于(6)式，令$b=x+\Delta x$，$a=x$，所以$\xi$可以被表示为$x+\theta\Delta x$的形式：</p>
-<script type="math/tex; mode=display">
-   \begin{align*}
-f(x+\Delta x)-f(x)=f'(x+\theta\Delta x)\Delta x\\\\(0<\theta<1)
- \end{align*}</script><p>又因为微分表达式：</p>
-<script type="math/tex; mode=display">
-   \begin{align*}
-\text{d}y=f'(x)\Delta x
- \end{align*}</script><p>所以拉格朗日中值定理给出的表达式就是微分的精确值，当$\Delta x$很小时，误差不大，但是当其变大时，可能产生相当严重的误差。</p>
+<p>由于(6)式，令$b=x+\Delta x$，$a=x$，所以$\xi$可以被表示为$x+\theta\Delta x$的形式：<br>$$<br>   \begin{align*}<br>f(x+\Delta x)-f(x)=f’(x+\theta\Delta x)\Delta x\\(0&lt;\theta&lt;1)<br> \end{align*}<br>$$<br>又因为微分表达式：<br>$$<br>   \begin{align*}<br>\text{d}y=f’(x)\Delta x<br> \end{align*}<br>$$<br>所以拉格朗日中值定理给出的表达式就是微分的精确值，当$\Delta x$很小时，误差不大，但是当其变大时，可能产生相当严重的误差。</p>
 </li>
 <li><p>拉格朗日中值定理的推论：</p>
 <ul>
 <li><p>推论1：</p>
 <p>如果在开区间$(a,b)$内，恒有$f’(x)=0$，则$f(x)$在区间内恒为常数。</p>
 <p>证明：</p>
-<p>设$x_1,x_2\in (a,b)$且$x_1&lt;x_2$，则会有$\xi\in(x_1,x_2)$，使得：</p>
-<script type="math/tex; mode=display">
- \begin{align*}
-f'(\xi)=\frac {f(x_2)-f(x_1)}{x_2-x_2}=0
-\end{align*}</script><p>故有</p>
-<script type="math/tex; mode=display">
- \begin{align*}
-f(x_2)=f(x_1)
-\end{align*}</script><p>由于其对区间内的一切实数都成立，所以其函数值在区间内恒为常数。</p>
+<p>设$x_1,x_2\in (a,b)$且$x_1&lt;x_2$，则会有$\xi\in(x_1,x_2)$，使得：<br>$$<br> \begin{align*}<br>f’(\xi)=\frac {f(x_2)-f(x_1)}{x_2-x_2}=0<br>\end{align*}<br>$$<br>故有<br>$$<br> \begin{align*}<br>f(x_2)=f(x_1)<br>\end{align*}<br>$$<br>由于其对区间内的一切实数都成立，所以其函数值在区间内恒为常数。</p>
 </li>
 <li><p>推论2：</p>
-<p>如果在开区间$(a,b)$内恒有$f’(x)=g’(x)$成立，则有：</p>
-<script type="math/tex; mode=display">
- \begin{align*}
-f(x) = g(x) + C
-\end{align*}</script><p>其中C为常数。</p>
+<p>如果在开区间$(a,b)$内恒有$f’(x)=g’(x)$成立，则有：<br>$$<br> \begin{align*}<br>f(x) = g(x) + C<br>\end{align*}<br>$$<br>其中C为常数。</p>
 <p>由此推论可得：如果两函数在开区间内导数值处处相等，则这两个函数在此区间内只差一个常数。</p>
 <p>证明：</p>
-<p>构造函数$\varphi(x)=f(x)-g(x)$，由于$\varphi’(x)=0$在区间内恒成立，所以根据推论2，有：</p>
-<script type="math/tex; mode=display">
- \begin{align*}
-\varphi(x)=C
-\end{align*}</script><p>所以：</p>
-<script type="math/tex; mode=display">
- \begin{align*}
-f(x)=g(x)+C
-\end{align*}</script><p>得证。</p>
+<p>构造函数$\varphi(x)=f(x)-g(x)$，由于$\varphi’(x)=0$在区间内恒成立，所以根据推论2，有：<br>$$<br> \begin{align*}<br>\varphi(x)=C<br>\end{align*}<br>$$<br>所以：<br>$$<br> \begin{align*}<br>f(x)=g(x)+C<br>\end{align*}<br>$$<br>得证。</p>
 </li>
 </ul>
 </li>
@@ -465,36 +401,15 @@ f(x)=g(x)+C
 </li>
 <li><p>柯西中值定理</p>
 <ul>
-<li><p>若$F(x),f(x)$在闭区间$[a,b]$连续，在开区间$(a,b)$可导，$F’(x)$在区间内均不等于$0$，$F(x)$在$(a,b)$内至少存在一点$\xi$使得：</p>
-<script type="math/tex; mode=display">
-   \begin{align*}
-\frac {f(b)-f(a)} {F(b)-F(a)}=\frac {f'(\xi)} {F'(\xi)}
- \end{align*}</script><p>成立。</p>
+<li><p>若$F(x),f(x)$在闭区间$[a,b]$连续，在开区间$(a,b)$可导，$F’(x)$在区间内均不等于$0$，$F(x)$在$(a,b)$内至少存在一点$\xi$使得：<br>$$<br>   \begin{align*}<br>\frac {f(b)-f(a)} {F(b)-F(a)}=\frac {f’(\xi)} {F’(\xi)}<br> \end{align*}<br>$$<br>成立。</p>
 </li>
 <li><p>几何意义：</p>
-<p>设参数方程：</p>
-<script type="math/tex; mode=display">
-   \begin{align*}
-\begin{cases} x = F(t) & a \le t \le b \\\\y=f(t) & a \le t \le b \end{cases}
- \end{align*}</script><p>表示$(f(a),F(a)),(f(b),F(b))$两点之间的曲线，</p>
-<p>对其进行求导：</p>
-<script type="math/tex; mode=display">
-   \begin{align*}
-y=f(t)=f[F^{-1}(x)] \\\\
-y'(x)=\frac {\text{d}y}{\text{d}x}=\frac {\text{d}y}{\text{d}t}\frac {\text{d}t}{\text{d}x}=f'(x)[F^{-1}(x)]'=\frac {f'(x)}{F'(x)}
- \end{align*}</script><p>我们可以发现其描述的就是在这条曲线上必有一点$\xi$的切线与这两点的连线平行，其中$\frac {f(b)-f(a)}{F(b)-F(a)}$表示的就是两点之间的连线的斜率。</p>
+<p>设参数方程：<br>$$<br>   \begin{align*}<br>\begin{cases} x = F(t) &amp; a \le t \le b \\y=f(t) &amp; a \le t \le b \end{cases}<br> \end{align*}<br>$$<br>表示$(f(a),F(a)),(f(b),F(b))$两点之间的曲线，</p>
+<p>对其进行求导：<br>$$<br>   \begin{align*}<br>y=f(t)=f[F^{-1}(x)] \\<br>y’(x)=\frac {\text{d}y}{\text{d}x}=\frac {\text{d}y}{\text{d}t}\frac {\text{d}t}{\text{d}x}=f’(x)[F^{-1}(x)]’=\frac {f’(x)}{F’(x)}<br> \end{align*}<br>$$<br>我们可以发现其描述的就是在这条曲线上必有一点$\xi$的切线与这两点的连线平行，其中$\frac {f(b)-f(a)}{F(b)-F(a)}$表示的就是两点之间的连线的斜率。</p>
 </li>
 <li><p>证明：</p>
 <p>在证明之前，有一点值得论述：定理已经给出条件$F’(x)\ne0,x\in (a,b)$我们会发现$F(b)-F(a)$不可以等于$0$，否则$F(a)=F(b)$满足罗尔定理的条件，会得出$F’(x)=0$与原条件矛盾，所以此处不必指明$F(b)-F(a)\ne 0$，只需$F’(x)\ne0,x\in (a,b)$即可。</p>
-<p>首先，构造函数：</p>
-<script type="math/tex; mode=display">
-   \begin{align*}
-\varphi(x)=f(x)-f(a)-\frac {f(b)-f(a)}{F(b)-F(a)}(F(x)-F(a))
- \end{align*}</script><p>不难看出，与拉格朗日中值定理的证明过程相似，有$\varphi(a)=\varphi(b)=0$。所以满足罗尔定理，可得：有$\xi$存在，使得</p>
-<script type="math/tex; mode=display">
-   \begin{align*}
-\varphi'(\xi)=f'(\xi)-\frac {f(b)-f(a)}{F(b)-F(a)}F'(\xi)=0
- \end{align*}</script><p>成立，所以得证。</p>
+<p>首先，构造函数：<br>$$<br>   \begin{align*}<br>\varphi(x)=f(x)-f(a)-\frac {f(b)-f(a)}{F(b)-F(a)}(F(x)-F(a))<br> \end{align*}<br>$$<br>不难看出，与拉格朗日中值定理的证明过程相似，有$\varphi(a)=\varphi(b)=0$。所以满足罗尔定理，可得：有$\xi$存在，使得<br>$$<br>   \begin{align*}<br>\varphi’(\xi)=f’(\xi)-\frac {f(b)-f(a)}{F(b)-F(a)}F’(\xi)=0<br> \end{align*}<br>$$<br>成立，所以得证。</p>
 </li>
 </ul>
 </li>
@@ -519,10 +434,10 @@ y'(x)=\frac {\text{d}y}{\text{d}x}=\frac {\text{d}y}{\text{d}t}\frac {\text{d}t}
       <div class="popular-posts-title"><a href="\2020\02\29\307-06-期望\" rel="bookmark">307-06-期望</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\08\05\面包人哥哥的数论题（雾）\" rel="bookmark">面包人哥哥的数论题（雾）</a></div>
+      <div class="popular-posts-title"><a href="\2020\03\01\307-09-矩阵\" rel="bookmark">307-09-矩阵</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\01\307-09-矩阵\" rel="bookmark">307-09-矩阵</a></div>
+      <div class="popular-posts-title"><a href="\2020\08\05\面包人哥哥的数论题（雾）\" rel="bookmark">面包人哥哥的数论题（雾）</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\03\08\AP-Statistics-临死前的挣扎\" rel="bookmark">AP Statistics 临死前的挣扎（一个懒人）</a></div>
@@ -585,8 +500,8 @@ y'(x)=\frac {\text{d}y}{\text{d}x}=\frac {\text{d}y}{\text{d}t}\frac {\text{d}t}
   <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
   
   <!-- JS库 sweetalert 可修改路径 -->
-  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <p><span>本文标题:</span><a href="/2020/02/28/%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E7%AC%94%E8%AE%B0/">中值定理笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问gyro永不抽风的个人博客">gyro永不抽风</a></p>
   <p><span>发布时间:</span>2020年02月28日 - 21:02</p>
@@ -755,10 +670,13 @@ y'(x)=\frac {\text{d}y}{\text{d}x}=\frac {\text{d}y}{\text{d}t}\frac {\text{d}t}
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqus">disqus</a></li>
             <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+            <li class="tab"><a href="#comment-disqus">disqus</a></li>
         </ul>
         <div class="tab-content">
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
             <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
@@ -767,9 +685,6 @@ y'(x)=\frac {\text{d}y}{\text{d}x}=\frac {\text{d}y}{\text{d}t}\frac {\text{d}t}
     </div>
   </div>
   
-            </div>
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
             </div>
         </div>
       </div>
@@ -929,13 +844,13 @@ y'(x)=\frac {\text{d}y}{\text{d}x}=\frac {\text{d}y}{\text{d}t}\frac {\text{d}t}
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">512k</span>
+    <span title="站点总字数">538k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:45</span>
+    <span title="站点阅读时长">8:09</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1117,6 +1032,26 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '3c0f684255e61ed2d6c9',
+      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
+      repo        : 'JeffersonQin.github.io',
+      owner       : 'JeffersonQin',
+      admin       : ['JeffersonQin'],
+      id          : 'b49f09433e106388662934b0f2abe09f',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1146,26 +1081,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
       (d.head || d.body).appendChild(s);
     }
   });
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '3c0f684255e61ed2d6c9',
-      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
-      repo        : 'JeffersonQin.github.io',
-      owner       : 'JeffersonQin',
-      admin       : ['JeffersonQin'],
-      id          : 'b49f09433e106388662934b0f2abe09f',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>

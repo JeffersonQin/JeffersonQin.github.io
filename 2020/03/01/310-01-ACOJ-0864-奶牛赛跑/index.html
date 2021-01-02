@@ -10,6 +10,7 @@
     s.parentNode.insertBefore(hm, s);
   })();
   </script>
+  <script data-ad-client="ca-pub-6413104386702312" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -57,10 +58,6 @@
     lang   : 'zh-CN'
   };
 </script>
- <!-- jquery -->
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
 <!-- live2d -->
 
 <!-- div class="waifu">
@@ -309,14 +306,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>568</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
           
@@ -341,18 +338,12 @@
         <h1 id="310-01-ACOJ-0864-奶牛赛跑"><a href="#310-01-ACOJ-0864-奶牛赛跑" class="headerlink" title="310-01-ACOJ-0864 : 奶牛赛跑"></a>310-01-ACOJ-0864 : 奶牛赛跑</h1><h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>有$n$头奶牛，在一个圆形的赛跑场地里赛跑。所有奶牛同时从起点出发，奶牛的速度都是匀速的，其中第$i$头牛的速度为$v_i$，跑道的长度为单位$1$。当跑得最快那头奶牛跑完$k$圈之后，比赛就结束了。</p>
 <p>有时候，跑得快的奶牛可以比跑得慢的奶牛多绕赛场几圈，从而在一些时刻超过慢的奶牛。这就是最令观众激动的套圈事件了。请问在整个比赛过程中，套圈事件一共会发生多少次呢？</p>
 <a id="more"></a>
+
 <h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><p>对于这道题，很显然可以直接求解（小学问题），然后要考虑的是如何降低计算的时间复杂度（原来是$O(n^2)$。</p>
 <p>由于每一个奶牛的追击追击次数可以显然得到：$\lfloor \frac {(v_i - v_j)}{v}k\rfloor$，所以要求的就是$\sum_{1≤j&lt;i≤n}\lfloor\frac {v_i - v_j}{v}k\rfloor$。</p>
-<p>那么采用整数与小数分离的思想计算：（对于负数向下取整是更小，所以对于$-0. ~…$向下取整为$-1$）</p>
-<script type="math/tex; mode=display">
-\begin {align*}
-&\frac {(v_i-v_j)} {v} k = A + \alpha \\
-\Rightarrow~&\frac {v_ik}v - \frac {v_jk}v = A_i + \alpha_i - (A_j + \alpha_j) \\
-\Rightarrow~&\sum_{1≤j<i≤n}\lfloor\frac {v_i - v_j}{v}k\rfloor = \sum_{1≤j<i≤n}(A_i - A_j)+\sum_{1≤j<i≤n}\lfloor\alpha_i - \alpha_j\rfloor \\
-&\sum_{1≤j<i≤n}(A_i - A_j) \\
-=~&\sum_{1≤i≤n}[(i - 1)A_i - (n - i)A_i] = \sum_{1≤i≤n}(i - 1 - n + i) A_i = \sum_{1≤i≤n}(2i - 1 - n)A_i \\
-
-\end {align*}</script><p>而可以发现$\sum_{1≤j&lt;i≤n} \lfloor \alpha_i - \alpha_j\rfloor$就是求$\alpha$序列的逆序对个数。</p>
+<p>那么采用整数与小数分离的思想计算：（对于负数向下取整是更小，所以对于$-0. <del>…$向下取整为$-1$）<br>$$<br>\begin {align*}<br>&amp;\frac {(v_i-v_j)} {v} k = A + \alpha \<br>\Rightarrow</del>&amp;\frac {v_ik}v - \frac {v_jk}v = A_i + \alpha_i - (A_j + \alpha_j) \<br>\Rightarrow<del>&amp;\sum_{1≤j&lt;i≤n}\lfloor\frac {v_i - v_j}{v}k\rfloor = \sum_{1≤j&lt;i≤n}(A_i - A_j)+\sum_{1≤j&lt;i≤n}\lfloor\alpha_i - \alpha_j\rfloor \<br>&amp;\sum_{1≤j&lt;i≤n}(A_i - A_j) \<br>=</del>&amp;\sum_{1≤i≤n}[(i - 1)A_i - (n - i)A_i] = \sum_{1≤i≤n}(i - 1 - n + i) A_i = \sum_{1≤i≤n}(2i - 1 - n)A_i \</p>
+<p>\end {align*}<br>$$</p>
+<p>而可以发现$\sum_{1≤j&lt;i≤n} \lfloor \alpha_i - \alpha_j\rfloor$就是求$\alpha$序列的逆序对个数。</p>
 <p>而对于求逆序对同样可以进行优化（因为小数求逆序对需要进行离散化，很烦），令$\alpha_i’ = v_i \times k \mod v_n$，这非常好证明。</p>
 <h2 id="正解："><a href="#正解：" class="headerlink" title="正解："></a>正解：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, k;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1000005</span>;</span><br><span class="line"><span class="keyword">int</span> v[maxn];</span><br><span class="line"><span class="keyword">int</span> A[maxn], a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> id, val;</span><br><span class="line">&#125; B[maxn];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lb</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123; <span class="keyword">return</span> i &amp; (-i); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a, node b)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (a.val == b.val) <span class="keyword">return</span> a.id &lt; b.id;</span><br><span class="line">	<span class="keyword">return</span> a.val &lt; b.val;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (i &lt;= n + <span class="number">100</span>) &#123;</span><br><span class="line">		T[i] += d;</span><br><span class="line">		i += lb(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		ans += T[i];</span><br><span class="line">		i -= lb(i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) <span class="built_in">cin</span> &gt;&gt; v[i];</span><br><span class="line">	sort(v + <span class="number">1</span>, v + <span class="number">1</span> + n);</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">		A[i] = v[i] * k / v[n]; a[i] = v[i] * k % v[n];</span><br><span class="line">		ans += (<span class="number">2</span> * i - <span class="number">1</span> - n) * A[i];</span><br><span class="line">		B[i] = (node) &#123;i, a[i]&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(B + <span class="number">1</span>, B + <span class="number">1</span> + n, cmp);</span><br><span class="line"><span class="comment">//	for (int i = 1; i &lt;= n; i ++) cout &lt;&lt; B[i].id &lt;&lt; &quot; &quot; &lt;&lt; B[i].val &lt;&lt; endl;</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">		<span class="keyword">int</span> p = sum(B[i].id - <span class="number">1</span>);</span><br><span class="line">		ans -= (i - <span class="number">1</span> - p);</span><br><span class="line">		add(B[i].id, <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
@@ -383,7 +374,7 @@
       <div class="popular-posts-title"><a href="\2020\02\28\307-01-树形背包\" rel="bookmark">307-01-树形背包</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\02\28\307-05-直径\" rel="bookmark">307-05-直径</a></div>
+      <div class="popular-posts-title"><a href="\2020\02\29\307-06-期望\" rel="bookmark">307-06-期望</a></div>
     </li>
   </ul>
 
@@ -440,8 +431,8 @@
   <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
   
   <!-- JS库 sweetalert 可修改路径 -->
-  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <p><span>本文标题:</span><a href="/2020/03/01/310-01-ACOJ-0864-%E5%A5%B6%E7%89%9B%E8%B5%9B%E8%B7%91/">310-01-ACOJ-0864-奶牛赛跑</a></p>
   <p><span>文章作者:</span><a href="/" title="访问gyro永不抽风的个人博客">gyro永不抽风</a></p>
   <p><span>发布时间:</span>2020年03月01日 - 22:03</p>
@@ -612,10 +603,13 @@
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqus">disqus</a></li>
             <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+            <li class="tab"><a href="#comment-disqus">disqus</a></li>
         </ul>
         <div class="tab-content">
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
             <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
@@ -624,9 +618,6 @@
     </div>
   </div>
   
-            </div>
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
             </div>
         </div>
       </div>
@@ -786,13 +777,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">512k</span>
+    <span title="站点总字数">538k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:45</span>
+    <span title="站点阅读时长">8:09</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -974,6 +965,26 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '3c0f684255e61ed2d6c9',
+      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
+      repo        : 'JeffersonQin.github.io',
+      owner       : 'JeffersonQin',
+      admin       : ['JeffersonQin'],
+      id          : '7391571c6b0826825212a7619a89bf3a',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1003,26 +1014,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
       (d.head || d.body).appendChild(s);
     }
   });
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '3c0f684255e61ed2d6c9',
-      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
-      repo        : 'JeffersonQin.github.io',
-      owner       : 'JeffersonQin',
-      admin       : ['JeffersonQin'],
-      id          : '7391571c6b0826825212a7619a89bf3a',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>

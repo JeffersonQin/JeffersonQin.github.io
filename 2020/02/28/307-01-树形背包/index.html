@@ -10,6 +10,7 @@
     s.parentNode.insertBefore(hm, s);
   })();
   </script>
+  <script data-ad-client="ca-pub-6413104386702312" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -61,10 +62,6 @@
     lang   : 'zh-CN'
   };
 </script>
- <!-- jquery -->
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
 <!-- live2d -->
 
 <!-- div class="waifu">
@@ -313,7 +310,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.7k</span>
+              <span>6.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -353,99 +350,60 @@
 <hr>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h4 id="建图"><a href="#建图" class="headerlink" title="建图"></a>建图</h4><p>兄弟儿子表示法建图：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; p[i] &gt;&gt; a[i]; 	<span class="comment">// a[i]: 值</span></span><br><span class="line">	bro[i] = son[p[i]]; 	<span class="comment">// i.bro = i.father.son</span></span><br><span class="line">	son[p[i]] = i;				<span class="comment">// i.p.son = i</span></span><br><span class="line">  	<span class="comment">// 由于如果没有前继，p[i]=0，所以此时其前继为虚拟根：0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="三次方-O-n-3-算法："><a href="#三次方-O-n-3-算法：" class="headerlink" title="三次方$O(n^3)$算法："></a>三次方$O(n^3)$算法：</h4><p>首先分析只是二叉树的情况：</p>
-<p>设对于一个节点$u$，设它的左儿子和右儿子分别为：$L,~R$。设以左儿子为根的子树选$\alpha$门课，以右儿子为根的子树选$\beta$门课，会有以下的递推公式：</p>
-<script type="math/tex; mode=display">
-\begin {align}
-&f(u,0)=0\\
-&f(u,1)=A[u]\\
-&f(u,k) = \max_{\alpha + \beta = k - 1} 
-\{
-f(L,\alpha) + f(R,\beta) + A[u]
-\}
-\end {align}</script><p>其中，$f(u,k)$表示以$u$为根节点的子树选$k$门课。</p>
+<p>设对于一个节点$u$，设它的左儿子和右儿子分别为：$L,~R$。设以左儿子为根的子树选$\alpha$门课，以右儿子为根的子树选$\beta$门课，会有以下的递推公式：<br>$$<br>\begin {align}<br>&amp;f(u,0)=0\<br>&amp;f(u,1)=A[u]\<br>&amp;f(u,k) = \max_{\alpha + \beta = k - 1}<br>{<br>f(L,\alpha) + f(R,\beta) + A[u]<br>}<br>\end {align}<br>$$<br>其中，$f(u,k)$表示以$u$为根节点的子树选$k$门课。</p>
 <p>但是其并非二叉树，所以可以考虑两种方式：</p>
-<p>（一）逐个添加儿子：</p>
-<script type="math/tex; mode=display">
-\begin {align*}
-&\text{0 son: }f^{(0)}(u,k) \\
-&\downarrow \\
-&\text{1 son: }f^{(1)}(u,k) \\
-&\downarrow \\
-&\cdots \\
-&\downarrow \\
-&i-1\text{ son: }f^{(i-1)}(u,k) \\
-&\downarrow \\
-&\text{i son: }f^{(i)}(u,k) \\
-\end {align*}</script><p>由上面的想法，我们可以比较容易地得到以下的递推公式：</p>
-<script type="math/tex; mode=display">
-\begin {align}
-&f^{0}(u,k)=
-\begin {cases}
-0~~~~~~~~~~~~~~~~~~k=0 \\
-A[u]~~~~~~~~~~~~~k≥1
-\end {cases} \\
-&f^{(i)}(u,k)=\max_{0≤\alpha < k} \{f(v_i,\alpha)+f^{(i-1)}(u,k-\alpha)\} \\
-&f(u,k) = f^{(j)}(u,k)
-\end {align}</script><p>其中$j$为节点$u$的儿子的数量。</p>
+<p>（一）逐个添加儿子：<br>$$<br>\begin {align*}<br>&amp;\text{0 son: }f^{(0)}(u,k) \<br>&amp;\downarrow \<br>&amp;\text{1 son: }f^{(1)}(u,k) \<br>&amp;\downarrow \<br>&amp;\cdots \<br>&amp;\downarrow \<br>&amp;i-1\text{ son: }f^{(i-1)}(u,k) \<br>&amp;\downarrow \<br>&amp;\text{i son: }f^{(i)}(u,k) \<br>\end {align*}<br>$$</p>
+<p>由上面的想法，我们可以比较容易地得到以下的递推公式：<br>$$<br>\begin {align}<br>&amp;f^{0}(u,k)=<br>\begin {cases}<br>0~~~~~~~~~~~~~~~~~~k=0 \<br>A[u]~~~~~~~~~~~~~k≥1<br>\end {cases} \<br>&amp;f^{(i)}(u,k)=\max_{0≤\alpha &lt; k} {f(v_i,\alpha)+f^{(i-1)}(u,k-\alpha)} \<br>&amp;f(u,k) = f^{(j)}(u,k)<br>\end {align}<br>$$<br>其中$j$为节点$u$的儿子的数量。</p>
 <p>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dfs(<span class="keyword">int</span> u) &#123;</span><br><span class="line">    f[u,<span class="number">0</span>] = <span class="number">0</span>; f[u,<span class="number">1</span>] = a[u];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = son[u]; i != <span class="number">0</span>; i = bro[i]) &#123;</span><br><span class="line">		dfs(i);</span><br><span class="line">      	<span class="comment">// 背包，故从大到小(考虑更新顺序)</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k = m + <span class="number">1</span>; k &gt;= <span class="number">1</span>; k --) &#123;<span class="comment">// m + 1: 学习0(虚拟根)，多学一门</span></span><br><span class="line">			f(i)[u,k] = f(i - <span class="number">1</span>)[u,k];</span><br><span class="line">			<span class="keyword">for</span> (α = <span class="number">0</span>; α &lt; k; α ++)</span><br><span class="line">				f(i)[u,k] =	max(f(i)[u,k], f[i,α] + f(i<span class="number">-1</span>)[u,k-α]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="压缩-i-（背包问题）"><a href="#压缩-i-（背包问题）" class="headerlink" title="压缩$i$（背包问题）"></a>压缩$i$（背包问题）</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dfs(<span class="keyword">int</span> u) &#123;</span><br><span class="line">  	f[u,<span class="number">0</span>] = <span class="number">0</span>; f[u,<span class="number">1</span>] = a[u]; <span class="comment">// 初始化</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = son[u]; i != <span class="number">0</span>; i = bro[i]) &#123;</span><br><span class="line">        dfs(i);</span><br><span class="line">        <span class="comment">// 背包，故从大到小(考虑更新顺序)</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k = m + <span class="number">1</span>; k &gt;= <span class="number">1</span>; k --) <span class="comment">// m + 1: 学习0(虚拟根)，多学一门</span></span><br><span class="line">			<span class="keyword">for</span> (α = <span class="number">0</span>; α &lt; k; α ++)</span><br><span class="line">				f[u,k] = max(f[u,k], f[i,α] + f[u,k-α]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 构图</span></span><br><span class="line">	dfs(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; f[<span class="number">0</span>,m+<span class="number">1</span>]; <span class="comment">// 虚拟根，所以m+1</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>时间复杂度分析：</p>
 <h4 id="二次方-O-n-2-算法"><a href="#二次方-O-n-2-算法" class="headerlink" title="二次方$O(n^2)$算法"></a>二次方$O(n^2)$算法</h4><p>计算一个单元需要$O(n)$，计算$n^2$单元—&gt;$O(n^3)$算法。</p>
 <p>但是想要其变为平方算法$O(n^2)$：所以在此使用第二种方法来解决多叉树的问题：</p>
 <p>现在定义$f(u,k)$表示的以这个节点为根的一座包括自己所有儿孙和弟弟们的一片森林：</p>
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/02/28/307-01-%E6%A0%91%E5%BD%A2%E8%83%8C%E5%8C%85/pic.png" class="">
+
 <p>这样的好处就是可以把其分为互不相干的两个部分：儿孙们和弟弟们。</p>
-<p>递推公式：</p>
-<script type="math/tex; mode=display">
-f(u,k) = \max 
-\begin {cases}
-f(b,k) \\
-\max_{\alpha + \beta = k - 1} \{A[u] + f(s,\alpha) + f(b,\beta)\}
-\end {cases}</script><p>代码：</p>
+<p>递推公式：<br>$$<br>f(u,k) = \max<br>\begin {cases}<br>f(b,k) \<br>\max_{\alpha + \beta = k - 1} {A[u] + f(s,\alpha) + f(b,\beta)}<br>\end {cases}<br>$$<br>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dfs(<span class="keyword">int</span> u) &#123;</span><br><span class="line">	<span class="keyword">int</span> b = bro[u], s = son[u];</span><br><span class="line">	<span class="keyword">if</span> (s != <span class="number">0</span>) dfs(s); </span><br><span class="line">  	<span class="keyword">if</span> (b != <span class="number">0</span>) dfs(b);</span><br><span class="line">    <span class="keyword">for</span> (k = <span class="number">1</span>; k &lt;= m; k ++) f[u][k] = f[b][k];</span><br><span class="line">    <span class="keyword">for</span> (α = <span class="number">0</span>; α &lt;= m; α ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (β = <span class="number">0</span>； β &lt;= m; β ++) &#123;</span><br><span class="line">            k = α + β + <span class="number">1</span>;</span><br><span class="line">            f[u][k] = max &#123;</span><br><span class="line">                f[s][α] + f[b][β] + A[u];</span><br><span class="line">                f[u][k];</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dfs(son[<span class="number">0</span>]);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; f[son[<span class="number">0</span>]][m];</span><br></pre></td></tr></table></figure>
+
 <p>很不幸，==它还是$O(n^3)$的。==（证明略）</p>
 <p>优化：（将$k$改为$sz[s], sz[b]$）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">dfs(<span class="keyword">int</span> u) &#123;</span><br><span class="line">	<span class="keyword">int</span> b = bro[u], s = son[u];</span><br><span class="line">  	f[u,<span class="number">0</span>] = <span class="number">0</span>; f[u,<span class="number">1</span>] = a[u]; <span class="comment">// 初始化</span></span><br><span class="line">	<span class="keyword">if</span> (s != <span class="number">0</span>) dfs(s);</span><br><span class="line">  	<span class="keyword">if</span> (b != <span class="number">0</span>) dfs(b);</span><br><span class="line">  	sz[u] = sz[s] + sz[b] + <span class="number">1</span>; <span class="comment">// 算子树大小</span></span><br><span class="line">	<span class="keyword">for</span> (k = <span class="number">1</span>; k &lt;= m; k ++) f[u][k] = f[b][k]; <span class="comment">// 划水行为(递推公式第一行)</span></span><br><span class="line">	<span class="keyword">for</span> (α = <span class="number">0</span>; α &lt;= sz[s]; α ++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (β = <span class="number">0</span>； β &lt;= sz[b]; β ++) &#123;</span><br><span class="line">			k = α + β + <span class="number">1</span>;</span><br><span class="line">			f[u][k] = max &#123;</span><br><span class="line">					f[s][α] + f[b][β] + A[u];</span><br><span class="line">					f[u][k];</span><br><span class="line">			&#125;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>对于时间复杂度的证明：</p>
-<p>非常好证明以下不等式：</p>
-<script type="math/tex; mode=display">
-a^2 + b^2 + ab ≤ (a+b+1)^2</script><p>在这里我们记$|s| = sz(s),~|b|=sz(b)$，所以时间复杂度：</p>
-<script type="math/tex; mode=display">
-\begin {align}
-&|s|^2 + |b|^2 + |s||b| \\
-≤~& (|s| + |b| + 1) ^2 \\
-=~& u^2
-\end {align}</script><p>故时间复杂度为$O(n^2)$。</p>
+<p>非常好证明以下不等式：<br>$$<br>a^2 + b^2 + ab ≤ (a+b+1)^2<br>$$<br>在这里我们记$|s| = sz(s),<del>|b|=sz(b)$，所以时间复杂度：<br>$$<br>\begin {align}<br>&amp;|s|^2 + |b|^2 + |s||b| \<br>≤</del>&amp; (|s| + |b| + 1) ^2 \<br>=~&amp; u^2<br>\end {align}<br>$$<br>故时间复杂度为$O(n^2)$。</p>
 <p>将方法（一）的$O(n^3)$算法变为$O(n^2)$算法：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">	sz[u] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = son[u]; i != <span class="number">0</span>; i = bro[i]) &#123;</span><br><span class="line">		dfs(i);</span><br><span class="line">		sz[u] += sz[i];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k = sz[u]; k &gt;= <span class="number">1</span>; k --) &#123;</span><br><span class="line">			<span class="keyword">for</span> (α = k - <span class="number">1</span>; α &gt;= <span class="number">0</span>; α --) &#123;</span><br><span class="line">				f[u][k] = max&#123;</span><br><span class="line">						f[u][k];</span><br><span class="line">						f[u][k-α] + f[i][α];</span><br><span class="line">				&#125;;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>注：</p>
 <p>（一）对于第二种方法，开数组时要开两倍大小，因为$k=\alpha+\beta + 1 ≤2m+1$</p>
 <p>（二）对于第一种方法的背包问题之所以要$k:t\rightarrow 1$，是因为这样可以避免$f^{(i-1)}(u,k-\alpha)$提前被更新。</p>
 <p>完整代码：</p>
 <p>（一）方法一：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">305</span>;</span><br><span class="line">ll n, m;</span><br><span class="line">ll son[maxn], bro[maxn], a[maxn], p[maxn], f[maxn][maxn], sz[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">	sz[u] = <span class="number">1</span>;</span><br><span class="line">    f[u][<span class="number">0</span>] = <span class="number">0</span>; f[u][<span class="number">1</span>] = a[u];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = son[u]; i != <span class="number">0</span>; i = bro[i]) &#123;</span><br><span class="line">		dfs(i);</span><br><span class="line">		sz[u] += sz[i];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k = sz[u]; k &gt;= <span class="number">1</span>; k --) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> alpha = <span class="number">0</span>; alpha &lt; k; alpha ++) &#123;</span><br><span class="line">				f[u][k] = max(f[u][k], f[u][k-alpha] + f[i][alpha]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; p[i] &gt;&gt; a[i];</span><br><span class="line">        bro[i] = son[p[i]];</span><br><span class="line">        son[p[i]] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[<span class="number">0</span>][m + <span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>（二）方法二：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">3005</span>;</span><br><span class="line">ll n, m;</span><br><span class="line">ll son[maxn], bro[maxn], a[maxn], p[maxn], f[maxn][maxn], sz[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    ll b = bro[u], s = son[u];</span><br><span class="line">    f[u][<span class="number">0</span>] = <span class="number">0</span>; f[u][<span class="number">1</span>] = a[u];</span><br><span class="line">    <span class="keyword">if</span> (s != <span class="number">0</span>) dfs(s);</span><br><span class="line">    <span class="keyword">if</span> (b != <span class="number">0</span>) dfs(b);</span><br><span class="line">    sz[u] = sz[s] + sz[b] + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i ++) f[u][i] = f[b][i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> alpha = <span class="number">0</span>; alpha &lt;= m; alpha ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> beta = <span class="number">0</span>; beta &lt;= m; beta ++) &#123;</span><br><span class="line">            ll k = alpha + beta + <span class="number">1</span>;</span><br><span class="line">            f[u][k] = max(f[u][k], f[s][alpha] + f[b][beta] + a[u]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; p[i] &gt;&gt; a[i];</span><br><span class="line">        bro[i] = son[p[i]];</span><br><span class="line">        son[p[i]] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(son[<span class="number">0</span>]);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[son[<span class="number">0</span>]][m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <hr>
 <h2 id="P3177-HAOI2015-树上染色"><a href="#P3177-HAOI2015-树上染色" class="headerlink" title="P3177 [HAOI2015]树上染色"></a>P3177 [HAOI2015]树上染色</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>有一棵点数为 N 的树，树边有边权。给你一个在 0~ N 之内的正整数 K ，你要在这棵树中选择 K个点，将其染成黑色，并将其他 的N-K个点染成白色 。 将所有点染色后，你会获得黑点两两之间的距离加上白点两两之间的距离的和的受益。问受益最大值是多少。</p>
 <h3 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><p><strong>输入格式：</strong></p>
 <p>第一行包含两个整数 N, K 。接下来 N-1 行每行三个正整数 fr, to, dis ， 表示该树中存在一条长度为 dis 的边 (fr, to) 。输入保证所有点之间是联通的。</p>
 <p><strong>输出格式：</strong></p>
 <p>输出一个正整数，表示收益的最大值。</p>
-<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><h4 id="递推公式建立"><a href="#递推公式建立" class="headerlink" title="递推公式建立"></a>递推公式建立</h4><p>定义$f(u,x)$表示在以$u$为根的子树当中，有$x$个节点被染黑，在$u$处对答案的贡献。有：</p>
-<script type="math/tex; mode=display">
-\begin {align}
-&f(u, x) = \max_{0 ≤ j ≤x,~v\in u.son}\{f(u,x),~f(u, x-j) + f(v,j) + val\} \\
-&val = w[e]*\{j * (k-j) + (|v.G| - j) * [(n-k)-(|v.G|-j)]\} \\
-&|v.G| = size[v],~e = (u,v)
-\end {align}</script><p>代码：</p>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><h4 id="递推公式建立"><a href="#递推公式建立" class="headerlink" title="递推公式建立"></a>递推公式建立</h4><p>定义$f(u,x)$表示在以$u$为根的子树当中，有$x$个节点被染黑，在$u$处对答案的贡献。有：<br>$$<br>\begin {align}<br>&amp;f(u, x) = \max_{0 ≤ j ≤x,<del>v\in u.son}{f(u,x),</del>f(u, x-j) + f(v,j) + val} \<br>&amp;val = w[e]*{j * (k-j) + (|v.G| - j) * [(n-k)-(|v.G|-j)]} \<br>&amp;|v.G| = size[v],~e = (u,v)<br>\end {align}<br>$$<br>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">4005</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> to, next, w;</span><br><span class="line">&#125; g[maxn];</span><br><span class="line"></span><br><span class="line">ll n, k, ecnt = <span class="number">0</span>, head[maxn], f[maxn][maxn], sz[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    g[ecnt].to = v;</span><br><span class="line">    g[ecnt].w = w;</span><br><span class="line">    g[ecnt].next = head[u];</span><br><span class="line">    head[u] = ecnt ++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    sz[u] = <span class="number">1</span>;</span><br><span class="line">    f[u][<span class="number">0</span>] = f[u][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 子树是一个一个添加（树型背包的第一种添加子树的方法）</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> e = head[u]; e != <span class="number">-1</span>; e = g[e].next) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = g[e].to;</span><br><span class="line">        <span class="keyword">if</span> (v != p) &#123;</span><br><span class="line">            dfs(v, u);</span><br><span class="line">            sz[u] += sz[v];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> x = sz[u]; x &gt;= <span class="number">0</span>; x --) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> y = sz[v]; y &gt;= <span class="number">0</span>; y --) &#123;</span><br><span class="line">                    <span class="comment">// 特判：这个节点可行（其子树的节点够）</span></span><br><span class="line">                    <span class="keyword">if</span> (f[u][x] != <span class="number">-1</span>) &#123;</span><br><span class="line"><span class="comment">/*  val表示：</span></span><br><span class="line"><span class="comment">（新的子树中的黑点个数×除此之外的所有黑点个数+新的子树中的白点个数×除此之外的白点个数） ==&gt; 必将经过下面那条边的次数</span></span><br><span class="line"><span class="comment">                                    ×</span></span><br><span class="line"><span class="comment">         （这些所有次数必定将要进过的一条边：就是u，v之间的边，边权为w[e]）</span></span><br><span class="line"><span class="comment">                                    =</span></span><br><span class="line"><span class="comment">                这个新的子树添加时，与u连接的这条边对答案的贡献</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">	ll val = g[e].w * (y * (k - y) + (sz[v] - y) * ((n - k) - (sz[v] - y)));</span><br><span class="line"><span class="comment">/* 所以下面的式子可以转换为更加易于理解的式子：</span></span><br><span class="line"><span class="comment">f[u][x] = max&#123;f[u][x], f[u][x-k] + f[v][k] + val&#125;, 其中：0 ≤ k ≤ x; v为u的一个儿子</span></span><br><span class="line"><span class="comment">我们不难发现，节点是在dfs的过程中，一 个 一 个 添加的，所以</span></span><br><span class="line"><span class="comment">1. f[u][x-k]表示的是之前（没有添加现在子树的时候），以u为根的子树有x-k个点染黑对答案的贡献</span></span><br><span class="line"><span class="comment">2. f[v][k]表示的是以v为根的子树（由于dfs的顺序，此时这个子树是完全的），有k个节点被染黑对答案，到v的贡献</span></span><br><span class="line"><span class="comment">3. val表示的是为了补全（2）当中的那些染黑的节点，在u -&gt; v的贡献</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">	f[u][x + y] = max(f[u][x + y], f[u][x] + f[v][y] + val);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="keyword">sizeof</span>(head));</span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        <span class="keyword">int</span> from, to, dis;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; from &gt;&gt; to &gt;&gt; dis;</span><br><span class="line">        addEdge(from, to, dis);</span><br><span class="line">        addEdge(to, from, dis);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[<span class="number">1</span>][k] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>PDF:<br><div class="pdfobject-container" data-target="file.pdf" data-height="500px"></div></p>
-
+<p>PDF: </p>
+<div class="pdfobject-container" data-target="file.pdf" data-height="500px"></div>
     </div>
 
     
@@ -531,8 +489,8 @@ a^2 + b^2 + ab ≤ (a+b+1)^2</script><p>在这里我们记$|s| = sz(s),~|b|=sz(b
   <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
   
   <!-- JS库 sweetalert 可修改路径 -->
-  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <p><span>本文标题:</span><a href="/2020/02/28/307-01-%E6%A0%91%E5%BD%A2%E8%83%8C%E5%8C%85/">307-01-树形背包</a></p>
   <p><span>文章作者:</span><a href="/" title="访问gyro永不抽风的个人博客">gyro永不抽风</a></p>
   <p><span>发布时间:</span>2020年02月28日 - 23:02</p>
@@ -705,10 +663,13 @@ a^2 + b^2 + ab ≤ (a+b+1)^2</script><p>在这里我们记$|s| = sz(s),~|b|=sz(b
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqus">disqus</a></li>
             <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+            <li class="tab"><a href="#comment-disqus">disqus</a></li>
         </ul>
         <div class="tab-content">
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
             <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
@@ -717,9 +678,6 @@ a^2 + b^2 + ab ≤ (a+b+1)^2</script><p>在这里我们记$|s| = sz(s),~|b|=sz(b
     </div>
   </div>
   
-            </div>
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
             </div>
         </div>
       </div>
@@ -879,13 +837,13 @@ a^2 + b^2 + ab ≤ (a+b+1)^2</script><p>在这里我们记$|s| = sz(s),~|b|=sz(b
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">512k</span>
+    <span title="站点总字数">538k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:45</span>
+    <span title="站点阅读时长">8:09</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1067,6 +1025,26 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '3c0f684255e61ed2d6c9',
+      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
+      repo        : 'JeffersonQin.github.io',
+      owner       : 'JeffersonQin',
+      admin       : ['JeffersonQin'],
+      id          : '225cd1e0bd18ebbe34567b29f1703f62',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1096,26 +1074,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
       (d.head || d.body).appendChild(s);
     }
   });
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '3c0f684255e61ed2d6c9',
-      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
-      repo        : 'JeffersonQin.github.io',
-      owner       : 'JeffersonQin',
-      admin       : ['JeffersonQin'],
-      id          : '225cd1e0bd18ebbe34567b29f1703f62',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>

@@ -10,6 +10,7 @@
     s.parentNode.insertBefore(hm, s);
   })();
   </script>
+  <script data-ad-client="ca-pub-6413104386702312" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -58,10 +59,6 @@
     lang   : 'zh-CN'
   };
 </script>
- <!-- jquery -->
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
 <!-- live2d -->
 
 <!-- div class="waifu">
@@ -344,14 +341,19 @@
 <h1 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h1><p>New File -&gt; Objective-C，系统会弹出弹窗问要不要Create Bridge File，选择Yes。然后在Objective-C文件中import这个Bridge File作为头文件，开放的接口写在Bridge File当中</p>
 <p>Objective-C:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;xxxxx-Bridge-File.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation ClassA</span><br><span class="line">	+ (void) testMethod :(double) parameterA :(double) parameterB &#123;</span><br><span class="line">		NSLog(@&quot;Hello World!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+
 <p>Header:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation&#x2F;Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface ClassA : NSObject</span><br><span class="line"></span><br><span class="line">+ (void) testMethod :(double) parameterA :(double) parameterB;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>Swift调用：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ClassA</span>.testMethod(<span class="number">1.0</span>, <span class="number">2.0</span>)</span><br></pre></td></tr></table></figure></p>
+
+<p>Swift调用：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ClassA</span>.testMethod(<span class="number">1.0</span>, <span class="number">2.0</span>)</span><br></pre></td></tr></table></figure>
+
 <h1 id="关于在项目中的设置"><a href="#关于在项目中的设置" class="headerlink" title="关于在项目中的设置"></a>关于在项目中的设置</h1><p>设置部分可以在Build Setting中找到（项目文件中）</p>
 <h1 id="C、C-混编的实现"><a href="#C、C-混编的实现" class="headerlink" title="C、C++混编的实现"></a>C、C++混编的实现</h1><p>我们会发现，Objective-C的语法糖不多，我们更想要的是C++。而众所周知，Objective-C是可以调用Cpp的，而且将后缀名改为<code>.mm</code>之后，是Objective-C++，支持C++的方法及语法。全部都不难实现。其实只需要将所有东西分装起来即可。</p>
 <p>比如我做OpenCV处理时分装的库：</p>
 <p><code>HQMatProcessor.hpp</code>：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  HQMatProcessor.hpp</span></span><br><span class="line"><span class="comment">//  Page Dewarper</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Jefferson Qin on 2020/4/8.</span></span><br><span class="line"><span class="comment">//  Copyright &amp;copy; 2020 Jefferson Qin. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> HQMatProcessor_hpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> HQMatProcessor_hpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> HQCV &#123;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSharpened</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getGray</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobelX</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobelY</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobel</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">getGaussian</span><span class="params">(cv::Mat src)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">drawPoint</span><span class="params">(cv::Mat src, <span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">drawLine</span><span class="params">(cv::Mat src, <span class="keyword">double</span> x1, <span class="keyword">double</span> y1, <span class="keyword">double</span> x2, <span class="keyword">double</span> y2)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* HQMatProcessor_hpp */</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p><code>HQMatProcessor.cpp</code>：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  HQMatProcessor.cpp</span></span><br><span class="line"><span class="comment">//  Page Dewarper</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Jefferson Qin on 2020/4/8.</span></span><br><span class="line"><span class="comment">//  Copyright &amp;copy; 2020 Jefferson Qin. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;HQMatProcessor.hpp&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> HQCV &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSharpened</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat kernel = (cv::Mat_&lt;<span class="keyword">char</span>&gt;(<span class="number">3</span>, <span class="number">3</span>) &lt;&lt; <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">5</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>);</span><br><span class="line">        cv::Mat ret;</span><br><span class="line">        cv::filter2D(src, ret, CV_32F, kernel);</span><br><span class="line">        cv::convertScaleAbs(ret, ret);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getGray</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst;</span><br><span class="line">        cv::cvtColor(src, dst, cv::COLOR_BGR2GRAY);</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobelX</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst;</span><br><span class="line">        cv::Sobel(src, dst, CV_16S, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, cv::BORDER_DEFAULT);</span><br><span class="line">        cv::convertScaleAbs(dst, dst);</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobelY</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst;</span><br><span class="line">        cv::Sobel(src, dst, CV_16S, <span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, cv::BORDER_DEFAULT);</span><br><span class="line">        cv::convertScaleAbs(dst, dst);</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getSobel</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst;</span><br><span class="line">        cv::addWeighted(HQCV::getSobelX(src), <span class="number">0.5</span>, HQCV::getSobelY(src), <span class="number">0.5</span>, <span class="number">0</span>, dst);</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">getGaussian</span><span class="params">(cv::Mat src)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst;</span><br><span class="line">        cv::GaussianBlur(src, dst, cv::Size(<span class="number">3</span>, <span class="number">3</span>), <span class="number">0</span>, <span class="number">0</span>, cv::BORDER_DEFAULT);</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">drawPoint</span><span class="params">(cv::Mat src, <span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst = src.clone();</span><br><span class="line">        cv::circle(dst, cv::Point(x, y), <span class="number">8</span>, cv::Scalar(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>));</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">cv::Mat <span class="title">drawLine</span><span class="params">(cv::Mat src, <span class="keyword">double</span> x1, <span class="keyword">double</span> y1, <span class="keyword">double</span> x2, <span class="keyword">double</span> y2)</span> </span>&#123;</span><br><span class="line">        cv::Mat dst = src.clone();</span><br><span class="line">        cv::line(dst, cv::Point(x1, y1), cv::Point(x2, y2), cv::Scalar(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>));</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
     </div>
@@ -439,8 +441,8 @@
   <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
   
   <!-- JS库 sweetalert 可修改路径 -->
-  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <p><span>本文标题:</span><a href="/2020/04/10/Swift-Objective-C%E6%B7%B7%E7%BC%96%E9%97%AE%E9%A2%98/">Swift Objective-C混编问题</a></p>
   <p><span>文章作者:</span><a href="/" title="访问gyro永不抽风的个人博客">gyro永不抽风</a></p>
   <p><span>发布时间:</span>2020年04月10日 - 22:04</p>
@@ -612,10 +614,13 @@
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqus">disqus</a></li>
             <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+            <li class="tab"><a href="#comment-disqus">disqus</a></li>
         </ul>
         <div class="tab-content">
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
             <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
@@ -624,9 +629,6 @@
     </div>
   </div>
   
-            </div>
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
             </div>
         </div>
       </div>
@@ -786,13 +788,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">512k</span>
+    <span title="站点总字数">538k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:45</span>
+    <span title="站点阅读时长">8:09</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -974,6 +976,26 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '3c0f684255e61ed2d6c9',
+      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
+      repo        : 'JeffersonQin.github.io',
+      owner       : 'JeffersonQin',
+      admin       : ['JeffersonQin'],
+      id          : '54e3832628ed0726825a748d105371dc',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1003,26 +1025,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
       (d.head || d.body).appendChild(s);
     }
   });
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '3c0f684255e61ed2d6c9',
-      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
-      repo        : 'JeffersonQin.github.io',
-      owner       : 'JeffersonQin',
-      admin       : ['JeffersonQin'],
-      id          : '54e3832628ed0726825a748d105371dc',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>

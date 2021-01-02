@@ -10,6 +10,7 @@
     s.parentNode.insertBefore(hm, s);
   })();
   </script>
+  <script data-ad-client="ca-pub-6413104386702312" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -59,10 +60,6 @@
     lang   : 'zh-CN'
   };
 </script>
- <!-- jquery -->
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
 <!-- live2d -->
 
 <!-- div class="waifu">
@@ -380,7 +377,8 @@ span.katex-html {
 
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>题目中问要花费的最短时间，那其实就可以联想到最短路问题或者直接BFS。那记下来的问题就在于如何建图。我们可以发现，这里有着$p$把钥匙，要处理好这些钥匙是问题的关键。所以，我们可以建立分层图，而且分层图的层数是当前所有的钥匙的状态压缩。</p>
 <p>形象地解释的话：如果现在是$i$层，那么我们先将$i$转换为二进制（假设一共有4种钥匙种类，那么$i$可能是：</p>
-<script type="math/tex; mode=display">(1101)_2</script><p>意思就是有着第一种、第三种、第四种钥匙的层（从后往前看）。如果无法理解分层图，那么不妨看看前两篇博文，都是分层图的题。</p>
+<p>$$(1101)_2$$</p>
+<p>意思就是有着第一种、第三种、第四种钥匙的层（从后往前看）。如果无法理解分层图，那么不妨看看前两篇博文，都是分层图的题。</p>
 <p>所以接下来，我们只需要关心如何建立图，图建立好之后我们就可以扔给堆优化过的Dijkstra直接算就行了。</p>
 <p>我们根据以下几点建图：</p>
 <ul>
@@ -391,6 +389,7 @@ span.katex-html {
 </ul>
 <p>最后答案其实就是把每一层的$(N, M)$遍历一遍去一个最小。</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxg = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxk = <span class="number">155</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxs = <span class="number">15</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">11</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">11</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, p, k, s;</span><br><span class="line"><span class="keyword">int</span> ecnt = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> head[maxn * maxm * (<span class="number">1</span> &lt;&lt; maxg)], dis[maxn * maxm * (<span class="number">1</span> &lt;&lt; maxg)];</span><br><span class="line"><span class="keyword">bool</span> vis[maxn * maxm * (<span class="number">1</span> &lt;&lt; maxg)];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span> &#123;</span> <span class="keyword">int</span> to, next, w; &#125; g[(<span class="number">1</span> &lt;&lt; maxg) * (maxk * <span class="number">2</span> * <span class="number">4</span> + maxs)];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span> </span>&#123; g[ecnt] = (edge) &#123; v, head[u], w &#125;; head[u] = ecnt ++; &#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> l1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2, <span class="keyword">int</span> l2, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">	add_edge(y1 + (x1 - <span class="number">1</span>) * m + m * n * l1, </span><br><span class="line">			 y2 + (x2 - <span class="number">1</span>) * m + m * n * l2, w);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">id</span> <span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x - <span class="number">1</span>) * m + y ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">200</span>][<span class="number">200</span>];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> dis, pos;</span><br><span class="line">	<span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node &amp;a, <span class="keyword">const</span> node &amp;b) &#123; <span class="keyword">return</span> a.dis &gt; b.dis; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">priority_queue</span>&lt;node&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m * n * (<span class="number">1</span> &lt;&lt; p); i ++) dis[i] = <span class="number">2e9</span>;</span><br><span class="line">	dis[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">	q.push((node) &#123; dis[<span class="number">1</span>], <span class="number">1</span> &#125;);</span><br><span class="line">	<span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">		<span class="keyword">int</span> u = q.top().pos; q.pop();</span><br><span class="line">		<span class="keyword">if</span> (vis[u]) <span class="keyword">continue</span>;</span><br><span class="line">		vis[u] = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> e = head[u]; e; e = g[e].next) &#123;</span><br><span class="line">			<span class="keyword">int</span> v = g[e].to;</span><br><span class="line">			<span class="keyword">if</span> (dis[v] &gt; dis[u] + g[e].w) &#123;</span><br><span class="line">				dis[v] = dis[u] + g[e].w;</span><br><span class="line">				q.push((node) &#123; dis[v], v &#125;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; p &gt;&gt; k;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; i ++) &#123;</span><br><span class="line">		<span class="keyword">int</span> x1, x2, y1, y2, g;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2 &gt;&gt; g;</span><br><span class="line">		<span class="keyword">if</span> (g == <span class="number">0</span>) g = <span class="number">-1</span>;</span><br><span class="line">		<span class="built_in">map</span>[id(x1, y1)][id(x2, y2)] = g;</span><br><span class="line">		<span class="built_in">map</span>[id(x2, y2)][id(x1, y1)] = g;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">0</span>; l &lt; (<span class="number">1</span> &lt;&lt; p); l ++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123; <span class="comment">// x</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j ++) &#123; <span class="comment">// y</span></span><br><span class="line">				<span class="comment">// right</span></span><br><span class="line">				<span class="keyword">if</span> (j &lt; m) &#123;</span><br><span class="line">					<span class="keyword">int</span> g = <span class="built_in">map</span>[id(i, j)][id(i, j + <span class="number">1</span>)];</span><br><span class="line">					<span class="keyword">if</span> (g == <span class="number">0</span>) &#123;</span><br><span class="line">						add_edge(i, j, l, i, j + <span class="number">1</span>, l, <span class="number">1</span>);</span><br><span class="line">						add_edge(i, j + <span class="number">1</span>, l, i, j, l, <span class="number">1</span>);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span> ((l &amp; (<span class="number">1</span> &lt;&lt; (g - <span class="number">1</span>))) &amp;&amp; (g != <span class="number">0</span>) &amp;&amp; (g != <span class="number">-1</span>)) &#123;</span><br><span class="line">						add_edge(i, j, l, i, j + <span class="number">1</span>, l, <span class="number">1</span>);</span><br><span class="line">						add_edge(i, j + <span class="number">1</span>, l, i, j, l, <span class="number">1</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="comment">// down</span></span><br><span class="line">				<span class="keyword">if</span> (i &lt; n) &#123;</span><br><span class="line">					<span class="keyword">int</span> g = <span class="built_in">map</span>[id(i, j)][id(i + <span class="number">1</span>, j)];</span><br><span class="line">					<span class="keyword">if</span> (g == <span class="number">0</span>) &#123;</span><br><span class="line">						add_edge(i, j, l, i + <span class="number">1</span>, j, l, <span class="number">1</span>);</span><br><span class="line">						add_edge(i + <span class="number">1</span>, j, l, i, j, l, <span class="number">1</span>);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span> ((l &amp; (<span class="number">1</span> &lt;&lt; (g - <span class="number">1</span>))) &amp;&amp; (g != <span class="number">0</span>) &amp;&amp; (g != <span class="number">-1</span>)) &#123;</span><br><span class="line">						add_edge(i, j, l, i + <span class="number">1</span>, j, l, <span class="number">1</span>);</span><br><span class="line">						add_edge(i + <span class="number">1</span>, j, l, i, j, l, <span class="number">1</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s; i ++) &#123;</span><br><span class="line">		<span class="keyword">int</span> x, y, q; <span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y &gt;&gt; q;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">0</span>; l &lt; (<span class="number">1</span> &lt;&lt; p); l ++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (l &amp; (<span class="number">1</span> &lt;&lt; (q - <span class="number">1</span>))) <span class="keyword">continue</span>;</span><br><span class="line">			add_edge(x, y, l, x, y, (l | (<span class="number">1</span> &lt;&lt; (q - <span class="number">1</span>))), <span class="number">0</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	dijkstra();</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">2e9</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= (<span class="number">1</span> &lt;&lt; p); i ++) ans = min(ans, dis[m * n * i]);</span><br><span class="line">	<span class="keyword">if</span> (ans == <span class="number">2e9</span>) ans = <span class="number">-1</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p>感谢@nwt（在右边的友链里 wennitao），在debug的时候提供了莫大的帮助。（qhy是屑）</p>
 
     </div>
@@ -478,8 +477,8 @@ span.katex-html {
   <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
   
   <!-- JS库 sweetalert 可修改路径 -->
-  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <p><span>本文标题:</span><a href="/2020/09/19/P4011-%E5%AD%A4%E5%B2%9B%E8%90%A5%E6%95%91%E9%97%AE%E9%A2%98-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/">P4011 孤岛营救问题 - 分层图最短路</a></p>
   <p><span>文章作者:</span><a href="/" title="访问gyro永不抽风的个人博客">gyro永不抽风</a></p>
   <p><span>发布时间:</span>2020年09月19日 - 19:09</p>
@@ -652,10 +651,13 @@ span.katex-html {
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqus">disqus</a></li>
             <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+            <li class="tab"><a href="#comment-disqus">disqus</a></li>
         </ul>
         <div class="tab-content">
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
             <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
@@ -664,9 +666,6 @@ span.katex-html {
     </div>
   </div>
   
-            </div>
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
             </div>
         </div>
       </div>
@@ -826,13 +825,13 @@ span.katex-html {
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">512k</span>
+    <span title="站点总字数">538k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:45</span>
+    <span title="站点阅读时长">8:09</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1014,6 +1013,26 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '3c0f684255e61ed2d6c9',
+      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
+      repo        : 'JeffersonQin.github.io',
+      owner       : 'JeffersonQin',
+      admin       : ['JeffersonQin'],
+      id          : 'd2b082ed1a68101b5fa28127b6d88efd',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1043,26 +1062,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
       (d.head || d.body).appendChild(s);
     }
   });
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '3c0f684255e61ed2d6c9',
-      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
-      repo        : 'JeffersonQin.github.io',
-      owner       : 'JeffersonQin',
-      admin       : ['JeffersonQin'],
-      id          : 'd2b082ed1a68101b5fa28127b6d88efd',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>
