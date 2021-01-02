@@ -343,7 +343,6 @@
 </ul>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>使用ActiveX控件实现</p>
 <figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&#x27;Get English Name of Column</span></span><br><span class="line"><span class="keyword">Public</span> <span class="keyword">Function</span> Fun_GetEngName(<span class="keyword">ByVal</span> argColumn <span class="keyword">As</span> <span class="built_in">Integer</span>) <span class="keyword">As</span> <span class="built_in">String</span></span><br><span class="line">    <span class="keyword">Dim</span> strEngName <span class="keyword">As</span> <span class="built_in">String</span></span><br><span class="line">    <span class="keyword">Dim</span> iNum, iMod <span class="keyword">As</span> <span class="built_in">Integer</span></span><br><span class="line"></span><br><span class="line">    iNum = argColumn \ <span class="number">26</span></span><br><span class="line">    iMod = argColumn <span class="keyword">Mod</span> <span class="number">26</span></span><br><span class="line">    <span class="keyword">If</span> (iMod = <span class="number">0</span>) <span class="keyword">Then</span></span><br><span class="line">        <span class="keyword">If</span> (iNum = <span class="number">1</span>) <span class="keyword">Then</span></span><br><span class="line">            strEngName = Chr(<span class="number">90</span>)</span><br><span class="line">        <span class="keyword">Else</span></span><br><span class="line">            strEngName = Chr(<span class="number">65</span> + iNum - <span class="number">2</span>) + Chr(<span class="number">90</span>)</span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">Else</span></span><br><span class="line">        <span class="keyword">If</span> (iNum = <span class="number">0</span>) <span class="keyword">Then</span></span><br><span class="line">            strEngName = Chr(<span class="number">65</span> + iMod - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">Else</span></span><br><span class="line">            strEngName = Chr(<span class="number">65</span> + iNum - <span class="number">1</span>) + Chr(<span class="number">65</span> + iMod - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    Fun_GetEngName = strEngName</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Private</span> <span class="keyword">Sub</span> CommandButton1_Click()</span><br><span class="line">    <span class="comment">&#x27;Clear Background Color</span></span><br><span class="line">    Rows(<span class="string">&quot;1:1&quot;</span>).Interior.ColorIndex = <span class="number">2</span></span><br><span class="line">    Rows(<span class="string">&quot;2:2&quot;</span>).Interior.ColorIndex = <span class="number">2</span></span><br><span class="line">    <span class="comment">&#x27;Get Current Date</span></span><br><span class="line">    <span class="keyword">Dim</span> idate <span class="keyword">As</span> <span class="built_in">Date</span></span><br><span class="line">    idate = Format(Now, <span class="string">&quot;yyyy/m/d&quot;</span>)</span><br><span class="line">    MsgBox <span class="string">&quot;Today is &quot;</span> &amp; idate &amp; <span class="string">&quot;, have a nice day!&quot;</span>, , <span class="string">&quot;Auto Dater, by H.Q.&quot;</span></span><br><span class="line">    <span class="comment">&#x27;Set the bgcolor of the cell of current date</span></span><br><span class="line">    Worksheets(<span class="number">1</span>).Cells(<span class="number">171</span>, <span class="number">3</span>).Value = idate</span><br><span class="line">    <span class="keyword">Dim</span> i</span><br><span class="line">    i = Worksheets(<span class="number">1</span>).Cells(<span class="number">171</span>, <span class="number">5</span>).Value</span><br><span class="line">    Worksheets(<span class="number">1</span>).Cells(<span class="number">2</span>, i).Interior.ColorIndex = <span class="number">8</span></span><br><span class="line">    Worksheets(<span class="number">1</span>).Cells(<span class="number">1</span>, i).Interior.ColorIndex = <span class="number">8</span></span><br><span class="line">    <span class="comment">&#x27;Set data source of charts (till yesterday)</span></span><br><span class="line">    <span class="keyword">Dim</span> s <span class="keyword">As</span> <span class="built_in">String</span></span><br><span class="line">    s = Fun_GetEngName(i - <span class="number">1</span>)</span><br><span class="line">    ActiveSheet.ChartObjects(<span class="string">&quot;TimingStatistics&quot;</span>).Activate</span><br><span class="line">    ActiveChart.SetSourceData Source:=Range(<span class="string">&quot;Main!$A$2:$&quot;</span> &amp; s &amp; <span class="string">&quot;$2,Main!$A$107:$&quot;</span> &amp; s &amp; <span class="string">&quot;$111&quot;</span>)</span><br><span class="line">    ActiveSheet.ChartObjects(<span class="string">&quot;SleepingStatistics&quot;</span>).Activate</span><br><span class="line">    ActiveChart.SetSourceData Source:=Range(<span class="string">&quot;Main!$A$2:$&quot;</span> &amp; s &amp; <span class="string">&quot;$2,Main!$A$107:$&quot;</span> &amp; s &amp; <span class="string">&quot;$107&quot;</span>)</span><br><span class="line">    ActiveSheet.ChartObjects(<span class="string">&quot;EntertainmentStatistics&quot;</span>).Activate</span><br><span class="line">    ActiveChart.SetSourceData Source:=Range(<span class="string">&quot;Main!$A$2:$&quot;</span> &amp; s &amp; <span class="string">&quot;$2,Main!$A$110:$&quot;</span> &amp; s &amp; <span class="string">&quot;$110&quot;</span>)</span><br><span class="line">    ActiveSheet.ChartObjects(<span class="string">&quot;StudyStatistics&quot;</span>).Activate</span><br><span class="line">    ActiveChart.SetSourceData Source:=Range(<span class="string">&quot;Main!$A$2:$&quot;</span> &amp; s &amp; <span class="string">&quot;$2,Main!$A$108:$&quot;</span> &amp; s &amp; <span class="string">&quot;$108&quot;</span>)</span><br><span class="line">    ActiveSheet.ChartObjects(<span class="string">&quot;NormalStatistics&quot;</span>).Activate</span><br><span class="line">    ActiveChart.SetSourceData Source:=Range(<span class="string">&quot;Main!$A$2:$&quot;</span> &amp; s &amp; <span class="string">&quot;$2,Main!$A$109:$&quot;</span> &amp; s &amp; <span class="string">&quot;$109&quot;</span>)</span><br><span class="line">    ActiveSheet.ChartObjects(<span class="string">&quot;TechStatistics&quot;</span>).Activate</span><br><span class="line">    ActiveChart.SetSourceData Source:=Range(<span class="string">&quot;Main!$A$2:$&quot;</span> &amp; s &amp; <span class="string">&quot;$2,Main!$A$111:$&quot;</span> &amp; s &amp; <span class="string">&quot;$111&quot;</span>)</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure>
-
 <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
 <li>图表名称需要命名，具体方法：<a target="_blank" rel="noopener" href="https://www.xuexila.com/excel/biaoge/1647271.html">https://www.xuexila.com/excel/biaoge/1647271.html</a></li>
 <li>日期的减法时使用Excel内置函数的<code>-</code>实现的</li>
@@ -589,13 +588,10 @@
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
-            </div>
             <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
@@ -604,6 +600,9 @@
     </div>
   </div>
   
+            </div>
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
             </div>
         </div>
       </div>
@@ -763,13 +762,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">538k</span>
+    <span title="站点总字数">512k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">8:09</span>
+    <span title="站点阅读时长">7:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -951,26 +950,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '3c0f684255e61ed2d6c9',
-      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
-      repo        : 'JeffersonQin.github.io',
-      owner       : 'JeffersonQin',
-      admin       : ['JeffersonQin'],
-      id          : '2e5188f440e9c71accf6c7f5002a8e63',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1000,6 +979,26 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '3c0f684255e61ed2d6c9',
+      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
+      repo        : 'JeffersonQin.github.io',
+      owner       : 'JeffersonQin',
+      admin       : ['JeffersonQin'],
+      id          : '2e5188f440e9c71accf6c7f5002a8e63',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>

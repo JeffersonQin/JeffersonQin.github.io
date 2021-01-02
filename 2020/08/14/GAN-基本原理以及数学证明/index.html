@@ -308,7 +308,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.1k</span>
+              <span>6.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -356,48 +356,107 @@
 </ul>
 <p>随着训练的进行，我们要提高D的辨析能力，但同时也要G的能力来骗过D，因为我们的最终目的是要让G来生成可以骗过D的信息。总结来说，通过对这两个模型的训练，我们就可以找到随机噪声与有意义数据的映射，达到<code>创作</code>的目的。</p>
 <h1 id="GAN的流程和目标函数"><a href="#GAN的流程和目标函数" class="headerlink" title="GAN的流程和目标函数"></a>GAN的流程和目标函数</h1><h2 id="GAN的目标函数"><a href="#GAN的目标函数" class="headerlink" title="GAN的目标函数"></a>GAN的目标函数</h2><p>GAN的目标函数如下：</p>
-<p>$$<br>    V(D, G) = \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))]<br>$$</p>
-<p>其中，$D$为<code>Discriminator</code>的模型函数，$G$为<code>Generator</code>的模型函数，随机变量$x$服从原来正确的数据集的分布$P_\text {data}$，随机变量（这里可能是高维随机变量，取决于模型具体实现）$\boldsymbol {z}$服从分布$P_z$（生成噪音），$\mathbb E$代表期望。</p>
-<h2 id="GAN的流程"><a href="#GAN的流程" class="headerlink" title="GAN的流程"></a>GAN的流程</h2><p>$$<br>    G^* = \arg \min _G \max _D V(D, G)<br>$$</p>
-<p>即，可以分为两步理解：</p>
+<script type="math/tex; mode=display">
+    V(D, G) = \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))]</script><p>其中，$D$为<code>Discriminator</code>的模型函数，$G$为<code>Generator</code>的模型函数，随机变量$x$服从原来正确的数据集的分布$P_\text {data}$，随机变量（这里可能是高维随机变量，取决于模型具体实现）$\boldsymbol {z}$服从分布$P_z$（生成噪音），$\mathbb E$代表期望。</p>
+<h2 id="GAN的流程"><a href="#GAN的流程" class="headerlink" title="GAN的流程"></a>GAN的流程</h2><script type="math/tex; mode=display">
+    G^* = \arg \min _G \max _D V(D, G)</script><p>即，可以分为两步理解：</p>
 <ol>
 <li>在$G$为常数的情况下，选择合适的$D$使得$V(D,G)$能够最大化。</li>
 <li>在这之后，选取合适的$G$来最小化$V(D, G)$，这个$G$就是我们想要的生成模型。</li>
 </ol>
 <p>在每一步的训练中：</p>
 <ul>
-<li>取$m$个真实数据：<br>$$<br>  {x^{(1)}, x^{(2)}, x^{(3)}, \cdots, x^{(m)}}<br>$$<br>使用$G$和$m$组随机数（服从于噪音分布$P_G$，一般使用服从正态分布的随机数）<br>$$<br>  {\boldsymbol {z}^{(1)}, \boldsymbol {z}^{(2)}, \boldsymbol {z}^{(3)}, \cdots, \boldsymbol {z}^{(m)}}<br>$$<br>生成$m$个假数据，其中<br>$$<br>  \forall i \in [1, m], i \in \mathbb Z \Rightarrow x^{(i)} \sim P_{\text{data}}, \boldsymbol {z} ^ {(i)} \sim P_z<br>$$</li>
-<li>根据$\max$部分的目标使用随机梯度上升（Stochastic Gradient Ascent）更新$D$的参数，提高$D$的分辨能力<br>$$<br>  \theta_d := \theta_d + \alpha_d \nabla_{\theta_d} \frac 1 m \sum _ {i = 1} ^ m \Big [ \log D\big ( x^{(i)} \big) + \log \big ( 1 - D \big ( G(\boldsymbol{z}^{(i)}) \big ) \big ) \Big]<br>$$</li>
-<li>根据$\min$部分的目标使用随机梯度下降（Stochastic Gradient Descent）更新$G$的参数，使$G$生成的数据更有迷惑性<br>$$<br>  \theta_g := \theta_g - \alpha_g\nabla_{\theta_g} \frac 1 m \sum _{i = 1} ^ m\log \Big ( 1 - D\big ( G(\boldsymbol{z} ^ {(i)})\big ) \Big )<br>$$</li>
+<li>取$m$个真实数据：<script type="math/tex; mode=display">
+  \{x^{(1)}, x^{(2)}, x^{(3)}, \cdots, x^{(m)}\}</script>使用$G$和$m$组随机数（服从于噪音分布$P_G$，一般使用服从正态分布的随机数）<script type="math/tex; mode=display">
+  \{\boldsymbol {z}^{(1)}, \boldsymbol {z}^{(2)}, \boldsymbol {z}^{(3)}, \cdots, \boldsymbol {z}^{(m)}\}</script>生成$m$个假数据，其中<script type="math/tex; mode=display">
+  \forall i \in [1, m], i \in \mathbb Z \Rightarrow x^{(i)} \sim P_{\text{data}}, \boldsymbol {z} ^ {(i)} \sim P_z</script></li>
+<li>根据$\max$部分的目标使用随机梯度上升（Stochastic Gradient Ascent）更新$D$的参数，提高$D$的分辨能力<script type="math/tex; mode=display">
+  \theta_d := \theta_d + \alpha_d \nabla_{\theta_d} \frac 1 m \sum _ {i = 1} ^ m \Big [ \log D\big ( x^{(i)} \big) + \log \big ( 1 - D \big ( G(\boldsymbol{z}^{(i)}) \big ) \big ) \Big]</script></li>
+<li>根据$\min$部分的目标使用随机梯度下降（Stochastic Gradient Descent）更新$G$的参数，使$G$生成的数据更有迷惑性<script type="math/tex; mode=display">
+  \theta_g := \theta_g - \alpha_g\nabla_{\theta_g} \frac 1 m \sum _{i = 1} ^ m\log \Big ( 1 - D\big ( G(\boldsymbol{z} ^ {(i)})\big ) \Big )</script></li>
 </ul>
 <h1 id="GAN的数学原理"><a href="#GAN的数学原理" class="headerlink" title="GAN的数学原理"></a>GAN的数学原理</h1><h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><h3 id="信息量-自信息"><a href="#信息量-自信息" class="headerlink" title="信息量(自信息)"></a>信息量(自信息)</h3><p>信息量是指信息多少的量度，即，对于一条信息，传达这条信息所需的最少信息长度为自信息。</p>
 <p>信息论创始人C.E.Shannon，1938年首次使用比特（bit）概念：1（bit）= $\log_2 2$。它相当于对二个可能结局所作的一次选择量。信息论采用对随机分布概率取对数的办法，解决了不定度的度量问题。</p>
-<p>定义：符合分布$P$的某一事件$x$出现，传达出这条信息的信息量记为：<br>$$<br>    I = \log \frac 1 {P(x)} = - \log P(x)<br>$$</p>
-<h3 id="香农熵"><a href="#香农熵" class="headerlink" title="香农熵"></a>香农熵</h3><p>从离散分布$P$中随机抽选一个事件，传达这条信息所需的最优平均信息长度为香农熵，表达为：<br>$$<br>    H(P) = \sum_x P(x) \log \frac 1 {P(x)} = - \sum_x P(x) \log P(x)<br>$$<br>若分布是连续的，则：<br>$$<br>    H(P) = \int_x P(x) \log \frac 1 {P(x)} \mathrm dx = -\int_x P(x) \log P(x) \mathrm dx<br>$$</p>
-<h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h3><p>用分布$P$的最佳信息传递方式来传达分布$Q$中随机抽选的一个事件，所需的平均信息长度为交叉熵，表达为<br>$$<br>    H_P(Q) = \sum_x Q(x) \log \frac 1 {P(x)} = - \sum_x Q(x) \log P(x)<br>$$<br>$$<br>    H_P(Q) = \int_x Q(x) \log \frac 1 {P(x)} \mathrm dx = - \int_x Q(x) \log P(x) \mathrm dx<br>$$</p>
-<h3 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="$KL$ Divergence"></a>$KL$ Divergence</h3><p>$KL$散度：用分布$P$的最佳信息传递方式来传达分布$Q$，比用分布$Q$自己的最佳信息传递方式来传达分布$Q$，平均多耗费的信息长度为$KL$散度，表达为$D_P(Q)$或$D_{KL}(Q||P)$，$KL$散度衡量了两个分布之间的差异。</p>
-<p>$$<br>    \begin{aligned}<br>        D_{KL}(Q||P) = D_P(Q) &amp;= H_P(Q) - H(Q) \<br>        &amp;= \sum_x Q(x) \log \frac 1 {P(x)} - \sum _x Q(x) \log \frac 1 {Q(x)} \<br>        &amp;= \sum_x Q(x) \log \frac {Q(x)} {P(x)}<br>    \end{aligned}<br>$$</p>
-<p>对于连续分布：</p>
-<p>$$<br>    D_{KL}(Q||P) = D_P(Q) = \int_{-\infty} ^ {\infty} P(x)\log \frac {P(x)}{Q(x)} \mathrm dx<br>$$</p>
-<p>KL Divergence越大，两个分布差异越大，反之差异越小。</p>
+<p>定义：符合分布$P$的某一事件$x$出现，传达出这条信息的信息量记为：</p>
+<script type="math/tex; mode=display">
+    I = \log \frac 1 {P(x)} = - \log P(x)</script><h3 id="香农熵"><a href="#香农熵" class="headerlink" title="香农熵"></a>香农熵</h3><p>从离散分布$P$中随机抽选一个事件，传达这条信息所需的最优平均信息长度为香农熵，表达为：</p>
+<script type="math/tex; mode=display">
+    H(P) = \sum_x P(x) \log \frac 1 {P(x)} = - \sum_x P(x) \log P(x)</script><p>若分布是连续的，则：</p>
+<script type="math/tex; mode=display">
+    H(P) = \int_x P(x) \log \frac 1 {P(x)} \mathrm dx = -\int_x P(x) \log P(x) \mathrm dx</script><h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h3><p>用分布$P$的最佳信息传递方式来传达分布$Q$中随机抽选的一个事件，所需的平均信息长度为交叉熵，表达为</p>
+<script type="math/tex; mode=display">
+    H_P(Q) = \sum_x Q(x) \log \frac 1 {P(x)} = - \sum_x Q(x) \log P(x)</script><script type="math/tex; mode=display">
+    H_P(Q) = \int_x Q(x) \log \frac 1 {P(x)} \mathrm dx = - \int_x Q(x) \log P(x) \mathrm dx</script><h3 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="$KL$ Divergence"></a>$KL$ Divergence</h3><p>$KL$散度：用分布$P$的最佳信息传递方式来传达分布$Q$，比用分布$Q$自己的最佳信息传递方式来传达分布$Q$，平均多耗费的信息长度为$KL$散度，表达为$D_P(Q)$或$D_{KL}(Q||P)$，$KL$散度衡量了两个分布之间的差异。</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        D_{KL}(Q||P) = D_P(Q) &= H_P(Q) - H(Q) \\
+        &= \sum_x Q(x) \log \frac 1 {P(x)} - \sum _x Q(x) \log \frac 1 {Q(x)} \\
+        &= \sum_x Q(x) \log \frac {Q(x)} {P(x)}
+    \end{aligned}</script><p>对于连续分布：</p>
+<script type="math/tex; mode=display">
+    D_{KL}(Q||P) = D_P(Q) = \int_{-\infty} ^ {\infty} P(x)\log \frac {P(x)}{Q(x)} \mathrm dx</script><p>KL Divergence越大，两个分布差异越大，反之差异越小。</p>
 <h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><p>看完Prerequisites，我们回归正题讨论GAN的原理。我们现在想要做的事情，其实就是将一个服从$P_G$的随机噪声$\boldsymbol z$通过一个生成网络$G$得到一个和真实数据分布$P_{\text {data}}(x)$差不多的生成分布$P_G(x;\theta_g)$，其中$\theta_g$为生成网络$G$的参数。我们希望找到一个$\theta_g$使得两个分布$P_{\text {data}}(x)$与$P_G(x;\theta)$尽可能地相似（使得他们地KL散度尽可能得小）。</p>
-<p>我们从真实数据分布$P_\text{data}(x)$中取$m$个样本，记作：<br>$$<br>    {x^{(1)}, x^{(2)}, x^{(3)}, \cdots, x^{(m)}}<br>$$<br>根据生成网络的参数$\theta_g$，我们可以计算出这$m$个真实样本在生成网络中出现的概率$P_G(x^{(i)}; \theta_g)$，那么生成这样的$m$个样本数据的似然（likelihood）为：<br>$$<br>    L = \prod_{i = 1} ^ m P_G(x^{(i)}; \theta_g)<br>$$<br>由于我们想要两个分布尽量相似，那么我们肯定希望这个似然$L$尽量大，即生成这样的真实数据的概率尽量大，遂我们最大化这个似然，找到$\theta_g^*$：<br>$$<br>    \begin{aligned}<br>        \theta_g^* &amp;= \arg \max _ {\theta_g} \prod _ {i = 1} ^ m P_G(x^{(i)}; \theta_g) \<br>        &amp;\Leftrightarrow \arg \max _ {\theta_g} \log \prod _ {i = 1} ^ m P_G(x^{(i)}; \theta_g) \<br>        &amp;= \arg \max _ {\theta_g} \sum_{i = 1} ^ m \log P_G(x^{(i)}; \theta_g) \<br>        &amp;\approx \arg \max _ {\theta_g} \mathbb E_{x \sim P_{\text {data}}} [\log P_G(x; \theta_g)] \<br>        &amp;= \arg \max _ {\theta_g} \int _ x P_\text{data}(x) \log P_G(x; \theta_g)\mathrm dx \<br>        &amp;= \arg \max _ {\theta_g} \int _ x P_\text{data}(x) \log P_G(x; \theta_g)\mathrm dx \&amp;~~~~- \int _ x P_\text{data}(x) \log P_\text {data}(x)\mathrm dx \<br>        &amp;= \arg \max _ {\theta_g} \int _ x P_\text {data} (x) \log \frac {P_G(x; \theta_g)} {P_\text {data}(x)} \mathrm dx \<br>        &amp;= \arg \max _ {\theta_g} - \int _ x P_\text {data} (x) \log \frac {P_\text {data}(x)} {P_G(x; \theta_g)} \mathrm dx \<br>        &amp;= \arg \min _ {\theta_g} KL(P_\text {data} || P_G(x; \theta))<br>    \end{aligned}<br>$$</p>
-<p>所以可见，其实最大化这个似然，和最小化KL散度是基本相同的。</p>
-<p>上述式子中，$P_G(x;\theta_g)$代表在生成分布中出现$x$的概率，也可以如下计算得到：<br>$$<br>    P_G(x) = \int _ \boldsymbol{z} P_z(z)\cdot 1{G(z) = x} \mathrm dz<br>$$</p>
-<p>注：$1{\cdot}$的含义是若打括号内的逻辑运算为真则取$1$，假则取$0$. 即</p>
-<p>$$1{\text {True}} = 1, 1 {\text {False}} = 0$$</p>
-<p>但是我们发现，上述的过程是难以进行计算的，甚至完全没办法求$P_G(x)$，这只是模型的想法而已。</p>
-<p>现在我们看回之前我们提到的目标函数：<br>$$<br>    V(D, G) = \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))]<br>$$<br>与最优化生成模型：<br>$$<br>    G^* = \arg \min _G \max _D V(D, G)<br>$$</p>
-<p>我们接下来分步解释。</p>
-<p>首先，我们不妨解释一下$\max_D V(G, D)$，这部分的含义之前也解释过，是在给定$G$的情况下，最大化$V(G, D)$。观察发现，其形式其实与交叉熵损失函数非常相似：<br>$$<br>    \mathcal L(\hat y, y) = -(y\log \hat y + (1 - y) \log (1 - \hat y))<br>$$</p>
-<p>其实他们表达的目的也差不多。我们先化简一下$V(G, D)$看看能得到什么结果：<br>$$<br>    \begin{aligned}<br>            V(G, D) &amp;= \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))] \<br>            &amp;= \int_x P_\text {data}(x) \log D(x) \mathrm dx + \int_\boldsymbol{z} P_z(\boldsymbol{z}) \log (1 - D(G(\boldsymbol{z})))\mathrm dz \<br>            &amp;= \int_x P_\text {data}(x) \log D(x) \mathrm dx + \int_x P_G(x)\log (1 - D(x)) \mathrm dx \<br>            &amp;= \int_x [P_\text {data}(x) \log D(x) + P_G(x)\log (1 - D(x))] \mathrm dx<br>    \end{aligned}<br>$$</p>
-<p>让我们考察积分内部的项，我们可以对它做指数运算，即：<br>$$<br>    e^{P_\text {data}(x) \log D(x) + P_G(x)\log (1 - D(x))} = D(x) ^ {P_\text {data}}\times(1- D(x))^{P_G(x)}<br>$$<br>其想表达什么便不言而喻了，它表达的就是判别器判别是真的的正确率和判别是假的的正确率，总体来说就是衡量$D$的能力，所以我们想要最大化$V$，提高$D$的判别能力。</p>
-<p>令<br>$$<br>    f(D) = P_\text {data}(x) \log D(x) \mathrm dx + P_G(x)\log (1 - D(x))<br>$$<br>因为这里$P_\text {data} (x)$和$P_G(x)$都可以看作常数，所以<br>$$<br>    \arg \max _ D \int_x f(D) \mathrm dx = \arg \max <em>D f(D)<br>$$<br>最大化$f(D)$，即令其导数为$0$：<br>$$<br>    \frac {\mathrm d f(D)} {\mathrm dD } = \frac {P_\text {data}(x)}{D} - \frac {P_G(x)} {1 - D} = 0<br>$$<br>则：<br>$$<br>    \frac {P_\text {data}(x)}{D} = \frac {P_G(x)} {1 - D}<br>$$<br>$$<br>    D^*(x) = \frac {P_\text {data}(x)}{P_\text {data}(x) + P_G(x)}<br>$$<br>这样，我们就得到了那个状态下最优的$D^*$的表达式。我们将这个能够最大化$V$的$D$代入回$V(G, D)$：<br>$$<br>    \begin{aligned}<br>        \max V(G, D) &amp;= V(G, D^*) \<br>        &amp;= \mathbb E_{x \sim P_\text {data}} \Big [ \log \frac {P_\text {data}(x)}{P_\text {data}(x) + P_G(x)} \Big] + \mathbb E</em>{x \sim P_G} \Big [ \frac {P_G(x)}{P_\text {data}(x) + P_G(x)}\Big ] \<br>        &amp;= \int_x P_\text {data} (x) \log \frac {\frac 1 2 P_\text {data}}{\frac 1 2 (P_\text{data}(x) + P_G(x))} \mathrm dx + \int _ x P_G(x) \log \frac {\frac 1 2 P_G(x)} {\frac 1 2 (P_\text {data} (x) + P_G(x))} \mathrm dx \<br>        &amp;= -2\log 2 + D_{KL} (P_\text {data} || \frac 1 2 [P_\text{data}(x) + P_G(x)]) + D_{KL} (P_G(x) || \frac 1 2 [P_\text {data}(x) + P_G(x)]) \<br>        &amp;= -2\log 2 + JSD (P_\text{data}(x) || P_G(x))<br>    \end{aligned}<br>$$</p>
-<p>其中，我们引入了$JS$ Divergence，定义如下：</p>
-<p>$$<br>    JSD(P||Q) = \frac 1 2 D_{KL} (P||M) + \frac 1 2 D_{KL} (Q || M), M = \frac 1 2 (P + Q)<br>$$</p>
-<p>容易得到，KL Divergence是不对称的，而JS Divergence是对称的。他们都可以衡量两组分布建的差异。这里我们想要两组分布差异最小，故取$\min$</p>
-<p>所以，这也就解释了为什么：<br>$$<br>\arg \min _G \max _D V(G, D)<br>$$</p>
-<p>是我们的目标过程。</p>
+<p>我们从真实数据分布$P_\text{data}(x)$中取$m$个样本，记作：</p>
+<script type="math/tex; mode=display">
+    \{x^{(1)}, x^{(2)}, x^{(3)}, \cdots, x^{(m)}\}</script><p>根据生成网络的参数$\theta_g$，我们可以计算出这$m$个真实样本在生成网络中出现的概率$P_G(x^{(i)}; \theta_g)$，那么生成这样的$m$个样本数据的似然（likelihood）为：</p>
+<script type="math/tex; mode=display">
+    L = \prod_{i = 1} ^ m P_G(x^{(i)}; \theta_g)</script><p>由于我们想要两个分布尽量相似，那么我们肯定希望这个似然$L$尽量大，即生成这样的真实数据的概率尽量大，遂我们最大化这个似然，找到$\theta_g^*$：</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        \theta_g^* &= \arg \max _ {\theta_g} \prod _ {i = 1} ^ m P_G(x^{(i)}; \theta_g) \\
+        &\Leftrightarrow \arg \max _ {\theta_g} \log \prod _ {i = 1} ^ m P_G(x^{(i)}; \theta_g) \\
+        &= \arg \max _ {\theta_g} \sum_{i = 1} ^ m \log P_G(x^{(i)}; \theta_g) \\
+        &\approx \arg \max _ {\theta_g} \mathbb E_{x \sim P_{\text {data}}} [\log P_G(x; \theta_g)] \\
+        &= \arg \max _ {\theta_g} \int _ x P_\text{data}(x) \log P_G(x; \theta_g)\mathrm dx \\
+        &= \arg \max _ {\theta_g} \int _ x P_\text{data}(x) \log P_G(x; \theta_g)\mathrm dx \\&~~~~- \int _ x P_\text{data}(x) \log P_\text {data}(x)\mathrm dx \\
+        &= \arg \max _ {\theta_g} \int _ x P_\text {data} (x) \log \frac {P_G(x; \theta_g)} {P_\text {data}(x)} \mathrm dx \\ 
+        &= \arg \max _ {\theta_g} - \int _ x P_\text {data} (x) \log \frac {P_\text {data}(x)} {P_G(x; \theta_g)} \mathrm dx \\
+        &= \arg \min _ {\theta_g} KL(P_\text {data} || P_G(x; \theta))
+    \end{aligned}</script><p>所以可见，其实最大化这个似然，和最小化KL散度是基本相同的。</p>
+<p>上述式子中，$P_G(x;\theta_g)$代表在生成分布中出现$x$的概率，也可以如下计算得到：</p>
+<script type="math/tex; mode=display">
+    P_G(x) = \int _ \boldsymbol{z} P_z(z)\cdot 1\{G(z) = x\} \mathrm dz</script><p>注：$1{\cdot}$的含义是若打括号内的逻辑运算为真则取$1$，假则取$0$. 即</p>
+<script type="math/tex; mode=display">1\{\text {True}\} = 1, 1 \{\text {False}\} = 0</script><p>但是我们发现，上述的过程是难以进行计算的，甚至完全没办法求$P_G(x)$，这只是模型的想法而已。</p>
+<p>现在我们看回之前我们提到的目标函数：</p>
+<script type="math/tex; mode=display">
+    V(D, G) = \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))]</script><p>与最优化生成模型：</p>
+<script type="math/tex; mode=display">
+    G^* = \arg \min _G \max _D V(D, G)</script><p>我们接下来分步解释。</p>
+<p>首先，我们不妨解释一下$\max_D V(G, D)$，这部分的含义之前也解释过，是在给定$G$的情况下，最大化$V(G, D)$。观察发现，其形式其实与交叉熵损失函数非常相似：</p>
+<script type="math/tex; mode=display">
+    \mathcal L(\hat y, y) = -(y\log \hat y + (1 - y) \log (1 - \hat y))</script><p>其实他们表达的目的也差不多。我们先化简一下$V(G, D)$看看能得到什么结果：</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+            V(G, D) &= \mathbb E_{x \sim P_{\text{data}} } [\log D(x)] + \mathbb E_{\boldsymbol {z} \sim P_z}[\log(1 - D(G(\boldsymbol {z})))] \\
+            &= \int_x P_\text {data}(x) \log D(x) \mathrm dx + \int_\boldsymbol{z} P_z(\boldsymbol{z}) \log (1 - D(G(\boldsymbol{z})))\mathrm dz \\
+            &= \int_x P_\text {data}(x) \log D(x) \mathrm dx + \int_x P_G(x)\log (1 - D(x)) \mathrm dx \\
+            &= \int_x [P_\text {data}(x) \log D(x) + P_G(x)\log (1 - D(x))] \mathrm dx
+    \end{aligned}</script><p>让我们考察积分内部的项，我们可以对它做指数运算，即：</p>
+<script type="math/tex; mode=display">
+    e^{P_\text {data}(x) \log D(x) + P_G(x)\log (1 - D(x))} = D(x) ^ {P_\text {data}}\times(1- D(x))^{P_G(x)}</script><p>其想表达什么便不言而喻了，它表达的就是判别器判别是真的的正确率和判别是假的的正确率，总体来说就是衡量$D$的能力，所以我们想要最大化$V$，提高$D$的判别能力。</p>
+<p>令</p>
+<script type="math/tex; mode=display">
+    f(D) = P_\text {data}(x) \log D(x) \mathrm dx + P_G(x)\log (1 - D(x))</script><p>因为这里$P_\text {data} (x)$和$P_G(x)$都可以看作常数，所以</p>
+<script type="math/tex; mode=display">
+    \arg \max _ D \int_x f(D) \mathrm dx = \arg \max _D f(D)</script><p>最大化$f(D)$，即令其导数为$0$：</p>
+<script type="math/tex; mode=display">
+    \frac {\mathrm d f(D)} {\mathrm dD } = \frac {P_\text {data}(x)}{D} - \frac {P_G(x)} {1 - D} = 0</script><p>则：</p>
+<script type="math/tex; mode=display">
+    \frac {P_\text {data}(x)}{D} = \frac {P_G(x)} {1 - D}</script><script type="math/tex; mode=display">
+    D^*(x) = \frac {P_\text {data}(x)}{P_\text {data}(x) + P_G(x)}</script><p>这样，我们就得到了那个状态下最优的$D^*$的表达式。我们将这个能够最大化$V$的$D$代入回$V(G, D)$：</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        \max V(G, D) &= V(G, D^*) \\
+        &= \mathbb E_{x \sim P_\text {data}} \Big [ \log \frac {P_\text {data}(x)}{P_\text {data}(x) + P_G(x)} \Big] + \mathbb E_{x \sim P_G} \Big [ \frac {P_G(x)}{P_\text {data}(x) + P_G(x)}\Big ] \\
+        &= \int_x P_\text {data} (x) \log \frac {\frac 1 2 P_\text {data}}{\frac 1 2 (P_\text{data}(x) + P_G(x))} \mathrm dx + \int _ x P_G(x) \log \frac {\frac 1 2 P_G(x)} {\frac 1 2 (P_\text {data} (x) + P_G(x))} \mathrm dx \\
+        &= -2\log 2 + D_{KL} (P_\text {data} || \frac 1 2 [P_\text{data}(x) + P_G(x)]) + D_{KL} (P_G(x) || \frac 1 2 [P_\text {data}(x) + P_G(x)]) \\
+        &= -2\log 2 + JSD (P_\text{data}(x) || P_G(x))
+    \end{aligned}</script><p>其中，我们引入了$JS$ Divergence，定义如下：</p>
+<script type="math/tex; mode=display">
+    JSD(P||Q) = \frac 1 2 D_{KL} (P||M) + \frac 1 2 D_{KL} (Q || M), M = \frac 1 2 (P + Q)</script><p>容易得到，KL Divergence是不对称的，而JS Divergence是对称的。他们都可以衡量两组分布建的差异。这里我们想要两组分布差异最小，故取$\min$</p>
+<p>所以，这也就解释了为什么：</p>
+<script type="math/tex; mode=display">
+\arg \min _G \max _D V(G, D)</script><p>是我们的目标过程。</p>
 
     </div>
 
@@ -649,13 +708,10 @@
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
-            </div>
             <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
@@ -664,6 +720,9 @@
     </div>
   </div>
   
+            </div>
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
             </div>
         </div>
       </div>
@@ -823,13 +882,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">538k</span>
+    <span title="站点总字数">512k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">8:09</span>
+    <span title="站点阅读时长">7:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1011,26 +1070,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '3c0f684255e61ed2d6c9',
-      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
-      repo        : 'JeffersonQin.github.io',
-      owner       : 'JeffersonQin',
-      admin       : ['JeffersonQin'],
-      id          : '904ebc9d27bb0c4f2e68e033d84f61b8',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1060,6 +1099,26 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '3c0f684255e61ed2d6c9',
+      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
+      repo        : 'JeffersonQin.github.io',
+      owner       : 'JeffersonQin',
+      admin       : ['JeffersonQin'],
+      id          : '904ebc9d27bb0c4f2e68e033d84f61b8',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>

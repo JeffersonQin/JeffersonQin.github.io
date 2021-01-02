@@ -321,7 +321,7 @@
       
         <blockquote class="blockquote-center">
             <i class="fa fa-quote-left"></i>
-            <p>DNS的工作原理：你发一条域名给dns，dns服务器回复你你应该找谁（比如说回复你另一个域名，或是回复你ip地址，balabala）<br>比如说<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a><br>在你获得到一个ip地址后，操作系统会自动记录下来<br>这样下次再访问百度的时候就用上次拿到的ip地址先进行尝试了<br>DNS如果是自动的话<br>电脑：路由器，我现在想要一个dns地址，你给我一个dns地址吧。<br>路由器：我自己有dns功能，可以充当一个正常的dns服务器，你就以我为dns服务器吧<br>电脑：好的，那么我就以192.168.110.1作为默认的dns地址了<br>然后访问百度：<br>电脑：192.168.110.1（dns），我想知道百度的ip<br>路由器：我不知道百度的ip，但是我可以再帮你问一问其他人<br>路由器：光猫，你知道不知道百度的ip地址<br>光猫：我不知道百度的ip，但是电信告诉我要以202.96.209.133（例子）为默认的dns服务器，我去问问他<br>然后202.96.209.133告诉光猫：我知道，百度的ip地址是180.101.49.11<br>光猫告诉路由器：我问到了，百度的ip是180.101.49.11<br>路由器告诉电脑：我问到了，百度的ip是180.101.49.11<br>电脑：开始访问180.101.49.11<br>与此同时，路由器：我拿个小本本记一下，百度的ip是180.101.49.11<br>光猫：我拿个小本本记一下，百度的ip是180.101.49.11<br>第二次的时候：<br>电脑：（假设系统内缓存的时效过期了）192.168.110.1（默认dns），我想知道百度的ip<br>路由器：我这里缓存还没过期，我告诉你，百度的ip是180.101.49.11<br>但是路由器并不知道的是，他的缓存时长是有问题的<br>此时的百度已经不同于以往的百度了<br>百度，她变了。<br>（像这种大公司的cdn，公网使用动态ip是很常见的事情<br>所以用原来的ip就访问不到百度了<br>计算机：路由器你这tm不是坑我吗……访问不了，你再给我去搞一个<br>路由器：我再去问问……<br>同（1）。<br>但是像dns这种分布式的东西<br>就很容易出现玄学问题<br>（因为是分布式的，所以缓存时间有各种奇奇怪怪的问题<br>所以有的时候大家问来问去都不知道steam的ip<br>那就好友网络无法访问了<br>所以一般来说<br>手动指定一个固定的dns<br>（比如说阿里dns就不错<br>那么每次问固定的人，出现这种缓存时间差的概率就会变得小很多</p>
+            <p>DNS的工作原理：你发一条域名给dns，dns服务器回复你你应该找谁（比如说回复你另一个域名，或是回复你ip地址，balabala）<br>比如说www.baidu.com<br>在你获得到一个ip地址后，操作系统会自动记录下来<br>这样下次再访问百度的时候就用上次拿到的ip地址先进行尝试了<br>DNS如果是自动的话<br>电脑：路由器，我现在想要一个dns地址，你给我一个dns地址吧。<br>路由器：我自己有dns功能，可以充当一个正常的dns服务器，你就以我为dns服务器吧<br>电脑：好的，那么我就以192.168.110.1作为默认的dns地址了<br>然后访问百度：<br>电脑：192.168.110.1（dns），我想知道百度的ip<br>路由器：我不知道百度的ip，但是我可以再帮你问一问其他人<br>路由器：光猫，你知道不知道百度的ip地址<br>光猫：我不知道百度的ip，但是电信告诉我要以202.96.209.133（例子）为默认的dns服务器，我去问问他<br>然后202.96.209.133告诉光猫：我知道，百度的ip地址是180.101.49.11<br>光猫告诉路由器：我问到了，百度的ip是180.101.49.11<br>路由器告诉电脑：我问到了，百度的ip是180.101.49.11<br>电脑：开始访问180.101.49.11<br>与此同时，路由器：我拿个小本本记一下，百度的ip是180.101.49.11<br>光猫：我拿个小本本记一下，百度的ip是180.101.49.11<br>第二次的时候：<br>电脑：（假设系统内缓存的时效过期了）192.168.110.1（默认dns），我想知道百度的ip<br>路由器：我这里缓存还没过期，我告诉你，百度的ip是180.101.49.11<br>但是路由器并不知道的是，他的缓存时长是有问题的<br>此时的百度已经不同于以往的百度了<br>百度，她变了。<br>（像这种大公司的cdn，公网使用动态ip是很常见的事情<br>所以用原来的ip就访问不到百度了<br>计算机：路由器你这tm不是坑我吗……访问不了，你再给我去搞一个<br>路由器：我再去问问……<br>同（1）。<br>但是像dns这种分布式的东西<br>就很容易出现玄学问题<br>（因为是分布式的，所以缓存时间有各种奇奇怪怪的问题<br>所以有的时候大家问来问去都不知道steam的ip<br>那就好友网络无法访问了<br>所以一般来说<br>手动指定一个固定的dns<br>（比如说阿里dns就不错<br>那么每次问固定的人，出现这种缓存时间差的概率就会变得小很多</p>
 
             <i class="fa fa-quote-right"></i>
           </blockquote>
@@ -341,13 +341,13 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\08\21\关于内网穿透\" rel="bookmark">关于内网穿透</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\03\16\面包人小课堂-0x10-DHCP\" rel="bookmark">面包人小课堂 - 0x10 - DHCP</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\03\08\面包人小课堂-网络-0x00\" rel="bookmark">面包人小课堂 - 0x00 - IP地址</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\08\21\关于内网穿透\" rel="bookmark">关于内网穿透</a></div>
     </li>
   </ul>
 
@@ -574,13 +574,10 @@
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
-            </div>
             <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
@@ -589,6 +586,9 @@
     </div>
   </div>
   
+            </div>
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
             </div>
         </div>
       </div>
@@ -747,13 +747,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">538k</span>
+    <span title="站点总字数">512k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">8:09</span>
+    <span title="站点阅读时长">7:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -935,26 +935,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '3c0f684255e61ed2d6c9',
-      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
-      repo        : 'JeffersonQin.github.io',
-      owner       : 'JeffersonQin',
-      admin       : ['JeffersonQin'],
-      id          : '65a0dc02539d5cc6d8bca9a95c826f27',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -984,6 +964,26 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '3c0f684255e61ed2d6c9',
+      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
+      repo        : 'JeffersonQin.github.io',
+      owner       : 'JeffersonQin',
+      admin       : ['JeffersonQin'],
+      id          : '65a0dc02539d5cc6d8bca9a95c826f27',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>

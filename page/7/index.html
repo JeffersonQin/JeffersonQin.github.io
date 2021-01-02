@@ -335,17 +335,18 @@
 <hr>
 <h1 id="UWP-04-What-is-XAML"><a href="#UWP-04-What-is-XAML" class="headerlink" title="UWP-04 - What is XAML?"></a>UWP-04 - What is XAML?</h1><p>XAML - XML Syntax, create instances of Classes that define the UI.</p>
 <h1 id="UWP-05-Understanding-Type-Converters"><a href="#UWP-05-Understanding-Type-Converters" class="headerlink" title="UWP-05 - Understanding Type Converters"></a>UWP-05 - Understanding Type Converters</h1><p>Type Converters - Convert literal strings in XAML into enumerations, instances of classes, etc.</p>
-<h1 id="UWP-06-Understanding-Default-Properties-Complex-Properties-and-the-Property-Element-Syntax"><a href="#UWP-06-Understanding-Default-Properties-Complex-Properties-and-the-Property-Element-Syntax" class="headerlink" title="UWP-06 - Understanding Default Properties, Complex Properties and the Property Element Syntax"></a>UWP-06 - Understanding Default Properties, Complex Properties and the Property Element Syntax</h1><p>Default Property … Ex. sets Content property:<br><Button>Click Me</Button></p>
+<h1 id="UWP-06-Understanding-Default-Properties-Complex-Properties-and-the-Property-Element-Syntax"><a href="#UWP-06-Understanding-Default-Properties-Complex-Properties-and-the-Property-Element-Syntax" class="headerlink" title="UWP-06 - Understanding Default Properties, Complex Properties and the Property Element Syntax"></a>UWP-06 - Understanding Default Properties, Complex Properties and the Property Element Syntax</h1><p>Default Property … Ex. sets Content property:</p>
+<Button>Click Me</Button>
+
+
 <p>Complex Properties - Break out a property into its own element syntax:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button Name&#x3D;&quot;ClickMeButton&quot;</span><br><span class="line">        HorizontalAlignment&#x3D;&quot;Left&quot;</span><br><span class="line">        Content&#x3D;&quot;Click Me&quot;</span><br><span class="line">        Margin&#x3D;&quot;20,20,0,0&quot; </span><br><span class="line">        VerticalAlignment&#x3D;&quot;Top&quot; </span><br><span class="line">        Click&#x3D;&quot;ClickMeButton_Click&quot;</span><br><span class="line">        Width&#x3D;&quot;200&quot;</span><br><span class="line">        Height&#x3D;&quot;100&quot;</span><br><span class="line">        &gt;</span><br><span class="line">    &lt;Button.Background&gt;</span><br><span class="line">        &lt;LinearGradientBrush EndPoint&#x3D;&quot;0.5,1&quot; StartPoint&#x3D;&quot;0.5,0&quot;&gt;</span><br><span class="line">            &lt;GradientStop Color&#x3D;&quot;Black&quot; Offset&#x3D;&quot;0&quot;&#x2F;&gt;</span><br><span class="line">            &lt;GradientStop Color&#x3D;&quot;Red&quot; Offset&#x3D;&quot;1&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;LinearGradientBrush&gt;</span><br><span class="line">    &lt;&#x2F;Button.Background&gt;</span><br><span class="line">&lt;&#x2F;Button&gt;</span><br></pre></td></tr></table></figure>
-
 <h1 id="UWP-07-Understanding-XAML-Schemas-and-Namespace-Declarations"><a href="#UWP-07-Understanding-XAML-Schemas-and-Namespace-Declarations" class="headerlink" title="UWP-07 - Understanding XAML Schemas and Namespace Declarations"></a>UWP-07 - Understanding XAML Schemas and Namespace Declarations</h1><p>Don’t touch the schema stuff - it’s necessary!</p>
 <p>Schemas define rules for XAML, for UWP, for designer support, etc.</p>
 <p>Namespaces tell XAML parser where to find the definition / rules for a given element in the XAML.</p>
 <h1 id="UWP-08-XAML-Layout-with-Grids"><a href="#UWP-08-XAML-Layout-with-Grids" class="headerlink" title="UWP-08 - XAML Layout with Grids"></a>UWP-08 - XAML Layout with Grids</h1><p>Layout controls don’t have a content property … they have a Chidren property of type UIElementCollection.</p>
 <p>By embedding any control inside of a layout control, you are implicitly calling the Add method of the Children collection property.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;Grid Background&#x3D;&quot;Black&quot;&gt;</span><br><span class="line">  &lt;Grid.RowDefinitions&gt;</span><br><span class="line">    &lt;RowDefinition Height&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">    &lt;RowDefinition Height&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">    &lt;RowDefinition Height&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;Grid.RowDefinitions&gt;</span><br><span class="line">  &lt;Grid.ColumnDefinitions&gt;</span><br><span class="line">    &lt;ColumnDefinition Width&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">    &lt;ColumnDefinition Width&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">    &lt;ColumnDefinition Width&#x3D;&quot;*&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;Grid.ColumnDefinitions&gt;</span><br><span class="line">&lt;&#x2F;Grid&gt;</span><br></pre></td></tr></table></figure>
-
 <p>Sizes expressed in terms of:</p>
 <ul>
 <li>Explicit pixels - 100</li>
@@ -360,23 +361,19 @@
 <p>6 total shares … 3* would be 50% of the available width / height.</p>
 <p>Elements put themselves into rows and columns using attached property syntax:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">  ...</span><br><span class="line">  &lt;Button Grid.Row&#x3D;&quot;0&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;Grid&gt;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>When referencing Rows and Columns … 0-based.</li>
 <li>There’s always one default implicit cell: Row 0, Column 0</li>
 <li>If not specified, element will be in the default cell</li>
 </ul>
 <h1 id="UWP-09-XAML-Layout-with-StackPanel"><a href="#UWP-09-XAML-Layout-with-StackPanel" class="headerlink" title="UWP-09 - XAML Layout with StackPanel"></a>UWP-09 - XAML Layout with StackPanel</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;StackPanel&gt;</span><br><span class="line">  &lt;TextBlock&gt;Top&lt;&#x2F;TextBlock&gt;</span><br><span class="line">  &lt;TextBlock&gt;Bottom&lt;&#x2F;TextBlock&gt;</span><br><span class="line">&lt;&#x2F;StackPanel&gt;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>Vertical Orientation by default.</li>
 <li>Left-to-right flow by default when Horizontal orientation.</li>
 <li>Most layouts will combine multiple layout controls.</li>
 <li>Grid will overlap controls.  StackPanel will stack them.</li>
 </ul>
-<h1 id="UWP-14-Legendary-Layout"><a href="#UWP-14-Legendary-Layout" class="headerlink" title="UWP-14 - Legendary Layout"></a>UWP-14 - Legendary Layout</h1><p>For the Textbox that you want to cross multiy lines:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextBox TextWrapping&#x3D;&quot;Wrap&quot;&gt;&lt;&#x2F;TextBox&gt;</span><br></pre></td></tr></table></figure>
-
+<h1 id="UWP-14-Legendary-Layout"><a href="#UWP-14-Legendary-Layout" class="headerlink" title="UWP-14 - Legendary Layout"></a>UWP-14 - Legendary Layout</h1><p>For the Textbox that you want to cross multiy lines:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextBox TextWrapping&#x3D;&quot;Wrap&quot;&gt;&lt;&#x2F;TextBox&gt;</span><br></pre></td></tr></table></figure></p>
 <h1 id="UWP-17-Relative-Panel"><a href="#UWP-17-Relative-Panel" class="headerlink" title="UWP-17 - Relative Panel"></a>UWP-17 - Relative Panel</h1><p>Relative Panel can make layout relative to other components</p>
 <p>Priorities:</p>
 <ul>
@@ -543,40 +540,44 @@
 </ul>
 </li>
 </ol>
-<h2 id="各级城市商业中心特征"><a href="#各级城市商业中心特征" class="headerlink" title="各级城市商业中心特征"></a>各级城市商业中心特征</h2><table>
+<h2 id="各级城市商业中心特征"><a href="#各级城市商业中心特征" class="headerlink" title="各级城市商业中心特征"></a>各级城市商业中心特征</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">各级商业中心</th>
-<th align="center">分布</th>
-<th align="center">商业规模与形态</th>
-<th align="center">商品特色</th>
+<th style="text-align:center">各级商业中心</th>
+<th style="text-align:center">分布</th>
+<th style="text-align:center">商业规模与形态</th>
+<th style="text-align:center">商品特色</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">市级商业中心</td>
-<td align="center">城市中心</td>
-<td align="center">超级购物中心、大型百货商场</td>
-<td align="center">高档商品</td>
+<tbody>
+<tr>
+<td style="text-align:center">市级商业中心</td>
+<td style="text-align:center">城市中心</td>
+<td style="text-align:center">超级购物中心、大型百货商场</td>
+<td style="text-align:center">高档商品</td>
 </tr>
 <tr>
-<td align="center">区域商业中心</td>
-<td align="center">区域中心</td>
-<td align="center">大型百货商场、娱乐场所</td>
-<td align="center">中高档商品</td>
+<td style="text-align:center">区域商业中心</td>
+<td style="text-align:center">区域中心</td>
+<td style="text-align:center">大型百货商场、娱乐场所</td>
+<td style="text-align:center">中高档商品</td>
 </tr>
 <tr>
-<td align="center">社区商业中心</td>
-<td align="center">社区中心</td>
-<td align="center">大型超市、小型百货商场、服务业</td>
-<td align="center">中低档商品、日用品</td>
+<td style="text-align:center">社区商业中心</td>
+<td style="text-align:center">社区中心</td>
+<td style="text-align:center">大型超市、小型百货商场、服务业</td>
+<td style="text-align:center">中低档商品、日用品</td>
 </tr>
 <tr>
-<td align="center">邻里商业中心</td>
-<td align="center">居民住宅附近</td>
-<td align="center">小型超市、便利店、服务业</td>
-<td align="center">日用品</td>
+<td style="text-align:center">邻里商业中心</td>
+<td style="text-align:center">居民住宅附近</td>
+<td style="text-align:center">小型超市、便利店、服务业</td>
+<td style="text-align:center">日用品</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 
       
     </div>
@@ -663,7 +664,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>152</span>
+              <span>136</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -687,8 +688,8 @@
           <h1 id="4-28-物理课-功率-2"><a href="#4-28-物理课-功率-2" class="headerlink" title="4/28 物理课 - 功率 (2)"></a>4/28 物理课 - 功率 (2)</h1><ol>
 <li>汽车不能一直加速。</li>
 <li>一直保持额定功率时，力与其方向上的速度成反比。</li>
-<li>汽车在匀速行驶时，速度最大，阻力等于牵引力。<br> $$P = Fv$$<br> $$F - f = ma$$<br> $$a = \frac {\mathrm dv} {\mathrm dt}$$</li>
-<li>汽车上坡需要有更大的牵引力<br> $$v’ = \frac {P}{F + f’}$$</li>
+<li>汽车在匀速行驶时，速度最大，阻力等于牵引力。<script type="math/tex; mode=display">P = Fv</script><script type="math/tex; mode=display">F - f = ma</script><script type="math/tex; mode=display">a = \frac {\mathrm dv} {\mathrm dt}</script></li>
+<li>汽车上坡需要有更大的牵引力<script type="math/tex; mode=display">v' = \frac {P}{F + f'}</script></li>
 </ol>
 
       
@@ -782,7 +783,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -805,26 +806,30 @@
       
           <h1 id="第四章-剖析物质变化中的能量变化"><a href="#第四章-剖析物质变化中的能量变化" class="headerlink" title="第四章 - 剖析物质变化中的能量变化"></a>第四章 - 剖析物质变化中的能量变化</h1><h2 id="物质在溶解过程中有能量变化"><a href="#物质在溶解过程中有能量变化" class="headerlink" title="物质在溶解过程中有能量变化"></a>物质在溶解过程中有能量变化</h2><h3 id="物质变化中的能量变化："><a href="#物质变化中的能量变化：" class="headerlink" title="物质变化中的能量变化："></a>物质变化中的能量变化：</h3><ol>
 <li><strong>能量守恒定律</strong>：能量在各种形式之间的转换和各个物体之间的转移过程中，各种形式的能量综合保持不变。</li>
-<li>物理变化：<br>$$一定量的物质：E_g &gt; E_l &gt; E_s$$<br>$$\ce {H2O (l) -&gt; H2O (g) - 44 kJ}$$<br>意义：$1 \text {mol}$液态水变成气体，吸收$44\text { kJ}$的热量。</li>
-<li>化学变化：<br>$$\ce {C (s) + O2 (g) -&gt; CO2 (g) + 393.5 kJ}$$<br>意义：$1 \text { mol}$的固态$\ce {C}$和$1 \text { mol}$的氧气反应，生成一摩尔的二氧化碳气体并放出393.5千焦的热量。<div class="note success">要注意量、状态</div>
+<li>物理变化：<script type="math/tex; mode=display">一定量的物质：E_g > E_l > E_s</script><script type="math/tex; mode=display">\ce {H2O (l) -> H2O (g) - 44 kJ}</script>意义：$1 \text {mol}$液态水变成气体，吸收$44\text { kJ}$的热量。</li>
+<li>化学变化：<script type="math/tex; mode=display">\ce {C (s) + O2 (g) -> CO2 (g) + 393.5 kJ}</script>意义：$1 \text { mol}$的固态$\ce {C}$和$1 \text { mol}$的氧气反应，生成一摩尔的二氧化碳气体并放出393.5千焦的热量。<div class="note success">要注意量、状态</div>
 
 </li>
 </ol>
-<h3 id="溶解过程和溶解热现象"><a href="#溶解过程和溶解热现象" class="headerlink" title="溶解过程和溶解热现象"></a>溶解过程和溶解热现象</h3><p>$$\ce {KMnO4 -&gt; K+ + MnO4- (紫红色)}$$</p>
-<ul>
+<h3 id="溶解过程和溶解热现象"><a href="#溶解过程和溶解热现象" class="headerlink" title="溶解过程和溶解热现象"></a>溶解过程和溶解热现象</h3><script type="math/tex; mode=display">\ce {KMnO4 -> K+ + MnO4- (紫红色)}</script><ul>
 <li>溶液温度升高：$\ce {NaOH (s)、浓硫酸}$</li>
 <li>溶液温度降低：$\ce {NH4NO3 (s)、NH4Cl (s)}$</li>
 <li>溶液温度变化不大：$\ce {NaCl (s)}$</li>
 </ul>
-<p>解释：<br>$$<br>    溶解过程 \begin{cases}<br>        扩散过程（物理过程） &amp; 吸收热量 \ 水合过程（化学过程） &amp; 放出热量<br>    \end{cases}<br>$$</p>
-<p>比如：$\ce {Cu2+}$和水发生水合过程，生成水合铜离子，显蓝色</p>
+<p>解释：</p>
+<script type="math/tex; mode=display">
+    溶解过程 \begin{cases}
+        扩散过程（物理过程） & 吸收热量 \\ 水合过程（化学过程） & 放出热量
+    \end{cases}</script><p>比如：$\ce {Cu2+}$和水发生水合过程，生成水合铜离子，显蓝色</p>
 <ul>
 <li>$扩散过程中吸收的热量 &gt; 水合过程中放出的热量 \rightarrow 溶液温度下降$</li>
 <li>$扩散过程中吸收的热量 &lt; 水合过程中放出的热量 \rightarrow 溶液温度升高$</li>
 </ul>
-<p>$$<br>    溶液中的微粒<br>    \begin{cases}<br>        溶剂分子 \ 溶质分子 / 离子 \ 水合溶质分子 / 离子<br>    \end{cases}<br>$$</p>
-<p>$$\ce {HCl + H2O -&gt; H3O+ + Cl-}$$</p>
-<div class="note danger">生成溶液的过程既不是物理变化，也不是化学变化，是物理化学变化</div>
+<script type="math/tex; mode=display">
+    溶液中的微粒
+    \begin{cases}
+        溶剂分子 \\ 溶质分子 / 离子 \\ 水合溶质分子 / 离子
+    \end{cases}</script><script type="math/tex; mode=display">\ce {HCl + H2O -> H3O+ + Cl-}</script><div class="note danger">生成溶液的过程既不是物理变化，也不是化学变化，是物理化学变化</div>
 
 <h3 id="溶解和结晶"><a href="#溶解和结晶" class="headerlink" title="溶解和结晶"></a>溶解和结晶</h3><ul>
 <li><strong>溶解</strong>：固体溶质扩散到溶剂中去的过程</li>
@@ -832,8 +837,7 @@
 </ul>
 <div class="note primary">溶解过程和结晶过程同时存在，是一组相反的过程</div>
 
-<p>$$\ce {固体物质 &lt;=&gt;[溶解][结晶] 溶液中的溶质}$$</p>
-<ul>
+<script type="math/tex; mode=display">\ce {固体物质 <=>[溶解][结晶] 溶液中的溶质}</script><ul>
 <li>$v_{溶解} &gt; v_{结晶}$，固体溶解（减少），不饱和溶液</li>
 <li>$v_{溶解} &lt; v_{结晶}$，固体析出（增加），饱和溶液</li>
 <li>$v_{溶解} = v_{结晶}$，溶解平衡，饱和溶液</li>
@@ -845,29 +849,24 @@
 <li><strong>晶体</strong>：自发形成的具有规则的几何形状的固体</li>
 <li><strong>结晶水合物</strong>：含有结晶水的固体</li>
 </ul>
-<p>$$\ce {CuSO4<em>5H2O: 胆矾、蓝矾、硫酸铜晶体}$$<br>$$\ce {FeSO4</em>7H2O: 绿矾}$$<br>$$\ce {KAl(SO4)2<em>12H2O: 明矾}$$<br>$$\ce {CaSO4</em>2H2O: 生石膏}$$<br>$$\ce {2CaSO4<em>H2O: 熟石膏}$$<br>$$\ce {Na2CO3</em>10H2O: 石碱}$$<br>$$\ce {Na2SO4*10H2O: 芒硝}$$</p>
-<ul>
+<script type="math/tex; mode=display">\ce {CuSO4*5H2O: 胆矾、蓝矾、硫酸铜晶体}</script><script type="math/tex; mode=display">\ce {FeSO4*7H2O: 绿矾}</script><script type="math/tex; mode=display">\ce {KAl(SO4)2*12H2O: 明矾}</script><script type="math/tex; mode=display">\ce {CaSO4*2H2O: 生石膏}</script><script type="math/tex; mode=display">\ce {2CaSO4*H2O: 熟石膏}</script><script type="math/tex; mode=display">\ce {Na2CO3*10H2O: 石碱}</script><script type="math/tex; mode=display">\ce {Na2SO4*10H2O: 芒硝}</script><ul>
 <li><strong>风化</strong>：室温下干燥空气中失去部分或全部结晶水的现象</li>
 <li><strong>潮解</strong>：吸收空气中的水蒸气在固体表面形成溶液的现象<ul>
 <li>例如氢氧化钠作为干燥剂</li>
 </ul>
 </li>
 </ul>
-<h2 id="化学反应中的能量变化"><a href="#化学反应中的能量变化" class="headerlink" title="化学反应中的能量变化"></a>化学反应中的能量变化</h2><h3 id="化学反应中的热效应"><a href="#化学反应中的热效应" class="headerlink" title="化学反应中的热效应"></a>化学反应中的热效应</h3><p>$$\ce {C + O2 -&gt;[点燃] CO2 + Q}~~~~放热反应$$<br>$$\ce {C + CO2 -&gt;[加热] 2CO - Q}~~~~吸热反应$$<br>$$\ce {HCl + NaOH -&gt; NaCl + H2O + Q}$$</p>
-<ul>
+<h2 id="化学反应中的能量变化"><a href="#化学反应中的能量变化" class="headerlink" title="化学反应中的能量变化"></a>化学反应中的能量变化</h2><h3 id="化学反应中的热效应"><a href="#化学反应中的热效应" class="headerlink" title="化学反应中的热效应"></a>化学反应中的热效应</h3><script type="math/tex; mode=display">\ce {C + O2 ->[点燃] CO2 + Q}~~~~放热反应</script><script type="math/tex; mode=display">\ce {C + CO2 ->[加热] 2CO - Q}~~~~吸热反应</script><script type="math/tex; mode=display">\ce {HCl + NaOH -> NaCl + H2O + Q}</script><ul>
 <li><strong>化学能</strong>：只有在化学反应中才能释放出来的能量（热能、光能、……）</li>
 <li>当化学反应中的能量变化表现为热量变化是：<ul>
-<li>对于放热反应：<br>$$\ce {\sum E_{反应物} -&gt; \sum E_{生成物} + Q}$$<br>$$\sum E_{反应物} &gt; \sum E_{生成物}$$</li>
-<li>对于吸热反应：<br>$$\ce {\sum E_{反应物} -&gt; \sum E_{生成物} - Q}$$<br>$$\sum E_{反应物} &lt; \sum E_{生成物}$$</li>
+<li>对于放热反应：<script type="math/tex; mode=display">\ce {\sum E_{反应物} -> \sum E_{生成物} + Q}</script><script type="math/tex; mode=display">\sum E_{反应物} > \sum E_{生成物}</script></li>
+<li>对于吸热反应：<script type="math/tex; mode=display">\ce {\sum E_{反应物} -> \sum E_{生成物} - Q}</script><script type="math/tex; mode=display">\sum E_{反应物} < \sum E_{生成物}</script></li>
 </ul>
 </li>
 </ul>
 <h3 id="能量变化图"><a href="#能量变化图" class="headerlink" title="能量变化图"></a>能量变化图</h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/04/28/200428-%E8%80%81%E6%A2%81%E5%8C%96%E5%AD%A6%E8%AF%BE/1.jpg" class="">
-
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/04/28/200428-%E8%80%81%E6%A2%81%E5%8C%96%E5%AD%A6%E8%AF%BE/2.jpg" class="">
-
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/04/28/200428-%E8%80%81%E6%A2%81%E5%8C%96%E5%AD%A6%E8%AF%BE/3.jpg" class="">
-
 <h3 id="热化学反应方程式"><a href="#热化学反应方程式" class="headerlink" title="热化学反应方程式"></a>热化学反应方程式</h3><p>表示化学反应中吸收或放出的能量的化学方程式</p>
 <div class="note primary">热化学反应方程式中可以出现分数、小数、整数，但是不可以全部是分数</div>
 <div class="note success">热化学方程式中的系数之比不表示微粒数之比，表示物质的量</div>
@@ -875,17 +874,25 @@
 <div class="note success">热化学反应方程式不用写反应条件</div>
 <div class="note danger">Tip: 想要得到想要的热化学反应方程式，可以相加减。</div>
 
-<h3 id="燃料的充分利用"><a href="#燃料的充分利用" class="headerlink" title="燃料的充分利用"></a>燃料的充分利用</h3><p>$$<br>    节约能源 \begin{cases}<br>        燃料的充分燃烧 \begin{cases}<br>            增大反应物的接触面积（固体反应物粉碎） \ 过量的氧气 \ \cdots<br>        \end{cases} \ 热能的充分利用 \begin{cases}<br>            热量交换 \ \cdots<br>        \end{cases}<br>    \end{cases}<br>$$</p>
-<h2 id="铜锌原电池及其反应原理"><a href="#铜锌原电池及其反应原理" class="headerlink" title="铜锌原电池及其反应原理"></a>铜锌原电池及其反应原理</h2><div class="note success">现象：指针偏转，铜片上有气泡产生，锌片上无气泡，锌片逐渐溶解。</div>
+<h3 id="燃料的充分利用"><a href="#燃料的充分利用" class="headerlink" title="燃料的充分利用"></a>燃料的充分利用</h3><script type="math/tex; mode=display">
+    节约能源 \begin{cases}
+        燃料的充分燃烧 \begin{cases}
+            增大反应物的接触面积（固体反应物粉碎） \\ 过量的氧气 \\ \cdots 
+        \end{cases} \\ 热能的充分利用 \begin{cases}
+            热量交换 \\ \cdots
+        \end{cases}
+    \end{cases}</script><h2 id="铜锌原电池及其反应原理"><a href="#铜锌原电池及其反应原理" class="headerlink" title="铜锌原电池及其反应原理"></a>铜锌原电池及其反应原理</h2><div class="note success">现象：指针偏转，铜片上有气泡产生，锌片上无气泡，锌片逐渐溶解。</div>
 
-<p>负极，$\ce {Zn}$：氧化反应<br>$$\ce {Zn -2e -&gt; Zn^{2+}}$$</p>
-<p>正极，$\ce {Cu}$：还原反应<br>$$\ce {2H+ + 2e -&gt; H2 ^}$$</p>
-<p>总反应方程式<br>$$\ce {Zn + 2 H+ -&gt; Zn^2+ + H2 ^}$$</p>
-<div class="note primary">工作原理：氧化还原反应</div>
+<p>负极，$\ce {Zn}$：氧化反应</p>
+<script type="math/tex; mode=display">\ce {Zn -2e -> Zn^{2+}}</script><p>正极，$\ce {Cu}$：还原反应</p>
+<script type="math/tex; mode=display">\ce {2H+ + 2e -> H2 ^}</script><p>总反应方程式</p>
+<script type="math/tex; mode=display">\ce {Zn + 2 H+ -> Zn^2+ + H2 ^}</script><div class="note primary">工作原理：氧化还原反应</div>
 
-<p>$$<br>原电池的组成 \begin{cases}<br>    正极——不活泼金属、碳棒 &amp; 得\ce{e}、还原反应 \<br>    负极——活泼金属 &amp;失\ce {e}、氧化反应 \ 电解质溶液 \ 导线<br>\end{cases}<br>$$</p>
-<p>$$化学能 \longrightarrow 电能$$</p>
-<div class="note warning">原电池发生的反应要比一般的反应快。</div>
+<script type="math/tex; mode=display">
+原电池的组成 \begin{cases}
+    正极——不活泼金属、碳棒 & 得\ce{e}、还原反应 \\
+    负极——活泼金属 &失\ce {e}、氧化反应 \\ 电解质溶液 \\ 导线
+\end{cases}</script><script type="math/tex; mode=display">化学能 \longrightarrow 电能</script><div class="note warning">原电池发生的反应要比一般的反应快。</div>
 
 <p>原电池原理应用：</p>
 <ol>
@@ -893,9 +900,9 @@
 <li>锌 + 稀硫酸 + 硫酸铜（少量） =&gt; 置换出铜、形成原电池</li>
 <li>金属的腐蚀与防护<ol>
 <li>铁含杂质$\ce {C}$，空气中的水膜作为电解质溶液<ul>
-<li>正极：析氢腐蚀<br>$$\ce {2H+ + 2e -&gt; H2 ^}$$</li>
-<li>正极：吸氧腐蚀<br>$$\ce {2H2O + O2 + 4e -&gt; 4 OH-}$$</li>
-<li>负极：<br>$$\ce {Fe - 2e -&gt; Fe^2+}$$</li>
+<li>正极：析氢腐蚀<script type="math/tex; mode=display">\ce {2H+ + 2e -> H2 ^}</script></li>
+<li>正极：吸氧腐蚀<script type="math/tex; mode=display">\ce {2H2O + O2 + 4e -> 4 OH-}</script></li>
+<li>负极：<script type="math/tex; mode=display">\ce {Fe - 2e -> Fe^2+}</script></li>
 </ul>
 </li>
 <li>防护：<ol>
@@ -1119,7 +1126,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>940</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1140,9 +1147,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="4-23-化学课-可逆反应与平衡状态"><a href="#4-23-化学课-可逆反应与平衡状态" class="headerlink" title="4/23 化学课 - 可逆反应与平衡状态"></a>4/23 化学课 - 可逆反应与平衡状态</h1><h2 id="可逆反应"><a href="#可逆反应" class="headerlink" title="可逆反应"></a>可逆反应</h2><p>$$<br>    \ce {Cl2 + H2O &lt;=&gt; HCl + HClO}<br>$$<br>$$<br>    \ce {SO2 + H2O &lt;=&gt; H2SO3}<br>$$<br>$$<br>    \ce {N2 + 3H2 &lt;=&gt;[高温、高压][催化剂] 2NH3}<br>$$<br>$$<br>    \ce {2SO2 + O2 &lt;=&gt;[V2O5][\Delta] 2SO3}<br>$$</p>
-<p>正反应：<br>$$<br>    \ce {2SO2 + O2 -&gt;[V2O5][\Delta] 2SO3}<br>$$<br>逆反应：<br>$$<br>    \ce {2SO3 -&gt;[V2O5][\Delta] 2SO2 + O2}<br>$$</p>
-<ol>
+          <h1 id="4-23-化学课-可逆反应与平衡状态"><a href="#4-23-化学课-可逆反应与平衡状态" class="headerlink" title="4/23 化学课 - 可逆反应与平衡状态"></a>4/23 化学课 - 可逆反应与平衡状态</h1><h2 id="可逆反应"><a href="#可逆反应" class="headerlink" title="可逆反应"></a>可逆反应</h2><script type="math/tex; mode=display">
+    \ce {Cl2 + H2O <=> HCl + HClO}</script><script type="math/tex; mode=display">
+    \ce {SO2 + H2O <=> H2SO3}</script><script type="math/tex; mode=display">
+    \ce {N2 + 3H2 <=>[高温、高压][催化剂] 2NH3}</script><script type="math/tex; mode=display">
+    \ce {2SO2 + O2 <=>[V2O5][\Delta] 2SO3}</script><p>正反应：</p>
+<script type="math/tex; mode=display">
+    \ce {2SO2 + O2 ->[V2O5][\Delta] 2SO3}</script><p>逆反应：</p>
+<script type="math/tex; mode=display">
+    \ce {2SO3 ->[V2O5][\Delta] 2SO2 + O2}</script><ol>
 <li>定义：<strong>在同一条件下</strong>，既能向<strong>正反应方向</strong>进行又能向<strong>逆反应方向</strong>进行的反应</li>
 <li>特点<ul>
 <li>在同一条件下进行</li>
@@ -1152,11 +1165,9 @@
 </li>
 <li>表示方式：可逆反应化学方程式中常用 $\ce {&lt;=&gt;}$</li>
 </ol>
-<p>$$可逆反应非常普遍$$</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/04/23/200423-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/1.jpg" class="">
-
-<h2 id="溶解平衡"><a href="#溶解平衡" class="headerlink" title="溶解平衡"></a>溶解平衡</h2><p>$$<br>    \ce {固体溶质 &lt;=&gt;[溶解][结晶]溶液中的溶质}<br>$$</p>
-<p>在一定条件下,当溶质溶解的速率等于结晶的速率,固体溶质不再减少,也不再增加,溶液处于饱和状态,称之为达到了溶解平衡状态,简称溶解平衡。</p>
+<script type="math/tex; mode=display">可逆反应非常普遍</script><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/04/23/200423-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/1.jpg" class="">
+<h2 id="溶解平衡"><a href="#溶解平衡" class="headerlink" title="溶解平衡"></a>溶解平衡</h2><script type="math/tex; mode=display">
+    \ce {固体溶质 <=>[溶解][结晶]溶液中的溶质}</script><p>在一定条件下,当溶质溶解的速率等于结晶的速率,固体溶质不再减少,也不再增加,溶液处于饱和状态,称之为达到了溶解平衡状态,简称溶解平衡。</p>
 <h2 id="化学平衡状态"><a href="#化学平衡状态" class="headerlink" title="化学平衡状态"></a>化学平衡状态</h2><ul>
 <li>在一定条件下的可逆反应中,正反应速率和逆反应速率相等,反应混合物中各组分的浓度保持不变的状态,称之为化学平衡状态,简称化学平衡。</li>
 <li>化学平衡状态是可逆反应在一定条件下所能达到的最大限度。</li>
@@ -1168,53 +1179,57 @@
 <li>现象：达到化学平衡时反应混合物中各物质的浓度不再发生变化</li>
 <li>若改变浓度、温度、压强等反应条件，化学平衡会被破坏</li>
 </ol>
-<p>$$<br>    \ce {N2 + 3H2 &lt;=&gt;[高温、高压][催化剂] 2NH3}<br>$$</p>
+<script type="math/tex; mode=display">
+    \ce {N2 + 3H2 <=>[高温、高压][催化剂] 2NH3}</script><div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">条件</th>
-<th align="center">$v_正$</th>
-<th align="center">$v_逆$</th>
+<th style="text-align:center">条件</th>
+<th style="text-align:center">$v_正$</th>
+<th style="text-align:center">$v_逆$</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">扩大容器体积</td>
-<td align="center">$\downarrow$</td>
-<td align="center">$\downarrow$</td>
+<tbody>
+<tr>
+<td style="text-align:center">扩大容器体积</td>
+<td style="text-align:center">$\downarrow$</td>
+<td style="text-align:center">$\downarrow$</td>
 </tr>
 <tr>
-<td align="center">使用合适的催化剂</td>
-<td align="center">$\uparrow$</td>
-<td align="center">$\uparrow$</td>
+<td style="text-align:center">使用合适的催化剂</td>
+<td style="text-align:center">$\uparrow$</td>
+<td style="text-align:center">$\uparrow$</td>
 </tr>
 <tr>
-<td align="center">升高温度</td>
-<td align="center">$\uparrow$</td>
-<td align="center">$\uparrow$</td>
+<td style="text-align:center">升高温度</td>
+<td style="text-align:center">$\uparrow$</td>
+<td style="text-align:center">$\uparrow$</td>
 </tr>
 <tr>
-<td align="center">体积不变，充入$\ce {N2}$</td>
-<td align="center">$\uparrow$</td>
-<td align="center">随之 $\uparrow$</td>
+<td style="text-align:center">体积不变，充入$\ce {N2}$</td>
+<td style="text-align:center">$\uparrow$</td>
+<td style="text-align:center">随之 $\uparrow$</td>
 </tr>
 <tr>
-<td align="center">体积不变，充入$\ce {NH3}$</td>
-<td align="center">随之 $\uparrow$</td>
-<td align="center">$\uparrow$</td>
+<td style="text-align:center">体积不变，充入$\ce {NH3}$</td>
+<td style="text-align:center">随之 $\uparrow$</td>
+<td style="text-align:center">$\uparrow$</td>
 </tr>
 <tr>
-<td align="center">体积不变，充入$\ce {He}$</td>
-<td align="center">$\times$</td>
-<td align="center">$\times$</td>
+<td style="text-align:center">体积不变，充入$\ce {He}$</td>
+<td style="text-align:center">$\times$</td>
+<td style="text-align:center">$\times$</td>
 </tr>
 <tr>
-<td align="center">压强不变，充入$\ce {He}$</td>
-<td align="center">$\downarrow$</td>
-<td align="center">$\downarrow$</td>
+<td style="text-align:center">压强不变，充入$\ce {He}$</td>
+<td style="text-align:center">$\downarrow$</td>
+<td style="text-align:center">$\downarrow$</td>
 </tr>
-</tbody></table>
-<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><div class="note primary">单位时间内有$3 \text { mol }\ce {H2}$参加反应，$1 \text { mol }\ce {N2}$生成。</div>
-**正确**：因为两个条件分别可以求出正反应速率和逆反应速率。
+</tbody>
+</table>
+</div>
+<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><p><div class="note primary">单位时间内有$3 \text { mol }\ce {H2}$参加反应，$1 \text { mol }\ce {N2}$生成。</div><br><strong>正确</strong>：因为两个条件分别可以求出正反应速率和逆反应速率。</p>
+
       
     </div>
 
@@ -1300,7 +1315,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>686</span>
+              <span>682</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1327,7 +1342,8 @@
 <li>科研人员占职工总人数的比例高</li>
 <li>研发费用占销售收入的比例高</li>
 <li>产品更新换代比较快</li>
-<li>产品附加值高<br>$$<br>  高新技术产业是科技主导型产业<br>$$</li>
+<li>产品附加值高<script type="math/tex; mode=display">
+  高新技术产业是科技主导型产业</script></li>
 </ol>
 </li>
 <li>意义：<ol>
@@ -1446,7 +1462,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>378</span>
+              <span>362</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1468,12 +1484,12 @@
 
       
           <h1 id="4-22-物理课-功率-1"><a href="#4-22-物理课-功率-1" class="headerlink" title="4/22 物理课 - 功率 (1)"></a>4/22 物理课 - 功率 (1)</h1><ol>
-<li>功率定义：功跟完成这些功所用的时间的比值，用$P$表示<br> $$P = \frac W t$$</li>
+<li>功率定义：功跟完成这些功所用的时间的比值，用$P$表示<script type="math/tex; mode=display">P = \frac W t</script></li>
 <li>单位(SI): 瓦特(W), $1 \text {W} = 1 \text {J / s}$<br>常用单位：千瓦(kW)</li>
 <li>物理意义：反应物体做功的快慢</li>
 <li>比值定义法</li>
 <li>标量：功率是标量</li>
-<li>功率的计算<br>$$P = \frac W t = \frac {Fs\cos \theta} t = Fv\cos\theta = \boldsymbol{F} \cdot \boldsymbol{v}$$<br>瞬时功率<br>$$P = \frac {\mathrm dA}{\mathrm dt}$$<br>平均功率<br>$$\bar P = \frac {W} {t} = \boldsymbol{F} \cdot \bar {\boldsymbol{v}}$$</li>
+<li>功率的计算<script type="math/tex; mode=display">P = \frac W t = \frac {Fs\cos \theta} t = Fv\cos\theta = \boldsymbol{F} \cdot \boldsymbol{v}</script>瞬时功率<script type="math/tex; mode=display">P = \frac {\mathrm dA}{\mathrm dt}</script>平均功率<script type="math/tex; mode=display">\bar P = \frac {W} {t} = \boldsymbol{F} \cdot \bar {\boldsymbol{v}}</script></li>
 <li>额定功率与实际功率<ol>
 <li>额定功率:机械正常条件下,长时间工作的最大功率</li>
 <li>实际功率:机械实际运行时功率,a实际功率不能长时间超过额定功率</li>
@@ -1563,7 +1579,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1586,34 +1602,37 @@
       
           <h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>考试在即，但却还没学完，心中诚惶诚恐，遂，学。</p>
 <h1 id="几何级数-Geometric-Series"><a href="#几何级数-Geometric-Series" class="headerlink" title="几何级数 - Geometric Series"></a>几何级数 - Geometric Series</h1><h2 id="几何级数的定义"><a href="#几何级数的定义" class="headerlink" title="几何级数的定义"></a>几何级数的定义</h2><p>几何级数，又称等比级数：</p>
-<p>$$<br>    \sum_{n = 0} ^ {\infty} aq^n = a + aq + aq ^2 + \cdots  + aq^n + \cdots<br>$$</p>
-<h2 id="几何级数的敛散性"><a href="#几何级数的敛散性" class="headerlink" title="几何级数的敛散性"></a>几何级数的敛散性</h2><p>根据等比数列前$n$项求和公式，若$|q| ≠ 1$，则部分和为</p>
-<p>$$<br>    S_n = a + aq + aq ^ 2 + \cdots + aq ^ {n - 1} = \frac {a - aq ^ n}{1 - q}<br>$$</p>
-<ul>
-<li>当$|q| &lt; 1$时：<br>  $$<pre><code>  \sum_&#123;n = 0&#125; ^ \infty a q ^ n = \lim _ &#123;n \rightarrow \infty&#125; S_n = \frac &#123;a&#125;&#123;1 - q&#125;</code></pre>
-  $$<br>  级数收敛</li>
-<li>当$q = 1$时：<br>  $$<pre><code>  \lim _ &#123; n \rightarrow \infty &#125; S_n = \lim _ &#123;n \rightarrow \infty&#125; na = \infty</code></pre>
-  $$<br>  级数发散</li>
-<li>当$q = -1$时：<br>  $$<pre><code>  \sum _ &#123; n = 0 &#125; ^ \infty a q ^ n= a - a + a - a + a - \cdots</code></pre>
-  $$<br>  $$<pre><code>  S_n = \begin&#123;cases&#125;
-      0 &amp; n \text &#123; is even&#125; \\
-      a &amp; n \text &#123; is odd&#125;
-  \end&#123;cases&#125; \Rightarrow \lim _ &#123;n \rightarrow \infty&#125; S_n = DNE</code></pre>
-  $$<br>  级数发散</li>
-<li>当$|q| &gt; 1$时：<br>  $$<pre><code>  \lim _ &#123; n \rightarrow \infty &#125; S_n = \infty</code></pre>
-  $$<br>  级数发散</li>
+<script type="math/tex; mode=display">
+    \sum_{n = 0} ^ {\infty} aq^n = a + aq + aq ^2 + \cdots  + aq^n + \cdots</script><h2 id="几何级数的敛散性"><a href="#几何级数的敛散性" class="headerlink" title="几何级数的敛散性"></a>几何级数的敛散性</h2><p>根据等比数列前$n$项求和公式，若$|q| ≠ 1$，则部分和为</p>
+<script type="math/tex; mode=display">
+    S_n = a + aq + aq ^ 2 + \cdots + aq ^ {n - 1} = \frac {a - aq ^ n}{1 - q}</script><ul>
+<li>当$|q| &lt; 1$时：<script type="math/tex; mode=display">
+      \sum_{n = 0} ^ \infty a q ^ n = \lim _ {n \rightarrow \infty} S_n = \frac {a}{1 - q}</script>  级数收敛</li>
+<li>当$q = 1$时：<script type="math/tex; mode=display">
+      \lim _ { n \rightarrow \infty } S_n = \lim _ {n \rightarrow \infty} na = \infty</script>  级数发散</li>
+<li>当$q = -1$时：<script type="math/tex; mode=display">
+      \sum _ { n = 0 } ^ \infty a q ^ n= a - a + a - a + a - \cdots</script><script type="math/tex; mode=display">
+      S_n = \begin{cases}
+          0 & n \text { is even} \\
+          a & n \text { is odd}
+      \end{cases} \Rightarrow \lim _ {n \rightarrow \infty} S_n = DNE</script>  级数发散</li>
+<li>当$|q| &gt; 1$时：<script type="math/tex; mode=display">
+      \lim _ { n \rightarrow \infty } S_n = \infty</script>  级数发散</li>
 </ul>
 <p>综上所述：</p>
 <ul>
 <li>$|q| &lt; 1$时，几何级数$\displaystyle \sum_{n = 0} ^ \infty aq ^ n$收敛，其和为$\displaystyle\frac a {1 - q}$。</li>
 <li>$|q| ≥ 1$时，几何级数$\displaystyle \sum_{n = 0} ^ \infty aq ^ n$发散。</li>
 </ul>
-<h1 id="调和级数-Harmonic-Series"><a href="#调和级数-Harmonic-Series" class="headerlink" title="调和级数 - Harmonic Series"></a>调和级数 - Harmonic Series</h1><h2 id="调和级数的定义"><a href="#调和级数的定义" class="headerlink" title="调和级数的定义"></a>调和级数的定义</h2><p>$$<br>    \sum _ { n = 1 } ^ \infty \frac 1 n = 1 + \frac 1 2 + \frac 1 3 + \frac 1 4 + \cdots<br>$$</p>
-<h2 id="调和级数的敛散性"><a href="#调和级数的敛散性" class="headerlink" title="调和级数的敛散性"></a>调和级数的敛散性</h2><p>有图像易得：调和级数$\displaystyle \sum _ { n = 1 } ^ \infty \frac 1 n$为广义积分$\displaystyle \int _ 1 ^ \infty\frac 1 x \mathrm dx$的Left-Riemann Sum，且</p>
-<p>$$<br>    \begin{aligned}<br>        \sum _ {n = 1} ^ \infty \frac 1 n &amp;&gt; \int _ 1 ^ \infty \frac 1 x \mathrm dx \<br>        &amp;=\ln x \Big |_1 ^ {\infty} \rightarrow \infty<br>    \end{aligned}<br>$$</p>
-<p>故调和级数发散。</p>
-<h1 id="p-级数-p-Series"><a href="#p-级数-p-Series" class="headerlink" title="$p$级数 - $p$-Series"></a>$p$级数 - $p$-Series</h1><h2 id="p-级数的定义"><a href="#p-级数的定义" class="headerlink" title="$p$级数的定义"></a>$p$级数的定义</h2><p>$$<br>    \sum _ {n = 1} ^ \infty \frac 1 {n ^ p} = 1 + \frac 1 {2 ^ p} + \frac 1 {3 ^ p} + \cdots + \frac 1 {n ^ p} + \cdots,  (p &gt; 0)<br>$$</p>
-<h2 id="p-级数的敛散性"><a href="#p-级数的敛散性" class="headerlink" title="$p$级数的敛散性"></a>$p$级数的敛散性</h2><ul>
+<h1 id="调和级数-Harmonic-Series"><a href="#调和级数-Harmonic-Series" class="headerlink" title="调和级数 - Harmonic Series"></a>调和级数 - Harmonic Series</h1><h2 id="调和级数的定义"><a href="#调和级数的定义" class="headerlink" title="调和级数的定义"></a>调和级数的定义</h2><script type="math/tex; mode=display">
+    \sum _ { n = 1 } ^ \infty \frac 1 n = 1 + \frac 1 2 + \frac 1 3 + \frac 1 4 + \cdots</script><h2 id="调和级数的敛散性"><a href="#调和级数的敛散性" class="headerlink" title="调和级数的敛散性"></a>调和级数的敛散性</h2><p>有图像易得：调和级数$\displaystyle \sum _ { n = 1 } ^ \infty \frac 1 n$为广义积分$\displaystyle \int _ 1 ^ \infty\frac 1 x \mathrm dx$的Left-Riemann Sum，且</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        \sum _ {n = 1} ^ \infty \frac 1 n &> \int _ 1 ^ \infty \frac 1 x \mathrm dx \\
+        &=\ln x \Big |_1 ^ {\infty} \rightarrow \infty
+    \end{aligned}</script><p>故调和级数发散。</p>
+<h1 id="p-级数-p-Series"><a href="#p-级数-p-Series" class="headerlink" title="$p$级数 - $p$-Series"></a>$p$级数 - $p$-Series</h1><h2 id="p-级数的定义"><a href="#p-级数的定义" class="headerlink" title="$p$级数的定义"></a>$p$级数的定义</h2><script type="math/tex; mode=display">
+    \sum _ {n = 1} ^ \infty \frac 1 {n ^ p} = 1 + \frac 1 {2 ^ p} + \frac 1 {3 ^ p} + \cdots + \frac 1 {n ^ p} + \cdots,  (p > 0)</script><h2 id="p-级数的敛散性"><a href="#p-级数的敛散性" class="headerlink" title="$p$级数的敛散性"></a>$p$级数的敛散性</h2><ul>
 <li>当$p ≤ 1$时，根据比较审敛法，因为$\displaystyle\frac 1 {n ^ p} ≥ \frac 1 n$，由于调和级数发散，故$p$级数也发散。</li>
 <li>当$p &gt; 1$时，$p$级数收敛，证明略。</li>
 </ul>
@@ -1630,11 +1649,11 @@
 <li>当$l = 1$时，级数可能收敛也可能发散</li>
 </ul>
 <h1 id="用泰勒多项式来近似函数"><a href="#用泰勒多项式来近似函数" class="headerlink" title="用泰勒多项式来近似函数"></a>用泰勒多项式来近似函数</h1><p>The function $f(x)$ at the point $x = a$ is approximated by a <em>Taylor polynomial</em> $P_n(x)$ of order $n$: </p>
-<p>$$<br>    f(x) \approx P_n(x) = f(a) + f’(a)(x - a) + \frac {f’’(a)}{2!}(x - a) ^ 2 + \cdots + \frac {f^{(n)}(a)}{n!}(x - a) ^ n<br>$$</p>
-<p>麦克劳林多项式就是函数在$x=0$的泰勒展开。</p>
+<script type="math/tex; mode=display">
+    f(x) \approx P_n(x) = f(a) + f'(a)(x - a) + \frac {f''(a)}{2!}(x - a) ^ 2 + \cdots + \frac {f^{(n)}(a)}{n!}(x - a) ^ n</script><p>麦克劳林多项式就是函数在$x=0$的泰勒展开。</p>
 <p>用$f(x)$在$x = 0$的切线去近似：</p>
-<p>$$<br>f(x) \approx P_1(x) = f(0) + f’(0) x<br>$$</p>
-<h1 id="绝对收敛和条件收敛"><a href="#绝对收敛和条件收敛" class="headerlink" title="绝对收敛和条件收敛"></a>绝对收敛和条件收敛</h1><ol>
+<script type="math/tex; mode=display">
+f(x) \approx P_1(x) = f(0) + f'(0) x</script><h1 id="绝对收敛和条件收敛"><a href="#绝对收敛和条件收敛" class="headerlink" title="绝对收敛和条件收敛"></a>绝对收敛和条件收敛</h1><ol>
 <li>若$\displaystyle \sum_{i = 1} ^ \infty u_i$收敛，且$\displaystyle \sum_{i = 1} ^ \infty |u_i|$也收敛，则级数$\displaystyle \sum _ {i = 1} ^ \infty u _ 1$绝对收敛。</li>
 <li>若$\displaystyle \sum_{i = 1} ^ \infty u_i$收敛，且$\displaystyle \sum_{i = 1} ^ \infty |u_i|$不收敛，则级数$\displaystyle \sum _ {i = 1} ^ \infty u _ 1$条件收敛。</li>
 <li>如果绝对收敛则一定条件收敛，条件收敛不一定绝对收敛。</li>
@@ -1731,7 +1750,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>562</span>
+              <span>550</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1758,24 +1777,29 @@
 <li>现象：没有加入$\ce {MnO2}$粉末的双氧水试管中只有少量气泡出现,不能使带火星的木条复燃;加入$\ce{MnO2}$粉末后试管内产生大量气泡,带火星的木条复燃</li>
 <li>结论：催化剂可以有效地提高化学反应速率</li>
 </ol>
-<p>$$<br>催化剂与生活<br>\begin{cases}</p>
-<p>现代化学工业生产: \ce {2SO2 + O2 &lt;=&gt;[V2O5][\Delta] 2SO3} \</p>
-<p>生物体中化学反应 \</p>
-<p>环境保护催化剂<br>\end{cases}<br>$$</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/04/21/200421-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/1.jpg" class="">
+<script type="math/tex; mode=display">
+催化剂与生活 
+\begin{cases}
 
+现代化学工业生产: \ce {2SO2 + O2 <=>[V2O5][\Delta] 2SO3} \\
+
+生物体中化学反应 \\
+
+环境保护催化剂
+\end{cases}</script><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/04/21/200421-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/1.jpg" class="">
 <p>结论：</p>
 <ul>
 <li><strong>加入催化剂改变了反应的途径,降低了反应所需要的能量,从而加快化学反应速率。</strong></li>
 <li><strong>加入催化剂不会改变该化学反应的热效应。</strong></li>
 </ul>
-<p>$$<br>催化剂的基本知识 \begin{cases}<br>    催化剂的研究与开发 \ 催化剂具有选择性 \ 催化剂的活性温度 \ 催化剂中毒<br>\end{cases}<br>$$</p>
-<h2 id="压强对化学反应速率的影响"><a href="#压强对化学反应速率的影响" class="headerlink" title="压强对化学反应速率的影响"></a>压强对化学反应速率的影响</h2><p>结论：<strong>对于有气态物质参加的反应,在其它条件不变时增大压强,化学反应速率加快;减小压强,化学反应速率减慢。</strong></p>
+<script type="math/tex; mode=display">
+催化剂的基本知识 \begin{cases}
+    催化剂的研究与开发 \\ 催化剂具有选择性 \\ 催化剂的活性温度 \\ 催化剂中毒
+\end{cases}</script><h2 id="压强对化学反应速率的影响"><a href="#压强对化学反应速率的影响" class="headerlink" title="压强对化学反应速率的影响"></a>压强对化学反应速率的影响</h2><p>结论：<strong>对于有气态物质参加的反应,在其它条件不变时增大压强,化学反应速率加快;减小压强,化学反应速率减慢。</strong></p>
 <div class="note warning">如果参加反应的物质全部是固体、液体或溶液时,改变压强对它们的反应速率无影响。</div>
 <div class="note warning">改变压强一般指改变体积。如果是充入其他气体，对气体浓度没有影响，所以不会有什么影响。</div>
 
 <h2 id="外界因素对化学反应速率的影响"><a href="#外界因素对化学反应速率的影响" class="headerlink" title="外界因素对化学反应速率的影响"></a>外界因素对化学反应速率的影响</h2><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/04/21/200421-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/2.jpg" class="">
-
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/04/21/200421-%E5%B8%82%E5%8C%96%E5%AD%A6%E8%AF%BE/3.jpg" class="">
       
     </div>
@@ -1965,13 +1989,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">538k</span>
+    <span title="站点总字数">512k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">8:09</span>
+    <span title="站点阅读时长">7:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -2153,7 +2177,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -2164,6 +2187,7 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
 </script>
+
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>
             window.imageLazyLoadSetting = {

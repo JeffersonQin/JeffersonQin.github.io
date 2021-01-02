@@ -355,10 +355,11 @@ span.katex-html {
 <p>时间限制500ms</p>
 </div> <!----></div>
 
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>我们要选出和最大的一堆数，但是这非常难，所以我们可以考虑怎么做才能删除最少的数。设$f[i]$表示删除第$i$个数的最小和，那么$f[i]$可以由前$k+1$个$f$转移而来（因为是不超过$k$个），即以下转移方程给出：<br>$$<br>    f[i] = a[i] + \min_{i - k - 1 \leq j &lt; i} f[j]<br>$$</p>
-<p>观察后半段，其实就是个单调队列，直接维护就行了。最后的答案：<br>$$<br>    \text{ans} = \text{sum}[n] - \min_{n - k \leq i \leq n} f[i]<br>$$</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100005</span>;</span><br><span class="line"><span class="keyword">int</span> n, k, f[maxn], a[maxn];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span> <span class="keyword">int</span> val, pos; &#125; q[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">	f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> head = <span class="number">0</span>, tail = <span class="number">1</span>, sum = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">// min -&gt; increase</span></span><br><span class="line">	q[head] = (node) &#123; f[<span class="number">0</span>], <span class="number">0</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">		sum += a[i];</span><br><span class="line">		f[i] = a[i] + q[head].val;	</span><br><span class="line">		<span class="keyword">while</span> (head &lt; tail &amp;&amp; f[i] &lt;= q[tail - <span class="number">1</span>].val) tail --;</span><br><span class="line">		q[tail ++] = (node) &#123; f[i], i &#125;;</span><br><span class="line">		<span class="keyword">while</span> (head &lt; tail &amp;&amp; i - q[head].pos + <span class="number">1</span> &gt; k + <span class="number">1</span>) head ++;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	for (int i = 0; i &lt;= n; i ++) cout &lt;&lt; f[i] &lt;&lt; &quot; &quot;;</span></span><br><span class="line"><span class="comment">//	cout &lt;&lt; endl; </span></span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">8e18</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = n - k; i &lt;= n; i ++) ans = min(ans, f[i]);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; sum - ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>我们要选出和最大的一堆数，但是这非常难，所以我们可以考虑怎么做才能删除最少的数。设$f[i]$表示删除第$i$个数的最小和，那么$f[i]$可以由前$k+1$个$f$转移而来（因为是不超过$k$个），即以下转移方程给出：</p>
+<script type="math/tex; mode=display">
+    f[i] = a[i] + \min_{i - k - 1 \leq j < i} f[j]</script><p>观察后半段，其实就是个单调队列，直接维护就行了。最后的答案：</p>
+<script type="math/tex; mode=display">
+    \text{ans} = \text{sum}[n] - \min_{n - k \leq i \leq n} f[i]</script><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100005</span>;</span><br><span class="line"><span class="keyword">int</span> n, k, f[maxn], a[maxn];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span> <span class="keyword">int</span> val, pos; &#125; q[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">	f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> head = <span class="number">0</span>, tail = <span class="number">1</span>, sum = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">// min -&gt; increase</span></span><br><span class="line">	q[head] = (node) &#123; f[<span class="number">0</span>], <span class="number">0</span> &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">		sum += a[i];</span><br><span class="line">		f[i] = a[i] + q[head].val;	</span><br><span class="line">		<span class="keyword">while</span> (head &lt; tail &amp;&amp; f[i] &lt;= q[tail - <span class="number">1</span>].val) tail --;</span><br><span class="line">		q[tail ++] = (node) &#123; f[i], i &#125;;</span><br><span class="line">		<span class="keyword">while</span> (head &lt; tail &amp;&amp; i - q[head].pos + <span class="number">1</span> &gt; k + <span class="number">1</span>) head ++;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	for (int i = 0; i &lt;= n; i ++) cout &lt;&lt; f[i] &lt;&lt; &quot; &quot;;</span></span><br><span class="line"><span class="comment">//	cout &lt;&lt; endl; </span></span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">8e18</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = n - k; i &lt;= n; i ++) ans = min(ans, f[i]);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; sum - ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>十年OI一场空，不开longlong见祖宗。</p>
 
     </div>
@@ -619,13 +620,10 @@ span.katex-html {
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
-            </div>
             <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
@@ -634,6 +632,9 @@ span.katex-html {
     </div>
   </div>
   
+            </div>
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
             </div>
         </div>
       </div>
@@ -793,13 +794,13 @@ span.katex-html {
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">538k</span>
+    <span title="站点总字数">512k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">8:09</span>
+    <span title="站点阅读时长">7:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -981,26 +982,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '3c0f684255e61ed2d6c9',
-      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
-      repo        : 'JeffersonQin.github.io',
-      owner       : 'JeffersonQin',
-      admin       : ['JeffersonQin'],
-      id          : 'a72b7f40b98bc6a3e1e3c240fa4163a4',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1030,6 +1011,26 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '3c0f684255e61ed2d6c9',
+      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
+      repo        : 'JeffersonQin.github.io',
+      owner       : 'JeffersonQin',
+      admin       : ['JeffersonQin'],
+      id          : 'a72b7f40b98bc6a3e1e3c240fa4163a4',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>

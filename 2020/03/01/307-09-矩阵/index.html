@@ -30,12 +30,12 @@
     var CONFIG = {"hostname":"hexo.gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="307-09-10矩阵乘法与快速幂 矩阵乘法定义矩阵$A$，$B$，其中$A$的大小为$a \times b$，$B$的大小为$b \times c$，对于矩阵$C&#x3D;AB$中的每一个元素$C(i.j),i\in [1, a],j\in [1,c]$，存在以下：$$C(i,j) &#x3D; \sum_{k&#x3D;1}^bA(i,k) \times B(k,j)$$">
+  <meta name="description" content="307-09-10矩阵乘法与快速幂 矩阵乘法定义矩阵$A$，$B$，其中$A$的大小为$a \times b$，$B$的大小为$b \times c$，对于矩阵$C&#x3D;AB$中的每一个元素$C(i.j),~i\in [1, a],~j\in [1,c]$，存在以下：  C(i,j) &#x3D; \sum_{k&#x3D;1}^bA(i,k) \times B(k,j)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="307-09-矩阵">
 <meta property="og:url" content="http://hexo.gyrojeff.moe/2020/03/01/307-09-%E7%9F%A9%E9%98%B5/index.html">
 <meta property="og:site_name" content="gyro永不抽风">
-<meta property="og:description" content="307-09-10矩阵乘法与快速幂 矩阵乘法定义矩阵$A$，$B$，其中$A$的大小为$a \times b$，$B$的大小为$b \times c$，对于矩阵$C&#x3D;AB$中的每一个元素$C(i.j),i\in [1, a],j\in [1,c]$，存在以下：$$C(i,j) &#x3D; \sum_{k&#x3D;1}^bA(i,k) \times B(k,j)$$">
+<meta property="og:description" content="307-09-10矩阵乘法与快速幂 矩阵乘法定义矩阵$A$，$B$，其中$A$的大小为$a \times b$，$B$的大小为$b \times c$，对于矩阵$C&#x3D;AB$中的每一个元素$C(i.j),~i\in [1, a],~j\in [1,c]$，存在以下：  C(i,j) &#x3D; \sum_{k&#x3D;1}^bA(i,k) \times B(k,j)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-01T12:56:35.000Z">
 <meta property="article:modified_time" content="2020-09-22T12:59:01.648Z">
@@ -307,7 +307,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8.2k</span>
+              <span>8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -337,29 +337,79 @@
 
       
         <h1 id="307-09-10矩阵乘法与快速幂"><a href="#307-09-10矩阵乘法与快速幂" class="headerlink" title="307-09-10矩阵乘法与快速幂"></a>307-09-10矩阵乘法与快速幂</h1><hr>
-<h2 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h2><p>定义矩阵$A$，$B$，其中$A$的大小为$a \times b$，$B$的大小为$b \times c$，对于矩阵$C=AB$中的每一个元素$C(i.j),<del>i\in [1, a],</del>j\in [1,c]$，存在以下：<br>$$<br>C(i,j) = \sum_{k=1}^bA(i,k) \times B(k,j)<br>$$</p>
-<a id="more"></a>
-
-<h2 id="矩阵乘法的结合律"><a href="#矩阵乘法的结合律" class="headerlink" title="矩阵乘法的结合律"></a>矩阵乘法的结合律</h2><p>矩阵乘法存在结合律，首先定义矩阵$A_{a\times b},<del>B_{b\times c},</del>C_{c\times d}$，存在$(AB)C = A(BC)$。证明：</p>
-<p>对于$i\in [1, a],~j\in [1,d]$，有：<br>$$<br>\begin {align}<br>((AB)C)(i,j) &amp;= \sum_{l=1}^c(\sum_{k=1}^b A(i,k)\times B(k,l))\times C(l,j) \<br>                         &amp;= \sum_{k=1}^b \sum_{l=1}^c A(i,k)\times B(k,l) \times C(l,k) \<br>                         &amp;= \sum_{k=1}^b A(i,k)\times (\sum_{l=1}^c B(k,l)\times C(l,k)) \<br>                         &amp;= (A(BC))(i,j)<br>\end {align}<br>$$<br>由此，可以证明，矩阵的乘法具有结合律。</p>
-<h2 id="Floyd-算法"><a href="#Floyd-算法" class="headerlink" title="Floyd 算法"></a>Floyd 算法</h2><p>Floyd算法的主要目的是在一张图上求任意两点之间的最短路，而最短路的核心思想其实可以由一个方程来表达：<br>$$<br>dis[i][j] = \min_{j \in [1,n]}{dis[i][j],~ dis[i][k] + dis[k][j]}<br>$$<br>其表示$i \rightarrow j$的最短路。</p>
-<p>但是它的初始化值得注意，其应该初始化为一个<strong>图论</strong>的<strong>单位矩阵</strong>，即主对角线的值为$0$，其余值均为$\infty$的一个“单位矩阵”，可以如下定义：<br>$$<br>dis[i][j] =<br>\begin {cases}<br>\infty ~~~~~~~&amp;i≠j \<br>~0 &amp;i=j<br>\end {cases}<br>$$<br>为了实现上述思想，以下为代码实现：</p>
+<h2 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h2><p>定义矩阵$A$，$B$，其中$A$的大小为$a \times b$，$B$的大小为$b \times c$，对于矩阵$C=AB$中的每一个元素$C(i.j),~i\in [1, a],~j\in [1,c]$，存在以下：</p>
+<script type="math/tex; mode=display">
+C(i,j) = \sum_{k=1}^bA(i,k) \times B(k,j)</script><a id="more"></a>
+<h2 id="矩阵乘法的结合律"><a href="#矩阵乘法的结合律" class="headerlink" title="矩阵乘法的结合律"></a>矩阵乘法的结合律</h2><p>矩阵乘法存在结合律，首先定义矩阵$A<em>{a\times b},~B</em>{b\times c},~C_{c\times d}$，存在$(AB)C = A(BC)$。证明：</p>
+<p>对于$i\in [1, a],~j\in [1,d]$，有：</p>
+<script type="math/tex; mode=display">
+\begin {align}
+((AB)C)(i,j) &= \sum_{l=1}^c(\sum_{k=1}^b A(i,k)\times B(k,l))\times C(l,j) \\
+                         &= \sum_{k=1}^b \sum_{l=1}^c A(i,k)\times B(k,l) \times C(l,k) \\
+                         &= \sum_{k=1}^b A(i,k)\times (\sum_{l=1}^c B(k,l)\times C(l,k)) \\
+                         &= (A(BC))(i,j)
+\end {align}</script><p>由此，可以证明，矩阵的乘法具有结合律。</p>
+<h2 id="Floyd-算法"><a href="#Floyd-算法" class="headerlink" title="Floyd 算法"></a>Floyd 算法</h2><p>Floyd算法的主要目的是在一张图上求任意两点之间的最短路，而最短路的核心思想其实可以由一个方程来表达：</p>
+<script type="math/tex; mode=display">
+dis[i][j] = \min_{j \in [1,n]}\{dis[i][j],~ dis[i][k] + dis[k][j]\}</script><p>其表示$i \rightarrow j$的最短路。</p>
+<p>但是它的初始化值得注意，其应该初始化为一个<strong>图论</strong>的<strong>单位矩阵</strong>，即主对角线的值为$0$，其余值均为$\infty$的一个“单位矩阵”，可以如下定义：</p>
+<script type="math/tex; mode=display">
+dis[i][j] = 
+\begin {cases}
+\infty ~~~~~~~&i≠j \\
+~0 &i=j
+\end {cases}</script><p>为了实现上述思想，以下为代码实现：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k ++)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j ++)</span><br><span class="line">						<span class="keyword">if</span> (m[i][k] + m[k][j] &lt; m[i][j])</span><br><span class="line">								m[i][j] = m[i][k] + m[k][j];</span><br></pre></td></tr></table></figure>
-
 <p><strong>注：</strong>Floyd算法的k的那层循环必须在最外面，否则有些值无法被更新。</p>
-<h2 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h2><p>如果我们要计算$a^n$，则会将$a$乘$n$次，时间复杂度为$O(n)$，而这太浪费时间了，为此，有了快速幂之中算法，快速幂可以将时间复杂度降为$O(\log n)$，其本质就是将指数化为一个$2$进制数来进行记忆化的乘法，现在假设有一个需求要求$a^{13}$，我们可以试着将$13$化为二进制：$13=(1101)_2$，也就是说：<br>$$<br>a^{13} = a^{2^3+2^2+2^0}<br>$$<br>换言之，如果我们要计算$a^k$，我们只需要找到：$2^{k_1} + 2^{k_2} + …+2^{k_m}=n$，这样可以进行递推，很快地完成整个运算过程：</p>
+<h2 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h2><p>如果我们要计算$a^n$，则会将$a$乘$n$次，时间复杂度为$O(n)$，而这太浪费时间了，为此，有了快速幂之中算法，快速幂可以将时间复杂度降为$O(\log n)$，其本质就是将指数化为一个$2$进制数来进行记忆化的乘法，现在假设有一个需求要求$a^{13}$，我们可以试着将$13$化为二进制：$13=(1101)_2$，也就是说：</p>
+<script type="math/tex; mode=display">
+a^{13} = a^{2^3+2^2+2^0}</script><p>换言之，如果我们要计算$a^k$，我们只需要找到：$2^{k_1} + 2^{k_2} + …+2^{k_m}=n$，这样可以进行递推，很快地完成整个运算过程：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">quick_pow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> n)</span>  </span>&#123;</span><br><span class="line">		ll ans = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="comment">// n的最后一位是否为1，若为1就进行</span></span><br><span class="line">				<span class="keyword">if</span> (n &amp; <span class="number">1</span>)</span><br><span class="line">						ans = ans * a;</span><br><span class="line">				n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">				a = a * a;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="矩阵乘法结合律的应用"><a href="#矩阵乘法结合律的应用" class="headerlink" title="矩阵乘法结合律的应用"></a>矩阵乘法结合律的应用</h2><p>前文已经证明了矩阵的乘法具有结合律，而既然有结合律那么自然可以使用快速幂求一个矩阵的幂运算，对于基于乘法的快速幂算法而言，需要修改的是运算符和初始化值。</p>
-<p>在矩阵乘法中的初始化值也比较重要，当然这一步也可以忽略，因为执行$n-1$次其实也可以达到目的。但是还有一种更为优美的写法，就是初始化一个单位矩阵$A_0$：<br>$$<br>A_0(i,j) = \begin {cases}<br>0~~~~~~~i≠j \<br>1~~~~~~~i=j<br>\end {cases}<br>$$<br>这样做的原因是对于任意一个矩阵$A$而言，存在$AA_0=A$。</p>
+<p>在矩阵乘法中的初始化值也比较重要，当然这一步也可以忽略，因为执行$n-1$次其实也可以达到目的。但是还有一种更为优美的写法，就是初始化一个单位矩阵$A_0$：</p>
+<script type="math/tex; mode=display">
+A_0(i,j) = \begin {cases}
+0~~~~~~~i≠j \\
+1~~~~~~~i=j
+\end {cases}</script><p>这样做的原因是对于任意一个矩阵$A$而言，存在$AA_0=A$。</p>
 <p>代码（模板P3390）：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> P = <span class="number">1000000007</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">matrix</span> &#123;</span></span><br><span class="line">    ll m[maxn][maxn];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ll n, k;</span><br><span class="line"></span><br><span class="line"><span class="function">matrix <span class="title">matrix_multi</span><span class="params">(matrix a, matrix b)</span> </span>&#123;</span><br><span class="line">    matrix ans;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j ++) &#123;</span><br><span class="line">            ans.m[i][j] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k ++) &#123;</span><br><span class="line">                ans.m[i][j] = (ans.m[i][j] % P + (a.m[i][k] * b.m[k][j]) % P) % P;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">matrix <span class="title">quick_matrix_pow</span><span class="params">(matrix a, ll t)</span> </span>&#123;</span><br><span class="line">    matrix ans;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == j) ans.m[i][j] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span>        ans.m[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (t &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (t &amp; <span class="number">1</span>)</span><br><span class="line">            ans = matrix_multi(a, ans);</span><br><span class="line">        a = matrix_multi(a, a);</span><br><span class="line">        t &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    matrix a;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j ++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;a.m[i][j]);</span><br><span class="line">    matrix ans = quick_matrix_pow(a, k);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j ++)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; ans.m[i][j] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用矩阵乘法（快速幂）求斐波那契数列"><a href="#使用矩阵乘法（快速幂）求斐波那契数列" class="headerlink" title="使用矩阵乘法（快速幂）求斐波那契数列"></a>使用矩阵乘法（快速幂）求斐波那契数列</h2><p>斐波那契数列：<br>$$<br>f(n)=f(n-1)+f(n-2),~f(1)=f(2)=1<br>$$<br>如果使用递归，$dp$，记忆化，等的方式，时间复杂度仍然至少为$O(n)$。</p>
-<p>现在购下一个矩阵$A$，使得如下等式成立：<br>$$<br>A\left(<br>\begin {matrix}<br>f(n) \<br>f(n-1)<br>\end {matrix}<br>\right)<br>=\left(<br>\begin {matrix}<br>f(n+1) \<br>f(n)<br>\end {matrix}<br>\right)<br>$$<br>由于$f(n+1)=f(n)+f(n-1)$，所以设<br>$$A=\left(\begin{matrix}x&amp;y\z&amp;w\end{matrix}\right)$$<br>则：<br>$$<br>\begin {align}<br>\left(\begin{matrix}x&amp;y\z&amp;w\end{matrix}\right)\left(\begin{matrix}f(n) \f(n-1)\end{matrix}\right) = \left(\begin{matrix}f(n)+f(n-1) \ f(n)\end{matrix}\right)=\left(\begin{matrix}xf(n) + yf(n-1) \zf(n)+wf(n-1)\end{matrix}\right)<br>\end {align}<br>$$<br>所以可以得到结论：<br>$$<br>\begin{cases}<br>x=1 \<br>y=1 \<br>z=1 \<br>w=0<br>\end {cases}<br>$$<br>所以我们可以得到结论：有斐波那契数列前后连续的两项组成的一个列向量的矩阵乘上一个矩阵<br>$$A=\left(\begin{matrix}1&amp;1\1&amp;0\end{matrix}\right)$$<br>可以得到由斐波那契数列的后一项和当前项组成的另外一个列向量。</p>
-<p>可以得到以下的推论：<br>$$<br>\left(\begin{matrix}1&amp;1\1&amp;0\end{matrix}\right)\left(\begin{matrix}f(n) \f(n-1)\end{matrix}\right) = \left(\begin{matrix}f(n+1) \ f(n)\end{matrix}\right)<br>$$<br>由于前文证明的矩阵乘法的结合律，可以得到结论：<br>$$<br>\left(\begin{matrix}f(n+1) \ f(n)\end{matrix}\right) =\left(\begin{matrix}1&amp;1\1&amp;0\end{matrix}\right)^{n-1}\left(\begin{matrix}f(2) \f(1)\end{matrix}\right)<br>$$<br>由此可以通过矩阵乘法的快速幂解决斐波那契数列的第$n$项求解，且时间复杂度为$O(\log n)$。</p>
+<h2 id="使用矩阵乘法（快速幂）求斐波那契数列"><a href="#使用矩阵乘法（快速幂）求斐波那契数列" class="headerlink" title="使用矩阵乘法（快速幂）求斐波那契数列"></a>使用矩阵乘法（快速幂）求斐波那契数列</h2><p>斐波那契数列：</p>
+<script type="math/tex; mode=display">
+f(n)=f(n-1)+f(n-2),~f(1)=f(2)=1</script><p>如果使用递归，$dp$，记忆化，等的方式，时间复杂度仍然至少为$O(n)$。</p>
+<p>现在购下一个矩阵$A$，使得如下等式成立：</p>
+<script type="math/tex; mode=display">
+A\left(
+\begin {matrix}
+f(n) \\
+f(n-1)
+\end {matrix}
+\right)
+=\left(
+\begin {matrix}
+f(n+1) \\
+f(n)
+\end {matrix}
+\right)</script><p>由于$f(n+1)=f(n)+f(n-1)$，所以设</p>
+<script type="math/tex; mode=display">A=\left(\begin{matrix}x&y\\z&w\end{matrix}\right)</script><p>则：</p>
+<script type="math/tex; mode=display">
+\begin {align}
+\left(\begin{matrix}x&y\\z&w\end{matrix}\right)\left(\begin{matrix}f(n) \\f(n-1)\end{matrix}\right) = \left(\begin{matrix}f(n)+f(n-1) \\ f(n)\end{matrix}\right)=\left(\begin{matrix}xf(n) + yf(n-1) \\zf(n)+wf(n-1)\end{matrix}\right)
+\end {align}</script><p>所以可以得到结论：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x=1 \\
+y=1 \\
+z=1 \\
+w=0
+\end {cases}</script><p>所以我们可以得到结论：有斐波那契数列前后连续的两项组成的一个列向量的矩阵乘上一个矩阵</p>
+<script type="math/tex; mode=display">A=\left(\begin{matrix}1&1\\1&0\end{matrix}\right)</script><p>可以得到由斐波那契数列的后一项和当前项组成的另外一个列向量。</p>
+<p>可以得到以下的推论：</p>
+<script type="math/tex; mode=display">
+\left(\begin{matrix}1&1\\1&0\end{matrix}\right)\left(\begin{matrix}f(n) \\f(n-1)\end{matrix}\right) = \left(\begin{matrix}f(n+1) \\ f(n)\end{matrix}\right)</script><p>由于前文证明的矩阵乘法的结合律，可以得到结论：</p>
+<script type="math/tex; mode=display">
+\left(\begin{matrix}f(n+1) \\ f(n)\end{matrix}\right) =\left(\begin{matrix}1&1\\1&0\end{matrix}\right)^{n-1}\left(\begin{matrix}f(2) \\f(1)\end{matrix}\right)</script><p>由此可以通过矩阵乘法的快速幂解决斐波那契数列的第$n$项求解，且时间复杂度为$O(\log n)$。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> P = <span class="number">1000000007</span>;</span><br><span class="line"></span><br><span class="line">ll n;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">matrix</span> &#123;</span></span><br><span class="line">    ll a11, a12, a21, a22;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">matrix <span class="title">matrix_multi</span><span class="params">(matrix a, matrix b)</span> </span>&#123;</span><br><span class="line">    matrix ans;</span><br><span class="line">    ans.a11 = ((a.a11 * b.a11) % P + (a.a12 * b.a21) % P) % P;</span><br><span class="line">    ans.a12 = ((a.a11 * b.a12) % P + (a.a12 * b.a22) % P) % P;</span><br><span class="line">    ans.a21 = ((a.a21 * b.a11) % P + (a.a22 * b.a21) % P) % P;</span><br><span class="line">    ans.a22 = ((a.a21 * b.a12) % P + (a.a22 * b.a22) % P) % P;</span><br><span class="line">    <span class="keyword">return</span> ans; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">matrix <span class="title">matrix_quick_pow</span><span class="params">(matrix a, ll k)</span> </span>&#123;</span><br><span class="line">    matrix ans = (matrix) &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k &amp; <span class="number">1</span>) ans = matrix_multi(ans, a);</span><br><span class="line">        a = matrix_multi(a, a);</span><br><span class="line">        k &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    matrix e_0 = (matrix) &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    matrix <span class="keyword">e_t</span>;</span><br><span class="line">    <span class="keyword">e_t</span> = matrix_quick_pow(e_0, n - <span class="number">2</span>);</span><br><span class="line">    ll ans = (<span class="keyword">e_t</span>.a11 % P + <span class="keyword">e_t</span>.a12 % P) % P;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="P2886-USACO07NOV-牛继电器Cow-Relays"><a href="#P2886-USACO07NOV-牛继电器Cow-Relays" class="headerlink" title="P2886 [USACO07NOV]牛继电器Cow Relays"></a>P2886 [USACO07NOV]牛继电器Cow Relays</h2><p>For their physical fitness program, N (2 ≤ N ≤ 1,000,000) cows have decided to run a relay race using the T (2 ≤ T ≤ 100) cow trails throughout the pasture.</p>
 
 <p>Each trail connects two different intersections (1 ≤ I1i ≤ 1,000; 1 ≤ I2i ≤ 1,000), each of which is the termination for at least two trails. The cows know the lengthi of each trail (1 ≤ lengthi&nbsp; ≤ 1,000), the two intersections the trail connects, and they know that no two intersections are directly connected by two different trails. The trails form a structure known mathematically as a graph.</p>
@@ -391,20 +441,50 @@
 
 <p><strong>题解：</strong></p>
 <p>对一个图的邻接矩阵进行平方，得到的每个元素$(a,b)$代表的就是由$a$到$b$经过两条道路有多少种走法。立方就是通过三条道路有多少种走法，以此类推：</p>
-<p>$$<br>\begin {align}<br>G^2(a,b) &amp;= \sum_{i=1}^n G(a,i) G(i,b) \<br>G^3(a,b) &amp;= \sum_{i=1}^n\sum_{j=1}^n G(a,i) G(i,j)G(j,b) \<br>&amp;\cdots \<br>G^k(a,b) &amp;= \sum_{i=1}^n G^{k-1}(a,i) G(i,b)<br>\end {align}<br>$$</p>
-<p>在这道题中要求经过$i$条边走到$j$的最短路，可以列出以下方程：</p>
-<p>设恰好通过$i$条边，走到$j$点的最短距离为$f(i,j)$<br>$$<br>f(i,j) = \min{f(i-1, k) + G[k][j].w}<br>$$<br>我们可以对比一下类似地方程：设通过$i$条边，走到$j$点的方案数为$g(i,j)$<br>$$<br>g(i,j) = \sum_{k=1}^n g(i-1,k)\times G[k][j].\text{side_count}<br>$$</p>
-<p>我们可以简化一下方程：</p>
-<p>对于一组点$(i,j)$设$C(i,j)$为$i \rightarrow j$通过两条边达到，将$C$考虑为一个数集，集矩阵，则：<br>$$<br>C(i,j) = \min_{k=1}^n{C(i,j),~G(i,k).w+G(k,j).w}<br>$$<br>值得注意的是这其实与Floyd算法实现有所不同，因为$k$为参与$min$之中的条件，应该为最内层循环。</p>
+<script type="math/tex; mode=display">
+\begin {align}
+G^2(a,b) &= \sum_{i=1}^n G(a,i) G(i,b) \\
+G^3(a,b) &= \sum_{i=1}^n\sum_{j=1}^n G(a,i) G(i,j)G(j,b) \\
+&\cdots \\
+G^k(a,b) &= \sum_{i=1}^n G^{k-1}(a,i) G(i,b)
+\end {align}</script><p>在这道题中要求经过$i$条边走到$j$的最短路，可以列出以下方程：</p>
+<p>设恰好通过$i$条边，走到$j$点的最短距离为$f(i,j)$</p>
+<script type="math/tex; mode=display">
+f(i,j) = \min\{f(i-1, k) + G[k][j].w\}</script><p>我们可以对比一下类似地方程：设通过$i$条边，走到$j$点的方案数为$g(i,j)$</p>
+<script type="math/tex; mode=display">
+g(i,j) = \sum_{k=1}^n g(i-1,k)\times G[k][j].\text{side_count}</script><p>我们可以简化一下方程：</p>
+<p>对于一组点$(i,j)$设$C(i,j)$为$i \rightarrow j$通过两条边达到，将$C$考虑为一个数集，集矩阵，则：</p>
+<script type="math/tex; mode=display">
+C(i,j) = \min_{k=1}^n\{C(i,j),~G(i,k).w+G(k,j).w\}</script><p>值得注意的是这其实与Floyd算法实现有所不同，因为$k$为参与$min$之中的条件，应该为最内层循环。</p>
 <p>通过上面的这个式子，不难想到：如果要进过$k$条路，则要枚举出所有的中间节点，然而这个时候我们发现时间复杂度太大了，要想办法解决这个问题，同时考虑到这都是重复的运算，由此想到对<strong>取$\min$这个操作</strong>进行快速幂运算思想的优化。</p>
 <p>首先，证明结合律的正确性：</p>
-<p>定义新运算：矩阵$A_{a\times b},B_{b\times c}$：$(AB)(i,j)=\min_{k=1}^b {A(i,k)+B(k,j)}$<br>$$<br>\begin {align}<br>((AB)C)(i,j) &amp;= \min_{l=1}^c{\min_{k=1}^b{A(i,k) + B(k,l)}+C(l,j)} \<br>                         &amp;= \min_{k=1}^b\min_{l=1}^c{A(i,k) + B(k,l) + C(l,j)} \<br>                         &amp;= \min_{k=1}^b{A(i,k) + \min_{l=1}^c{B(k,l)+C(l,j)}} \<br>                         &amp;= (A(BC))(i,j)<br>\end {align}<br>$$</p>
-<p>综上所述，这是一道通过快速幂来进行矩阵的快速变换的最短路问题。</p>
-<p>过程：设单位矩阵为$A_0$，图矩阵为$A$：<br>$$<br>\begin {align*}<br>&amp;\text{via 0 side: }A_0 \<br>&amp;~~~~~\Downarrow \times A\<br>&amp;\text{via 1 side: }A_1(=A) \<br>&amp;~~~~~\Downarrow \times A \<br>&amp;\text{via 2 sides: }A_2 \<br>&amp;~~~~~\Downarrow \times A \<br>&amp;\text{via 3 sides: }A_3 \<br>&amp;~~~~~\Downarrow \times A \<br>&amp;~~~~~\cdots \<br>&amp;~~~~~\Downarrow \times A \<br>&amp;\text{via k sides: }A_k \<br>\end {align*}<br>$$<br>对于每组点$(i,j)$，经过$k$条边$i\rightarrow j$的最短路为$A_k(i,j)$。</p>
+<p>定义新运算：矩阵$A<em>{a\times b},B</em>{b\times c}$：$(AB)(i,j)=\min_{k=1}^b {A(i,k)+B(k,j)}$</p>
+<script type="math/tex; mode=display">
+\begin {align}
+((AB)C)(i,j) &= \min_{l=1}^c\{\min_{k=1}^b\{A(i,k) + B(k,l)\}+C(l,j)\} \\
+                         &= \min_{k=1}^b\min_{l=1}^c\{A(i,k) + B(k,l) + C(l,j)\} \\
+                         &= \min_{k=1}^b\{A(i,k) + \min_{l=1}^c\{B(k,l)+C(l,j)\}\} \\
+                         &= (A(BC))(i,j)
+\end {align}</script><p>综上所述，这是一道通过快速幂来进行矩阵的快速变换的最短路问题。</p>
+<p>过程：设单位矩阵为$A_0$，图矩阵为$A$：</p>
+<script type="math/tex; mode=display">
+\begin {align*}
+&\text{via 0 side: }A_0 \\
+&~~~~~\Downarrow \times A\\
+&\text{via 1 side: }A_1(=A) \\
+&~~~~~\Downarrow \times A \\
+&\text{via 2 sides: }A_2 \\
+&~~~~~\Downarrow \times A \\
+&\text{via 3 sides: }A_3 \\
+&~~~~~\Downarrow \times A \\
+&~~~~~\cdots \\
+&~~~~~\Downarrow \times A \\
+&\text{via k sides: }A_k \\
+\end {align*}</script><p>对于每组点$(i,j)$，经过$k$条边$i\rightarrow j$的最短路为$A_k(i,j)$。</p>
 <p>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">205</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>, k, m, s, t, d[maxn][maxn], a[maxn][maxn], <span class="built_in">map</span>[<span class="number">1005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> a[maxn][maxn], <span class="keyword">int</span> b[maxn][maxn])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t[maxn][maxn];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n;j ++) &#123;</span><br><span class="line">            t[i][j] = <span class="number">1e9</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n; k ++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (t[i][j] &gt; a[i][k] + b[k][j])</span><br><span class="line">                    t[i][j] = a[i][k] + b[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j ++)</span><br><span class="line">            a[i][j] = t[i][j];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; k &gt;&gt; m &gt;&gt; s &gt;&gt; t;</span><br><span class="line">    <span class="built_in">memset</span>(d, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(d));</span><br><span class="line">    <span class="built_in">memset</span>(a, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">    <span class="built_in">memset</span>(<span class="built_in">map</span>, <span class="number">0xff</span>, <span class="keyword">sizeof</span>(<span class="built_in">map</span>)); <span class="comment">// -1</span></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 由于数据关系，需要对数据进行过映射</span></span><br><span class="line">    <span class="keyword">while</span> (m --&gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> l, u, v; <span class="built_in">cin</span> &gt;&gt; l &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">map</span>[u] == <span class="number">-1</span>) <span class="built_in">map</span>[u] = n ++;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">map</span>[v] == <span class="number">-1</span>) <span class="built_in">map</span>[v] = n ++;</span><br><span class="line">        d[<span class="built_in">map</span>[u]][<span class="built_in">map</span>[v]] = d[<span class="built_in">map</span>[v]][<span class="built_in">map</span>[u]] = l;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// a为图的单位矩阵，即A_0，只有对角线是0，其他都是无穷大</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) a[i][i] = <span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">    <span class="comment">// 快速幂</span></span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k &amp; <span class="number">1</span>) mul(a, d);</span><br><span class="line">        mul(d, d);</span><br><span class="line">        k /= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a[<span class="built_in">map</span>[s]][<span class="built_in">map</span>[t]] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>PDF: </p>
-<div class="pdfobject-container" data-target="file.pdf" data-height="500px"></div>
+<p>PDF:<br><div class="pdfobject-container" data-target="file.pdf" data-height="500px"></div></p>
+
     </div>
 
     
@@ -433,7 +513,7 @@
       <div class="popular-posts-title"><a href="\2020\02\28\306-14-CDQ分治-陌上花开\" rel="bookmark">306-14-CDQ分治-陌上花开</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\02\28\307-01-树形背包\" rel="bookmark">307-01-树形背包</a></div>
+      <div class="popular-posts-title"><a href="\2020\02\28\307-05-直径\" rel="bookmark">307-05-直径</a></div>
     </li>
   </ul>
 
@@ -663,13 +743,10 @@
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
-            </div>
             <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
@@ -678,6 +755,9 @@
     </div>
   </div>
   
+            </div>
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
             </div>
         </div>
       </div>
@@ -837,13 +917,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">538k</span>
+    <span title="站点总字数">512k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">8:09</span>
+    <span title="站点阅读时长">7:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1025,26 +1105,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '3c0f684255e61ed2d6c9',
-      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
-      repo        : 'JeffersonQin.github.io',
-      owner       : 'JeffersonQin',
-      admin       : ['JeffersonQin'],
-      id          : '699bfdfe9609c62c2d51656cf73d904f',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1074,6 +1134,26 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '3c0f684255e61ed2d6c9',
+      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
+      repo        : 'JeffersonQin.github.io',
+      owner       : 'JeffersonQin',
+      admin       : ['JeffersonQin'],
+      id          : '699bfdfe9609c62c2d51656cf73d904f',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>

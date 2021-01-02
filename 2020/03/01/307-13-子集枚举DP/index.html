@@ -348,7 +348,6 @@
 <p>$L$代表这条道路的长度，$K$代表从赞助商帮你打通的宝藏屋到这条道路起点的宝藏屋所经过的 宝藏屋的数量（包括赞助商帮你打通的宝藏屋和这条道路起点的宝藏屋） 。</p>
 <p>请你编写程序为小明选定由赞助商打通的宝藏屋和之后开凿的道路，使得工程总代 价最小，并输出这个最小值。</p>
 <a id="more"></a>
-
 <h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行两个用空格分离的正整数$n,m$，代表宝藏屋的个数和道路数。</p>
 <p>接下来$m$行，每行三个用空格分离的正整数，分别是由一条道路连接的两个宝藏 屋的编号（编号为$1  \sim n$），和这条道路的长度 $v$。</p>
 <h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>一个正整数，表示最小的总代价。</p>
@@ -381,38 +380,52 @@
 <p>【样例解释2】</p>
 <p>小明选定让赞助商打通了$1$号宝藏屋。小明开发了道路$1\to 2$，挖掘了$2$号宝 藏。开发了道路$1 \to 3$，挖掘了$3$号宝藏。还开发了道路$1\to 4$，挖掘了$4$号宝 藏。工程总代价为：$1×1+3×1+1×1=5$</p>
 <p>【数据规模与约定】</p>
-<p>对于$20%$的数据： 保证输入是一棵树，$1≤n≤8$，$v≤5000$且所有的$v$都相等。</p>
-<p>对于$40%$的数据：$ 1≤n≤81$，$0≤m≤10000$，$v≤5000$且所有的$v$都相等。</p>
-<p>对于$70%$的数据： $1≤n≤8$，$0≤m≤1000$，$v≤5000$</p>
-<p>对于$100%$的数据： $1≤n≤12$，$0≤m≤1000$，$v≤500000$</p>
+<p>对于$20\%$的数据： 保证输入是一棵树，$1≤n≤8$，$v≤5000$且所有的$v$都相等。</p>
+<p>对于$40\%$的数据：$ 1≤n≤81$，$0≤m≤10000$，$v≤5000$且所有的$v$都相等。</p>
+<p>对于$70\%$的数据： $1≤n≤8$，$0≤m≤1000$，$v≤5000$</p>
+<p>对于$100\%$的数据： $1≤n≤12$，$0≤m≤1000$，$v≤500000$</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>我们可以想到，将整张图分为一块一块的（分层图），类似于下面这样的金字塔的形状：</p>
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/image-20190722222654915.png" class="">
-
-<p>这样做的意义是我们只允许每层的元素与上一层相连，就达到了题目的用意，这样每个节点的$L\times K$就是$w(u,v) \times lv,<del>u\in S_{lv-1},</del>v\in S_{lv}$，其中$lv0$的只能有一个节点，就是赞助商免费送的根，总结下来可以得到下面这张构图的结论：</p>
+<p>这样做的意义是我们只允许每层的元素与上一层相连，就达到了题目的用意，这样每个节点的$L\times K$就是$w(u,v) \times lv,~u\in S<em>{lv-1},~v\in S</em>{lv}$，其中$lv0$的只能有一个节点，就是赞助商免费送的根，总结下来可以得到下面这张构图的结论：</p>
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/image-20190722223224745.png" class="">
-
-<p>定义$f(lv,S)$，$S$为一个点集，$f(lv,S)$表示的是截至到$0\sim lv$层中所有点分别为$S$的这$lv + 1$层的总共的花费是多少。那么会有以下的式子：（枚举$T$为$S$的真子集）<br>$$<br>f(lv,S) = \min_{T\subset S} \Big { f(lv - 1,S-T) + lv \times b\sum_{u\in T}\min_{a\in S-T}w(u, a)\Big }<br>$$<br>但是仔细观察上式，还是存在问题，就是$\sum_{u\in T}\min_{a\in S-T}w(u,a)$的部分，其会出现下图的情况（单单对于$P9$而言的图）：</p>
+<p>定义$f(lv,S)$，$S$为一个点集，$f(lv,S)$表示的是截至到$0\sim lv$层中所有点分别为$S$的这$lv + 1$层的总共的花费是多少。那么会有以下的式子：（枚举$T$为$S$的真子集）</p>
+<script type="math/tex; mode=display">
+f(lv,S) = \min_{T\subset S} \Big \{ f(lv - 1,S-T) + lv \times b\sum_{u\in T}\min_{a\in S-T}w(u, a)\Big \}</script><p>但是仔细观察上式，还是存在问题，就是$\sum<em>{u\in T}\min</em>{a\in S-T}w(u,a)$的部分，其会出现下图的情况（单单对于$P9$而言的图）：</p>
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2020/03/01/307-13-%E5%AD%90%E9%9B%86%E6%9E%9A%E4%B8%BEDP/image-20190722223809879.png" class="">
-
-<p>换句话说，其可能不止访问上一层的，还会访问更加上面的点。但是我们分析后会发现，这无伤大雅，因为我们假设访问上面的点为$u$，层数为$lv’$，且$lv’ &lt; lv - 1$，则此时的费用为：<br>$$<br>L’\times K = w(u,P_9) \times lv &gt; w(u,P_9)\times (lv’ + 1)<br>$$<br>很好理解，这种状态不是最优的，所以在方程迭代的过程中，这种状态会被更好地状态所替代。</p>
-<p>接下来，就是研究方程的边界问题：<br>$$<br>f_{i\in V} (0,{i}) = 0,<del>f_{S \subset V,</del>|S| ≥2}(0,S) = \infty<br>$$<br>或者我们可以化为：<br>$$<br>f(i,S) =<br>\begin {cases}<br><del>0~~~~~~~i\in V,S={i} \<br>\infty~~~~~~\text{otherwise}<br>\end {cases}<br>$$<br>接下来我们可以思考一下这个方程的实现，因为表示集合与判断属于或者包含的关系并不是一件简单的事情。最终，我们想到可以使用二进制数来表示集合，例如$1,</del>2,<del>3,</del>7,<del>8$都有，$4,</del>5,<del>6$没有的集合可以表示为：<br>$$<br>\begin {align*}<br>S=(&amp;</del>11000111<del>)_2 \<br>&amp;\downarrow\downarrow\downarrow\downarrow\downarrow\downarrow\downarrow\downarrow \<br>&amp;</del>87654321<br>\end {align*}<br>$$<br>用这种思想，我们可以得到以下的结论：</p>
+<p>换句话说，其可能不止访问上一层的，还会访问更加上面的点。但是我们分析后会发现，这无伤大雅，因为我们假设访问上面的点为$u$，层数为$lv’$，且$lv’ &lt; lv - 1$，则此时的费用为：</p>
+<script type="math/tex; mode=display">
+L'\times K = w(u,P_9) \times lv > w(u,P_9)\times (lv' + 1)</script><p>很好理解，这种状态不是最优的，所以在方程迭代的过程中，这种状态会被更好地状态所替代。</p>
+<p>接下来，就是研究方程的边界问题：</p>
+<script type="math/tex; mode=display">
+f_{i\in V} (0,\{i\}) = 0,~f_{S \subset V,~|S| ≥2}(0,S) = \infty</script><p>或者我们可以化为：</p>
+<script type="math/tex; mode=display">
+f(i,S) = 
+\begin {cases}
+~0~~~~~~~i\in V,S=\{i\} \\
+\infty~~~~~~\text{otherwise}
+\end {cases}</script><p>接下来我们可以思考一下这个方程的实现，因为表示集合与判断属于或者包含的关系并不是一件简单的事情。最终，我们想到可以使用二进制数来表示集合，例如$1,~2,~3,~7,~8$都有，$4,~5,~6$没有的集合可以表示为：</p>
+<script type="math/tex; mode=display">
+\begin {align*}
+S=(&~11000111~)_2 \\
+&\downarrow\downarrow\downarrow\downarrow\downarrow\downarrow\downarrow\downarrow \\
+&~87654321
+\end {align*}</script><p>用这种思想，我们可以得到以下的结论：</p>
 <ol>
 <li><p>要判断$T$是否为$S$的子集，只需要判断：</p>
-<p>$(S<del>|</del>T)==S$即可。</p>
+<p>$(S~|~T)==S$即可。</p>
 </li>
 <li><p>如果要判断$e$是否在集合$S$当中，只需要判断</p>
-<p>$(S <del>|</del>(1<del>\text{&lt;&lt;}</del>e)) == S$即可。</p>
+<p>$(S ~|~(1~\text{&lt;&lt;}~e)) == S$即可。</p>
 </li>
 <li><p>想要求$S-T$这个集合：</p>
-<p>$S-T=S<del>\text{^}</del>T$。</p>
+<p>$S-T=S~\text{^}~T$。</p>
 </li>
 <li><p>迭代递归求子集：</p>
-<p>$T = (T-1) <del>&amp;</del> S$，其中$T$为子集$S$为全集，$T$的初始值为$S$，这样可以枚举$S$的所有子集，时间复杂度为$O(3^n)$而不是$O(4^n)$。</p>
+<p>$T = (T-1) ~\&amp;~ S$，其中$T$为子集$S$为全集，$T$的初始值为$S$，这样可以枚举$S$的所有子集，时间复杂度为$O(3^n)$而不是$O(4^n)$。</p>
 </li>
 </ol>
 <p>所以可以基于方程，给出代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 1e9;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line">ll n, m, w[<span class="number">13</span>][(<span class="number">1</span> &lt;&lt; <span class="number">12</span>) + <span class="number">5</span>], f[<span class="number">13</span>][(<span class="number">1</span> &lt;&lt; <span class="number">12</span>) + <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span> &amp;&amp; m == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; <span class="number">13</span>; i ++)</span><br><span class="line">        <span class="keyword">for</span> (ll s = <span class="number">0</span>; s &lt; (<span class="number">1</span> &lt;&lt; n); s ++)</span><br><span class="line">            w[i][s] = inf;</span><br><span class="line">    <span class="keyword">while</span> (m --&gt; <span class="number">0</span>) &#123;</span><br><span class="line">        ll u, v, len; <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v &gt;&gt; len;</span><br><span class="line">        u --; v --;</span><br><span class="line">        w[u][<span class="number">1</span> &lt;&lt; v] = min(w[u][<span class="number">1</span> &lt;&lt; v], len);</span><br><span class="line">        w[v][<span class="number">1</span> &lt;&lt; u] = min(w[v][<span class="number">1</span> &lt;&lt; u], len);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">        <span class="keyword">for</span> (ll s = <span class="number">1</span>; s &lt; (<span class="number">1</span> &lt;&lt; n); s ++) &#123;</span><br><span class="line">            ll lb = s &amp; (-s);</span><br><span class="line">            w[i][s] = min(w[i][s - lb], w[i][lb]);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (ll s = <span class="number">0</span>; s &lt; (<span class="number">1</span> &lt;&lt; n); s ++)</span><br><span class="line">            f[i][s] = inf;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (ll j = <span class="number">0</span>; j &lt; n; j ++)</span><br><span class="line">        f[<span class="number">0</span>][<span class="number">1</span> &lt;&lt; j] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll lv = <span class="number">1</span>; lv &lt; n; lv ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (ll s = <span class="number">0</span>; s &lt; (<span class="number">1</span> &lt;&lt; n); s ++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (ll t = s - <span class="number">1</span>; t &gt; <span class="number">0</span>; t = (t - <span class="number">1</span>) &amp; s) &#123;</span><br><span class="line">                ll sum = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (ll x = <span class="number">0</span>; x &lt; n; x ++)</span><br><span class="line">                    <span class="keyword">if</span> ((t | (<span class="number">1</span> &lt;&lt; x)) == t) sum += w[x][s ^ t];</span><br><span class="line">                f[lv][s] = min(f[lv][s], f[lv - <span class="number">1</span>][s ^ t] + lv * sum);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = inf;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt; n; i ++)</span><br><span class="line">        ans = min(ans, f[i][(<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>]);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="P3052-USACO12MAR-摩天大楼里的奶牛Cows-in-a-Skyscraper"><a href="#P3052-USACO12MAR-摩天大楼里的奶牛Cows-in-a-Skyscraper" class="headerlink" title="P3052 [USACO12MAR]摩天大楼里的奶牛Cows in a Skyscraper"></a>P3052 [USACO12MAR]摩天大楼里的奶牛Cows in a Skyscraper</h2><div class="lg-content-left">
 <div class="lg-article am-g">
 <h3>题目描述</h3>
@@ -451,13 +464,21 @@
 <div class="lg-article-sub am-g" id="sub" style="display: none;"></div>
 </div>
 
-<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>这道题使用一种另类的贪心想法，<font color="#FF0000">这种贪心的转移状态比较特殊</font>，在这里设了两个转移方程，分别为：<br>$$<br>\left [\begin {matrix} f(S) \g(S) \end {matrix}\right ] = \min_{u\in S}<br>\begin {cases}<br>\left [\begin {matrix} f(\complement _S{u}) \g(\complement_S{u}) +w(u) \end {matrix}\right ] </p>
-<p>~~~~~~~~~~&amp;g(\complement_S{u}) + w(u) ≤C<br>\<br>\left [\begin {matrix} f(\complement_S{u})  + 1 \w(u) \end {matrix}\right ]&amp;\text{otherwise}<br>\end {cases}<br>$$<br>其中是将<br>$$\left [\begin {matrix} f(S) \g(S) \end {matrix}\right ]$$<br>定义为一个关于$S$矩阵。$f(S)$代表以$S$为集合的牛已经关闭的电梯的数量，即电梯不再对牛开放，已经完成运送了，$g(S)$表示这集合$S$当中，除了$f(S)$中已经被送走的牛，剩下的牛的重量。<font color="#FF0000">注</font>：其中，一定存在$g(S) &lt; C$（没有一头的重量超过$C$）。</p>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>这道题使用一种另类的贪心想法，<font color="#FF0000">这种贪心的转移状态比较特殊</font>，在这里设了两个转移方程，分别为：</p>
+<script type="math/tex; mode=display">
+\left [\begin {matrix} f(S) \\g(S) \end {matrix}\right ] = \min_{u\in S}
+\begin {cases}
+\left [\begin {matrix} f(\complement _S\{u\}) \\g(\complement_S\{u\}) +w(u) \end {matrix}\right ] 
+~~~~~~~~~~&g(\complement_S\{u\}) + w(u) ≤C
+\\
+\left [\begin {matrix} f(\complement_S\{u\})  + 1 \\w(u) \end {matrix}\right ]&\text{otherwise}
+\end {cases}</script><p>其中是将</p>
+<script type="math/tex; mode=display">\left [\begin {matrix} f(S) \\g(S) \end {matrix}\right ]</script><p>定义为一个关于$S$矩阵。$f(S)$代表以$S$为集合的牛已经关闭的电梯的数量，即电梯不再对牛开放，已经完成运送了，$g(S)$表示这集合$S$当中，除了$f(S)$中已经被送走的牛，剩下的牛的重量。<font color="#FF0000">注</font>：其中，一定存在$g(S) &lt; C$（没有一头的重量超过$C$）。</p>
 <p>有了上述定义，这个方程非常容易理解，所以只需要进行子集枚举的背包就可以了，故时间复杂度为$O(n3^n)$。</p>
 <p>AC代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; f[<span class="number">1</span> &lt;&lt; <span class="number">23</span>];</span><br><span class="line"><span class="keyword">int</span> n, c, w[<span class="number">1</span> &lt;&lt; <span class="number">23</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; c;</span><br><span class="line">    <span class="keyword">int</span> all = (<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; w[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> s = <span class="number">1</span>; s &lt;= all; s ++) &#123;</span><br><span class="line">        f[s] = <span class="built_in">make_pair</span>(n, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> u = <span class="number">0</span>; u &lt; n; u ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s &amp; (<span class="number">1</span> &lt;&lt; u)) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = f[s ^ (<span class="number">1</span> &lt;&lt; u)].first;</span><br><span class="line">                <span class="keyword">int</span> y = f[s ^ (<span class="number">1</span> &lt;&lt; u)].second;</span><br><span class="line">                <span class="keyword">if</span> (y + w[u] &lt;= c) &#123;</span><br><span class="line">                    f[s] = min(f[s], <span class="built_in">make_pair</span>(x, y + w[u]));</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    f[s] = min(f[s], <span class="built_in">make_pair</span>(x + <span class="number">1</span>, w[u]));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[all].first + (f[all].second ? <span class="number">1</span> : <span class="number">0</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>PDF: </p>
-<div class="pdfobject-container" data-target="file.pdf" data-height="500px"></div>
+<p>PDF:<br><div class="pdfobject-container" data-target="file.pdf" data-height="500px"></div></p>
+
     </div>
 
     
@@ -715,13 +736,10 @@
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane gitalk" id="comment-gitalk">
-              <div class="comments" id="gitalk-container"></div>
-            </div>
             <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
@@ -730,6 +748,9 @@
     </div>
   </div>
   
+            </div>
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
             </div>
         </div>
       </div>
@@ -889,13 +910,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">538k</span>
+    <span title="站点总字数">512k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">8:09</span>
+    <span title="站点阅读时长">7:45</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1077,26 +1098,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '3c0f684255e61ed2d6c9',
-      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
-      repo        : 'JeffersonQin.github.io',
-      owner       : 'JeffersonQin',
-      admin       : ['JeffersonQin'],
-      id          : 'f76cd07f1959e8c368d5a8aca97f8ac3',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1126,6 +1127,26 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '3c0f684255e61ed2d6c9',
+      clientSecret: '8801b330ab4d8223cf3f3f65997c146538724a55',
+      repo        : 'JeffersonQin.github.io',
+      owner       : 'JeffersonQin',
+      admin       : ['JeffersonQin'],
+      id          : 'f76cd07f1959e8c368d5a8aca97f8ac3',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>
