@@ -27,28 +27,28 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hexo.gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="于2020年5月就已实现此功能，特此记录。  设备列表 中国电信SDN网关 小米AIoT路由器 AX3600  基本原理由于在广域网上是无法直接访问家里局域网的设备的，所以我们需要将我们局域网当中的设备映射到公网IP（光猫）的某些端口上，一般有两种方式实现：  DMZ虚拟主机 端口转发  由于我们家里到我电脑经过了二级路由，我才用了在二级路由（小米路由器）上进行端口转发，然后直接将路由器的所有端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于内网穿透">
-<meta property="og:url" content="http://hexo.gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/index.html">
+<meta property="og:url" content="http://gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/index.html">
 <meta property="og:site_name" content="gyro永不抽风">
 <meta property="og:description" content="于2020年5月就已实现此功能，特此记录。  设备列表 中国电信SDN网关 小米AIoT路由器 AX3600  基本原理由于在广域网上是无法直接访问家里局域网的设备的，所以我们需要将我们局域网当中的设备映射到公网IP（光猫）的某些端口上，一般有两种方式实现：  DMZ虚拟主机 端口转发  由于我们家里到我电脑经过了二级路由，我才用了在二级路由（小米路由器）上进行端口转发，然后直接将路由器的所有端">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://hexo.gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/1.jpg">
+<meta property="og:image" content="http://gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/1.jpg">
 <meta property="article:published_time" content="2020-08-21T11:29:43.000Z">
-<meta property="article:modified_time" content="2020-09-15T00:00:01.066Z">
+<meta property="article:modified_time" content="2020-09-15T00:00:01.000Z">
 <meta property="article:author" content="Haoyun Qin">
 <meta property="article:tag" content="网络">
 <meta property="article:tag" content="IP">
 <meta property="article:tag" content="公网IP">
 <meta property="article:tag" content="中国电信">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://hexo.gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/1.jpg">
+<meta name="twitter:image" content="http://gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/1.jpg">
 
-<link rel="canonical" href="http://hexo.gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+<link rel="canonical" href="http://gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
 
 
 <script id="page-configurations">
@@ -246,7 +246,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://hexo.gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -384,13 +384,13 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\16\面包人小课堂-0x10-DHCP\" rel="bookmark">面包人小课堂 - 0x10 - DHCP</a></div>
+      <div class="popular-posts-title"><a href="/2020/03/16/面包人小课堂-0x10-DHCP/" rel="bookmark">面包人小课堂 - 0x10 - DHCP</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\16\面包人小课堂-0x20-DNS\" rel="bookmark">面包人小课堂 - 0x20 - DNS</a></div>
+      <div class="popular-posts-title"><a href="/2020/03/08/面包人小课堂-网络-0x00/" rel="bookmark">面包人小课堂 - 0x00 - IP地址</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\08\面包人小课堂-网络-0x00\" rel="bookmark">面包人小课堂 - 0x00 - IP地址</a></div>
+      <div class="popular-posts-title"><a href="/2020/03/16/面包人小课堂-0x20-DNS/" rel="bookmark">面包人小课堂 - 0x20 - DNS</a></div>
     </li>
   </ul>
 
@@ -453,8 +453,8 @@
   <p><span>文章作者:</span><a href="/" title="访问gyro永不抽风的个人博客">gyro永不抽风</a></p>
   <p><span>发布时间:</span>2020年08月21日 - 19:08</p>
   <p><span>最后更新:</span>2020年09月15日 - 08:09</p>
-  <p><span>原始链接:</span><a href="/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" title="关于内网穿透">http://hexo.gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://hexo.gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" title="关于内网穿透">http://gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fab fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-SA 4.0)">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a> 转载请保留原文链接及作者！</p>  
 </div>
@@ -501,7 +501,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://hexo.gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" title="关于内网穿透">http://hexo.gyrojeff.moe/2020/08/21/关于内网穿透/</a>
+    <a href="http://gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" title="关于内网穿透">http://gyrojeff.moe/2020/08/21/关于内网穿透/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -993,7 +993,7 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://hexo.gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/";
+    this.page.url = "http://gyrojeff.moe/2020/08/21/%E5%85%B3%E4%BA%8E%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/";
     this.page.identifier = "2020/08/21/关于内网穿透/";
     this.page.title = "关于内网穿透";
     };
@@ -1032,10 +1032,10 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>
+<script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script></body>
 </html>

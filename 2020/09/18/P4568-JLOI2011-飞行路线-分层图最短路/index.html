@@ -27,28 +27,28 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hexo.gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"gyrojeff.moe","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#E8704E","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="题目 span.katex-html {     display:none }  题目描述 Alice 和 Bob 现在要乘飞机旅行，他们选择了一家相对便宜的航空公司。该航空公司一共在nn个城市设有业务，设这些城市分别标记为 000 到 n−1n-1n−1，一共有 mmm 种航线，每种航线连接两个城市，并且航线有一定的价格。 Alice 和 Bob 现在要从一个城市沿着航线到达另一个城市，途中可以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P4568 [JLOI2011]飞行路线 - 分层图最短路">
-<meta property="og:url" content="http://hexo.gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/index.html">
+<meta property="og:url" content="http://gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/index.html">
 <meta property="og:site_name" content="gyro永不抽风">
 <meta property="og:description" content="题目 span.katex-html {     display:none }  题目描述 Alice 和 Bob 现在要乘飞机旅行，他们选择了一家相对便宜的航空公司。该航空公司一共在nn个城市设有业务，设这些城市分别标记为 000 到 n−1n-1n−1，一共有 mmm 种航线，每种航线连接两个城市，并且航线有一定的价格。 Alice 和 Bob 现在要从一个城市沿着航线到达另一个城市，途中可以">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://hexo.gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/1.png">
+<meta property="og:image" content="http://gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/1.png">
 <meta property="article:published_time" content="2020-09-18T09:12:22.000Z">
-<meta property="article:modified_time" content="2020-09-19T11:35:05.602Z">
+<meta property="article:modified_time" content="2020-09-19T11:35:05.000Z">
 <meta property="article:author" content="Haoyun Qin">
 <meta property="article:tag" content="OI">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="堆">
 <meta property="article:tag" content="Dijkstra">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://hexo.gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/1.png">
+<meta name="twitter:image" content="http://gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/1.png">
 
-<link rel="canonical" href="http://hexo.gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/">
+<link rel="canonical" href="http://gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/">
 
 
 <script id="page-configurations">
@@ -246,7 +246,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://hexo.gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/">
+    <link itemprop="mainEntityOfPage" href="http://gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -396,19 +396,19 @@ span.katex-html {
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\09\18\堆优化的Dijkstra\" rel="bookmark">堆优化的Dijkstra</a></div>
+      <div class="popular-posts-title"><a href="/2020/09/18/堆优化的Dijkstra/" rel="bookmark">堆优化的Dijkstra</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\09\18\P4009-汽车加油行驶问题-分层图最短路\" rel="bookmark">P4009 汽车加油行驶问题 - 分层图最短路</a></div>
+      <div class="popular-posts-title"><a href="/2020/09/18/P4009-汽车加油行驶问题-分层图最短路/" rel="bookmark">P4009 汽车加油行驶问题 - 分层图最短路</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\09\19\P4011-孤岛营救问题-分层图最短路\" rel="bookmark">P4011 孤岛营救问题 - 分层图最短路</a></div>
+      <div class="popular-posts-title"><a href="/2020/09/19/P4011-孤岛营救问题-分层图最短路/" rel="bookmark">P4011 孤岛营救问题 - 分层图最短路</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\09\17\IAI88-区间的最大交集\" rel="bookmark">IAI88 - 区间的最大交集</a></div>
+      <div class="popular-posts-title"><a href="/2020/09/17/IAI88-区间的最大交集/" rel="bookmark">IAI88 - 区间的最大交集</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\09\18\P2384-最短路\" rel="bookmark">P2384 最短路</a></div>
+      <div class="popular-posts-title"><a href="/2020/09/18/P2384-最短路/" rel="bookmark">P2384 最短路</a></div>
     </li>
   </ul>
 
@@ -471,8 +471,8 @@ span.katex-html {
   <p><span>文章作者:</span><a href="/" title="访问gyro永不抽风的个人博客">gyro永不抽风</a></p>
   <p><span>发布时间:</span>2020年09月18日 - 17:09</p>
   <p><span>最后更新:</span>2020年09月19日 - 19:09</p>
-  <p><span>原始链接:</span><a href="/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/" title="P4568 [JLOI2011]飞行路线 - 分层图最短路">http://hexo.gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://hexo.gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/" title="P4568 [JLOI2011]飞行路线 - 分层图最短路">http://gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fab fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-SA 4.0)">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a> 转载请保留原文链接及作者！</p>  
 </div>
@@ -519,7 +519,7 @@ span.katex-html {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://hexo.gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/" title="P4568 [JLOI2011]飞行路线 - 分层图最短路">http://hexo.gyrojeff.moe/2020/09/18/P4568-JLOI2011-飞行路线-分层图最短路/</a>
+    <a href="http://gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/" title="P4568 [JLOI2011]飞行路线 - 分层图最短路">http://gyrojeff.moe/2020/09/18/P4568-JLOI2011-飞行路线-分层图最短路/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -1011,7 +1011,7 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://hexo.gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/";
+    this.page.url = "http://gyrojeff.moe/2020/09/18/P4568-JLOI2011-%E9%A3%9E%E8%A1%8C%E8%B7%AF%E7%BA%BF-%E5%88%86%E5%B1%82%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF/";
     this.page.identifier = "2020/09/18/P4568-JLOI2011-飞行路线-分层图最短路/";
     this.page.title = "P4568 [JLOI2011]飞行路线 - 分层图最短路";
     };
@@ -1050,10 +1050,10 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script><script>
+<script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":325},"mobile":{"show":false},"log":false});</script></body>
 </html>
